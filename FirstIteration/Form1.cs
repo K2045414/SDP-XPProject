@@ -10,16 +10,25 @@ using System.Windows.Forms;
 
 namespace FirstIteration
 {
-    public partial class Form1 : Form
+    public partial class FRM_Calculator : Form
     {
-        public Form1()
+        public FRM_Calculator()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BTN_Calculate_Click(object sender, EventArgs e)
         {
-            label1.Text = "Changed";
+            int Creatinine = Int32.Parse(RTB_Creatinine.Text);
+            DateTime DOB = DTP_DOB.Value;
+            DateTime Current = DateTime.Now;
+            TimeSpan Diff = Current - DOB;
+            double days = Diff.TotalDays;
+            string Age = ((days - 365) / 365).ToString("0");
+            string Gender = CBX_Gender.Text;
+            string Ethnicity = CBX_Ethnicity.Text;
+        
+
         }
     }
 }

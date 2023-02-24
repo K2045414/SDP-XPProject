@@ -1,6 +1,6 @@
 ﻿namespace FirstIteration
 {
-    partial class Form1
+    partial class FRM_Calculator
     {
         /// <summary>
         /// Required designer variable.
@@ -28,38 +28,181 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.BTN_Calculate = new System.Windows.Forms.Button();
+            this.RTB_Creatinine = new System.Windows.Forms.RichTextBox();
+            this.LBL_Title = new System.Windows.Forms.Label();
+            this.CBX_Ethnicity = new System.Windows.Forms.ComboBox();
+            this.CBX_Gender = new System.Windows.Forms.ComboBox();
+            this.CBX_Calculation = new System.Windows.Forms.ComboBox();
+            this.RTB_eGFR = new System.Windows.Forms.RichTextBox();
+            this.LBL_Creatinine = new System.Windows.Forms.Label();
+            this.LBL_DOB = new System.Windows.Forms.Label();
+            this.LBL_Gender = new System.Windows.Forms.Label();
+            this.LBL_Ethnicity = new System.Windows.Forms.Label();
+            this.LBL_Calculation = new System.Windows.Forms.Label();
+            this.LBL_eGFR = new System.Windows.Forms.Label();
+            this.BTN_Back = new System.Windows.Forms.Button();
+            this.DTP_DOB = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
-            // button1
+            // BTN_Calculate
             // 
-            this.button1.Location = new System.Drawing.Point(314, 152);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BTN_Calculate.Location = new System.Drawing.Point(216, 299);
+            this.BTN_Calculate.Name = "BTN_Calculate";
+            this.BTN_Calculate.Size = new System.Drawing.Size(145, 52);
+            this.BTN_Calculate.TabIndex = 0;
+            this.BTN_Calculate.Text = "Calculate";
+            this.BTN_Calculate.UseVisualStyleBackColor = true;
+            this.BTN_Calculate.Click += new System.EventHandler(this.BTN_Calculate_Click);
             // 
-            // label1
+            // RTB_Creatinine
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(314, 86);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.RTB_Creatinine.Location = new System.Drawing.Point(134, 63);
+            this.RTB_Creatinine.Name = "RTB_Creatinine";
+            this.RTB_Creatinine.Size = new System.Drawing.Size(227, 21);
+            this.RTB_Creatinine.TabIndex = 2;
+            this.RTB_Creatinine.Text = "";
             // 
-            // Form1
+            // LBL_Title
+            // 
+            this.LBL_Title.AutoSize = true;
+            this.LBL_Title.Location = new System.Drawing.Point(152, 22);
+            this.LBL_Title.Name = "LBL_Title";
+            this.LBL_Title.Size = new System.Drawing.Size(54, 13);
+            this.LBL_Title.TabIndex = 6;
+            this.LBL_Title.Text = "Calculator";
+            // 
+            // CBX_Ethnicity
+            // 
+            this.CBX_Ethnicity.FormattingEnabled = true;
+            this.CBX_Ethnicity.Items.AddRange(new object[] {
+            "Black",
+            "Other"});
+            this.CBX_Ethnicity.Location = new System.Drawing.Point(134, 167);
+            this.CBX_Ethnicity.Name = "CBX_Ethnicity";
+            this.CBX_Ethnicity.Size = new System.Drawing.Size(227, 21);
+            this.CBX_Ethnicity.TabIndex = 15;
+            // 
+            // CBX_Gender
+            // 
+            this.CBX_Gender.FormattingEnabled = true;
+            this.CBX_Gender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.CBX_Gender.Location = new System.Drawing.Point(134, 132);
+            this.CBX_Gender.Name = "CBX_Gender";
+            this.CBX_Gender.Size = new System.Drawing.Size(227, 21);
+            this.CBX_Gender.TabIndex = 16;
+            // 
+            // CBX_Calculation
+            // 
+            this.CBX_Calculation.FormattingEnabled = true;
+            this.CBX_Calculation.Location = new System.Drawing.Point(134, 194);
+            this.CBX_Calculation.Name = "CBX_Calculation";
+            this.CBX_Calculation.Size = new System.Drawing.Size(227, 21);
+            this.CBX_Calculation.TabIndex = 17;
+            // 
+            // RTB_eGFR
+            // 
+            this.RTB_eGFR.Location = new System.Drawing.Point(134, 256);
+            this.RTB_eGFR.Name = "RTB_eGFR";
+            this.RTB_eGFR.Size = new System.Drawing.Size(227, 21);
+            this.RTB_eGFR.TabIndex = 18;
+            this.RTB_eGFR.Text = "";
+            // 
+            // LBL_Creatinine
+            // 
+            this.LBL_Creatinine.AutoSize = true;
+            this.LBL_Creatinine.Location = new System.Drawing.Point(12, 66);
+            this.LBL_Creatinine.Name = "LBL_Creatinine";
+            this.LBL_Creatinine.Size = new System.Drawing.Size(54, 13);
+            this.LBL_Creatinine.TabIndex = 19;
+            this.LBL_Creatinine.Text = "Creatinine";
+            // 
+            // LBL_DOB
+            // 
+            this.LBL_DOB.AutoSize = true;
+            this.LBL_DOB.Location = new System.Drawing.Point(12, 96);
+            this.LBL_DOB.Name = "LBL_DOB";
+            this.LBL_DOB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.LBL_DOB.Size = new System.Drawing.Size(68, 13);
+            this.LBL_DOB.TabIndex = 20;
+            this.LBL_DOB.Text = "Date Of Birth";
+            // 
+            // LBL_Gender
+            // 
+            this.LBL_Gender.AutoSize = true;
+            this.LBL_Gender.Location = new System.Drawing.Point(12, 135);
+            this.LBL_Gender.Name = "LBL_Gender";
+            this.LBL_Gender.Size = new System.Drawing.Size(66, 13);
+            this.LBL_Gender.TabIndex = 21;
+            this.LBL_Gender.Text = "Birth Gender";
+            // 
+            // LBL_Ethnicity
+            // 
+            this.LBL_Ethnicity.AutoSize = true;
+            this.LBL_Ethnicity.Location = new System.Drawing.Point(12, 170);
+            this.LBL_Ethnicity.Name = "LBL_Ethnicity";
+            this.LBL_Ethnicity.Size = new System.Drawing.Size(47, 13);
+            this.LBL_Ethnicity.TabIndex = 22;
+            this.LBL_Ethnicity.Text = "Ethnicity";
+            // 
+            // LBL_Calculation
+            // 
+            this.LBL_Calculation.AutoSize = true;
+            this.LBL_Calculation.Location = new System.Drawing.Point(12, 202);
+            this.LBL_Calculation.Name = "LBL_Calculation";
+            this.LBL_Calculation.Size = new System.Drawing.Size(112, 13);
+            this.LBL_Calculation.TabIndex = 23;
+            this.LBL_Calculation.Text = "Calculation to be used";
+            // 
+            // LBL_eGFR
+            // 
+            this.LBL_eGFR.AutoSize = true;
+            this.LBL_eGFR.Location = new System.Drawing.Point(12, 259);
+            this.LBL_eGFR.Name = "LBL_eGFR";
+            this.LBL_eGFR.Size = new System.Drawing.Size(35, 13);
+            this.LBL_eGFR.TabIndex = 24;
+            this.LBL_eGFR.Text = "eGFR";
+            // 
+            // BTN_Back
+            // 
+            this.BTN_Back.Location = new System.Drawing.Point(12, 299);
+            this.BTN_Back.Name = "BTN_Back";
+            this.BTN_Back.Size = new System.Drawing.Size(145, 52);
+            this.BTN_Back.TabIndex = 25;
+            this.BTN_Back.Text = "Back";
+            this.BTN_Back.UseVisualStyleBackColor = true;
+            // 
+            // DTP_DOB
+            // 
+            this.DTP_DOB.Location = new System.Drawing.Point(134, 96);
+            this.DTP_DOB.Name = "DTP_DOB";
+            this.DTP_DOB.Size = new System.Drawing.Size(227, 20);
+            this.DTP_DOB.TabIndex = 26;
+            // 
+            // FRM_Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(377, 381);
+            this.Controls.Add(this.DTP_DOB);
+            this.Controls.Add(this.BTN_Back);
+            this.Controls.Add(this.LBL_eGFR);
+            this.Controls.Add(this.LBL_Calculation);
+            this.Controls.Add(this.LBL_Ethnicity);
+            this.Controls.Add(this.LBL_Gender);
+            this.Controls.Add(this.LBL_DOB);
+            this.Controls.Add(this.LBL_Creatinine);
+            this.Controls.Add(this.RTB_eGFR);
+            this.Controls.Add(this.CBX_Calculation);
+            this.Controls.Add(this.CBX_Gender);
+            this.Controls.Add(this.CBX_Ethnicity);
+            this.Controls.Add(this.LBL_Title);
+            this.Controls.Add(this.RTB_Creatinine);
+            this.Controls.Add(this.BTN_Calculate);
+            this.Name = "FRM_Calculator";
+            this.Text = "Calculator";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -67,8 +210,21 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button BTN_Calculate;
+        private System.Windows.Forms.RichTextBox RTB_Creatinine;
+        private System.Windows.Forms.Label LBL_Title;
+        private System.Windows.Forms.ComboBox CBX_Ethnicity;
+        private System.Windows.Forms.ComboBox CBX_Gender;
+        private System.Windows.Forms.ComboBox CBX_Calculation;
+        private System.Windows.Forms.RichTextBox RTB_eGFR;
+        private System.Windows.Forms.Label LBL_Creatinine;
+        private System.Windows.Forms.Label LBL_DOB;
+        private System.Windows.Forms.Label LBL_Gender;
+        private System.Windows.Forms.Label LBL_Ethnicity;
+        private System.Windows.Forms.Label LBL_Calculation;
+        private System.Windows.Forms.Label LBL_eGFR;
+        private System.Windows.Forms.Button BTN_Back;
+        private System.Windows.Forms.DateTimePicker DTP_DOB;
     }
 }
 
