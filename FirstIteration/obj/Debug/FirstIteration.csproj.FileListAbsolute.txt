@@ -8,4 +8,4 @@ C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIterati
 C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.csproj.CoreCompileInputs.cache
 C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.exe
 C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.pdb
-C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.Form1.resources
+C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.FRM_Calculator.resources
