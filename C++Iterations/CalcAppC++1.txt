@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
+#include <cstdlib>
+using namespace std;
+
+int main()
+{
+    double age;
+    double crea;
+    string gend = "";
+    string skin = "";
+    double out;
+    std::cout << "Enter your Age" << std::endl; // User Enters Age
+    std::cin >> age; // Get user input from the keyboard
+    std::cout << "Enter your Creatinine in Micromol/l" << std::endl; // User Enters Creatinine
+    std::cin >> crea;
+    std::cout << "Enter your Birth Gender: F for Female, M for Male" << std::endl; // User Enters a W or a M based on gender
+    std::cin >> gend;
+    std::cout << "Are you Black? Y/N" << std::endl; // Type a number and press enter
+    std::cin >> skin;
+
+    if(age < 18 || age > 100)
+    {
+        std::cout << "Users age is incompatible with the Calculation used by this calculator" << std::endl;// Calculation only works if user is over 18 and under 100
+    } 
+    else
+    {
+        crea = crea / 88.4;
+        out = 186 * pow(crea,-1.154) * pow(age, -0.203);
+        if(gend == "F" || gend == "f");{//check if Female
+            out = out * 0.742;
+        }
+        if(skin == "y" || skin == "Y");{//check if Black
+            out = out * 1.210;
+        }
+    }
+    //186 x ((Creatin(micromol/l) / 88.4)^-1.154) x (Age^-0.203)(x 0.742 if female)(x 1.210 if Black)) 
+    string output = to_string(out);
+    std::cout << "Your creatinine is " + output + " Micromol/L" << std::endl; //Prints results to users screen
+    system("pause");
+}
