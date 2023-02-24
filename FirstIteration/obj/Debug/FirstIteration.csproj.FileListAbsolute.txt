@@ -1,0 +1,11 @@
+C:\Users\conor\source\repos\FirstIteration\FirstIteration\bin\Debug\FirstIteration.exe.config
+C:\Users\conor\source\repos\FirstIteration\FirstIteration\bin\Debug\FirstIteration.exe
+C:\Users\conor\source\repos\FirstIteration\FirstIteration\bin\Debug\FirstIteration.pdb
+C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.csproj.AssemblyReference.cache
+C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.csproj.SuggestedBindingRedirects.cache
+C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.Properties.Resources.resources
+C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.csproj.GenerateResource.cache
+C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.csproj.CoreCompileInputs.cache
+C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.exe
+C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.pdb
+C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.Form1.resources
