@@ -64,7 +64,7 @@ namespace FirstIteration
             {
                 e = 1.210;
             }
-            double GFR = 186 * Math.Pow((Creatinineumol / 88.4), a) * Math.Pow(Age, b) * g * e;
+            double GFR = 186 * Math.Pow(Creatinineumol / 88.4, a) * Math.Pow(Age, b) * g * e;
             return GFR;
         }
         public double CKDEPI(double Creatininemgdl, int Age, string Gender, string Ethnicity)
