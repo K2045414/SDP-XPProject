@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace FirstIteration
 {
@@ -20,6 +21,18 @@ namespace FirstIteration
         private void BTN_Calculate_Click(object sender, EventArgs e)
         {
             double Creatinine = double.Parse(RTB_Creatinine.Text);
+            double Creatinineumol = Creatinine;
+            double Creatininemgdl = Creatinine;
+
+            if (RBN_umolL.Checked)
+            {
+                Creatininemgdl = Creatinine / 88.4;
+            }
+            if (RBN_mgdL.Checked)
+            {
+                Creatinineumol = Creatinine * 88.4;
+            }
+
 
             DateTime DOB = DTP_DOB.Value;
             int a = DateTime.Today.Year - DOB.Year;
@@ -31,13 +44,13 @@ namespace FirstIteration
 
             string Gender = CBX_Gender.Text;
             string Ethnicity = CBX_Ethnicity.Text;
-            double eGFR_MDRD = MDRD(Creatinine, Age, Gender, Ethnicity);
-            double eGFR_CKDEPI = CKDEPI(Creatinine, Age, Gender, Ethnicity);
+            double eGFR_MDRD = MDRD(Creatinineumol, Age, Gender, Ethnicity);
+            double eGFR_CKDEPI = CKDEPI(Creatininemgdl, Age, Gender, Ethnicity);
             double eGFR_MAYO = MAYO(Creatinine, Age, Gender);
             string Test = "MDRD: " + eGFR_MDRD + " CKDEPI: " + eGFR_CKDEPI + " MAYO " + eGFR_MAYO;
             MessageBox.Show(Test);
         }
-        public double MDRD(double Creatinine, int Age, string Gender, string Ethnicity)
+        public double MDRD(double Creatinineumol, int Age, string Gender, string Ethnicity)
         {
             double g = 1;
             if (Gender == "Female")
@@ -51,10 +64,10 @@ namespace FirstIteration
             {
                 e = 1.210;
             }
-            double GFR = 186 * Math.Pow((Creatinine / 88.4), a) * Math.Pow(Age, b) * g * e;
+            double GFR = 186 * Math.Pow((Creatinineumol / 88.4), a) * Math.Pow(Age, b) * g * e;
             return GFR;
         }
-        public double CKDEPI(double Creatinine, int Age, string Gender, string Ethnicity)
+        public double CKDEPI(double Creatininemgdl, int Age, string Gender, string Ethnicity)
         {
             double k;
             double a;
@@ -77,7 +90,7 @@ namespace FirstIteration
                 e = 1.159;
             }
 
-            double GFR = 141 * Math.Pow(Math.Min(Creatinine / k, 1), a) * Math.Pow(Math.Max(Creatinine / k, 1), -1.209) * Math.Pow(0.993, Age) * g * e;
+            double GFR = 141 * Math.Pow(Math.Min(Creatininemgdl / k, 1), a) * Math.Pow(Math.Max(Creatininemgdl / k, 1), -1.209) * Math.Pow(0.993, Age) * g * e;
             return GFR;
         }
 
@@ -90,6 +103,22 @@ namespace FirstIteration
             }
             double GFR = 82.3 * (140 - Age) * Math.Pow(Creatinine, -0.691) * g;
             return GFR;
+        }
+
+        private void RBN_mgdL_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RBN_mgdL.Checked)
+            {
+                RBN_umolL.Checked = false;
+            }
+        }
+
+        private void RBN_umolL_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RBN_umolL.Checked)
+            {
+                RBN_mgdL.Checked = false;
+            }
         }
     }
 }
