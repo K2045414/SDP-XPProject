@@ -31,9 +31,11 @@ namespace FirstIteration
 
             string Gender = CBX_Gender.Text;
             string Ethnicity = CBX_Ethnicity.Text;
-            double GFR = CKDEPI(Creatinine, Age, Gender, Ethnicity);
-            string Test = "CKDEPI: " + GFR;
-            RTB_eGFR.Text = Test;
+            double eGFR_MDRD = MDRD(Creatinine, Age, Gender, Ethnicity);
+            double eGFR_CKDEPI = CKDEPI(Creatinine, Age, Gender, Ethnicity);
+            double eGFR_MAYO = MAYO(Creatinine, Age, Gender);
+            string Test = "MDRD: " + eGFR_MDRD + " CKDEPI: " + eGFR_CKDEPI + " MAYO " + eGFR_MAYO;
+            MessageBox.Show(Test);
         }
         public double MDRD(double Creatinine, int Age, string Gender, string Ethnicity)
         {
@@ -79,6 +81,15 @@ namespace FirstIteration
             return GFR;
         }
 
-
+        public double MAYO(double Creatinine, int Age, string Gender)
+        {
+            double g = 1;
+            if (Gender == "Female")
+            {
+                g = 1.15;
+            }
+            double GFR = 82.3 * (140 - Age) * Math.Pow(Creatinine, -0.691) * g;
+            return GFR;
+        }
     }
 }
