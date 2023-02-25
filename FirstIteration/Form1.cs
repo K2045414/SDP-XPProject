@@ -20,11 +20,15 @@ namespace FirstIteration
         private void BTN_Calculate_Click(object sender, EventArgs e)
         {
             double Creatinine = double.Parse(RTB_Creatinine.Text);
+
             DateTime DOB = DTP_DOB.Value;
-            DateTime Current = DateTime.Now;
-            TimeSpan Diff = Current - DOB;
-            double days = Diff.TotalDays;
-            int Age = (int)((days - 365) / 365);
+            int a = DateTime.Today.Year - DOB.Year;
+            if (DOB > DateTime.Today.AddYears(-a))
+            {
+                a--;
+            }
+            int Age = a;
+
             string Gender = CBX_Gender.Text;
             string Ethnicity = CBX_Ethnicity.Text;
             double GFR = CKDEPI(Creatinine, Age, Gender, Ethnicity);
