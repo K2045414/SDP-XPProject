@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace FirstIteration
 {
     public partial class FRM_Login : Form
@@ -16,6 +18,7 @@ namespace FirstIteration
         {
             InitializeComponent();
         }
+
         
         public static class FormStack
         {
@@ -28,6 +31,47 @@ namespace FirstIteration
             this.Hide();
             FRM_OptionPage OptionPage = new FRM_OptionPage();
             OptionPage.Show();
+        }
+
+        private void BTN_Login_Click(object sender, EventArgs e)
+        {
+            MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
+            MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE username=@username", connection);
+            command.Parameters.AddWithValue("@username", RTB_Username.Text);
+
+            try
+            {
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    string hashedPassword = reader.GetString("password");
+                    bool passwordMatches = BCrypt.Net.BCrypt.Verify(RTB_Password.Text, hashedPassword);
+
+                    if (passwordMatches)
+                    {
+                        MessageBox.Show("Login successful.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid username or password.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username or password.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }

@@ -26,3 +26,5 @@ C:\Users\conor\source\repos\FirstIteration\FirstIteration\bin\Debug\System.Threa
 C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.FRM_Login.resources
 C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.csproj.CopyComplete
 C:\Users\conor\source\repos\FirstIteration\FirstIteration\obj\Debug\FirstIteration.FRM_OptionPage.resources
+C:\Users\conor\source\repos\FirstIteration\FirstIteration\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\conor\source\repos\FirstIteration\FirstIteration\bin\Debug\BCrypt.Net-Next.xml

@@ -59,6 +59,7 @@
             this.BTN_Login.TabIndex = 2;
             this.BTN_Login.Text = "Login";
             this.BTN_Login.UseVisualStyleBackColor = true;
+            this.BTN_Login.Click += new System.EventHandler(this.BTN_Login_Click);
             // 
             // BTN_Calculate
             // 
