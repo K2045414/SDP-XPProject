@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.BTN_Calculate = new System.Windows.Forms.Button();
             this.RTB_Creatinine = new System.Windows.Forms.RichTextBox();
             this.LBL_Title = new System.Windows.Forms.Label();
@@ -45,6 +46,8 @@
             this.DTP_DOB = new System.Windows.Forms.DateTimePicker();
             this.RBN_mgdL = new System.Windows.Forms.RadioButton();
             this.RBN_umolL = new System.Windows.Forms.RadioButton();
+            this.ERR_Validation = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).BeginInit();
             this.SuspendLayout();
             // 
             // BTN_Calculate
@@ -208,6 +211,11 @@
             this.RBN_umolL.UseVisualStyleBackColor = true;
             this.RBN_umolL.CheckedChanged += new System.EventHandler(this.RBN_umolL_CheckedChanged);
             // 
+            // ERR_Validation
+            // 
+            this.ERR_Validation.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.ERR_Validation.ContainerControl = this;
+            // 
             // FRM_Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +240,7 @@
             this.Controls.Add(this.BTN_Calculate);
             this.Name = "FRM_Calculator";
             this.Text = "Calculator";
+            ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,6 +265,7 @@
         private System.Windows.Forms.DateTimePicker DTP_DOB;
         private System.Windows.Forms.RadioButton RBN_mgdL;
         private System.Windows.Forms.RadioButton RBN_umolL;
+        private System.Windows.Forms.ErrorProvider ERR_Validation;
     }
 }
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static FirstIteration.FRM_Login;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace FirstIteration
@@ -19,8 +20,33 @@ namespace FirstIteration
             InitializeComponent();
         }
 
+        private bool ValidateCrea()
+        {         
+            bool bStatus = true;
+            if (RTB_Creatinine.Text == "")
+            {
+                ERR_Validation.SetError(RTB_Creatinine, "Please enter your creatinine value");
+                bStatus = false;
+            }
+            else
+                ERR_Validation.SetError(RTB_Creatinine, "");
+            return bStatus;
+        }
 
         private void BTN_Calculate_Click(object sender, EventArgs e)
+        {
+            bool ValidCrea = ValidateCrea();
+            if (ValidCrea == false)
+            {
+                MessageBox.Show("Empty");
+            }
+            else if (ValidCrea == true)
+            {
+                Calculate();
+            }
+        }
+ 
+        private void Calculate()
         {
             double Creatinine = double.Parse(RTB_Creatinine.Text);
             double Creatinineumol = Creatinine;
@@ -84,7 +110,7 @@ namespace FirstIteration
             else
             {
                 k = 0.9;
-                a = -0.411;                
+                a = -0.411;
             }
 
             if (Ethnicity == "Black")
