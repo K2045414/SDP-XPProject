@@ -230,6 +230,7 @@
             this.BTN_MoreInfo.TabIndex = 29;
             this.BTN_MoreInfo.Text = "See what to do next";
             this.BTN_MoreInfo.UseVisualStyleBackColor = true;
+            this.BTN_MoreInfo.Click += new System.EventHandler(this.BTN_MoreInfo_Click);
             // 
             // LBL_Height
             // 

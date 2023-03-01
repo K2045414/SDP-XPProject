@@ -58,6 +58,7 @@
             this.BTN_Back.TabIndex = 2;
             this.BTN_Back.Text = "Back";
             this.BTN_Back.UseVisualStyleBackColor = true;
+            this.BTN_Back.Click += new System.EventHandler(this.BTN_Back_Click);
             // 
             // FRM_Terms
             // 

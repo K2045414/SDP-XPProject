@@ -35,6 +35,7 @@
             this.BTN_AddPatient = new System.Windows.Forms.Button();
             this.BTN_ImportCSV = new System.Windows.Forms.Button();
             this.BTN_SignOut = new System.Windows.Forms.Button();
+            this.OFD_Import = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // LBL_HCPID
@@ -62,6 +63,7 @@
             this.BTN_EditPatient.TabIndex = 2;
             this.BTN_EditPatient.Text = "See selected patient data";
             this.BTN_EditPatient.UseVisualStyleBackColor = true;
+            this.BTN_EditPatient.Click += new System.EventHandler(this.BTN_EditPatient_Click);
             // 
             // BTN_RemovePatient
             // 
@@ -80,6 +82,7 @@
             this.BTN_AddPatient.TabIndex = 4;
             this.BTN_AddPatient.Text = "Add new patient";
             this.BTN_AddPatient.UseVisualStyleBackColor = true;
+            this.BTN_AddPatient.Click += new System.EventHandler(this.BTN_AddPatient_Click);
             // 
             // BTN_ImportCSV
             // 
@@ -98,6 +101,7 @@
             this.BTN_SignOut.TabIndex = 6;
             this.BTN_SignOut.Text = "Sign out";
             this.BTN_SignOut.UseVisualStyleBackColor = true;
+            this.BTN_SignOut.Click += new System.EventHandler(this.BTN_SignOut_Click);
             // 
             // FRM_DrMain
             // 
@@ -127,5 +131,6 @@
         private System.Windows.Forms.Button BTN_AddPatient;
         private System.Windows.Forms.Button BTN_ImportCSV;
         private System.Windows.Forms.Button BTN_SignOut;
+        private System.Windows.Forms.OpenFileDialog OFD_Import;
     }
 }

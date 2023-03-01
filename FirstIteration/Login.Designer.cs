@@ -91,6 +91,7 @@
             this.BTN_SignUp.TabIndex = 5;
             this.BTN_SignUp.Text = "Sign Up";
             this.BTN_SignUp.UseVisualStyleBackColor = true;
+            this.BTN_SignUp.Click += new System.EventHandler(this.BTN_SignUp_Click);
             // 
             // LBL_Login
             // 

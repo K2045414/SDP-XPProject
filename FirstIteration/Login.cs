@@ -29,8 +29,8 @@ namespace FirstIteration
         {
             FormStack.Forms.Push(this);
             this.Hide();
-            FRM_Calculator OptionPage = new FRM_Calculator();
-            OptionPage.Show();
+            FRM_Calculator Calculator = new FRM_Calculator();
+            Calculator.Show();
         }
 
         private void BTN_Login_Click(object sender, EventArgs e)
@@ -53,6 +53,11 @@ namespace FirstIteration
                     if (passwordMatches)
                     {
                         MessageBox.Show("Login successful.");
+                        //Call database to check if user is dr or patient and if statement to send them to the correct forms
+                        FormStack.Forms.Push(this);
+                        this.Hide();
+                        FRM_DrMain DrMain = new FRM_DrMain();
+                        DrMain.Show();
                     }
                     else
                     {
@@ -72,6 +77,14 @@ namespace FirstIteration
             {
                 connection.Close();
             }
+        }
+
+        private void BTN_SignUp_Click(object sender, EventArgs e)
+        {
+            FormStack.Forms.Push(this);
+            this.Hide();
+            FRM_SignUp SignUp = new FRM_SignUp();
+            SignUp.Show();
         }
     }
 }

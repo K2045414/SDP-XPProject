@@ -57,8 +57,8 @@ C:\Users\conor\Source\Repos\SDP-XPProject\FirstIteration\obj\Debug\FirstIteratio
 C:\Users\conor\Source\Repos\SDP-XPProject\FirstIteration\obj\Debug\FirstIteration.csproj.CopyComplete
 C:\Users\conor\Source\Repos\SDP-XPProject\FirstIteration\obj\Debug\FirstIteration.exe
 C:\Users\conor\Source\Repos\SDP-XPProject\FirstIteration\obj\Debug\FirstIteration.pdb
-C:\Users\conor\Source\Repos\SDP-XPProject\FirstIteration\obj\Debug\FirstIteration.DrAddPatient.resources
-C:\Users\conor\Source\Repos\SDP-XPProject\FirstIteration\obj\Debug\FirstIteration.DrMain.resources
-C:\Users\conor\Source\Repos\SDP-XPProject\FirstIteration\obj\Debug\FirstIteration.MoreInfo.resources
-C:\Users\conor\Source\Repos\SDP-XPProject\FirstIteration\obj\Debug\FirstIteration.SignUp.resources
-C:\Users\conor\Source\Repos\SDP-XPProject\FirstIteration\obj\Debug\FirstIteration.T_C.resources
+C:\Users\conor\Source\Repos\SDP-XPProject\FirstIteration\obj\Debug\FirstIteration.FRM_AddPatient.resources
+C:\Users\conor\Source\Repos\SDP-XPProject\FirstIteration\obj\Debug\FirstIteration.FRM_DrMain.resources
+C:\Users\conor\Source\Repos\SDP-XPProject\FirstIteration\obj\Debug\FirstIteration.FRM_MoreInfo.resources
+C:\Users\conor\Source\Repos\SDP-XPProject\FirstIteration\obj\Debug\FirstIteration.FRM_SignUp.resources
+C:\Users\conor\Source\Repos\SDP-XPProject\FirstIteration\obj\Debug\FirstIteration.FRM_Terms.resources

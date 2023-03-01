@@ -160,5 +160,13 @@ namespace FirstIteration
             // Show the previous form again
             previousForm.Show();
         }
+
+        private void BTN_MoreInfo_Click(object sender, EventArgs e)
+        {
+            FormStack.Forms.Push(this);
+            this.Hide();
+            FRM_MoreInfo MoreInfo = new FRM_MoreInfo();
+            MoreInfo.Show();
+        }
     }
 }

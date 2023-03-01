@@ -38,6 +38,7 @@
             this.CBX_TAndC = new System.Windows.Forms.CheckBox();
             this.BTN_Back = new System.Windows.Forms.Button();
             this.BTN_SignUp = new System.Windows.Forms.Button();
+            this.LIN_Terms = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // LBL_Username
@@ -103,36 +104,49 @@
             // CBX_TAndC
             // 
             this.CBX_TAndC.AutoSize = true;
-            this.CBX_TAndC.Location = new System.Drawing.Point(105, 243);
+            this.CBX_TAndC.Location = new System.Drawing.Point(81, 261);
             this.CBX_TAndC.Name = "CBX_TAndC";
-            this.CBX_TAndC.Size = new System.Drawing.Size(129, 17);
+            this.CBX_TAndC.Size = new System.Drawing.Size(188, 17);
             this.CBX_TAndC.TabIndex = 8;
-            this.CBX_TAndC.Text = "Terms And Conditions";
+            this.CBX_TAndC.Text = "I accept the Terms and Conditions";
             this.CBX_TAndC.UseVisualStyleBackColor = true;
             // 
             // BTN_Back
             // 
-            this.BTN_Back.Location = new System.Drawing.Point(15, 280);
+            this.BTN_Back.Location = new System.Drawing.Point(14, 298);
             this.BTN_Back.Name = "BTN_Back";
             this.BTN_Back.Size = new System.Drawing.Size(131, 60);
             this.BTN_Back.TabIndex = 9;
             this.BTN_Back.Text = "Back";
             this.BTN_Back.UseVisualStyleBackColor = true;
+            this.BTN_Back.Click += new System.EventHandler(this.BTN_Back_Click);
             // 
             // BTN_SignUp
             // 
-            this.BTN_SignUp.Location = new System.Drawing.Point(178, 280);
+            this.BTN_SignUp.Location = new System.Drawing.Point(177, 298);
             this.BTN_SignUp.Name = "BTN_SignUp";
             this.BTN_SignUp.Size = new System.Drawing.Size(131, 60);
             this.BTN_SignUp.TabIndex = 10;
             this.BTN_SignUp.Text = "Sign Up";
             this.BTN_SignUp.UseVisualStyleBackColor = true;
             // 
+            // LIN_Terms
+            // 
+            this.LIN_Terms.AutoSize = true;
+            this.LIN_Terms.Location = new System.Drawing.Point(78, 245);
+            this.LIN_Terms.Name = "LIN_Terms";
+            this.LIN_Terms.Size = new System.Drawing.Size(179, 13);
+            this.LIN_Terms.TabIndex = 12;
+            this.LIN_Terms.TabStop = true;
+            this.LIN_Terms.Text = "For Terms and Conditions Click Here";
+            this.LIN_Terms.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LIN_Terms_LinkClicked);
+            // 
             // FRM_SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(329, 370);
+            this.Controls.Add(this.LIN_Terms);
             this.Controls.Add(this.BTN_SignUp);
             this.Controls.Add(this.BTN_Back);
             this.Controls.Add(this.CBX_TAndC);
@@ -162,5 +176,6 @@
         private System.Windows.Forms.CheckBox CBX_TAndC;
         private System.Windows.Forms.Button BTN_Back;
         private System.Windows.Forms.Button BTN_SignUp;
+        private System.Windows.Forms.LinkLabel LIN_Terms;
     }
 }
