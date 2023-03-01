@@ -52,12 +52,26 @@ namespace FirstIteration
 
                     if (passwordMatches)
                     {
+                        string title = reader.GetString("title");
                         MessageBox.Show("Login successful.");
-                        //Call database to check if user is dr or patient and if statement to send them to the correct forms
-                        FormStack.Forms.Push(this);
-                        this.Hide();
-                        FRM_DrMain DrMain = new FRM_DrMain();
-                        DrMain.Show();
+                        if (title == "doctor")
+                        {                     
+                            FormStack.Forms.Push(this);
+                            this.Hide();
+                            FRM_DrMain DrMain = new FRM_DrMain();
+                            DrMain.Show();
+                        }
+                        else if (title == "patient")
+                        {
+                            FormStack.Forms.Push(this);
+                            this.Hide();
+                            FRM_Calculator Calculator = new FRM_Calculator();
+                            Calculator.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("User is neither a doctor or patient. Please contact your administrator");
+                        }
                     }
                     else
                     {
