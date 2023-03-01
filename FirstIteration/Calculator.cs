@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using static FirstIteration.FRM_Login;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace FirstIteration
 {
@@ -78,8 +79,27 @@ namespace FirstIteration
             double eGFR_MDRD = MDRD(Creatinineumol, Age, Gender, Ethnicity);
             double eGFR_CKDEPI = CKDEPI(Creatininemgdl, Age, Gender, Ethnicity);
             double eGFR_Cockroft = Cockroft(Creatininemgdl, Age, Weight, Height, Gender);
-            string Test = "Cockroft: " + eGFR_Cockroft + " CKDEPI: " + eGFR_CKDEPI + " MDRD " + eGFR_MDRD;
-            MessageBox.Show(Test);
+            if (CBX_Calculation.Text == "MDRD")
+            {
+                RTB_eGFR.Text = "MDRD " + eGFR_MDRD;
+            }
+            else if (CBX_Calculation.Text == "CKDEPI")
+            {
+                RTB_eGFR.Text = "CKDEPI: " + eGFR_CKDEPI;
+            }
+            else if (CBX_Calculation.Text == "Cockroft-Gault")
+            {
+                RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft;
+            }
+            else if (CBX_Calculation.Text == "All")
+            {
+                RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft + " CKDEPI: " + eGFR_CKDEPI + " MDRD " + eGFR_MDRD;
+            }
+            else
+            {
+                MessageBox.Show("Please Select a Calculation");
+            }
+
         }
         public double MDRD(double Creatinineumol, int Age, string Gender, string Ethnicity)
         {
@@ -167,6 +187,31 @@ namespace FirstIteration
             this.Hide();
             FRM_MoreInfo MoreInfo = new FRM_MoreInfo();
             MoreInfo.Show();
+        }
+
+        private void CBX_Calculation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(CBX_Calculation.Text == "Cockroft-Gault")
+            {
+                LBL_Weight.Visible = true;
+                LBL_Height.Visible = true;
+                RTB_Height.Visible = true;
+                RTB_Weight.Visible = true;
+            }
+            if (CBX_Calculation.Text == "All")
+            {
+                LBL_Weight.Visible = true;
+                LBL_Height.Visible = true;
+                RTB_Height.Visible = true;
+                RTB_Weight.Visible = true;
+            }
+            else
+            {
+                LBL_Weight.Visible = false;
+                LBL_Height.Visible = false;
+                RTB_Height.Visible = false;
+                RTB_Weight.Visible = false;
+            }
         }
     }
 }

@@ -108,16 +108,22 @@
             // CBX_Calculation
             // 
             this.CBX_Calculation.FormattingEnabled = true;
+            this.CBX_Calculation.Items.AddRange(new object[] {
+            "MDRD",
+            "CKDEPI",
+            "Cockroft-Gault",
+            "All"});
             this.CBX_Calculation.Location = new System.Drawing.Point(131, 216);
             this.CBX_Calculation.Name = "CBX_Calculation";
             this.CBX_Calculation.Size = new System.Drawing.Size(227, 21);
             this.CBX_Calculation.TabIndex = 17;
+            this.CBX_Calculation.SelectedIndexChanged += new System.EventHandler(this.CBX_Calculation_SelectedIndexChanged);
             // 
             // RTB_eGFR
             // 
-            this.RTB_eGFR.Location = new System.Drawing.Point(134, 363);
+            this.RTB_eGFR.Location = new System.Drawing.Point(134, 338);
             this.RTB_eGFR.Name = "RTB_eGFR";
-            this.RTB_eGFR.Size = new System.Drawing.Size(227, 21);
+            this.RTB_eGFR.Size = new System.Drawing.Size(227, 46);
             this.RTB_eGFR.TabIndex = 18;
             this.RTB_eGFR.Text = "";
             // 
@@ -170,7 +176,7 @@
             // LBL_eGFR
             // 
             this.LBL_eGFR.AutoSize = true;
-            this.LBL_eGFR.Location = new System.Drawing.Point(12, 366);
+            this.LBL_eGFR.Location = new System.Drawing.Point(12, 350);
             this.LBL_eGFR.Name = "LBL_eGFR";
             this.LBL_eGFR.Size = new System.Drawing.Size(35, 13);
             this.LBL_eGFR.TabIndex = 24;
@@ -240,6 +246,7 @@
             this.LBL_Height.Size = new System.Drawing.Size(38, 13);
             this.LBL_Height.TabIndex = 31;
             this.LBL_Height.Text = "Height";
+            this.LBL_Height.Visible = false;
             // 
             // RTB_Weight
             // 
@@ -248,6 +255,7 @@
             this.RTB_Weight.Size = new System.Drawing.Size(227, 21);
             this.RTB_Weight.TabIndex = 30;
             this.RTB_Weight.Text = "";
+            this.RTB_Weight.Visible = false;
             // 
             // RTB_Height
             // 
@@ -256,6 +264,7 @@
             this.RTB_Height.Size = new System.Drawing.Size(227, 21);
             this.RTB_Height.TabIndex = 32;
             this.RTB_Height.Text = "";
+            this.RTB_Height.Visible = false;
             // 
             // LBL_Weight
             // 
@@ -265,6 +274,7 @@
             this.LBL_Weight.Size = new System.Drawing.Size(62, 13);
             this.LBL_Weight.TabIndex = 33;
             this.LBL_Weight.Text = "Weight (kg)";
+            this.LBL_Weight.Visible = false;
             // 
             // BTN_Edit
             // 
