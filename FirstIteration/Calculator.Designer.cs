@@ -262,9 +262,9 @@
             this.LBL_Weight.AutoSize = true;
             this.LBL_Weight.Location = new System.Drawing.Point(12, 250);
             this.LBL_Weight.Name = "LBL_Weight";
-            this.LBL_Weight.Size = new System.Drawing.Size(41, 13);
+            this.LBL_Weight.Size = new System.Drawing.Size(62, 13);
             this.LBL_Weight.TabIndex = 33;
-            this.LBL_Weight.Text = "Weight";
+            this.LBL_Weight.Text = "Weight (kg)";
             // 
             // BTN_Edit
             // 

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -70,12 +71,14 @@ namespace FirstIteration
             }
             int Age = a;
 
+            double Weight = double.Parse(RTB_Weight.Text);
+            double Height = double.Parse(RTB_Height.Text);
             string Gender = CBX_Gender.Text;
             string Ethnicity = CBX_Ethnicity.Text;
             double eGFR_MDRD = MDRD(Creatinineumol, Age, Gender, Ethnicity);
             double eGFR_CKDEPI = CKDEPI(Creatininemgdl, Age, Gender, Ethnicity);
-            double eGFR_MAYO = MAYO(Creatinine, Age, Gender);
-            string Test = "MDRD: " + eGFR_MDRD + " CKDEPI: " + eGFR_CKDEPI + " MAYO " + eGFR_MAYO;
+            double eGFR_Cockroft = Cockroft(Creatininemgdl, Age, Weight, Height, Gender);
+            string Test = "Cockroft: " + eGFR_Cockroft + " CKDEPI: " + eGFR_CKDEPI + " MDRD " + eGFR_MDRD;
             MessageBox.Show(Test);
         }
         public double MDRD(double Creatinineumol, int Age, string Gender, string Ethnicity)
@@ -122,15 +125,17 @@ namespace FirstIteration
             return GFR;
         }
 
-        public double MAYO(double Creatinine, int Age, string Gender)
+        public double Cockroft(double Creatininemgdl, int Age, double Weight, double Height, String Gender)
         {
             double g = 1;
             if (Gender == "Female")
-            {
-                g = 1.15;
+            { 
+                g = 0.85;
             }
-            double GFR = 82.3 * (140 - Age) * Math.Pow(Creatinine, -0.691) * g;
-            return GFR;
+            //The eGFRC-G(ml / min) was adjusted to BSA(modified C-G) to obtain eGFRmC - G(ml / min per 1.73 m2): eGFRmC - G = eGFRC - G × 1.73 / BSA.
+            double BSA = 0.0167 * Math.Pow(Height, 0.5) * Math.Pow(Weight, 0.5);
+            double GFR = ((140 - Age) * (Weight * g) / (72 * Creatininemgdl)) * (1.73/BSA);
+            return GFR;   
         }
 
         private void RBN_mgdL_CheckedChanged(object sender, EventArgs e)
@@ -151,13 +156,8 @@ namespace FirstIteration
 
         private void BTN_Back_Click(object sender, EventArgs e)
         {
-            // Pop the previous form from the stack
             Form previousForm = FormStack.Forms.Pop();
-
-            // Hide the current form
             this.Hide();
-
-            // Show the previous form again
             previousForm.Show();
         }
 
