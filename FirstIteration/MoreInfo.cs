@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FirstIteration
 {
-    public partial class MoreInfo : Form
+    public partial class FRM_MoreInfo : Form
     {
-        public MoreInfo()
+        public FRM_MoreInfo()
         {
             InitializeComponent();
         }

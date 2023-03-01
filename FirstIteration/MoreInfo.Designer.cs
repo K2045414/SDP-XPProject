@@ -1,6 +1,6 @@
 ﻿namespace FirstIteration
 {
-    partial class MoreInfo
+    partial class FRM_MoreInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,281 +28,281 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox6 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox7 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox8 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox9 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox10 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox11 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox12 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox13 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox14 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox15 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox16 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox17 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox18 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox19 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox20 = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.LBL_eGFR = new System.Windows.Forms.Label();
+            this.RTB_eGFR = new System.Windows.Forms.RichTextBox();
+            this.RTB_CKD1 = new System.Windows.Forms.RichTextBox();
+            this.RTB_eGFR1 = new System.Windows.Forms.RichTextBox();
+            this.RTB_Desc1 = new System.Windows.Forms.RichTextBox();
+            this.RTB_CKD2 = new System.Windows.Forms.RichTextBox();
+            this.RTB_eGFR2 = new System.Windows.Forms.RichTextBox();
+            this.RTB_CKD3 = new System.Windows.Forms.RichTextBox();
+            this.RTB_eGFR3 = new System.Windows.Forms.RichTextBox();
+            this.RTB_CKD4 = new System.Windows.Forms.RichTextBox();
+            this.RTB_eGFR4 = new System.Windows.Forms.RichTextBox();
+            this.RTB_CKD5 = new System.Windows.Forms.RichTextBox();
+            this.RTB_eGFR5 = new System.Windows.Forms.RichTextBox();
+            this.RTB_CKD6 = new System.Windows.Forms.RichTextBox();
+            this.RTB_eGFR6 = new System.Windows.Forms.RichTextBox();
+            this.RTB_Desc2 = new System.Windows.Forms.RichTextBox();
+            this.RTB_Desc3 = new System.Windows.Forms.RichTextBox();
+            this.RTB_Desc4 = new System.Windows.Forms.RichTextBox();
+            this.RTB_Desc5 = new System.Windows.Forms.RichTextBox();
+            this.RTB_Desc6 = new System.Windows.Forms.RichTextBox();
+            this.RTB_Resources = new System.Windows.Forms.RichTextBox();
+            this.LBL_CKDStage = new System.Windows.Forms.Label();
+            this.LBL_eGFRResult = new System.Windows.Forms.Label();
+            this.LBL_Description = new System.Windows.Forms.Label();
+            this.LBL_Resources = new System.Windows.Forms.Label();
+            this.BTN_Back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // LBL_eGFR
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.LBL_eGFR.AutoSize = true;
+            this.LBL_eGFR.Location = new System.Drawing.Point(52, 32);
+            this.LBL_eGFR.Name = "LBL_eGFR";
+            this.LBL_eGFR.Size = new System.Drawing.Size(35, 13);
+            this.LBL_eGFR.TabIndex = 0;
+            this.LBL_eGFR.Text = "eGFR";
             // 
-            // richTextBox1
+            // RTB_eGFR
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(123, 12);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(227, 47);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.RTB_eGFR.Location = new System.Drawing.Point(115, 12);
+            this.RTB_eGFR.Name = "RTB_eGFR";
+            this.RTB_eGFR.Size = new System.Drawing.Size(227, 47);
+            this.RTB_eGFR.TabIndex = 1;
+            this.RTB_eGFR.Text = "";
             // 
-            // richTextBox2
+            // RTB_CKD1
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(12, 123);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(117, 55);
-            this.richTextBox2.TabIndex = 2;
-            this.richTextBox2.Text = "";
+            this.RTB_CKD1.Location = new System.Drawing.Point(12, 123);
+            this.RTB_CKD1.Name = "RTB_CKD1";
+            this.RTB_CKD1.Size = new System.Drawing.Size(117, 55);
+            this.RTB_CKD1.TabIndex = 2;
+            this.RTB_CKD1.Text = "";
             // 
-            // richTextBox3
+            // RTB_eGFR1
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(135, 123);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(117, 55);
-            this.richTextBox3.TabIndex = 3;
-            this.richTextBox3.Text = "";
+            this.RTB_eGFR1.Location = new System.Drawing.Point(135, 123);
+            this.RTB_eGFR1.Name = "RTB_eGFR1";
+            this.RTB_eGFR1.Size = new System.Drawing.Size(117, 55);
+            this.RTB_eGFR1.TabIndex = 3;
+            this.RTB_eGFR1.Text = "";
             // 
-            // richTextBox4
+            // RTB_Desc1
             // 
-            this.richTextBox4.Location = new System.Drawing.Point(258, 123);
-            this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(216, 55);
-            this.richTextBox4.TabIndex = 4;
-            this.richTextBox4.Text = "";
+            this.RTB_Desc1.Location = new System.Drawing.Point(258, 123);
+            this.RTB_Desc1.Name = "RTB_Desc1";
+            this.RTB_Desc1.Size = new System.Drawing.Size(216, 55);
+            this.RTB_Desc1.TabIndex = 4;
+            this.RTB_Desc1.Text = "";
             // 
-            // richTextBox5
+            // RTB_CKD2
             // 
-            this.richTextBox5.Location = new System.Drawing.Point(12, 184);
-            this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.Size = new System.Drawing.Size(117, 55);
-            this.richTextBox5.TabIndex = 5;
-            this.richTextBox5.Text = "";
+            this.RTB_CKD2.Location = new System.Drawing.Point(12, 184);
+            this.RTB_CKD2.Name = "RTB_CKD2";
+            this.RTB_CKD2.Size = new System.Drawing.Size(117, 55);
+            this.RTB_CKD2.TabIndex = 5;
+            this.RTB_CKD2.Text = "";
             // 
-            // richTextBox6
+            // RTB_eGFR2
             // 
-            this.richTextBox6.Location = new System.Drawing.Point(135, 184);
-            this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.Size = new System.Drawing.Size(117, 55);
-            this.richTextBox6.TabIndex = 6;
-            this.richTextBox6.Text = "";
+            this.RTB_eGFR2.Location = new System.Drawing.Point(135, 184);
+            this.RTB_eGFR2.Name = "RTB_eGFR2";
+            this.RTB_eGFR2.Size = new System.Drawing.Size(117, 55);
+            this.RTB_eGFR2.TabIndex = 6;
+            this.RTB_eGFR2.Text = "";
             // 
-            // richTextBox7
+            // RTB_CKD3
             // 
-            this.richTextBox7.Location = new System.Drawing.Point(12, 245);
-            this.richTextBox7.Name = "richTextBox7";
-            this.richTextBox7.Size = new System.Drawing.Size(117, 55);
-            this.richTextBox7.TabIndex = 7;
-            this.richTextBox7.Text = "";
+            this.RTB_CKD3.Location = new System.Drawing.Point(12, 245);
+            this.RTB_CKD3.Name = "RTB_CKD3";
+            this.RTB_CKD3.Size = new System.Drawing.Size(117, 55);
+            this.RTB_CKD3.TabIndex = 7;
+            this.RTB_CKD3.Text = "";
             // 
-            // richTextBox8
+            // RTB_eGFR3
             // 
-            this.richTextBox8.Location = new System.Drawing.Point(135, 245);
-            this.richTextBox8.Name = "richTextBox8";
-            this.richTextBox8.Size = new System.Drawing.Size(117, 55);
-            this.richTextBox8.TabIndex = 8;
-            this.richTextBox8.Text = "";
+            this.RTB_eGFR3.Location = new System.Drawing.Point(135, 245);
+            this.RTB_eGFR3.Name = "RTB_eGFR3";
+            this.RTB_eGFR3.Size = new System.Drawing.Size(117, 55);
+            this.RTB_eGFR3.TabIndex = 8;
+            this.RTB_eGFR3.Text = "";
             // 
-            // richTextBox9
+            // RTB_CKD4
             // 
-            this.richTextBox9.Location = new System.Drawing.Point(12, 306);
-            this.richTextBox9.Name = "richTextBox9";
-            this.richTextBox9.Size = new System.Drawing.Size(117, 55);
-            this.richTextBox9.TabIndex = 9;
-            this.richTextBox9.Text = "";
+            this.RTB_CKD4.Location = new System.Drawing.Point(12, 306);
+            this.RTB_CKD4.Name = "RTB_CKD4";
+            this.RTB_CKD4.Size = new System.Drawing.Size(117, 55);
+            this.RTB_CKD4.TabIndex = 9;
+            this.RTB_CKD4.Text = "";
             // 
-            // richTextBox10
+            // RTB_eGFR4
             // 
-            this.richTextBox10.Location = new System.Drawing.Point(135, 306);
-            this.richTextBox10.Name = "richTextBox10";
-            this.richTextBox10.Size = new System.Drawing.Size(117, 55);
-            this.richTextBox10.TabIndex = 10;
-            this.richTextBox10.Text = "";
+            this.RTB_eGFR4.Location = new System.Drawing.Point(135, 306);
+            this.RTB_eGFR4.Name = "RTB_eGFR4";
+            this.RTB_eGFR4.Size = new System.Drawing.Size(117, 55);
+            this.RTB_eGFR4.TabIndex = 10;
+            this.RTB_eGFR4.Text = "";
             // 
-            // richTextBox11
+            // RTB_CKD5
             // 
-            this.richTextBox11.Location = new System.Drawing.Point(12, 367);
-            this.richTextBox11.Name = "richTextBox11";
-            this.richTextBox11.Size = new System.Drawing.Size(117, 55);
-            this.richTextBox11.TabIndex = 11;
-            this.richTextBox11.Text = "";
+            this.RTB_CKD5.Location = new System.Drawing.Point(12, 367);
+            this.RTB_CKD5.Name = "RTB_CKD5";
+            this.RTB_CKD5.Size = new System.Drawing.Size(117, 55);
+            this.RTB_CKD5.TabIndex = 11;
+            this.RTB_CKD5.Text = "";
             // 
-            // richTextBox12
+            // RTB_eGFR5
             // 
-            this.richTextBox12.Location = new System.Drawing.Point(135, 367);
-            this.richTextBox12.Name = "richTextBox12";
-            this.richTextBox12.Size = new System.Drawing.Size(117, 55);
-            this.richTextBox12.TabIndex = 12;
-            this.richTextBox12.Text = "";
+            this.RTB_eGFR5.Location = new System.Drawing.Point(135, 367);
+            this.RTB_eGFR5.Name = "RTB_eGFR5";
+            this.RTB_eGFR5.Size = new System.Drawing.Size(117, 55);
+            this.RTB_eGFR5.TabIndex = 12;
+            this.RTB_eGFR5.Text = "";
             // 
-            // richTextBox13
+            // RTB_CKD6
             // 
-            this.richTextBox13.Location = new System.Drawing.Point(12, 428);
-            this.richTextBox13.Name = "richTextBox13";
-            this.richTextBox13.Size = new System.Drawing.Size(117, 55);
-            this.richTextBox13.TabIndex = 13;
-            this.richTextBox13.Text = "";
+            this.RTB_CKD6.Location = new System.Drawing.Point(12, 428);
+            this.RTB_CKD6.Name = "RTB_CKD6";
+            this.RTB_CKD6.Size = new System.Drawing.Size(117, 55);
+            this.RTB_CKD6.TabIndex = 13;
+            this.RTB_CKD6.Text = "";
             // 
-            // richTextBox14
+            // RTB_eGFR6
             // 
-            this.richTextBox14.Location = new System.Drawing.Point(135, 428);
-            this.richTextBox14.Name = "richTextBox14";
-            this.richTextBox14.Size = new System.Drawing.Size(117, 55);
-            this.richTextBox14.TabIndex = 14;
-            this.richTextBox14.Text = "";
+            this.RTB_eGFR6.Location = new System.Drawing.Point(135, 428);
+            this.RTB_eGFR6.Name = "RTB_eGFR6";
+            this.RTB_eGFR6.Size = new System.Drawing.Size(117, 55);
+            this.RTB_eGFR6.TabIndex = 14;
+            this.RTB_eGFR6.Text = "";
             // 
-            // richTextBox15
+            // RTB_Desc2
             // 
-            this.richTextBox15.Location = new System.Drawing.Point(258, 184);
-            this.richTextBox15.Name = "richTextBox15";
-            this.richTextBox15.Size = new System.Drawing.Size(216, 55);
-            this.richTextBox15.TabIndex = 15;
-            this.richTextBox15.Text = "";
+            this.RTB_Desc2.Location = new System.Drawing.Point(258, 184);
+            this.RTB_Desc2.Name = "RTB_Desc2";
+            this.RTB_Desc2.Size = new System.Drawing.Size(216, 55);
+            this.RTB_Desc2.TabIndex = 15;
+            this.RTB_Desc2.Text = "";
             // 
-            // richTextBox16
+            // RTB_Desc3
             // 
-            this.richTextBox16.Location = new System.Drawing.Point(258, 245);
-            this.richTextBox16.Name = "richTextBox16";
-            this.richTextBox16.Size = new System.Drawing.Size(216, 55);
-            this.richTextBox16.TabIndex = 16;
-            this.richTextBox16.Text = "";
+            this.RTB_Desc3.Location = new System.Drawing.Point(258, 245);
+            this.RTB_Desc3.Name = "RTB_Desc3";
+            this.RTB_Desc3.Size = new System.Drawing.Size(216, 55);
+            this.RTB_Desc3.TabIndex = 16;
+            this.RTB_Desc3.Text = "";
             // 
-            // richTextBox17
+            // RTB_Desc4
             // 
-            this.richTextBox17.Location = new System.Drawing.Point(258, 306);
-            this.richTextBox17.Name = "richTextBox17";
-            this.richTextBox17.Size = new System.Drawing.Size(216, 55);
-            this.richTextBox17.TabIndex = 17;
-            this.richTextBox17.Text = "";
+            this.RTB_Desc4.Location = new System.Drawing.Point(258, 306);
+            this.RTB_Desc4.Name = "RTB_Desc4";
+            this.RTB_Desc4.Size = new System.Drawing.Size(216, 55);
+            this.RTB_Desc4.TabIndex = 17;
+            this.RTB_Desc4.Text = "";
             // 
-            // richTextBox18
+            // RTB_Desc5
             // 
-            this.richTextBox18.Location = new System.Drawing.Point(258, 367);
-            this.richTextBox18.Name = "richTextBox18";
-            this.richTextBox18.Size = new System.Drawing.Size(216, 55);
-            this.richTextBox18.TabIndex = 18;
-            this.richTextBox18.Text = "";
+            this.RTB_Desc5.Location = new System.Drawing.Point(258, 367);
+            this.RTB_Desc5.Name = "RTB_Desc5";
+            this.RTB_Desc5.Size = new System.Drawing.Size(216, 55);
+            this.RTB_Desc5.TabIndex = 18;
+            this.RTB_Desc5.Text = "";
             // 
-            // richTextBox19
+            // RTB_Desc6
             // 
-            this.richTextBox19.Location = new System.Drawing.Point(258, 428);
-            this.richTextBox19.Name = "richTextBox19";
-            this.richTextBox19.Size = new System.Drawing.Size(216, 55);
-            this.richTextBox19.TabIndex = 19;
-            this.richTextBox19.Text = "";
+            this.RTB_Desc6.Location = new System.Drawing.Point(258, 428);
+            this.RTB_Desc6.Name = "RTB_Desc6";
+            this.RTB_Desc6.Size = new System.Drawing.Size(216, 55);
+            this.RTB_Desc6.TabIndex = 19;
+            this.RTB_Desc6.Text = "";
             // 
-            // richTextBox20
+            // RTB_Resources
             // 
-            this.richTextBox20.Location = new System.Drawing.Point(12, 513);
-            this.richTextBox20.Name = "richTextBox20";
-            this.richTextBox20.Size = new System.Drawing.Size(462, 55);
-            this.richTextBox20.TabIndex = 20;
-            this.richTextBox20.Text = "";
+            this.RTB_Resources.Location = new System.Drawing.Point(12, 513);
+            this.RTB_Resources.Name = "RTB_Resources";
+            this.RTB_Resources.Size = new System.Drawing.Size(462, 55);
+            this.RTB_Resources.TabIndex = 20;
+            this.RTB_Resources.Text = "";
             // 
-            // label2
+            // LBL_CKDStage
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 107);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "label2";
+            this.LBL_CKDStage.AutoSize = true;
+            this.LBL_CKDStage.Location = new System.Drawing.Point(34, 107);
+            this.LBL_CKDStage.Name = "LBL_CKDStage";
+            this.LBL_CKDStage.Size = new System.Drawing.Size(72, 13);
+            this.LBL_CKDStage.TabIndex = 21;
+            this.LBL_CKDStage.Text = "Stage of CKD";
             // 
-            // label3
+            // LBL_eGFRResult
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(177, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "label3";
+            this.LBL_eGFRResult.AutoSize = true;
+            this.LBL_eGFRResult.Location = new System.Drawing.Point(161, 107);
+            this.LBL_eGFRResult.Name = "LBL_eGFRResult";
+            this.LBL_eGFRResult.Size = new System.Drawing.Size(68, 13);
+            this.LBL_eGFRResult.TabIndex = 22;
+            this.LBL_eGFRResult.Text = "eGFR Result";
             // 
-            // label4
+            // LBL_Description
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(351, 107);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "label4";
+            this.LBL_Description.AutoSize = true;
+            this.LBL_Description.Location = new System.Drawing.Point(330, 107);
+            this.LBL_Description.Name = "LBL_Description";
+            this.LBL_Description.Size = new System.Drawing.Size(75, 13);
+            this.LBL_Description.TabIndex = 23;
+            this.LBL_Description.Text = "What it means";
             // 
-            // label5
+            // LBL_Resources
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 497);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "label5";
+            this.LBL_Resources.AutoSize = true;
+            this.LBL_Resources.Location = new System.Drawing.Point(12, 497);
+            this.LBL_Resources.Name = "LBL_Resources";
+            this.LBL_Resources.Size = new System.Drawing.Size(94, 13);
+            this.LBL_Resources.TabIndex = 24;
+            this.LBL_Resources.Text = "Further Resources";
             // 
-            // button1
+            // BTN_Back
             // 
-            this.button1.Location = new System.Drawing.Point(12, 574);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 57);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BTN_Back.Location = new System.Drawing.Point(12, 574);
+            this.BTN_Back.Name = "BTN_Back";
+            this.BTN_Back.Size = new System.Drawing.Size(125, 57);
+            this.BTN_Back.TabIndex = 25;
+            this.BTN_Back.Text = "Back";
+            this.BTN_Back.UseVisualStyleBackColor = true;
             // 
-            // MoreInfo
+            // FRM_MoreInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(486, 636);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.richTextBox20);
-            this.Controls.Add(this.richTextBox19);
-            this.Controls.Add(this.richTextBox18);
-            this.Controls.Add(this.richTextBox17);
-            this.Controls.Add(this.richTextBox16);
-            this.Controls.Add(this.richTextBox15);
-            this.Controls.Add(this.richTextBox14);
-            this.Controls.Add(this.richTextBox13);
-            this.Controls.Add(this.richTextBox12);
-            this.Controls.Add(this.richTextBox11);
-            this.Controls.Add(this.richTextBox10);
-            this.Controls.Add(this.richTextBox9);
-            this.Controls.Add(this.richTextBox8);
-            this.Controls.Add(this.richTextBox7);
-            this.Controls.Add(this.richTextBox6);
-            this.Controls.Add(this.richTextBox5);
-            this.Controls.Add(this.richTextBox4);
-            this.Controls.Add(this.richTextBox3);
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.label1);
-            this.Name = "MoreInfo";
-            this.Text = "MoreInfo";
+            this.Controls.Add(this.BTN_Back);
+            this.Controls.Add(this.LBL_Resources);
+            this.Controls.Add(this.LBL_Description);
+            this.Controls.Add(this.LBL_eGFRResult);
+            this.Controls.Add(this.LBL_CKDStage);
+            this.Controls.Add(this.RTB_Resources);
+            this.Controls.Add(this.RTB_Desc6);
+            this.Controls.Add(this.RTB_Desc5);
+            this.Controls.Add(this.RTB_Desc4);
+            this.Controls.Add(this.RTB_Desc3);
+            this.Controls.Add(this.RTB_Desc2);
+            this.Controls.Add(this.RTB_eGFR6);
+            this.Controls.Add(this.RTB_CKD6);
+            this.Controls.Add(this.RTB_eGFR5);
+            this.Controls.Add(this.RTB_CKD5);
+            this.Controls.Add(this.RTB_eGFR4);
+            this.Controls.Add(this.RTB_CKD4);
+            this.Controls.Add(this.RTB_eGFR3);
+            this.Controls.Add(this.RTB_CKD3);
+            this.Controls.Add(this.RTB_eGFR2);
+            this.Controls.Add(this.RTB_CKD2);
+            this.Controls.Add(this.RTB_Desc1);
+            this.Controls.Add(this.RTB_eGFR1);
+            this.Controls.Add(this.RTB_CKD1);
+            this.Controls.Add(this.RTB_eGFR);
+            this.Controls.Add(this.LBL_eGFR);
+            this.Name = "FRM_MoreInfo";
+            this.Text = "More Info";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,31 +310,31 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.RichTextBox richTextBox3;
-        private System.Windows.Forms.RichTextBox richTextBox4;
-        private System.Windows.Forms.RichTextBox richTextBox5;
-        private System.Windows.Forms.RichTextBox richTextBox6;
-        private System.Windows.Forms.RichTextBox richTextBox7;
-        private System.Windows.Forms.RichTextBox richTextBox8;
-        private System.Windows.Forms.RichTextBox richTextBox9;
-        private System.Windows.Forms.RichTextBox richTextBox10;
-        private System.Windows.Forms.RichTextBox richTextBox11;
-        private System.Windows.Forms.RichTextBox richTextBox12;
-        private System.Windows.Forms.RichTextBox richTextBox13;
-        private System.Windows.Forms.RichTextBox richTextBox14;
-        private System.Windows.Forms.RichTextBox richTextBox15;
-        private System.Windows.Forms.RichTextBox richTextBox16;
-        private System.Windows.Forms.RichTextBox richTextBox17;
-        private System.Windows.Forms.RichTextBox richTextBox18;
-        private System.Windows.Forms.RichTextBox richTextBox19;
-        private System.Windows.Forms.RichTextBox richTextBox20;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label LBL_eGFR;
+        private System.Windows.Forms.RichTextBox RTB_eGFR;
+        private System.Windows.Forms.RichTextBox RTB_CKD1;
+        private System.Windows.Forms.RichTextBox RTB_eGFR1;
+        private System.Windows.Forms.RichTextBox RTB_Desc1;
+        private System.Windows.Forms.RichTextBox RTB_CKD2;
+        private System.Windows.Forms.RichTextBox RTB_eGFR2;
+        private System.Windows.Forms.RichTextBox RTB_CKD3;
+        private System.Windows.Forms.RichTextBox RTB_eGFR3;
+        private System.Windows.Forms.RichTextBox RTB_CKD4;
+        private System.Windows.Forms.RichTextBox RTB_eGFR4;
+        private System.Windows.Forms.RichTextBox RTB_CKD5;
+        private System.Windows.Forms.RichTextBox RTB_eGFR5;
+        private System.Windows.Forms.RichTextBox RTB_CKD6;
+        private System.Windows.Forms.RichTextBox RTB_eGFR6;
+        private System.Windows.Forms.RichTextBox RTB_Desc2;
+        private System.Windows.Forms.RichTextBox RTB_Desc3;
+        private System.Windows.Forms.RichTextBox RTB_Desc4;
+        private System.Windows.Forms.RichTextBox RTB_Desc5;
+        private System.Windows.Forms.RichTextBox RTB_Desc6;
+        private System.Windows.Forms.RichTextBox RTB_Resources;
+        private System.Windows.Forms.Label LBL_CKDStage;
+        private System.Windows.Forms.Label LBL_eGFRResult;
+        private System.Windows.Forms.Label LBL_Description;
+        private System.Windows.Forms.Label LBL_Resources;
+        private System.Windows.Forms.Button BTN_Back;
     }
 }

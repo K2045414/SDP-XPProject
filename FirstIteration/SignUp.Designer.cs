@@ -1,6 +1,6 @@
 ﻿namespace FirstIteration
 {
-    partial class SignUp
+    partial class FRM_SignUp
     {
         /// <summary>
         /// Required designer variable.
@@ -28,123 +28,123 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.LBL_Username = new System.Windows.Forms.Label();
+            this.LBL_Password1 = new System.Windows.Forms.Label();
+            this.LBL_Password2 = new System.Windows.Forms.Label();
+            this.RTB_Username = new System.Windows.Forms.RichTextBox();
+            this.LBL_Title = new System.Windows.Forms.Label();
+            this.RTB_Password1 = new System.Windows.Forms.RichTextBox();
+            this.RTB_Password2 = new System.Windows.Forms.RichTextBox();
+            this.CBX_TAndC = new System.Windows.Forms.CheckBox();
+            this.BTN_Back = new System.Windows.Forms.Button();
+            this.BTN_SignUp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // LBL_Username
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 106);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.LBL_Username.AutoSize = true;
+            this.LBL_Username.Location = new System.Drawing.Point(39, 107);
+            this.LBL_Username.Name = "LBL_Username";
+            this.LBL_Username.Size = new System.Drawing.Size(73, 13);
+            this.LBL_Username.TabIndex = 0;
+            this.LBL_Username.Text = "NHS Number:";
             // 
-            // label2
+            // LBL_Password1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 171);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.LBL_Password1.AutoSize = true;
+            this.LBL_Password1.Location = new System.Drawing.Point(56, 152);
+            this.LBL_Password1.Name = "LBL_Password1";
+            this.LBL_Password1.Size = new System.Drawing.Size(56, 13);
+            this.LBL_Password1.TabIndex = 1;
+            this.LBL_Password1.Text = "Password:";
             // 
-            // label3
+            // LBL_Password2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(58, 223);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
+            this.LBL_Password2.AutoSize = true;
+            this.LBL_Password2.Location = new System.Drawing.Point(12, 191);
+            this.LBL_Password2.Name = "LBL_Password2";
+            this.LBL_Password2.Size = new System.Drawing.Size(100, 13);
+            this.LBL_Password2.TabIndex = 2;
+            this.LBL_Password2.Text = "Re-enter Password:";
             // 
-            // richTextBox1
+            // RTB_Username
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(153, 92);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(176, 40);
-            this.richTextBox1.TabIndex = 4;
-            this.richTextBox1.Text = "";
+            this.RTB_Username.Location = new System.Drawing.Point(118, 92);
+            this.RTB_Username.Name = "RTB_Username";
+            this.RTB_Username.Size = new System.Drawing.Size(176, 40);
+            this.RTB_Username.TabIndex = 4;
+            this.RTB_Username.Text = "";
             // 
-            // label5
+            // LBL_Title
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(175, 41);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "label5";
+            this.LBL_Title.AutoSize = true;
+            this.LBL_Title.Location = new System.Drawing.Point(133, 40);
+            this.LBL_Title.Name = "LBL_Title";
+            this.LBL_Title.Size = new System.Drawing.Size(37, 13);
+            this.LBL_Title.TabIndex = 5;
+            this.LBL_Title.Text = "TITLE";
             // 
-            // richTextBox2
+            // RTB_Password1
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(153, 156);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(176, 40);
-            this.richTextBox2.TabIndex = 6;
-            this.richTextBox2.Text = "";
+            this.RTB_Password1.Location = new System.Drawing.Point(118, 138);
+            this.RTB_Password1.Name = "RTB_Password1";
+            this.RTB_Password1.Size = new System.Drawing.Size(176, 40);
+            this.RTB_Password1.TabIndex = 6;
+            this.RTB_Password1.Text = "";
             // 
-            // richTextBox3
+            // RTB_Password2
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(153, 202);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(176, 40);
-            this.richTextBox3.TabIndex = 7;
-            this.richTextBox3.Text = "";
+            this.RTB_Password2.Location = new System.Drawing.Point(118, 184);
+            this.RTB_Password2.Name = "RTB_Password2";
+            this.RTB_Password2.Size = new System.Drawing.Size(176, 40);
+            this.RTB_Password2.TabIndex = 7;
+            this.RTB_Password2.Text = "";
             // 
-            // checkBox1
+            // CBX_TAndC
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(141, 288);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.CBX_TAndC.AutoSize = true;
+            this.CBX_TAndC.Location = new System.Drawing.Point(105, 243);
+            this.CBX_TAndC.Name = "CBX_TAndC";
+            this.CBX_TAndC.Size = new System.Drawing.Size(129, 17);
+            this.CBX_TAndC.TabIndex = 8;
+            this.CBX_TAndC.Text = "Terms And Conditions";
+            this.CBX_TAndC.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // BTN_Back
             // 
-            this.button1.Location = new System.Drawing.Point(40, 353);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 60);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BTN_Back.Location = new System.Drawing.Point(15, 280);
+            this.BTN_Back.Name = "BTN_Back";
+            this.BTN_Back.Size = new System.Drawing.Size(131, 60);
+            this.BTN_Back.TabIndex = 9;
+            this.BTN_Back.Text = "Back";
+            this.BTN_Back.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // BTN_SignUp
             // 
-            this.button2.Location = new System.Drawing.Point(242, 353);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 60);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BTN_SignUp.Location = new System.Drawing.Point(178, 280);
+            this.BTN_SignUp.Name = "BTN_SignUp";
+            this.BTN_SignUp.Size = new System.Drawing.Size(131, 60);
+            this.BTN_SignUp.TabIndex = 10;
+            this.BTN_SignUp.Text = "Sign Up";
+            this.BTN_SignUp.UseVisualStyleBackColor = true;
             // 
-            // SignUp
+            // FRM_SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.richTextBox3);
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "SignUp";
-            this.Text = "SignUp";
+            this.ClientSize = new System.Drawing.Size(329, 370);
+            this.Controls.Add(this.BTN_SignUp);
+            this.Controls.Add(this.BTN_Back);
+            this.Controls.Add(this.CBX_TAndC);
+            this.Controls.Add(this.RTB_Password2);
+            this.Controls.Add(this.RTB_Password1);
+            this.Controls.Add(this.LBL_Title);
+            this.Controls.Add(this.RTB_Username);
+            this.Controls.Add(this.LBL_Password2);
+            this.Controls.Add(this.LBL_Password1);
+            this.Controls.Add(this.LBL_Username);
+            this.Name = "FRM_SignUp";
+            this.Text = "Sign Up";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,15 +152,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.RichTextBox richTextBox3;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label LBL_Username;
+        private System.Windows.Forms.Label LBL_Password1;
+        private System.Windows.Forms.Label LBL_Password2;
+        private System.Windows.Forms.RichTextBox RTB_Username;
+        private System.Windows.Forms.Label LBL_Title;
+        private System.Windows.Forms.RichTextBox RTB_Password1;
+        private System.Windows.Forms.RichTextBox RTB_Password2;
+        private System.Windows.Forms.CheckBox CBX_TAndC;
+        private System.Windows.Forms.Button BTN_Back;
+        private System.Windows.Forms.Button BTN_SignUp;
     }
 }

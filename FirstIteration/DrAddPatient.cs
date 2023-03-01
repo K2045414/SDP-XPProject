@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FirstIteration
 {
-    public partial class DrAddPatient : Form
+    public partial class FRM_AddPatient : Form
     {
-        public DrAddPatient()
+        public FRM_AddPatient()
         {
             InitializeComponent();
         }

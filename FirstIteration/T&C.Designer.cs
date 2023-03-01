@@ -1,6 +1,6 @@
 ﻿namespace FirstIteration
 {
-    partial class T_C
+    partial class FRM_Terms
     {
         /// <summary>
         /// Required designer variable.
@@ -28,47 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.RTB_TandC = new System.Windows.Forms.RichTextBox();
+            this.LBL_Title = new System.Windows.Forms.Label();
+            this.BTN_Back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // richTextBox1
+            // RTB_TandC
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(22, 63);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(431, 313);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.RTB_TandC.Location = new System.Drawing.Point(22, 63);
+            this.RTB_TandC.Name = "RTB_TandC";
+            this.RTB_TandC.Size = new System.Drawing.Size(431, 313);
+            this.RTB_TandC.TabIndex = 0;
+            this.RTB_TandC.Text = "";
             // 
-            // label1
+            // LBL_Title
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.LBL_Title.AutoSize = true;
+            this.LBL_Title.Location = new System.Drawing.Point(22, 28);
+            this.LBL_Title.Name = "LBL_Title";
+            this.LBL_Title.Size = new System.Drawing.Size(37, 13);
+            this.LBL_Title.TabIndex = 1;
+            this.LBL_Title.Text = "TITLE";
             // 
-            // button1
+            // BTN_Back
             // 
-            this.button1.Location = new System.Drawing.Point(25, 382);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 56);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BTN_Back.Location = new System.Drawing.Point(25, 382);
+            this.BTN_Back.Name = "BTN_Back";
+            this.BTN_Back.Size = new System.Drawing.Size(129, 56);
+            this.BTN_Back.TabIndex = 2;
+            this.BTN_Back.Text = "Back";
+            this.BTN_Back.UseVisualStyleBackColor = true;
             // 
-            // T_C
+            // FRM_Terms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.richTextBox1);
-            this.Name = "T_C";
-            this.Text = "T_C";
+            this.Controls.Add(this.BTN_Back);
+            this.Controls.Add(this.LBL_Title);
+            this.Controls.Add(this.RTB_TandC);
+            this.Name = "FRM_Terms";
+            this.Text = "Terms And Conditions";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -76,8 +76,8 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox RTB_TandC;
+        private System.Windows.Forms.Label LBL_Title;
+        private System.Windows.Forms.Button BTN_Back;
     }
 }

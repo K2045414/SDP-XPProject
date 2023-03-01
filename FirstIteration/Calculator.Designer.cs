@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.BTN_Calculate = new System.Windows.Forms.Button();
             this.RTB_Creatinine = new System.Windows.Forms.RichTextBox();
-            this.LBL_Title = new System.Windows.Forms.Label();
+            this.LBL_NHSID = new System.Windows.Forms.Label();
             this.CBX_Ethnicity = new System.Windows.Forms.ComboBox();
             this.CBX_Gender = new System.Windows.Forms.ComboBox();
             this.CBX_Calculation = new System.Windows.Forms.ComboBox();
@@ -47,11 +47,11 @@
             this.RBN_mgdL = new System.Windows.Forms.RadioButton();
             this.RBN_umolL = new System.Windows.Forms.RadioButton();
             this.ERR_Validation = new System.Windows.Forms.ErrorProvider(this.components);
-            this.BTN_MoreDetails = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.BTN_MoreInfo = new System.Windows.Forms.Button();
+            this.LBL_Height = new System.Windows.Forms.Label();
             this.RTB_Weight = new System.Windows.Forms.RichTextBox();
             this.RTB_Height = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LBL_Weight = new System.Windows.Forms.Label();
             this.BTN_Edit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).BeginInit();
             this.SuspendLayout();
@@ -74,14 +74,14 @@
             this.RTB_Creatinine.TabIndex = 2;
             this.RTB_Creatinine.Text = "";
             // 
-            // LBL_Title
+            // LBL_NHSID
             // 
-            this.LBL_Title.AutoSize = true;
-            this.LBL_Title.Location = new System.Drawing.Point(152, 22);
-            this.LBL_Title.Name = "LBL_Title";
-            this.LBL_Title.Size = new System.Drawing.Size(54, 13);
-            this.LBL_Title.TabIndex = 6;
-            this.LBL_Title.Text = "Calculator";
+            this.LBL_NHSID.AutoSize = true;
+            this.LBL_NHSID.Location = new System.Drawing.Point(152, 22);
+            this.LBL_NHSID.Name = "LBL_NHSID";
+            this.LBL_NHSID.Size = new System.Drawing.Size(44, 13);
+            this.LBL_NHSID.TabIndex = 6;
+            this.LBL_NHSID.Text = "NHS ID";
             // 
             // CBX_Ethnicity
             // 
@@ -222,23 +222,23 @@
             this.ERR_Validation.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
             this.ERR_Validation.ContainerControl = this;
             // 
-            // BTN_MoreDetails
+            // BTN_MoreInfo
             // 
-            this.BTN_MoreDetails.Location = new System.Drawing.Point(15, 482);
-            this.BTN_MoreDetails.Name = "BTN_MoreDetails";
-            this.BTN_MoreDetails.Size = new System.Drawing.Size(349, 52);
-            this.BTN_MoreDetails.TabIndex = 29;
-            this.BTN_MoreDetails.Text = "See what to do next";
-            this.BTN_MoreDetails.UseVisualStyleBackColor = true;
+            this.BTN_MoreInfo.Location = new System.Drawing.Point(15, 482);
+            this.BTN_MoreInfo.Name = "BTN_MoreInfo";
+            this.BTN_MoreInfo.Size = new System.Drawing.Size(349, 52);
+            this.BTN_MoreInfo.TabIndex = 29;
+            this.BTN_MoreInfo.Text = "See what to do next";
+            this.BTN_MoreInfo.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // LBL_Height
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 277);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Height";
+            this.LBL_Height.AutoSize = true;
+            this.LBL_Height.Location = new System.Drawing.Point(9, 277);
+            this.LBL_Height.Name = "LBL_Height";
+            this.LBL_Height.Size = new System.Drawing.Size(38, 13);
+            this.LBL_Height.TabIndex = 31;
+            this.LBL_Height.Text = "Height";
             // 
             // RTB_Weight
             // 
@@ -256,14 +256,14 @@
             this.RTB_Height.TabIndex = 32;
             this.RTB_Height.Text = "";
             // 
-            // label2
+            // LBL_Weight
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 250);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Weight";
+            this.LBL_Weight.AutoSize = true;
+            this.LBL_Weight.Location = new System.Drawing.Point(12, 250);
+            this.LBL_Weight.Name = "LBL_Weight";
+            this.LBL_Weight.Size = new System.Drawing.Size(41, 13);
+            this.LBL_Weight.TabIndex = 33;
+            this.LBL_Weight.Text = "Weight";
             // 
             // BTN_Edit
             // 
@@ -280,11 +280,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(383, 546);
             this.Controls.Add(this.BTN_Edit);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.LBL_Weight);
             this.Controls.Add(this.RTB_Height);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LBL_Height);
             this.Controls.Add(this.RTB_Weight);
-            this.Controls.Add(this.BTN_MoreDetails);
+            this.Controls.Add(this.BTN_MoreInfo);
             this.Controls.Add(this.RBN_umolL);
             this.Controls.Add(this.RBN_mgdL);
             this.Controls.Add(this.DTP_DOB);
@@ -299,7 +299,7 @@
             this.Controls.Add(this.CBX_Calculation);
             this.Controls.Add(this.CBX_Gender);
             this.Controls.Add(this.CBX_Ethnicity);
-            this.Controls.Add(this.LBL_Title);
+            this.Controls.Add(this.LBL_NHSID);
             this.Controls.Add(this.RTB_Creatinine);
             this.Controls.Add(this.BTN_Calculate);
             this.Name = "FRM_Calculator";
@@ -314,7 +314,7 @@
 
         private System.Windows.Forms.Button BTN_Calculate;
         private System.Windows.Forms.RichTextBox RTB_Creatinine;
-        private System.Windows.Forms.Label LBL_Title;
+        private System.Windows.Forms.Label LBL_NHSID;
         private System.Windows.Forms.ComboBox CBX_Ethnicity;
         private System.Windows.Forms.ComboBox CBX_Gender;
         private System.Windows.Forms.ComboBox CBX_Calculation;
@@ -331,11 +331,11 @@
         private System.Windows.Forms.RadioButton RBN_umolL;
         private System.Windows.Forms.ErrorProvider ERR_Validation;
         private System.Windows.Forms.Button BTN_Edit;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LBL_Weight;
         private System.Windows.Forms.RichTextBox RTB_Height;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LBL_Height;
         private System.Windows.Forms.RichTextBox RTB_Weight;
-        private System.Windows.Forms.Button BTN_MoreDetails;
+        private System.Windows.Forms.Button BTN_MoreInfo;
     }
 }
 

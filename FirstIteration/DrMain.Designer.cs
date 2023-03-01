@@ -1,6 +1,6 @@
 ﻿namespace FirstIteration
 {
-    partial class DrMain
+    partial class FRM_DrMain
     {
         /// <summary>
         /// Required designer variable.
@@ -28,91 +28,91 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.LBL_HCPID = new System.Windows.Forms.Label();
+            this.LBX_Patients = new System.Windows.Forms.ListBox();
+            this.BTN_EditPatient = new System.Windows.Forms.Button();
+            this.BTN_RemovePatient = new System.Windows.Forms.Button();
+            this.BTN_AddPatient = new System.Windows.Forms.Button();
+            this.BTN_ImportCSV = new System.Windows.Forms.Button();
+            this.BTN_SignOut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // LBL_HCPID
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.LBL_HCPID.AutoSize = true;
+            this.LBL_HCPID.Location = new System.Drawing.Point(178, 23);
+            this.LBL_HCPID.Name = "LBL_HCPID";
+            this.LBL_HCPID.Size = new System.Drawing.Size(43, 13);
+            this.LBL_HCPID.TabIndex = 0;
+            this.LBL_HCPID.Text = "HCP ID";
             // 
-            // listBox1
+            // LBX_Patients
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 51);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(375, 225);
-            this.listBox1.TabIndex = 1;
+            this.LBX_Patients.FormattingEnabled = true;
+            this.LBX_Patients.Location = new System.Drawing.Point(12, 51);
+            this.LBX_Patients.Name = "LBX_Patients";
+            this.LBX_Patients.Size = new System.Drawing.Size(375, 225);
+            this.LBX_Patients.TabIndex = 1;
             // 
-            // button1
+            // BTN_EditPatient
             // 
-            this.button1.Location = new System.Drawing.Point(264, 282);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 53);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BTN_EditPatient.Location = new System.Drawing.Point(196, 282);
+            this.BTN_EditPatient.Name = "BTN_EditPatient";
+            this.BTN_EditPatient.Size = new System.Drawing.Size(191, 53);
+            this.BTN_EditPatient.TabIndex = 2;
+            this.BTN_EditPatient.Text = "See selected patient data";
+            this.BTN_EditPatient.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // BTN_RemovePatient
             // 
-            this.button2.Location = new System.Drawing.Point(264, 373);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 53);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BTN_RemovePatient.Location = new System.Drawing.Point(196, 341);
+            this.BTN_RemovePatient.Name = "BTN_RemovePatient";
+            this.BTN_RemovePatient.Size = new System.Drawing.Size(191, 53);
+            this.BTN_RemovePatient.TabIndex = 3;
+            this.BTN_RemovePatient.Text = "Remove selected patient from care";
+            this.BTN_RemovePatient.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // BTN_AddPatient
             // 
-            this.button3.Location = new System.Drawing.Point(264, 432);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 53);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BTN_AddPatient.Location = new System.Drawing.Point(264, 432);
+            this.BTN_AddPatient.Name = "BTN_AddPatient";
+            this.BTN_AddPatient.Size = new System.Drawing.Size(123, 53);
+            this.BTN_AddPatient.TabIndex = 4;
+            this.BTN_AddPatient.Text = "Add new patient";
+            this.BTN_AddPatient.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // BTN_ImportCSV
             // 
-            this.button4.Location = new System.Drawing.Point(135, 432);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 53);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.BTN_ImportCSV.Location = new System.Drawing.Point(135, 432);
+            this.BTN_ImportCSV.Name = "BTN_ImportCSV";
+            this.BTN_ImportCSV.Size = new System.Drawing.Size(123, 53);
+            this.BTN_ImportCSV.TabIndex = 5;
+            this.BTN_ImportCSV.Text = "Import from CSV";
+            this.BTN_ImportCSV.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // BTN_SignOut
             // 
-            this.button5.Location = new System.Drawing.Point(6, 432);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(123, 53);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.BTN_SignOut.Location = new System.Drawing.Point(6, 432);
+            this.BTN_SignOut.Name = "BTN_SignOut";
+            this.BTN_SignOut.Size = new System.Drawing.Size(123, 53);
+            this.BTN_SignOut.TabIndex = 6;
+            this.BTN_SignOut.Text = "Sign out";
+            this.BTN_SignOut.UseVisualStyleBackColor = true;
             // 
-            // DrMain
+            // FRM_DrMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 497);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.label1);
-            this.Name = "DrMain";
-            this.Text = "DrMain";
+            this.Controls.Add(this.BTN_SignOut);
+            this.Controls.Add(this.BTN_ImportCSV);
+            this.Controls.Add(this.BTN_AddPatient);
+            this.Controls.Add(this.BTN_RemovePatient);
+            this.Controls.Add(this.BTN_EditPatient);
+            this.Controls.Add(this.LBX_Patients);
+            this.Controls.Add(this.LBL_HCPID);
+            this.Name = "FRM_DrMain";
+            this.Text = "Doctor Page";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,12 +120,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label LBL_HCPID;
+        private System.Windows.Forms.ListBox LBX_Patients;
+        private System.Windows.Forms.Button BTN_EditPatient;
+        private System.Windows.Forms.Button BTN_RemovePatient;
+        private System.Windows.Forms.Button BTN_AddPatient;
+        private System.Windows.Forms.Button BTN_ImportCSV;
+        private System.Windows.Forms.Button BTN_SignOut;
     }
 }

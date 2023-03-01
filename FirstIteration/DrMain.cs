@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FirstIteration
 {
-    public partial class DrMain : Form
+    public partial class FRM_DrMain : Form
     {
-        public DrMain()
+        public FRM_DrMain()
         {
             InitializeComponent();
         }

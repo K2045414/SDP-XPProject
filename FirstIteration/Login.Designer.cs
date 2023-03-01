@@ -34,11 +34,13 @@
             this.BTN_Calculate = new System.Windows.Forms.Button();
             this.LBL_Title = new System.Windows.Forms.Label();
             this.BTN_SignUp = new System.Windows.Forms.Button();
+            this.LBL_Login = new System.Windows.Forms.Label();
+            this.LBL_Password = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // RTB_Username
             // 
-            this.RTB_Username.Location = new System.Drawing.Point(65, 174);
+            this.RTB_Username.Location = new System.Drawing.Point(92, 174);
             this.RTB_Username.Name = "RTB_Username";
             this.RTB_Username.Size = new System.Drawing.Size(229, 55);
             this.RTB_Username.TabIndex = 0;
@@ -46,7 +48,7 @@
             // 
             // RTB_Password
             // 
-            this.RTB_Password.Location = new System.Drawing.Point(65, 252);
+            this.RTB_Password.Location = new System.Drawing.Point(92, 247);
             this.RTB_Password.Name = "RTB_Password";
             this.RTB_Password.Size = new System.Drawing.Size(229, 55);
             this.RTB_Password.TabIndex = 1;
@@ -54,7 +56,7 @@
             // 
             // BTN_Login
             // 
-            this.BTN_Login.Location = new System.Drawing.Point(34, 349);
+            this.BTN_Login.Location = new System.Drawing.Point(16, 333);
             this.BTN_Login.Name = "BTN_Login";
             this.BTN_Login.Size = new System.Drawing.Size(128, 67);
             this.BTN_Login.TabIndex = 2;
@@ -64,37 +66,57 @@
             // 
             // BTN_Calculate
             // 
-            this.BTN_Calculate.Location = new System.Drawing.Point(177, 91);
+            this.BTN_Calculate.Location = new System.Drawing.Point(192, 101);
             this.BTN_Calculate.Name = "BTN_Calculate";
             this.BTN_Calculate.Size = new System.Drawing.Size(129, 67);
             this.BTN_Calculate.TabIndex = 3;
-            this.BTN_Calculate.Text = "Calculate";
+            this.BTN_Calculate.Text = "Calculator";
             this.BTN_Calculate.UseVisualStyleBackColor = true;
             this.BTN_Calculate.Click += new System.EventHandler(this.BTN_Calculate_Click);
             // 
             // LBL_Title
             // 
             this.LBL_Title.AutoSize = true;
-            this.LBL_Title.Location = new System.Drawing.Point(62, 60);
+            this.LBL_Title.Location = new System.Drawing.Point(154, 49);
             this.LBL_Title.Name = "LBL_Title";
-            this.LBL_Title.Size = new System.Drawing.Size(33, 13);
+            this.LBL_Title.Size = new System.Drawing.Size(37, 13);
             this.LBL_Title.TabIndex = 4;
-            this.LBL_Title.Text = "Login";
+            this.LBL_Title.Text = "TITLE";
             // 
             // BTN_SignUp
             // 
-            this.BTN_SignUp.Location = new System.Drawing.Point(177, 349);
+            this.BTN_SignUp.Location = new System.Drawing.Point(193, 333);
             this.BTN_SignUp.Name = "BTN_SignUp";
             this.BTN_SignUp.Size = new System.Drawing.Size(128, 67);
             this.BTN_SignUp.TabIndex = 5;
             this.BTN_SignUp.Text = "Sign Up";
             this.BTN_SignUp.UseVisualStyleBackColor = true;
             // 
+            // LBL_Login
+            // 
+            this.LBL_Login.AutoSize = true;
+            this.LBL_Login.Location = new System.Drawing.Point(13, 192);
+            this.LBL_Login.Name = "LBL_Login";
+            this.LBL_Login.Size = new System.Drawing.Size(73, 13);
+            this.LBL_Login.TabIndex = 6;
+            this.LBL_Login.Text = "NHS Number:";
+            // 
+            // LBL_Password
+            // 
+            this.LBL_Password.AutoSize = true;
+            this.LBL_Password.Location = new System.Drawing.Point(24, 268);
+            this.LBL_Password.Name = "LBL_Password";
+            this.LBL_Password.Size = new System.Drawing.Size(56, 13);
+            this.LBL_Password.TabIndex = 7;
+            this.LBL_Password.Text = "Password:";
+            // 
             // FRM_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 450);
+            this.ClientSize = new System.Drawing.Size(351, 450);
+            this.Controls.Add(this.LBL_Password);
+            this.Controls.Add(this.LBL_Login);
             this.Controls.Add(this.BTN_SignUp);
             this.Controls.Add(this.LBL_Title);
             this.Controls.Add(this.BTN_Calculate);
@@ -116,5 +138,7 @@
         private System.Windows.Forms.Button BTN_Calculate;
         private System.Windows.Forms.Label LBL_Title;
         private System.Windows.Forms.Button BTN_SignUp;
+        private System.Windows.Forms.Label LBL_Login;
+        private System.Windows.Forms.Label LBL_Password;
     }
 }

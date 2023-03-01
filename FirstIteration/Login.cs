@@ -29,7 +29,7 @@ namespace FirstIteration
         {
             FormStack.Forms.Push(this);
             this.Hide();
-            FRM_OptionPage OptionPage = new FRM_OptionPage();
+            FRM_Calculator OptionPage = new FRM_Calculator();
             OptionPage.Show();
         }
 
