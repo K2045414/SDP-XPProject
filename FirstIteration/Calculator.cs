@@ -198,7 +198,7 @@ namespace FirstIteration
                 RTB_Height.Visible = true;
                 RTB_Weight.Visible = true;
             }
-            if (CBX_Calculation.Text == "All")
+            else if (CBX_Calculation.Text == "All")
             {
                 LBL_Weight.Visible = true;
                 LBL_Height.Visible = true;
