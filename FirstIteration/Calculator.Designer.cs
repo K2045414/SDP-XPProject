@@ -47,14 +47,20 @@
             this.RBN_mgdL = new System.Windows.Forms.RadioButton();
             this.RBN_umolL = new System.Windows.Forms.RadioButton();
             this.ERR_Validation = new System.Windows.Forms.ErrorProvider(this.components);
+            this.BTN_MoreDetails = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.RTB_Weight = new System.Windows.Forms.RichTextBox();
+            this.RTB_Height = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BTN_Edit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).BeginInit();
             this.SuspendLayout();
             // 
             // BTN_Calculate
             // 
-            this.BTN_Calculate.Location = new System.Drawing.Point(216, 320);
+            this.BTN_Calculate.Location = new System.Drawing.Point(259, 414);
             this.BTN_Calculate.Name = "BTN_Calculate";
-            this.BTN_Calculate.Size = new System.Drawing.Size(145, 52);
+            this.BTN_Calculate.Size = new System.Drawing.Size(102, 52);
             this.BTN_Calculate.TabIndex = 0;
             this.BTN_Calculate.Text = "Calculate";
             this.BTN_Calculate.UseVisualStyleBackColor = true;
@@ -83,7 +89,7 @@
             this.CBX_Ethnicity.Items.AddRange(new object[] {
             "Black",
             "Other"});
-            this.CBX_Ethnicity.Location = new System.Drawing.Point(134, 188);
+            this.CBX_Ethnicity.Location = new System.Drawing.Point(131, 189);
             this.CBX_Ethnicity.Name = "CBX_Ethnicity";
             this.CBX_Ethnicity.Size = new System.Drawing.Size(227, 21);
             this.CBX_Ethnicity.TabIndex = 15;
@@ -94,7 +100,7 @@
             this.CBX_Gender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.CBX_Gender.Location = new System.Drawing.Point(134, 153);
+            this.CBX_Gender.Location = new System.Drawing.Point(131, 154);
             this.CBX_Gender.Name = "CBX_Gender";
             this.CBX_Gender.Size = new System.Drawing.Size(227, 21);
             this.CBX_Gender.TabIndex = 16;
@@ -102,14 +108,14 @@
             // CBX_Calculation
             // 
             this.CBX_Calculation.FormattingEnabled = true;
-            this.CBX_Calculation.Location = new System.Drawing.Point(134, 215);
+            this.CBX_Calculation.Location = new System.Drawing.Point(131, 216);
             this.CBX_Calculation.Name = "CBX_Calculation";
             this.CBX_Calculation.Size = new System.Drawing.Size(227, 21);
             this.CBX_Calculation.TabIndex = 17;
             // 
             // RTB_eGFR
             // 
-            this.RTB_eGFR.Location = new System.Drawing.Point(134, 277);
+            this.RTB_eGFR.Location = new System.Drawing.Point(134, 363);
             this.RTB_eGFR.Name = "RTB_eGFR";
             this.RTB_eGFR.Size = new System.Drawing.Size(227, 21);
             this.RTB_eGFR.TabIndex = 18;
@@ -137,7 +143,7 @@
             // LBL_Gender
             // 
             this.LBL_Gender.AutoSize = true;
-            this.LBL_Gender.Location = new System.Drawing.Point(12, 156);
+            this.LBL_Gender.Location = new System.Drawing.Point(9, 157);
             this.LBL_Gender.Name = "LBL_Gender";
             this.LBL_Gender.Size = new System.Drawing.Size(66, 13);
             this.LBL_Gender.TabIndex = 21;
@@ -146,7 +152,7 @@
             // LBL_Ethnicity
             // 
             this.LBL_Ethnicity.AutoSize = true;
-            this.LBL_Ethnicity.Location = new System.Drawing.Point(12, 191);
+            this.LBL_Ethnicity.Location = new System.Drawing.Point(9, 192);
             this.LBL_Ethnicity.Name = "LBL_Ethnicity";
             this.LBL_Ethnicity.Size = new System.Drawing.Size(47, 13);
             this.LBL_Ethnicity.TabIndex = 22;
@@ -155,7 +161,7 @@
             // LBL_Calculation
             // 
             this.LBL_Calculation.AutoSize = true;
-            this.LBL_Calculation.Location = new System.Drawing.Point(12, 223);
+            this.LBL_Calculation.Location = new System.Drawing.Point(9, 224);
             this.LBL_Calculation.Name = "LBL_Calculation";
             this.LBL_Calculation.Size = new System.Drawing.Size(112, 13);
             this.LBL_Calculation.TabIndex = 23;
@@ -164,7 +170,7 @@
             // LBL_eGFR
             // 
             this.LBL_eGFR.AutoSize = true;
-            this.LBL_eGFR.Location = new System.Drawing.Point(12, 280);
+            this.LBL_eGFR.Location = new System.Drawing.Point(12, 366);
             this.LBL_eGFR.Name = "LBL_eGFR";
             this.LBL_eGFR.Size = new System.Drawing.Size(35, 13);
             this.LBL_eGFR.TabIndex = 24;
@@ -172,9 +178,9 @@
             // 
             // BTN_Back
             // 
-            this.BTN_Back.Location = new System.Drawing.Point(12, 320);
+            this.BTN_Back.Location = new System.Drawing.Point(15, 414);
             this.BTN_Back.Name = "BTN_Back";
-            this.BTN_Back.Size = new System.Drawing.Size(145, 52);
+            this.BTN_Back.Size = new System.Drawing.Size(99, 52);
             this.BTN_Back.TabIndex = 25;
             this.BTN_Back.Text = "Back";
             this.BTN_Back.UseVisualStyleBackColor = true;
@@ -216,11 +222,69 @@
             this.ERR_Validation.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
             this.ERR_Validation.ContainerControl = this;
             // 
+            // BTN_MoreDetails
+            // 
+            this.BTN_MoreDetails.Location = new System.Drawing.Point(15, 482);
+            this.BTN_MoreDetails.Name = "BTN_MoreDetails";
+            this.BTN_MoreDetails.Size = new System.Drawing.Size(349, 52);
+            this.BTN_MoreDetails.TabIndex = 29;
+            this.BTN_MoreDetails.Text = "See what to do next";
+            this.BTN_MoreDetails.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 277);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Height";
+            // 
+            // RTB_Weight
+            // 
+            this.RTB_Weight.Location = new System.Drawing.Point(134, 247);
+            this.RTB_Weight.Name = "RTB_Weight";
+            this.RTB_Weight.Size = new System.Drawing.Size(227, 21);
+            this.RTB_Weight.TabIndex = 30;
+            this.RTB_Weight.Text = "";
+            // 
+            // RTB_Height
+            // 
+            this.RTB_Height.Location = new System.Drawing.Point(134, 277);
+            this.RTB_Height.Name = "RTB_Height";
+            this.RTB_Height.Size = new System.Drawing.Size(227, 21);
+            this.RTB_Height.TabIndex = 32;
+            this.RTB_Height.Text = "";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 250);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Weight";
+            // 
+            // BTN_Edit
+            // 
+            this.BTN_Edit.Location = new System.Drawing.Point(131, 414);
+            this.BTN_Edit.Name = "BTN_Edit";
+            this.BTN_Edit.Size = new System.Drawing.Size(102, 52);
+            this.BTN_Edit.TabIndex = 34;
+            this.BTN_Edit.Text = "Edit";
+            this.BTN_Edit.UseVisualStyleBackColor = true;
+            // 
             // FRM_Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 381);
+            this.ClientSize = new System.Drawing.Size(383, 546);
+            this.Controls.Add(this.BTN_Edit);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.RTB_Height);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.RTB_Weight);
+            this.Controls.Add(this.BTN_MoreDetails);
             this.Controls.Add(this.RBN_umolL);
             this.Controls.Add(this.RBN_mgdL);
             this.Controls.Add(this.DTP_DOB);
@@ -266,6 +330,12 @@
         private System.Windows.Forms.RadioButton RBN_mgdL;
         private System.Windows.Forms.RadioButton RBN_umolL;
         private System.Windows.Forms.ErrorProvider ERR_Validation;
+        private System.Windows.Forms.Button BTN_Edit;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox RTB_Height;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox RTB_Weight;
+        private System.Windows.Forms.Button BTN_MoreDetails;
     }
 }
 
