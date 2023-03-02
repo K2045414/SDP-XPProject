@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LBL_Username = new System.Windows.Forms.Label();
             this.LBL_Password1 = new System.Windows.Forms.Label();
             this.LBL_Password2 = new System.Windows.Forms.Label();
@@ -39,83 +40,94 @@
             this.BTN_Back = new System.Windows.Forms.Button();
             this.BTN_SignUp = new System.Windows.Forms.Button();
             this.LIN_Terms = new System.Windows.Forms.LinkLabel();
+            this.ERR_Validation = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).BeginInit();
             this.SuspendLayout();
             // 
             // LBL_Username
             // 
             this.LBL_Username.AutoSize = true;
-            this.LBL_Username.Location = new System.Drawing.Point(39, 107);
+            this.LBL_Username.Location = new System.Drawing.Point(58, 165);
+            this.LBL_Username.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_Username.Name = "LBL_Username";
-            this.LBL_Username.Size = new System.Drawing.Size(73, 13);
+            this.LBL_Username.Size = new System.Drawing.Size(107, 20);
             this.LBL_Username.TabIndex = 0;
             this.LBL_Username.Text = "NHS Number:";
             // 
             // LBL_Password1
             // 
             this.LBL_Password1.AutoSize = true;
-            this.LBL_Password1.Location = new System.Drawing.Point(56, 152);
+            this.LBL_Password1.Location = new System.Drawing.Point(84, 234);
+            this.LBL_Password1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_Password1.Name = "LBL_Password1";
-            this.LBL_Password1.Size = new System.Drawing.Size(56, 13);
+            this.LBL_Password1.Size = new System.Drawing.Size(82, 20);
             this.LBL_Password1.TabIndex = 1;
             this.LBL_Password1.Text = "Password:";
             // 
             // LBL_Password2
             // 
             this.LBL_Password2.AutoSize = true;
-            this.LBL_Password2.Location = new System.Drawing.Point(12, 191);
+            this.LBL_Password2.Location = new System.Drawing.Point(18, 294);
+            this.LBL_Password2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_Password2.Name = "LBL_Password2";
-            this.LBL_Password2.Size = new System.Drawing.Size(100, 13);
+            this.LBL_Password2.Size = new System.Drawing.Size(149, 20);
             this.LBL_Password2.TabIndex = 2;
             this.LBL_Password2.Text = "Re-enter Password:";
             // 
             // RTB_Username
             // 
-            this.RTB_Username.Location = new System.Drawing.Point(118, 92);
+            this.RTB_Username.Location = new System.Drawing.Point(177, 142);
+            this.RTB_Username.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_Username.Name = "RTB_Username";
-            this.RTB_Username.Size = new System.Drawing.Size(176, 40);
+            this.RTB_Username.Size = new System.Drawing.Size(262, 59);
             this.RTB_Username.TabIndex = 4;
             this.RTB_Username.Text = "";
             // 
             // LBL_Title
             // 
             this.LBL_Title.AutoSize = true;
-            this.LBL_Title.Location = new System.Drawing.Point(133, 40);
+            this.LBL_Title.Location = new System.Drawing.Point(200, 62);
+            this.LBL_Title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_Title.Name = "LBL_Title";
-            this.LBL_Title.Size = new System.Drawing.Size(37, 13);
+            this.LBL_Title.Size = new System.Drawing.Size(52, 20);
             this.LBL_Title.TabIndex = 5;
             this.LBL_Title.Text = "TITLE";
             // 
             // RTB_Password1
             // 
-            this.RTB_Password1.Location = new System.Drawing.Point(118, 138);
+            this.RTB_Password1.Location = new System.Drawing.Point(177, 212);
+            this.RTB_Password1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_Password1.Name = "RTB_Password1";
-            this.RTB_Password1.Size = new System.Drawing.Size(176, 40);
+            this.RTB_Password1.Size = new System.Drawing.Size(262, 59);
             this.RTB_Password1.TabIndex = 6;
             this.RTB_Password1.Text = "";
             // 
             // RTB_Password2
             // 
-            this.RTB_Password2.Location = new System.Drawing.Point(118, 184);
+            this.RTB_Password2.Location = new System.Drawing.Point(177, 283);
+            this.RTB_Password2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_Password2.Name = "RTB_Password2";
-            this.RTB_Password2.Size = new System.Drawing.Size(176, 40);
+            this.RTB_Password2.Size = new System.Drawing.Size(262, 59);
             this.RTB_Password2.TabIndex = 7;
             this.RTB_Password2.Text = "";
             // 
             // CBX_TAndC
             // 
             this.CBX_TAndC.AutoSize = true;
-            this.CBX_TAndC.Location = new System.Drawing.Point(81, 261);
+            this.CBX_TAndC.Location = new System.Drawing.Point(122, 402);
+            this.CBX_TAndC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CBX_TAndC.Name = "CBX_TAndC";
-            this.CBX_TAndC.Size = new System.Drawing.Size(188, 17);
+            this.CBX_TAndC.Size = new System.Drawing.Size(277, 24);
             this.CBX_TAndC.TabIndex = 8;
             this.CBX_TAndC.Text = "I accept the Terms and Conditions";
             this.CBX_TAndC.UseVisualStyleBackColor = true;
             // 
             // BTN_Back
             // 
-            this.BTN_Back.Location = new System.Drawing.Point(14, 298);
+            this.BTN_Back.Location = new System.Drawing.Point(21, 458);
+            this.BTN_Back.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BTN_Back.Name = "BTN_Back";
-            this.BTN_Back.Size = new System.Drawing.Size(131, 60);
+            this.BTN_Back.Size = new System.Drawing.Size(196, 92);
             this.BTN_Back.TabIndex = 9;
             this.BTN_Back.Text = "Back";
             this.BTN_Back.UseVisualStyleBackColor = true;
@@ -123,9 +135,10 @@
             // 
             // BTN_SignUp
             // 
-            this.BTN_SignUp.Location = new System.Drawing.Point(177, 298);
+            this.BTN_SignUp.Location = new System.Drawing.Point(266, 458);
+            this.BTN_SignUp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BTN_SignUp.Name = "BTN_SignUp";
-            this.BTN_SignUp.Size = new System.Drawing.Size(131, 60);
+            this.BTN_SignUp.Size = new System.Drawing.Size(196, 92);
             this.BTN_SignUp.TabIndex = 10;
             this.BTN_SignUp.Text = "Sign Up";
             this.BTN_SignUp.UseVisualStyleBackColor = true;
@@ -134,19 +147,26 @@
             // LIN_Terms
             // 
             this.LIN_Terms.AutoSize = true;
-            this.LIN_Terms.Location = new System.Drawing.Point(78, 245);
+            this.LIN_Terms.Location = new System.Drawing.Point(117, 377);
+            this.LIN_Terms.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LIN_Terms.Name = "LIN_Terms";
-            this.LIN_Terms.Size = new System.Drawing.Size(179, 13);
+            this.LIN_Terms.Size = new System.Drawing.Size(267, 20);
             this.LIN_Terms.TabIndex = 12;
             this.LIN_Terms.TabStop = true;
             this.LIN_Terms.Text = "For Terms and Conditions Click Here";
             this.LIN_Terms.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LIN_Terms_LinkClicked);
             // 
+            // ERR_Validation
+            // 
+            this.ERR_Validation.BlinkRate = 1;
+            this.ERR_Validation.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.ERR_Validation.ContainerControl = this;
+            // 
             // FRM_SignUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 370);
+            this.ClientSize = new System.Drawing.Size(494, 569);
             this.Controls.Add(this.LIN_Terms);
             this.Controls.Add(this.BTN_SignUp);
             this.Controls.Add(this.BTN_Back);
@@ -158,8 +178,10 @@
             this.Controls.Add(this.LBL_Password2);
             this.Controls.Add(this.LBL_Password1);
             this.Controls.Add(this.LBL_Username);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FRM_SignUp";
             this.Text = "Sign Up";
+            ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,5 +200,6 @@
         private System.Windows.Forms.Button BTN_Back;
         private System.Windows.Forms.Button BTN_SignUp;
         private System.Windows.Forms.LinkLabel LIN_Terms;
+        private System.Windows.Forms.ErrorProvider ERR_Validation;
     }
 }

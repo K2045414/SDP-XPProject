@@ -40,5 +40,17 @@ namespace FirstIteration
             this.Hide();
             previousForm.Show();
         }
+
+        private void BTN_ImportCSV_Click(object sender, EventArgs e)//Validate stuff
+        {
+            
+            ImportCSV();
+        }
+        private void ImportCSV()//run the import
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "CSV file (*.csv)|*.csv|All Files (*.*)|*.*";
+            ofd.ShowDialog();
+        }
     }
 }

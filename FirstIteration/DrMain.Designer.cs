@@ -41,25 +41,29 @@
             // LBL_HCPID
             // 
             this.LBL_HCPID.AutoSize = true;
-            this.LBL_HCPID.Location = new System.Drawing.Point(178, 23);
+            this.LBL_HCPID.Location = new System.Drawing.Point(267, 35);
+            this.LBL_HCPID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_HCPID.Name = "LBL_HCPID";
-            this.LBL_HCPID.Size = new System.Drawing.Size(43, 13);
+            this.LBL_HCPID.Size = new System.Drawing.Size(63, 20);
             this.LBL_HCPID.TabIndex = 0;
             this.LBL_HCPID.Text = "HCP ID";
             // 
             // LBX_Patients
             // 
             this.LBX_Patients.FormattingEnabled = true;
-            this.LBX_Patients.Location = new System.Drawing.Point(12, 51);
+            this.LBX_Patients.ItemHeight = 20;
+            this.LBX_Patients.Location = new System.Drawing.Point(18, 78);
+            this.LBX_Patients.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LBX_Patients.Name = "LBX_Patients";
-            this.LBX_Patients.Size = new System.Drawing.Size(375, 225);
+            this.LBX_Patients.Size = new System.Drawing.Size(560, 344);
             this.LBX_Patients.TabIndex = 1;
             // 
             // BTN_EditPatient
             // 
-            this.BTN_EditPatient.Location = new System.Drawing.Point(196, 282);
+            this.BTN_EditPatient.Location = new System.Drawing.Point(294, 434);
+            this.BTN_EditPatient.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BTN_EditPatient.Name = "BTN_EditPatient";
-            this.BTN_EditPatient.Size = new System.Drawing.Size(191, 53);
+            this.BTN_EditPatient.Size = new System.Drawing.Size(286, 82);
             this.BTN_EditPatient.TabIndex = 2;
             this.BTN_EditPatient.Text = "See selected patient data";
             this.BTN_EditPatient.UseVisualStyleBackColor = true;
@@ -67,18 +71,20 @@
             // 
             // BTN_RemovePatient
             // 
-            this.BTN_RemovePatient.Location = new System.Drawing.Point(196, 341);
+            this.BTN_RemovePatient.Location = new System.Drawing.Point(294, 525);
+            this.BTN_RemovePatient.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BTN_RemovePatient.Name = "BTN_RemovePatient";
-            this.BTN_RemovePatient.Size = new System.Drawing.Size(191, 53);
+            this.BTN_RemovePatient.Size = new System.Drawing.Size(286, 82);
             this.BTN_RemovePatient.TabIndex = 3;
             this.BTN_RemovePatient.Text = "Remove selected patient from care";
             this.BTN_RemovePatient.UseVisualStyleBackColor = true;
             // 
             // BTN_AddPatient
             // 
-            this.BTN_AddPatient.Location = new System.Drawing.Point(264, 432);
+            this.BTN_AddPatient.Location = new System.Drawing.Point(396, 665);
+            this.BTN_AddPatient.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BTN_AddPatient.Name = "BTN_AddPatient";
-            this.BTN_AddPatient.Size = new System.Drawing.Size(123, 53);
+            this.BTN_AddPatient.Size = new System.Drawing.Size(184, 82);
             this.BTN_AddPatient.TabIndex = 4;
             this.BTN_AddPatient.Text = "Add new patient";
             this.BTN_AddPatient.UseVisualStyleBackColor = true;
@@ -86,18 +92,21 @@
             // 
             // BTN_ImportCSV
             // 
-            this.BTN_ImportCSV.Location = new System.Drawing.Point(135, 432);
+            this.BTN_ImportCSV.Location = new System.Drawing.Point(202, 665);
+            this.BTN_ImportCSV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BTN_ImportCSV.Name = "BTN_ImportCSV";
-            this.BTN_ImportCSV.Size = new System.Drawing.Size(123, 53);
+            this.BTN_ImportCSV.Size = new System.Drawing.Size(184, 82);
             this.BTN_ImportCSV.TabIndex = 5;
             this.BTN_ImportCSV.Text = "Import from CSV";
             this.BTN_ImportCSV.UseVisualStyleBackColor = true;
+            this.BTN_ImportCSV.Click += new System.EventHandler(this.BTN_ImportCSV_Click);
             // 
             // BTN_SignOut
             // 
-            this.BTN_SignOut.Location = new System.Drawing.Point(6, 432);
+            this.BTN_SignOut.Location = new System.Drawing.Point(9, 665);
+            this.BTN_SignOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BTN_SignOut.Name = "BTN_SignOut";
-            this.BTN_SignOut.Size = new System.Drawing.Size(123, 53);
+            this.BTN_SignOut.Size = new System.Drawing.Size(184, 82);
             this.BTN_SignOut.TabIndex = 6;
             this.BTN_SignOut.Text = "Sign out";
             this.BTN_SignOut.UseVisualStyleBackColor = true;
@@ -105,9 +114,9 @@
             // 
             // FRM_DrMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 497);
+            this.ClientSize = new System.Drawing.Size(598, 765);
             this.Controls.Add(this.BTN_SignOut);
             this.Controls.Add(this.BTN_ImportCSV);
             this.Controls.Add(this.BTN_AddPatient);
@@ -115,6 +124,7 @@
             this.Controls.Add(this.BTN_EditPatient);
             this.Controls.Add(this.LBX_Patients);
             this.Controls.Add(this.LBL_HCPID);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FRM_DrMain";
             this.Text = "Doctor Page";
             this.ResumeLayout(false);

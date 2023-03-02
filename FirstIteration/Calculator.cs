@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static FirstIteration.FRM_Login;
@@ -22,33 +23,115 @@ namespace FirstIteration
             InitializeComponent();
         }
 
-        private bool ValidateCrea()
+        private bool ValidateCrea()//Validates if Creatine is a Valid Input
         {         
-            bool bStatus = true;
-            if (RTB_Creatinine.Text == "")
+            bool bStatus = false;
+            if (Regex.IsMatch(RTB_Creatinine.Text, @"^[0-9]+$"))
+            {
+                ERR_Validation.SetError(RTB_Creatinine, String.Empty);
+                bStatus = true;
+            }
+            else if (RTB_Creatinine.Text == "")
             {
                 ERR_Validation.SetError(RTB_Creatinine, "Please enter your creatinine value");
                 bStatus = false;
             }
+            else if (Regex.IsMatch(RTB_Creatinine.Text, @"^[a-zA-Z]+$"))
+            {
+                ERR_Validation.SetError(RTB_Creatinine, "Please Enter Creatine as a Number");
+                bStatus = false;
+            }
             else
-                ERR_Validation.SetError(RTB_Creatinine, "");
+            {
+                ERR_Validation.SetError(RTB_Creatinine, "There was an Error, Such as a Symbol in your Creatine Field");
+                bStatus = false;
+            }
             return bStatus;
         }
-
-        private void BTN_Calculate_Click(object sender, EventArgs e)
+        private bool ValidateHeight()//Validates if Height is a Valid Input
         {
+            bool hStatus = false;
+            if (Regex.IsMatch(RTB_Height.Text, @"^[0-9]+$"))
+            {
+                ERR_Validation.SetError(RTB_Height, String.Empty);
+                hStatus = true;
+            }
+            else
+            {
+                ERR_Validation.SetError(RTB_Height, "Please Enter Height as a Number");
+            }
+            return hStatus;
+        }
+        private bool ValidateWeight()//Validates if Weight is a Valid Input
+        {
+            bool wStatus = false;
+            if (Regex.IsMatch(RTB_Weight.Text, @"^[0-9]+$"))
+            {
+                ERR_Validation.SetError(RTB_Weight, String.Empty);
+                wStatus = true;
+            }
+            else
+            {
+                ERR_Validation.SetError(RTB_Weight, "Please Enter Weight as a Number");
+            }
+            return wStatus;
+        }
+        private bool ValidateAge(int VAge)//Validates if Age is a Valid Input
+        {
+            bool aStatus = false;
+            if (VAge <= 100 && VAge >= 18)// Age needs to be over 18 but under 100, otherwise error
+            {
+                aStatus = true;
+            }
+            return aStatus;
+        }
+        private void BTN_Calculate_Click(object sender, EventArgs e)//MMMMMM Button ඞ
+        {
+            int ValidAge = CalculateAge();
             bool ValidCrea = ValidateCrea();
+            bool ValidHeight = ValidateHeight();
+            bool ValidWeight = ValidateWeight();
             if (ValidCrea == false)
             {
-                MessageBox.Show("Empty");
+                MessageBox.Show("Could not Validate Creatinine Value.");
             }
-            else if (ValidCrea == true)
+            if (CBX_Calculation.Text == "All" || CBX_Calculation.Text == "Cockroft-Gault")
             {
-                Calculate();
+                if (ValidCrea == true && ValidWeight == true && ValidHeight == true && ValidAge != 999)
+                {
+                    Calculate();
+                }
             }
+            else if (CBX_Calculation.Text == "MDRD" || CBX_Calculation.Text == "CKDEPI")
+            {
+                if (ValidCrea == true && ValidAge != 999)
+                {
+                    Calculate();
+                }
+            }
+                
         }
- 
-        private void Calculate()
+        private int CalculateAge()//Calculates Age then runs ValidateAge Function, Returns '999' as an error code
+        {
+            DateTime DOB = DTP_DOB.Value;
+            int a = DateTime.Today.Year - DOB.Year;
+            if (DOB > DateTime.Today.AddYears(-a))
+            {
+                a--;
+            }
+            bool VAge = ValidateAge(a);
+            if (VAge == false)
+            {
+                ERR_Validation.SetError(DTP_DOB, "These calculations are only accurate if you are over 18 or under 100");
+                a = 999;
+            }
+            else 
+            { 
+                ERR_Validation.SetError(DTP_DOB, String.Empty);
+            }
+            return a;
+        }
+        private void Calculate()//ඞCalculate Function containing Calculations for the Calculator and its Equations
         {
             double Creatinine = double.Parse(RTB_Creatinine.Text);
             double Creatinineumol = Creatinine;
@@ -62,46 +145,44 @@ namespace FirstIteration
             {
                 Creatinineumol = Creatinine * 88.4;
             }
+            int Age = CalculateAge();
 
+                string Gender = CBX_Gender.Text;
+                string Ethnicity = CBX_Ethnicity.Text;
 
-            DateTime DOB = DTP_DOB.Value;
-            int a = DateTime.Today.Year - DOB.Year;
-            if (DOB > DateTime.Today.AddYears(-a))
-            {
-                a--;
-            }
-            int Age = a;
-
-            double Weight = double.Parse(RTB_Weight.Text);
-            double Height = double.Parse(RTB_Height.Text);
-            string Gender = CBX_Gender.Text;
-            string Ethnicity = CBX_Ethnicity.Text;
-            double eGFR_MDRD = MDRD(Creatinineumol, Age, Gender, Ethnicity);
-            double eGFR_CKDEPI = CKDEPI(Creatininemgdl, Age, Gender, Ethnicity);
-            double eGFR_Cockroft = Cockroft(Creatininemgdl, Age, Weight, Height, Gender);
-            if (CBX_Calculation.Text == "MDRD")
-            {
-                RTB_eGFR.Text = "MDRD " + eGFR_MDRD;
-            }
-            else if (CBX_Calculation.Text == "CKDEPI")
-            {
-                RTB_eGFR.Text = "CKDEPI: " + eGFR_CKDEPI;
-            }
-            else if (CBX_Calculation.Text == "Cockroft-Gault")
-            {
-                RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft;
-            }
-            else if (CBX_Calculation.Text == "All")
-            {
-                RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft + " CKDEPI: " + eGFR_CKDEPI + " MDRD " + eGFR_MDRD;
-            }
-            else
-            {
-                MessageBox.Show("Please Select a Calculation");
-            }
+                if (CBX_Calculation.Text == "MDRD")
+                {
+                    double eGFR_MDRD = MDRD(Creatinineumol, Age, Gender, Ethnicity);
+                    RTB_eGFR.Text = "MDRD " + eGFR_MDRD;
+                }
+                else if (CBX_Calculation.Text == "CKDEPI")
+                {
+                    double eGFR_CKDEPI = CKDEPI(Creatininemgdl, Age, Gender, Ethnicity);
+                    RTB_eGFR.Text = "CKDEPI: " + eGFR_CKDEPI;
+                }
+                else if (CBX_Calculation.Text == "Cockroft-Gault")
+                {
+                    double Weight = double.Parse(RTB_Weight.Text);
+                    double Height = double.Parse(RTB_Height.Text);
+                    double eGFR_Cockroft = Cockroft(Creatininemgdl, Age, Weight, Height, Gender);
+                    RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft;
+                }
+                else if (CBX_Calculation.Text == "All")
+                {
+                    double eGFR_MDRD = MDRD(Creatinineumol, Age, Gender, Ethnicity);
+                    double eGFR_CKDEPI = CKDEPI(Creatininemgdl, Age, Gender, Ethnicity);
+                    double Weight = double.Parse(RTB_Weight.Text);
+                    double Height = double.Parse(RTB_Height.Text);
+                    double eGFR_Cockroft = Cockroft(Creatininemgdl, Age, Weight, Height, Gender);
+                    RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft + " CKDEPI: " + eGFR_CKDEPI + " MDRD " + eGFR_MDRD;
+                }
+                else
+                {
+                    MessageBox.Show("Please Select a Calculation");
+                }
 
         }
-        public double MDRD(double Creatinineumol, int Age, string Gender, string Ethnicity)
+        public double MDRD(double Creatinineumol, int Age, string Gender, string Ethnicity)//Function for MDRD Equation
         {
             double g = 1;
             if (Gender == "Female")
@@ -118,7 +199,7 @@ namespace FirstIteration
             double GFR = 186 * Math.Pow(Creatinineumol / 88.4, a) * Math.Pow(Age, b) * g * e;
             return GFR;
         }
-        public double CKDEPI(double Creatininemgdl, int Age, string Gender, string Ethnicity)
+        public double CKDEPI(double Creatininemgdl, int Age, string Gender, string Ethnicity)//Function for CKD-EPI Equation
         {
             double k;
             double a;
@@ -145,7 +226,7 @@ namespace FirstIteration
             return GFR;
         }
 
-        public double Cockroft(double Creatininemgdl, int Age, double Weight, double Height, String Gender)
+        public double Cockroft(double Creatininemgdl, int Age, double Weight, double Height, String Gender)//Function for Cockroft Equation
         {
             double g = 1;
             if (Gender == "Female")

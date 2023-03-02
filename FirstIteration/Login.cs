@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,8 +19,20 @@ namespace FirstIteration
         {
             InitializeComponent();
         }
+        private bool ValidateUserName(string VUsername)//Validates UserName
+        {
+            bool iStatus = false;
+            if (Regex.IsMatch(RTB_Username.Text, @"^[0-9A-Z]+$") && (VUsername.Length == 10 || VUsername.Length == 8))
+            {
+                iStatus = true;
+            }
+            else
+            {
+                ERR_Validation.SetError(RTB_Username, "Your ID has been input incorrectly");
+            }
+            return iStatus;
+        }
 
-        
         public static class FormStack
         {
             public static Stack<Form> Forms = new Stack<Form>();
@@ -29,11 +42,24 @@ namespace FirstIteration
         {
             FormStack.Forms.Push(this);
             this.Hide();
-            FRM_Calculator Calculator = new FRM_Calculator();
+            //FRM_Calculator Calculator = new FRM_Calculator();
+            FRM_DrMain Calculator = new FRM_DrMain();
             Calculator.Show();
         }
 
         private void BTN_Login_Click(object sender, EventArgs e)
+        {
+            bool ValidUser = ValidateUserName(RTB_Username.Text);
+            if(ValidUser == true)
+            {
+                Login();
+            }
+            else
+            {
+                ERR_Validation.SetError(BTN_SignUp, "Your Login was Incorrect");
+            }
+        }
+        private void Login()
         {
             MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
             MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE username=@username", connection);
@@ -55,7 +81,7 @@ namespace FirstIteration
                         string title = reader.GetString("title");
                         MessageBox.Show("Login successful.");
                         if (title == "doctor")
-                        {                     
+                        {
                             FormStack.Forms.Push(this);
                             this.Hide();
                             FRM_DrMain DrMain = new FRM_DrMain();
@@ -70,17 +96,17 @@ namespace FirstIteration
                         }
                         else
                         {
-                            MessageBox.Show("User is neither a doctor or patient. Please contact your administrator");
+                            ERR_Validation.SetError(RTB_Username, "User is neither a doctor or patient. Please contact your administrator");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Invalid username or password.");
+                        ERR_Validation.SetError(RTB_Password, "Invalid username or password.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Invalid username or password.");
+                    ERR_Validation.SetError(BTN_SignUp, "Invalid username or password.");
                 }
             }
             catch (Exception ex)
@@ -92,7 +118,6 @@ namespace FirstIteration
                 connection.Close();
             }
         }
-
         private void BTN_SignUp_Click(object sender, EventArgs e)
         {
             FormStack.Forms.Push(this);
