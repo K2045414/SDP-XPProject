@@ -32,15 +32,16 @@
             this.LBL_Username = new System.Windows.Forms.Label();
             this.LBL_Password1 = new System.Windows.Forms.Label();
             this.LBL_Password2 = new System.Windows.Forms.Label();
-            this.RTB_Username = new System.Windows.Forms.RichTextBox();
             this.LBL_Title = new System.Windows.Forms.Label();
-            this.RTB_Password1 = new System.Windows.Forms.RichTextBox();
-            this.RTB_Password2 = new System.Windows.Forms.RichTextBox();
             this.CBX_TAndC = new System.Windows.Forms.CheckBox();
             this.BTN_Back = new System.Windows.Forms.Button();
             this.BTN_SignUp = new System.Windows.Forms.Button();
             this.LIN_Terms = new System.Windows.Forms.LinkLabel();
             this.ERR_Validation = new System.Windows.Forms.ErrorProvider(this.components);
+            this.CBX_Pass = new System.Windows.Forms.CheckBox();
+            this.RTB_Password2 = new System.Windows.Forms.TextBox();
+            this.RTB_Password1 = new System.Windows.Forms.TextBox();
+            this.RTB_Username = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             // LBL_Password1
             // 
             this.LBL_Password1.AutoSize = true;
-            this.LBL_Password1.Location = new System.Drawing.Point(84, 234);
+            this.LBL_Password1.Location = new System.Drawing.Point(83, 217);
             this.LBL_Password1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_Password1.Name = "LBL_Password1";
             this.LBL_Password1.Size = new System.Drawing.Size(82, 20);
@@ -67,21 +68,12 @@
             // LBL_Password2
             // 
             this.LBL_Password2.AutoSize = true;
-            this.LBL_Password2.Location = new System.Drawing.Point(18, 294);
+            this.LBL_Password2.Location = new System.Drawing.Point(16, 269);
             this.LBL_Password2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_Password2.Name = "LBL_Password2";
             this.LBL_Password2.Size = new System.Drawing.Size(149, 20);
             this.LBL_Password2.TabIndex = 2;
             this.LBL_Password2.Text = "Re-enter Password:";
-            // 
-            // RTB_Username
-            // 
-            this.RTB_Username.Location = new System.Drawing.Point(177, 142);
-            this.RTB_Username.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.RTB_Username.Name = "RTB_Username";
-            this.RTB_Username.Size = new System.Drawing.Size(262, 59);
-            this.RTB_Username.TabIndex = 4;
-            this.RTB_Username.Text = "";
             // 
             // LBL_Title
             // 
@@ -92,24 +84,6 @@
             this.LBL_Title.Size = new System.Drawing.Size(52, 20);
             this.LBL_Title.TabIndex = 5;
             this.LBL_Title.Text = "TITLE";
-            // 
-            // RTB_Password1
-            // 
-            this.RTB_Password1.Location = new System.Drawing.Point(177, 212);
-            this.RTB_Password1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.RTB_Password1.Name = "RTB_Password1";
-            this.RTB_Password1.Size = new System.Drawing.Size(262, 59);
-            this.RTB_Password1.TabIndex = 6;
-            this.RTB_Password1.Text = "";
-            // 
-            // RTB_Password2
-            // 
-            this.RTB_Password2.Location = new System.Drawing.Point(177, 283);
-            this.RTB_Password2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.RTB_Password2.Name = "RTB_Password2";
-            this.RTB_Password2.Size = new System.Drawing.Size(262, 59);
-            this.RTB_Password2.TabIndex = 7;
-            this.RTB_Password2.Text = "";
             // 
             // CBX_TAndC
             // 
@@ -158,23 +132,58 @@
             // 
             // ERR_Validation
             // 
-            this.ERR_Validation.BlinkRate = 1;
-            this.ERR_Validation.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.ERR_Validation.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.ERR_Validation.ContainerControl = this;
+            // 
+            // CBX_Pass
+            // 
+            this.CBX_Pass.AutoSize = true;
+            this.CBX_Pass.Location = new System.Drawing.Point(172, 320);
+            this.CBX_Pass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CBX_Pass.Name = "CBX_Pass";
+            this.CBX_Pass.Size = new System.Drawing.Size(142, 24);
+            this.CBX_Pass.TabIndex = 13;
+            this.CBX_Pass.Text = "View Password";
+            this.CBX_Pass.UseVisualStyleBackColor = true;
+            this.CBX_Pass.CheckedChanged += new System.EventHandler(this.CBX_Pass_CheckedChanged);
+            // 
+            // RTB_Password2
+            // 
+            this.RTB_Password2.Location = new System.Drawing.Point(172, 266);
+            this.RTB_Password2.Name = "RTB_Password2";
+            this.RTB_Password2.Size = new System.Drawing.Size(262, 26);
+            this.RTB_Password2.TabIndex = 14;
+            this.RTB_Password2.UseSystemPasswordChar = true;
+            // 
+            // RTB_Password1
+            // 
+            this.RTB_Password1.Location = new System.Drawing.Point(172, 217);
+            this.RTB_Password1.Name = "RTB_Password1";
+            this.RTB_Password1.Size = new System.Drawing.Size(264, 26);
+            this.RTB_Password1.TabIndex = 15;
+            this.RTB_Password1.UseSystemPasswordChar = true;
+            // 
+            // RTB_Username
+            // 
+            this.RTB_Username.Location = new System.Drawing.Point(172, 165);
+            this.RTB_Username.Name = "RTB_Username";
+            this.RTB_Username.Size = new System.Drawing.Size(262, 26);
+            this.RTB_Username.TabIndex = 16;
             // 
             // FRM_SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(494, 569);
+            this.Controls.Add(this.RTB_Username);
+            this.Controls.Add(this.RTB_Password1);
+            this.Controls.Add(this.RTB_Password2);
+            this.Controls.Add(this.CBX_Pass);
             this.Controls.Add(this.LIN_Terms);
             this.Controls.Add(this.BTN_SignUp);
             this.Controls.Add(this.BTN_Back);
             this.Controls.Add(this.CBX_TAndC);
-            this.Controls.Add(this.RTB_Password2);
-            this.Controls.Add(this.RTB_Password1);
             this.Controls.Add(this.LBL_Title);
-            this.Controls.Add(this.RTB_Username);
             this.Controls.Add(this.LBL_Password2);
             this.Controls.Add(this.LBL_Password1);
             this.Controls.Add(this.LBL_Username);
@@ -192,14 +201,15 @@
         private System.Windows.Forms.Label LBL_Username;
         private System.Windows.Forms.Label LBL_Password1;
         private System.Windows.Forms.Label LBL_Password2;
-        private System.Windows.Forms.RichTextBox RTB_Username;
         private System.Windows.Forms.Label LBL_Title;
-        private System.Windows.Forms.RichTextBox RTB_Password1;
-        private System.Windows.Forms.RichTextBox RTB_Password2;
         private System.Windows.Forms.CheckBox CBX_TAndC;
         private System.Windows.Forms.Button BTN_Back;
         private System.Windows.Forms.Button BTN_SignUp;
         private System.Windows.Forms.LinkLabel LIN_Terms;
         private System.Windows.Forms.ErrorProvider ERR_Validation;
+        private System.Windows.Forms.CheckBox CBX_Pass;
+        private System.Windows.Forms.TextBox RTB_Username;
+        private System.Windows.Forms.TextBox RTB_Password1;
+        private System.Windows.Forms.TextBox RTB_Password2;
     }
 }

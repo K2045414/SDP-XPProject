@@ -26,6 +26,7 @@ namespace FirstIteration
             bool iStatus = false;
             if (Regex.IsMatch(RTB_Username.Text, @"^[0-9A-Z]+$") && VUsername.Length == 10)
             {
+                ERR_Validation.SetError(RTB_Username, "");
                 iStatus = true;
             }
             else
@@ -37,13 +38,21 @@ namespace FirstIteration
         private bool ValidatePassword(string Password)//Validates Password (we need a Password Policy to change this to match)ඞ
         {
             bool pStatus = false;
-            if (Regex.IsMatch(RTB_Password1.Text, @"^[a-z0-9A-Z]+$"))
+            if (Password == "") 
             {
-                pStatus = true;
+                ERR_Validation.SetError(RTB_Password1, "Your Password empty");
             }
             else
             {
-                ERR_Validation.SetError(RTB_Password1, "Your Password entered is Invalid");
+                if (Password.Any(x => !char.IsLetterOrDigit(x)) && Password.Any(x => char.IsDigit(x)) && Password.Any(x => char.IsUpper(x)) && Password.Any(x => !char.IsUpper(x)) && Password.Length >= 8)
+                {
+                    ERR_Validation.SetError(RTB_Password1, "");
+                    pStatus = true;
+                }
+                else 
+                {
+                    ERR_Validation.SetError(RTB_Password1, "The Password you entered does not meet our requirements");
+                }
             }
             return pStatus;
         }
@@ -52,6 +61,7 @@ namespace FirstIteration
             bool mStatus = false;
             if (PassMain == PassMatch)
             {
+                ERR_Validation.SetError(RTB_Password2, "");
                 mStatus = true;
             }
             else
@@ -65,6 +75,7 @@ namespace FirstIteration
             bool tStatus = false;
             if (CBX_TAndC.Checked)
             {
+                ERR_Validation.SetError(CBX_TAndC, "");
                 tStatus = true;
             }
             else
@@ -92,7 +103,7 @@ namespace FirstIteration
         {
             bool ValidUser = ValidateUserName(RTB_Username.Text);
             bool ValidPass = ValidatePassword(RTB_Password1.Text);
-            bool ValidMatch = MatchPassword(RTB_Password1.Text, RTB_Password2.Text);
+            bool ValidMatch = MatchPassword(RTB_Password2.Text, RTB_Password1.Text);
             bool validTerm = ValidateTerms();
             if (ValidUser == true && ValidPass == true && ValidMatch == true && validTerm == true)
             {
@@ -128,7 +139,7 @@ namespace FirstIteration
                 command.CommandText = "INSERT INTO users (username, password, title) VALUES (@username, @password, 'patient')";
                 command.Parameters.Clear();
                 command.Parameters.AddWithValue("@username", RTB_Username.Text);
-                string passwordHash = BCrypt.Net.BCrypt.HashPassword(RTB_Password1.Text);
+                string passwordHash = BCrypt.Net.BCrypt.HashPassword(RTB_Password2.Text);
                 command.Parameters.AddWithValue("@password", passwordHash);
                 connection.Open();
                 command.ExecuteNonQuery();
@@ -146,5 +157,19 @@ namespace FirstIteration
             }
         }
 
+        private void CBX_Pass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CBX_Pass.Checked)
+            {
+                RTB_Password1.UseSystemPasswordChar = false;
+                RTB_Password2.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                RTB_Password1.UseSystemPasswordChar = true;
+                RTB_Password2.UseSystemPasswordChar = true;
+            }
+                
+        }
     }
 }
