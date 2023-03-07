@@ -24,14 +24,7 @@ namespace FirstIteration
             InitializeComponent();
             this.id = id;
         }
-
-        private void BTN_EditPatient_Click(object sender, EventArgs e)
-        {
-            FormStack.Forms.Push(this);
-            this.Hide();
-            FRM_Calculator Calculator = new FRM_Calculator();
-            Calculator.Show();
-        }
+   
 
         private void BTN_AddPatient_Click(object sender, EventArgs e)
         {
@@ -182,6 +175,22 @@ namespace FirstIteration
                 LBX_Patients.Items.Add(user);
             }
             connection.Close();
+        }
+        private void BTN_EditPatient_Click(object sender, EventArgs e)
+        {
+            if (LBX_Patients.SelectedIndex >= 0)
+            {
+                string patient_id = LBX_Patients.Text;
+                FormStack.Forms.Push(this);
+                this.Hide();
+                FRM_Calculator Calculator = new FRM_Calculator(patient_id);
+                Calculator.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please select a patient record to view");
+            }
+            
         }
     }
 }

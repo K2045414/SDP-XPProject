@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,10 +18,34 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 namespace FirstIteration
 {
     public partial class FRM_Calculator : Form
-    {
-        public FRM_Calculator(string id)
+    { 
+        private readonly string patient_id;
+        public FRM_Calculator(string patient_id)
         {
             InitializeComponent();
+            this.patient_id = patient_id;
+            if (patient_id != null )
+            {
+                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
+                MySqlCommand command = new MySqlCommand("SELECT * FROM patients WHERE user_id=@patient_id", connection);
+                command.Parameters.AddWithValue("@patient_id", patient_id);
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    //need to check if these are null
+                    string user_id = reader.GetString("user_id");
+                    string email = reader.GetString("email");
+                    string race = reader.GetString("race");
+                    string gender = reader.GetString("gender");
+                    int height = reader.GetInt32("height");
+                    int weight = reader.GetInt32("weight");
+                    int age = reader.GetInt32("age");
+                    string message = $"User ID: {user_id}\nemail: {email}\nrace: {race}\ngender: {gender}\nheight: {height}\nweight: {weight}\nage: {age}";
+                    MessageBox.Show(message);
+                }
+                connection.Close();
+            }
         }
 
         public FRM_Calculator()
