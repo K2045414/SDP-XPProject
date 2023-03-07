@@ -43,7 +43,7 @@ namespace FirstIteration
             FormStack.Forms.Push(this);
             this.Hide();
             //FRM_Calculator Calculator = new FRM_Calculator();
-            FRM_Calculator Calculator = new FRM_Calculator();
+            FRM_DrMain Calculator = new FRM_DrMain();
             Calculator.Show();
         }
 
