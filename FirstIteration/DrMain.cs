@@ -77,9 +77,9 @@ namespace FirstIteration
                         CSVdata.Rows.Add(row);
                     }
                 }
-                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=admin;database=users;allowLoadLocalInfile=true;");
+                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;allowLoadLocalInfile=true;");
                 MySqlBulkCopy bulkcopy = new MySqlBulkCopy(connection);
-                bulkcopy.DestinationTableName = "users";
+                bulkcopy.DestinationTableName = "patients";
                 try
                 {
                     bulkcopy.WriteToServer(CSVdata);
@@ -103,10 +103,11 @@ namespace FirstIteration
                     foreach (DataColumn column in table.Columns)
                     {
                         string z = column.ColumnName;
-                        string y = dataRow[column].ToString();
+                        string y = dataRow[column].ToString(); 
                         if (ValidateCSV(z, y) == false)
                         {
                             x.Append(column.ColumnName + " ");
+
                             x.Append("Invalid Field");
                             x.Append(',');
                         }

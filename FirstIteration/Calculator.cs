@@ -113,23 +113,19 @@ namespace FirstIteration
         }
         private int CalculateAge()//Calculates Age then runs ValidateAge Function, Returns '999' as an error code
         {
-            DateTime DOB = DTP_DOB.Value;
-            int a = DateTime.Today.Year - DOB.Year;
-            if (DOB > DateTime.Today.AddYears(-a))
-            {
-                a--;
-            }
-            bool VAge = ValidateAge(a);
+            int Age = Int32.Parse(RTB_Age.Text);
+            
+            bool VAge = ValidateAge(Age);
             if (VAge == false)
             {
-                ERR_Validation.SetError(DTP_DOB, "These calculations are only accurate if you are over 18 or under 100");
-                a = 999;
+                ERR_Validation.SetError(RTB_Age, "These calculations are only accurate if you are over 18 or under 100");
+                Age = 999;
             }
             else 
             { 
-                ERR_Validation.SetError(DTP_DOB, String.Empty);
+                ERR_Validation.SetError(RTB_Age, String.Empty);
             }
-            return a;
+            return Age;
         }
         private void Calculate()//ඞCalculate Function containing Calculations for the Calculator and its Equations
         {
