@@ -18,9 +18,13 @@ namespace FirstIteration
 {
     public partial class FRM_Calculator : Form
     {
-        public FRM_Calculator()
+        public FRM_Calculator(string id)
         {
             InitializeComponent();
+        }
+
+        public FRM_Calculator()
+        {
         }
 
         private bool ValidateCrea()//Validates if Creatine is a Valid Input

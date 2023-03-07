@@ -42,8 +42,7 @@ namespace FirstIteration
         {
             FormStack.Forms.Push(this);
             this.Hide();
-            //FRM_Calculator Calculator = new FRM_Calculator();
-            FRM_DrMain Calculator = new FRM_DrMain();
+            FRM_Calculator Calculator = new FRM_Calculator();
             Calculator.Show();
         }
 
@@ -62,8 +61,8 @@ namespace FirstIteration
         private void Login()
         {
             MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
-            MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE username=@username", connection);
-            command.Parameters.AddWithValue("@username", RTB_Username.Text);
+            MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE user_id=@user_id", connection);
+            command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
 
             try
             {
@@ -74,6 +73,7 @@ namespace FirstIteration
                 {
                     reader.Read();
                     string hashedPassword = reader.GetString("password");
+                    string id = reader.GetString("user_id");
                     bool passwordMatches = BCrypt.Net.BCrypt.Verify(RTB_Password.Text, hashedPassword);
 
                     if (passwordMatches)
@@ -84,14 +84,14 @@ namespace FirstIteration
                         {
                             FormStack.Forms.Push(this);
                             this.Hide();
-                            FRM_DrMain DrMain = new FRM_DrMain();
+                            FRM_DrMain DrMain = new FRM_DrMain(id);
                             DrMain.Show();
                         }
                         else if (title == "patient")
                         {
                             FormStack.Forms.Push(this);
                             this.Hide();
-                            FRM_Calculator Calculator = new FRM_Calculator();
+                            FRM_Calculator Calculator = new FRM_Calculator(id);
                             Calculator.Show();
                         }
                         else

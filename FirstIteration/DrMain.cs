@@ -18,9 +18,11 @@ namespace FirstIteration
 {
     public partial class FRM_DrMain : Form
     {
-        public FRM_DrMain()
+        private string id;
+        public FRM_DrMain(string id)
         {
             InitializeComponent();
+            this.id = id;
         }
 
         private void BTN_EditPatient_Click(object sender, EventArgs e)
@@ -164,6 +166,22 @@ namespace FirstIteration
                     break;
             }
             return ValidCSV;
+        }
+
+        public void FRM_DrMain_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show(id);
+            MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
+            MySqlCommand command = new MySqlCommand("SELECT * FROM patients WHERE clinician_id=@clinician_id", connection);
+            command.Parameters.AddWithValue("@clinician_id", id);
+            connection.Open();
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                string user = reader.GetString("user_id");
+                LBX_Patients.Items.Add(user);
+            }
+            connection.Close();
         }
     }
 }
