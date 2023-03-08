@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
@@ -30,23 +31,50 @@ namespace FirstIteration
             this.patient_id = patient_id;
             if (patient_id != null )
             {
-                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=admin;database=calculatorapp;");
+                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
                 MySqlCommand command = new MySqlCommand("SELECT * FROM patients WHERE user_id=@patient_id", connection);
                 command.Parameters.AddWithValue("@patient_id", patient_id);
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    //need to check if these are null
-                    string user_id = reader.GetString("user_id");
-                    string email = reader.GetString("email");
-                    string race = reader.GetString("race");
-                    string gender = reader.GetString("gender");
-                    int height = reader.GetInt32("height");
-                    int weight = reader.GetInt32("weight");
-                    int age = reader.GetInt32("age");
-                    string message = $"User ID: {user_id}\nemail: {email}\nrace: {race}\ngender: {gender}\nheight: {height}\nweight: {weight}\nage: {age}";
-                    MessageBox.Show(message);
+                    // check if the values are null and replace them with 0 if they are
+                    string user_id = reader.IsDBNull(reader.GetOrdinal("user_id")) ? "0" : reader.GetString("user_id");           
+                    string race = reader.IsDBNull(reader.GetOrdinal("race")) ? "0" : reader.GetString("race");
+                    string gender = reader.IsDBNull(reader.GetOrdinal("gender")) ? "0" : reader.GetString("gender");
+                    int height = reader.IsDBNull(reader.GetOrdinal("height")) ? 0 : reader.GetInt32("height");
+                    int weight = reader.IsDBNull(reader.GetOrdinal("weight")) ? 0 : reader.GetInt32("weight");
+                    int age = reader.IsDBNull(reader.GetOrdinal("age")) ? 0 : reader.GetInt32("age");
+                    int creatinine = reader.IsDBNull(reader.GetOrdinal("age")) ? 0 : reader.GetInt32("creatinine");
+
+                    // populate the textboxes with the values
+                    LBL_NHSID.Text = user_id;
+                    string ethnicity = "";
+                    string genderlong = "";
+                    if (race == "B")
+                    {
+                        ethnicity = "Black";
+                    }
+                    else if (race == "O")
+                    {
+                        ethnicity = "Other";
+                    }
+                    
+                    if (gender == "M")
+                    {
+                        genderlong = "Male";
+                    }
+                    else if (gender == "F")
+                    {
+                        genderlong = "Female";
+                    }
+                    CBX_Ethnicity.Text = ethnicity;
+                    CBX_Gender.Text = genderlong;
+                    RTB_Height.Text = height.ToString();
+                    RTB_Weight.Text = weight.ToString();
+                    RTB_Age.Text = age.ToString();
+                    RTB_Creatinine.Text = creatinine.ToString();
+                    RBN_umolL.Checked = true;
                 }
                 connection.Close();
             }

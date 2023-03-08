@@ -60,7 +60,7 @@ namespace FirstIteration
         }
         private void Login()
         {
-            MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=admin;database=calculatorapp;");
+            MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
             MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE user_id=@user_id", connection);
             command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
 

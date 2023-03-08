@@ -52,7 +52,7 @@ namespace FirstIteration
             ofd.Filter = "CSV file (*.csv)|*.csv|All Files (*.*)|*.*";
             if(ofd.ShowDialog() == DialogResult.OK)
             {
-                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=admin;database=calculatorapp;allowLoadLocalInfile=true;");
+                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;allowLoadLocalInfile=true;");
                 MySqlCommand command = connection.CreateCommand();
                 string CSVFile = ofd.FileName;
                 StringBuilder Error = new StringBuilder();
@@ -66,7 +66,7 @@ namespace FirstIteration
                     {
                         CSVdata.Columns.Add(columnName);
                     }
-                    CSVdata.Columns.Add("clinician_id", typeof(int));
+                    CSVdata.Columns.Add("clinician_id", typeof(string));
                     while (!reader.EndOfStream)
                     {
                         string[] rowValues = reader.ReadLine().Split(',');
@@ -130,6 +130,7 @@ namespace FirstIteration
                     }
                 }
                 MessageBox.Show(Error.ToString());
+                GetPatients();
             }
         }
         private Tuple<bool, string> ValidateCSVloop(string Pid, string Gend, string Eth, string age, string Crea, string Clin)// validate the Fields of the Imported CSV as a whole, if one is off the insert/update is skipped
@@ -263,18 +264,7 @@ namespace FirstIteration
 
         public void FRM_DrMain_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(id);
-            MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=admin;database=calculatorapp;");
-            MySqlCommand command = new MySqlCommand("SELECT * FROM patients WHERE user_id=@user_id", connection);
-            command.Parameters.AddWithValue("@user_id", id);
-            connection.Open();
-            MySqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                string user = reader.GetString("user_id");
-                LBX_Patients.Items.Add(user);
-            }
-            connection.Close();
+            GetPatients();
         }
         private void BTN_EditPatient_Click(object sender, EventArgs e)
         {
@@ -291,6 +281,22 @@ namespace FirstIteration
                 MessageBox.Show("Please select a patient record to view");
             }
             
+        }
+
+        private void GetPatients()
+        {
+            MessageBox.Show(id);
+            MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
+            MySqlCommand command1 = new MySqlCommand("SELECT * FROM patients WHERE clinician_id=@clinician_id", connection);
+            command1.Parameters.AddWithValue("@clinician_id", id);
+            connection.Open();
+            MySqlDataReader reader = command1.ExecuteReader();
+            while (reader.Read())
+            {
+                string user = reader.GetString("user_id");
+                LBX_Patients.Items.Add(user);
+            }
+        connection.Close();
         }
     }
 }

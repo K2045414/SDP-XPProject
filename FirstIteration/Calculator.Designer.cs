@@ -53,7 +53,9 @@
             this.LBL_Weight = new System.Windows.Forms.Label();
             this.BTN_Edit = new System.Windows.Forms.Button();
             this.RTB_Age = new System.Windows.Forms.RichTextBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // BTN_Calculate
@@ -317,6 +319,7 @@
             this.Name = "FRM_Calculator";
             this.Text = "Calculator";
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,6 +351,7 @@
         private System.Windows.Forms.RichTextBox RTB_Weight;
         private System.Windows.Forms.Button BTN_MoreInfo;
         private System.Windows.Forms.RichTextBox RTB_Age;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
 
