@@ -73,6 +73,7 @@
             this.BTN_RemovePatient.TabIndex = 3;
             this.BTN_RemovePatient.Text = "Remove selected patient from care";
             this.BTN_RemovePatient.UseVisualStyleBackColor = true;
+            this.BTN_RemovePatient.Click += new System.EventHandler(this.BTN_RemovePatient_Click);
             // 
             // BTN_AddPatient
             // 

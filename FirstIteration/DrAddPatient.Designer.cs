@@ -69,6 +69,7 @@
             this.BTN_SelectPatient.TabIndex = 3;
             this.BTN_SelectPatient.Text = "Add Patient to care";
             this.BTN_SelectPatient.UseVisualStyleBackColor = true;
+            this.BTN_SelectPatient.Click += new System.EventHandler(this.BTN_SelectPatient_Click);
             // 
             // FRM_AddPatient
             // 

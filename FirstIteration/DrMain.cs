@@ -13,6 +13,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static FirstIteration.FRM_Login;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FirstIteration
 {
@@ -21,8 +22,9 @@ namespace FirstIteration
         private string id;
         public FRM_DrMain(string id)
         {
-            InitializeComponent();
+            InitializeComponent();        
             this.id = id;
+            GetPatients();
         }
    
 
@@ -30,7 +32,7 @@ namespace FirstIteration
         {
             FormStack.Forms.Push(this);
             this.Hide();
-            FRM_AddPatient AddPatient = new FRM_AddPatient();
+            FRM_AddPatient AddPatient = new FRM_AddPatient(id);
             AddPatient.Show();
         }
 
@@ -42,8 +44,7 @@ namespace FirstIteration
         }
 
         private void BTN_ImportCSV_Click(object sender, EventArgs e)//Validate stuff
-        {
-            
+        {           
             ImportCSV();
         }
         private void ImportCSV()//run the import
@@ -141,7 +142,7 @@ namespace FirstIteration
                 {
                     if (Eth == "B" || Eth == "O")
                     {
-                        if (Regex.IsMatch(age, @"^[0-9]+$"))
+                        if (Regex.IsMatch(age, @"^[0-9]+$") && (Int32.Parse(age) <= 100 && Int32.Parse(age) >= 18))
                         {
                             if (Regex.IsMatch(Crea, @"^[0-9]+$"))
                             {
@@ -264,7 +265,7 @@ namespace FirstIteration
 
         public void FRM_DrMain_Load(object sender, EventArgs e)
         {
-            GetPatients();
+            
         }
         private void BTN_EditPatient_Click(object sender, EventArgs e)
         {
@@ -283,9 +284,9 @@ namespace FirstIteration
             
         }
 
-        private void GetPatients()
+        public void GetPatients()
         {
-            MessageBox.Show(id);
+            LBX_Patients.Items.Clear();
             MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
             MySqlCommand command1 = new MySqlCommand("SELECT * FROM patients WHERE clinician_id=@clinician_id", connection);
             command1.Parameters.AddWithValue("@clinician_id", id);
@@ -297,6 +298,40 @@ namespace FirstIteration
                 LBX_Patients.Items.Add(user);
             }
         connection.Close();
+        }
+
+        private void BTN_RemovePatient_Click(object sender, EventArgs e)
+        {
+            MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
+            MySqlCommand command2 = new MySqlCommand("update patients SET clinician_id = Null WHERE user_id=@patient_id", connection);
+
+            if (LBX_Patients.SelectedIndex >= 0)
+            {
+                string patient_id = LBX_Patients.Text;
+                command2.Parameters.AddWithValue("@patient_id", patient_id);
+
+                DialogResult result = MessageBox.Show("Are you sure you want to remove this patient record?", "Confirmation", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        connection.Open();
+                        command2.ExecuteNonQuery();
+                        connection.Close();
+                        MessageBox.Show("Patient record removed successfully.");
+                        LBX_Patients.Items.Clear();
+                        GetPatients();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a patient record to view");
+            }
         }
     }
 }
