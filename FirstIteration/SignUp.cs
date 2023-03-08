@@ -119,12 +119,12 @@ namespace FirstIteration
         {
             try
             {
-                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
+                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=admin;database=calculatorapp;");
                 MySqlCommand command = connection.CreateCommand();
 
                 // Check if username already exists
-                command.CommandText = "SELECT COUNT(*) FROM users WHERE username = @username;";
-                command.Parameters.AddWithValue("@username", RTB_Username.Text);
+                command.CommandText = "SELECT COUNT(*) FROM users WHERE user_id = @user_id;";
+                command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
                 connection.Open();
                 int existingUserCount = Convert.ToInt32(command.ExecuteScalar());
                 connection.Close();
@@ -136,9 +136,9 @@ namespace FirstIteration
                 }
 
                 // Insert new user
-                command.CommandText = "INSERT INTO users (username, password, title) VALUES (@username, @password, 'patient')";
+                command.CommandText = "INSERT INTO users (user_id, password, title) VALUES (@user_id, @password, 'patient')";
                 command.Parameters.Clear();
-                command.Parameters.AddWithValue("@username", RTB_Username.Text);
+                command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
                 string passwordHash = BCrypt.Net.BCrypt.HashPassword(RTB_Password2.Text);
                 command.Parameters.AddWithValue("@password", passwordHash);
                 connection.Open();

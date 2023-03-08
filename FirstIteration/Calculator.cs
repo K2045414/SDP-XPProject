@@ -20,13 +20,17 @@ namespace FirstIteration
     public partial class FRM_Calculator : Form
     { 
         private readonly string patient_id;
+        public FRM_Calculator()
+        {
+            InitializeComponent();
+        }
         public FRM_Calculator(string patient_id)
         {
             InitializeComponent();
             this.patient_id = patient_id;
             if (patient_id != null )
             {
-                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
+                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=admin;database=calculatorapp;");
                 MySqlCommand command = new MySqlCommand("SELECT * FROM patients WHERE user_id=@patient_id", connection);
                 command.Parameters.AddWithValue("@patient_id", patient_id);
                 connection.Open();
@@ -48,9 +52,6 @@ namespace FirstIteration
             }
         }
 
-        public FRM_Calculator()
-        {
-        }
 
         private bool ValidateCrea()//Validates if Creatine is a Valid Input
         {         

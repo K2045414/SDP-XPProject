@@ -22,7 +22,7 @@ namespace FirstIteration
         private bool ValidateUserName(string VUsername)//Validates UserName
         {
             bool iStatus = false;
-            if (Regex.IsMatch(RTB_Username.Text, @"^[0-9A-Z]+$") && (VUsername.Length == 10 || VUsername.Length == 8))
+            if (Regex.IsMatch(RTB_Username.Text, @"^[0-9A-Z]+$") && (VUsername.Length == 10))
             {
                 iStatus = true;
             }
@@ -60,7 +60,7 @@ namespace FirstIteration
         }
         private void Login()
         {
-            MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
+            MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=admin;database=calculatorapp;");
             MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE user_id=@user_id", connection);
             command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
 
