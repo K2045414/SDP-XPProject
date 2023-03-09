@@ -43,28 +43,25 @@
             // 
             // RTB_Username
             // 
-            this.RTB_Username.Location = new System.Drawing.Point(138, 268);
-            this.RTB_Username.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RTB_Username.Location = new System.Drawing.Point(92, 174);
             this.RTB_Username.Name = "RTB_Username";
-            this.RTB_Username.Size = new System.Drawing.Size(342, 82);
+            this.RTB_Username.Size = new System.Drawing.Size(229, 55);
             this.RTB_Username.TabIndex = 0;
             this.RTB_Username.Text = "";
             // 
             // RTB_Password
             // 
-            this.RTB_Password.Location = new System.Drawing.Point(138, 380);
-            this.RTB_Password.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RTB_Password.Location = new System.Drawing.Point(92, 247);
             this.RTB_Password.Name = "RTB_Password";
-            this.RTB_Password.Size = new System.Drawing.Size(342, 82);
+            this.RTB_Password.Size = new System.Drawing.Size(229, 55);
             this.RTB_Password.TabIndex = 1;
             this.RTB_Password.Text = "";
             // 
             // BTN_Login
             // 
-            this.BTN_Login.Location = new System.Drawing.Point(24, 512);
-            this.BTN_Login.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BTN_Login.Location = new System.Drawing.Point(16, 333);
             this.BTN_Login.Name = "BTN_Login";
-            this.BTN_Login.Size = new System.Drawing.Size(192, 103);
+            this.BTN_Login.Size = new System.Drawing.Size(128, 67);
             this.BTN_Login.TabIndex = 2;
             this.BTN_Login.Text = "Login";
             this.BTN_Login.UseVisualStyleBackColor = true;
@@ -72,10 +69,9 @@
             // 
             // BTN_Calculate
             // 
-            this.BTN_Calculate.Location = new System.Drawing.Point(288, 155);
-            this.BTN_Calculate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BTN_Calculate.Location = new System.Drawing.Point(192, 101);
             this.BTN_Calculate.Name = "BTN_Calculate";
-            this.BTN_Calculate.Size = new System.Drawing.Size(194, 103);
+            this.BTN_Calculate.Size = new System.Drawing.Size(129, 67);
             this.BTN_Calculate.TabIndex = 3;
             this.BTN_Calculate.Text = "Calculator";
             this.BTN_Calculate.UseVisualStyleBackColor = true;
@@ -84,19 +80,17 @@
             // LBL_Title
             // 
             this.LBL_Title.AutoSize = true;
-            this.LBL_Title.Location = new System.Drawing.Point(231, 75);
-            this.LBL_Title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_Title.Location = new System.Drawing.Point(154, 49);
             this.LBL_Title.Name = "LBL_Title";
-            this.LBL_Title.Size = new System.Drawing.Size(52, 20);
+            this.LBL_Title.Size = new System.Drawing.Size(37, 13);
             this.LBL_Title.TabIndex = 4;
             this.LBL_Title.Text = "TITLE";
             // 
             // BTN_SignUp
             // 
-            this.BTN_SignUp.Location = new System.Drawing.Point(290, 512);
-            this.BTN_SignUp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BTN_SignUp.Location = new System.Drawing.Point(193, 333);
             this.BTN_SignUp.Name = "BTN_SignUp";
-            this.BTN_SignUp.Size = new System.Drawing.Size(192, 103);
+            this.BTN_SignUp.Size = new System.Drawing.Size(128, 67);
             this.BTN_SignUp.TabIndex = 5;
             this.BTN_SignUp.Text = "Sign Up";
             this.BTN_SignUp.UseVisualStyleBackColor = true;
@@ -105,20 +99,19 @@
             // LBL_Login
             // 
             this.LBL_Login.AutoSize = true;
-            this.LBL_Login.Location = new System.Drawing.Point(20, 295);
-            this.LBL_Login.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_Login.Location = new System.Drawing.Point(13, 192);
             this.LBL_Login.Name = "LBL_Login";
-            this.LBL_Login.Size = new System.Drawing.Size(107, 20);
+            this.LBL_Login.Size = new System.Drawing.Size(73, 13);
             this.LBL_Login.TabIndex = 6;
             this.LBL_Login.Text = "NHS Number:";
             // 
             // LBL_Password
             // 
             this.LBL_Password.AutoSize = true;
-            this.LBL_Password.Location = new System.Drawing.Point(36, 412);
-            this.LBL_Password.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_Password.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LBL_Password.Location = new System.Drawing.Point(24, 268);
             this.LBL_Password.Name = "LBL_Password";
-            this.LBL_Password.Size = new System.Drawing.Size(82, 20);
+            this.LBL_Password.Size = new System.Drawing.Size(56, 13);
             this.LBL_Password.TabIndex = 7;
             this.LBL_Password.Text = "Password:";
             // 
@@ -130,9 +123,11 @@
             // 
             // FRM_Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 692);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(351, 450);
             this.Controls.Add(this.LBL_Password);
             this.Controls.Add(this.LBL_Login);
             this.Controls.Add(this.BTN_SignUp);
@@ -141,9 +136,12 @@
             this.Controls.Add(this.BTN_Login);
             this.Controls.Add(this.RTB_Password);
             this.Controls.Add(this.RTB_Username);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "FRM_Login";
             this.Text = "Login";
+            this.TopMost = true;
+            this.TransparencyKey = System.Drawing.Color.Fuchsia;
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

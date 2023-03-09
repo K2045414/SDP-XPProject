@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.BTN_Calculate = new System.Windows.Forms.Button();
             this.RTB_Creatinine = new System.Windows.Forms.RichTextBox();
-            this.LBL_NHSID = new System.Windows.Forms.Label();
+            this.LBL_Title = new System.Windows.Forms.Label();
             this.CBX_Ethnicity = new System.Windows.Forms.ComboBox();
             this.CBX_Gender = new System.Windows.Forms.ComboBox();
             this.CBX_Calculation = new System.Windows.Forms.ComboBox();
@@ -53,9 +53,7 @@
             this.LBL_Weight = new System.Windows.Forms.Label();
             this.BTN_Edit = new System.Windows.Forms.Button();
             this.RTB_Age = new System.Windows.Forms.RichTextBox();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // BTN_Calculate
@@ -76,14 +74,13 @@
             this.RTB_Creatinine.TabIndex = 2;
             this.RTB_Creatinine.Text = "";
             // 
-            // LBL_NHSID
+            // LBL_Title
             // 
-            this.LBL_NHSID.AutoSize = true;
-            this.LBL_NHSID.Location = new System.Drawing.Point(152, 22);
-            this.LBL_NHSID.Name = "LBL_NHSID";
-            this.LBL_NHSID.Size = new System.Drawing.Size(44, 13);
-            this.LBL_NHSID.TabIndex = 6;
-            this.LBL_NHSID.Text = "NHS ID";
+            this.LBL_Title.Location = new System.Drawing.Point(86, 22);
+            this.LBL_Title.Name = "LBL_Title";
+            this.LBL_Title.Size = new System.Drawing.Size(208, 24);
+            this.LBL_Title.TabIndex = 6;
+            this.LBL_Title.Text = "Calculator";
             // 
             // CBX_Ethnicity
             // 
@@ -119,6 +116,7 @@
             this.CBX_Calculation.Name = "CBX_Calculation";
             this.CBX_Calculation.Size = new System.Drawing.Size(227, 21);
             this.CBX_Calculation.TabIndex = 17;
+            this.CBX_Calculation.Text = "MDRD";
             this.CBX_Calculation.SelectedIndexChanged += new System.EventHandler(this.CBX_Calculation_SelectedIndexChanged);
             // 
             // RTB_eGFR
@@ -225,12 +223,13 @@
             // 
             // BTN_MoreInfo
             // 
-            this.BTN_MoreInfo.Location = new System.Drawing.Point(15, 482);
+            this.BTN_MoreInfo.Location = new System.Drawing.Point(22, 482);
             this.BTN_MoreInfo.Name = "BTN_MoreInfo";
             this.BTN_MoreInfo.Size = new System.Drawing.Size(349, 52);
             this.BTN_MoreInfo.TabIndex = 29;
             this.BTN_MoreInfo.Text = "See what to do next";
             this.BTN_MoreInfo.UseVisualStyleBackColor = true;
+            this.BTN_MoreInfo.Visible = false;
             this.BTN_MoreInfo.Click += new System.EventHandler(this.BTN_MoreInfo_Click);
             // 
             // LBL_Height
@@ -279,6 +278,8 @@
             this.BTN_Edit.TabIndex = 34;
             this.BTN_Edit.Text = "Edit";
             this.BTN_Edit.UseVisualStyleBackColor = true;
+            this.BTN_Edit.Visible = false;
+            this.BTN_Edit.Click += new System.EventHandler(this.BTN_Edit_Click);
             // 
             // RTB_Age
             // 
@@ -313,13 +314,12 @@
             this.Controls.Add(this.CBX_Calculation);
             this.Controls.Add(this.CBX_Gender);
             this.Controls.Add(this.CBX_Ethnicity);
-            this.Controls.Add(this.LBL_NHSID);
+            this.Controls.Add(this.LBL_Title);
             this.Controls.Add(this.RTB_Creatinine);
             this.Controls.Add(this.BTN_Calculate);
             this.Name = "FRM_Calculator";
             this.Text = "Calculator";
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,7 +329,7 @@
 
         private System.Windows.Forms.Button BTN_Calculate;
         private System.Windows.Forms.RichTextBox RTB_Creatinine;
-        private System.Windows.Forms.Label LBL_NHSID;
+        private System.Windows.Forms.Label LBL_Title;
         private System.Windows.Forms.ComboBox CBX_Ethnicity;
         private System.Windows.Forms.ComboBox CBX_Gender;
         private System.Windows.Forms.ComboBox CBX_Calculation;
@@ -351,7 +351,6 @@
         private System.Windows.Forms.RichTextBox RTB_Weight;
         private System.Windows.Forms.Button BTN_MoreInfo;
         private System.Windows.Forms.RichTextBox RTB_Age;
-        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
 

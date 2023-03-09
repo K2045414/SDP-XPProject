@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
@@ -19,7 +20,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 namespace FirstIteration
 {
     public partial class FRM_Calculator : Form
-    { 
+    {
         private readonly string patient_id;
         public FRM_Calculator()
         {
@@ -29,8 +30,21 @@ namespace FirstIteration
         {
             InitializeComponent();
             this.patient_id = patient_id;
-            if (patient_id != null )
+
+            if (patient_id != null)
             {
+                BTN_Edit.Visible = true;
+                RTB_Creatinine.Enabled = false;
+                RBN_mgdL.Enabled = false;
+                RBN_umolL.Enabled = false;
+                RTB_Age.Enabled = false;
+                CBX_Gender.Enabled = false;
+                CBX_Ethnicity.Enabled = false;
+                CBX_Calculation.Enabled = false;
+                RTB_Weight.Enabled = false;
+                RTB_Height.Enabled = false;
+                RTB_eGFR.Enabled = false;
+
                 MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
                 MySqlCommand command = new MySqlCommand("SELECT * FROM patients WHERE user_id=@patient_id", connection);
                 command.Parameters.AddWithValue("@patient_id", patient_id);
@@ -39,7 +53,7 @@ namespace FirstIteration
                 while (reader.Read())
                 {
                     // check if the values are null and replace them with 0 if they are
-                    string user_id = reader.IsDBNull(reader.GetOrdinal("user_id")) ? "0" : reader.GetString("user_id");           
+                    string user_id = reader.IsDBNull(reader.GetOrdinal("user_id")) ? "0" : reader.GetString("user_id");
                     string race = reader.IsDBNull(reader.GetOrdinal("race")) ? "0" : reader.GetString("race");
                     string gender = reader.IsDBNull(reader.GetOrdinal("gender")) ? "0" : reader.GetString("gender");
                     int height = reader.IsDBNull(reader.GetOrdinal("height")) ? 0 : reader.GetInt32("height");
@@ -47,8 +61,6 @@ namespace FirstIteration
                     int age = reader.IsDBNull(reader.GetOrdinal("age")) ? 0 : reader.GetInt32("age");
                     int creatinine = reader.IsDBNull(reader.GetOrdinal("age")) ? 0 : reader.GetInt32("creatinine");
 
-                    // populate the textboxes with the values
-                    LBL_NHSID.Text = user_id;
                     string ethnicity = "";
                     string genderlong = "";
                     if (race == "B")
@@ -59,7 +71,7 @@ namespace FirstIteration
                     {
                         ethnicity = "Other";
                     }
-                    
+
                     if (gender == "M")
                     {
                         genderlong = "Male";
@@ -77,12 +89,13 @@ namespace FirstIteration
                     RBN_umolL.Checked = true;
                 }
                 connection.Close();
+                LBL_Title.Text = "Calculator: " + patient_id;
             }
         }
 
 
         private bool ValidateCrea()//Validates if Creatine is a Valid Input
-        {         
+        {
             bool bStatus = false;
             if (Regex.IsMatch(RTB_Creatinine.Text, @"^[0-9]+$"))
             {
@@ -158,6 +171,7 @@ namespace FirstIteration
                 if (ValidCrea == true && ValidWeight == true && ValidHeight == true && ValidAge != 999)
                 {
                     Calculate();
+                    UpdateDatabase();
                 }
             }
             else if (CBX_Calculation.Text == "MDRD" || CBX_Calculation.Text == "CKDEPI")
@@ -165,22 +179,23 @@ namespace FirstIteration
                 if (ValidCrea == true && ValidAge != 999)
                 {
                     Calculate();
+                    UpdateDatabase();
                 }
             }
-                
+
         }
         private int CalculateAge()//Calculates Age then runs ValidateAge Function, Returns '999' as an error code
         {
             int Age = Int32.Parse(RTB_Age.Text);
-            
+
             bool VAge = ValidateAge(Age);
             if (VAge == false)
             {
                 ERR_Validation.SetError(RTB_Age, "These calculations are only accurate if you are over 18 or under 100");
                 Age = 999;
             }
-            else 
-            { 
+            else
+            {
                 ERR_Validation.SetError(RTB_Age, String.Empty);
             }
             return Age;
@@ -201,39 +216,41 @@ namespace FirstIteration
             }
             int Age = CalculateAge();
 
-                string Gender = CBX_Gender.Text;
-                string Ethnicity = CBX_Ethnicity.Text;
+            string Gender = CBX_Gender.Text;
+            string Ethnicity = CBX_Ethnicity.Text;
 
-                if (CBX_Calculation.Text == "MDRD")
-                {
-                    double eGFR_MDRD = MDRD(Creatinineumol, Age, Gender, Ethnicity);
-                    RTB_eGFR.Text = "MDRD " + eGFR_MDRD;
-                }
-                else if (CBX_Calculation.Text == "CKDEPI")
-                {
-                    double eGFR_CKDEPI = CKDEPI(Creatininemgdl, Age, Gender, Ethnicity);
-                    RTB_eGFR.Text = "CKDEPI: " + eGFR_CKDEPI;
-                }
-                else if (CBX_Calculation.Text == "Cockroft-Gault")
-                {
-                    double Weight = double.Parse(RTB_Weight.Text);
-                    double Height = double.Parse(RTB_Height.Text);
-                    double eGFR_Cockroft = Cockroft(Creatininemgdl, Age, Weight, Height, Gender);
-                    RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft;
-                }
-                else if (CBX_Calculation.Text == "All")
-                {
-                    double eGFR_MDRD = MDRD(Creatinineumol, Age, Gender, Ethnicity);
-                    double eGFR_CKDEPI = CKDEPI(Creatininemgdl, Age, Gender, Ethnicity);
-                    double Weight = double.Parse(RTB_Weight.Text);
-                    double Height = double.Parse(RTB_Height.Text);
-                    double eGFR_Cockroft = Cockroft(Creatininemgdl, Age, Weight, Height, Gender);
-                    RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft + " CKDEPI: " + eGFR_CKDEPI + " MDRD " + eGFR_MDRD;
-                }
-                else
-                {
-                    MessageBox.Show("Please Select a Calculation");
-                }
+            if (CBX_Calculation.Text == "MDRD")
+            {
+                double eGFR_MDRD = MDRD(Creatinineumol, Age, Gender, Ethnicity);
+                RTB_eGFR.Text = "MDRD " + eGFR_MDRD;
+            }
+            else if (CBX_Calculation.Text == "CKDEPI")
+            {
+                double eGFR_CKDEPI = CKDEPI(Creatininemgdl, Age, Gender, Ethnicity);
+                RTB_eGFR.Text = "CKDEPI: " + eGFR_CKDEPI;
+            }
+            else if (CBX_Calculation.Text == "Cockroft-Gault")
+            {
+                double Weight = double.Parse(RTB_Weight.Text);
+                double Height = double.Parse(RTB_Height.Text);
+                double eGFR_Cockroft = Cockroft(Creatininemgdl, Age, Weight, Height, Gender);
+                RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft;
+            }
+            else if (CBX_Calculation.Text == "All")
+            {
+                double eGFR_MDRD = MDRD(Creatinineumol, Age, Gender, Ethnicity);
+                double eGFR_CKDEPI = CKDEPI(Creatininemgdl, Age, Gender, Ethnicity);
+                double Weight = double.Parse(RTB_Weight.Text);
+                double Height = double.Parse(RTB_Height.Text);
+                double eGFR_Cockroft = Cockroft(Creatininemgdl, Age, Weight, Height, Gender);
+                RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft + " CKDEPI: " + eGFR_CKDEPI + " MDRD " + eGFR_MDRD;
+            }
+            else
+            {
+                MessageBox.Show("Please Select a Calculation");
+            }
+            BTN_MoreInfo.Visible = true;
+
 
         }
         public double MDRD(double Creatinineumol, int Age, string Gender, string Ethnicity)//Function for MDRD Equation
@@ -284,13 +301,13 @@ namespace FirstIteration
         {
             double g = 1;
             if (Gender == "Female")
-            { 
+            {
                 g = 0.85;
             }
             //The eGFRC-G(ml / min) was adjusted to BSA(modified C-G) to obtain eGFRmC - G(ml / min per 1.73 m2): eGFRmC - G = eGFRC - G × 1.73 / BSA.
             double BSA = 0.0167 * Math.Pow(Height, 0.5) * Math.Pow(Weight, 0.5);
-            double GFR = ((140 - Age) * (Weight * g) / (72 * Creatininemgdl)) * (1.73/BSA);
-            return GFR;   
+            double GFR = ((140 - Age) * (Weight * g) / (72 * Creatininemgdl)) * (1.73 / BSA);
+            return GFR;
         }
 
         private void RBN_mgdL_CheckedChanged(object sender, EventArgs e)
@@ -326,7 +343,7 @@ namespace FirstIteration
 
         private void CBX_Calculation_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(CBX_Calculation.Text == "Cockroft-Gault")
+            if (CBX_Calculation.Text == "Cockroft-Gault")
             {
                 LBL_Weight.Visible = true;
                 LBL_Height.Visible = true;
@@ -347,6 +364,57 @@ namespace FirstIteration
                 RTB_Height.Visible = false;
                 RTB_Weight.Visible = false;
             }
+        }
+
+        private void BTN_Edit_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to edit this form?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                RTB_Creatinine.Enabled = true;
+                RBN_mgdL.Enabled = true;
+                RBN_umolL.Enabled = true;
+                RTB_Age.Enabled = true;
+                CBX_Gender.Enabled = true;
+                CBX_Ethnicity.Enabled = true;
+                CBX_Calculation.Enabled = true;
+                RTB_Weight.Enabled = true;
+                RTB_Height.Enabled = true;
+                RTB_eGFR.Enabled = true;
+            }
+        }
+        private void UpdateDatabase()
+        {
+            MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
+            MySqlCommand command = new MySqlCommand("UPDATE patients SET race = @race, gender = @gender, height = @height, weight = @weight, age = @age, creatinine = @creatinine WHERE user_id = @user_id", connection);
+            char SmallEthnicity = 'A';
+            char SmallGender = 'B';
+            if(CBX_Ethnicity.Text == "Black")
+            {
+                SmallEthnicity = 'B';
+            }
+            else if(CBX_Ethnicity.Text == "Other")
+            {
+                SmallEthnicity = 'O';
+            }
+            if (CBX_Gender.Text == "Male")
+            {
+                SmallGender = 'M';
+            }
+            else if (CBX_Gender.Text == "Female")
+            {
+                SmallGender = 'F';
+            }
+            command.Parameters.AddWithValue("@user_id", patient_id);
+            command.Parameters.AddWithValue("@race", SmallEthnicity);
+            command.Parameters.AddWithValue("@gender", SmallGender);
+            command.Parameters.AddWithValue("@height", RTB_Height.Text);
+            command.Parameters.AddWithValue("@weight", RTB_Weight.Text);
+            command.Parameters.AddWithValue("@age", RTB_Age.Text);
+            command.Parameters.AddWithValue("@creatinine", RTB_Creatinine.Text);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }

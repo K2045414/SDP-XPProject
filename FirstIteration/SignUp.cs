@@ -119,7 +119,7 @@ namespace FirstIteration
         {
             try
             {
-                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=admin;database=calculatorapp;");
+                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
                 MySqlCommand command = connection.CreateCommand();
 
                 // Check if username already exists
