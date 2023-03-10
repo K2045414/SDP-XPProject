@@ -117,4 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="RTB_Resources.Text" xml:space="preserve">
+    <value>THESE ARE EXAMPLE LINKS - FILL WITH ACCURATE ONES
+https://www.davita.com/education/kidney-disease/stages
+https://ukkidney.org/health-professionals/information-resources/uk-eckd-guide/ckd-stages
+https://www.nhs.uk/conditions/kidney-disease/diagnosis/
+https://www.kidneyfund.org/all-about-kidneys/stages-kidney-disease</value>
+  </data>
 </root>

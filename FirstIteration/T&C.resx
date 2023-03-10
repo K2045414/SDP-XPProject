@@ -117,4 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="RTB_TandC.Text" xml:space="preserve">
+    <value>Robust Software Solutions holds the right to pursue litigation against the client, in the event the application is modified, distributed, or exchanged. You may not attempt to break into, modify, obstruct the application or hosting infrastructure. Only necessary information to the function of the app will be recorded. You hereby consent to the storage and interaction of your requested personal information by Robust Software Solutions. You revoke your right to pursue litigation against the health organization in the event of a data breach.  Issues, controversies, and concerns will be remediated following legal procedures.  
+
+  
+
+Robust Software Solutions reserves the right to cancel, withhold, or modify the transaction of software between the client and the provider. Robust Software Solutions hold the right to store your requested personal data in the event of product unavailability. The Health Application is licensed, not sold and is protected by domestic and international copyright intellectual property laws. You may identify and correct software errors prior to purchasing the license. The health application will adhere to data protection guidelines established by the GDPR Compliancy (EU), and Data Protection Act (UK). </value>
+  </data>
 </root>

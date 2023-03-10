@@ -200,7 +200,7 @@ namespace FirstIteration
             }
             return Age;
         }
-        private void Calculate()//ඞCalculate Function containing Calculations for the Calculator and its Equations
+        private double Calculate()//ඞCalculate Function containing Calculations for the Calculator and its Equations
         {
             double Creatinine = double.Parse(RTB_Creatinine.Text);
             double Creatinineumol = Creatinine;
@@ -222,7 +222,9 @@ namespace FirstIteration
             if (CBX_Calculation.Text == "MDRD")
             {
                 double eGFR_MDRD = MDRD(Creatinineumol, Age, Gender, Ethnicity);
-                RTB_eGFR.Text = "MDRD " + eGFR_MDRD;
+                RTB_eGFR.Text = "MDRD " + eGFR_MDRD;             
+                BTN_MoreInfo.Visible = true;
+                return eGFR_MDRD;
             }
             else if (CBX_Calculation.Text == "CKDEPI")
             {
@@ -244,12 +246,14 @@ namespace FirstIteration
                 double Height = double.Parse(RTB_Height.Text);
                 double eGFR_Cockroft = Cockroft(Creatininemgdl, Age, Weight, Height, Gender);
                 RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft + " CKDEPI: " + eGFR_CKDEPI + " MDRD " + eGFR_MDRD;
+                return eGFR_MDRD;
             }
             else
             {
                 MessageBox.Show("Please Select a Calculation");
             }
-            BTN_MoreInfo.Visible = true;
+            return 0;
+            
 
 
         }
@@ -335,10 +339,11 @@ namespace FirstIteration
 
         private void BTN_MoreInfo_Click(object sender, EventArgs e)
         {
+            double eGFR = Calculate();
             FormStack.Forms.Push(this);
             this.Hide();
-            FRM_MoreInfo MoreInfo = new FRM_MoreInfo();
-            MoreInfo.Show();
+            FRM_MoreInfo MoreInfo = new FRM_MoreInfo(eGFR);
+            MoreInfo.Show();      
         }
 
         private void CBX_Calculation_SelectedIndexChanged(object sender, EventArgs e)
@@ -349,6 +354,7 @@ namespace FirstIteration
                 LBL_Height.Visible = true;
                 RTB_Height.Visible = true;
                 RTB_Weight.Visible = true;
+                BTN_MoreInfo.Visible = false;
             }
             else if (CBX_Calculation.Text == "All")
             {
@@ -356,6 +362,11 @@ namespace FirstIteration
                 LBL_Height.Visible = true;
                 RTB_Height.Visible = true;
                 RTB_Weight.Visible = true;
+                BTN_MoreInfo.Visible = true; 
+            }
+            else if (CBX_Calculation.Text == "MDRD")
+            {
+                BTN_MoreInfo.Visible = true;
             }
             else
             {
@@ -363,6 +374,7 @@ namespace FirstIteration
                 LBL_Height.Visible = false;
                 RTB_Height.Visible = false;
                 RTB_Weight.Visible = false;
+                BTN_MoreInfo.Visible = false;
             }
         }
 
@@ -389,7 +401,8 @@ namespace FirstIteration
             MySqlCommand command = new MySqlCommand("UPDATE patients SET race = @race, gender = @gender, height = @height, weight = @weight, age = @age, creatinine = @creatinine WHERE user_id = @user_id", connection);
             char SmallEthnicity = 'A';
             char SmallGender = 'B';
-            if(CBX_Ethnicity.Text == "Black")
+            double Convertedmgdl = 0;
+            if (CBX_Ethnicity.Text == "Black")
             {
                 SmallEthnicity = 'B';
             }
@@ -405,13 +418,21 @@ namespace FirstIteration
             {
                 SmallGender = 'F';
             }
+            if (RBN_mgdL.Checked)
+            {
+                Convertedmgdl = Int32.Parse(RTB_Creatinine.Text) * 88.4;
+            }
+            else
+            {
+                Convertedmgdl = Int32.Parse(RTB_Creatinine.Text);
+            }
             command.Parameters.AddWithValue("@user_id", patient_id);
             command.Parameters.AddWithValue("@race", SmallEthnicity);
             command.Parameters.AddWithValue("@gender", SmallGender);
             command.Parameters.AddWithValue("@height", RTB_Height.Text);
             command.Parameters.AddWithValue("@weight", RTB_Weight.Text);
             command.Parameters.AddWithValue("@age", RTB_Age.Text);
-            command.Parameters.AddWithValue("@creatinine", RTB_Creatinine.Text);
+            command.Parameters.AddWithValue("@creatinine", Convertedmgdl);
             connection.Open();
             command.ExecuteNonQuery();
             connection.Close();

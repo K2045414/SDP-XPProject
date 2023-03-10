@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Terms));
             this.RTB_TandC = new System.Windows.Forms.RichTextBox();
             this.LBL_Title = new System.Windows.Forms.Label();
             this.BTN_Back = new System.Windows.Forms.Button();
@@ -37,9 +38,9 @@
             // 
             this.RTB_TandC.Location = new System.Drawing.Point(22, 63);
             this.RTB_TandC.Name = "RTB_TandC";
-            this.RTB_TandC.Size = new System.Drawing.Size(431, 313);
+            this.RTB_TandC.Size = new System.Drawing.Size(431, 276);
             this.RTB_TandC.TabIndex = 0;
-            this.RTB_TandC.Text = "";
+            this.RTB_TandC.Text = resources.GetString("RTB_TandC.Text");
             // 
             // LBL_Title
             // 
@@ -52,7 +53,7 @@
             // 
             // BTN_Back
             // 
-            this.BTN_Back.Location = new System.Drawing.Point(25, 382);
+            this.BTN_Back.Location = new System.Drawing.Point(175, 365);
             this.BTN_Back.Name = "BTN_Back";
             this.BTN_Back.Size = new System.Drawing.Size(129, 56);
             this.BTN_Back.TabIndex = 2;

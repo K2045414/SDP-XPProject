@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_MoreInfo));
             this.LBL_eGFR = new System.Windows.Forms.Label();
             this.RTB_eGFR = new System.Windows.Forms.RichTextBox();
             this.RTB_CKD1 = new System.Windows.Forms.RichTextBox();
@@ -79,7 +80,7 @@
             this.RTB_CKD1.Name = "RTB_CKD1";
             this.RTB_CKD1.Size = new System.Drawing.Size(117, 55);
             this.RTB_CKD1.TabIndex = 2;
-            this.RTB_CKD1.Text = "";
+            this.RTB_CKD1.Text = "Stage 1 with normal or high GFR\nNormal and high";
             // 
             // RTB_eGFR1
             // 
@@ -87,7 +88,7 @@
             this.RTB_eGFR1.Name = "RTB_eGFR1";
             this.RTB_eGFR1.Size = new System.Drawing.Size(117, 55);
             this.RTB_eGFR1.TabIndex = 3;
-            this.RTB_eGFR1.Text = "";
+            this.RTB_eGFR1.Text = "GFR > 90 ml/min";
             // 
             // RTB_Desc1
             // 
@@ -95,7 +96,7 @@
             this.RTB_Desc1.Name = "RTB_Desc1";
             this.RTB_Desc1.Size = new System.Drawing.Size(216, 55);
             this.RTB_Desc1.TabIndex = 4;
-            this.RTB_Desc1.Text = "";
+            this.RTB_Desc1.Text = "- Mild kidney damage\n- Kidney work as well as normal";
             // 
             // RTB_CKD2
             // 
@@ -103,7 +104,7 @@
             this.RTB_CKD2.Name = "RTB_CKD2";
             this.RTB_CKD2.Size = new System.Drawing.Size(117, 55);
             this.RTB_CKD2.TabIndex = 5;
-            this.RTB_CKD2.Text = "";
+            this.RTB_CKD2.Text = "Stage 2 Mild CKD\nMild reduction related to normal range for a young adult";
             // 
             // RTB_eGFR2
             // 
@@ -111,7 +112,7 @@
             this.RTB_eGFR2.Name = "RTB_eGFR2";
             this.RTB_eGFR2.Size = new System.Drawing.Size(117, 55);
             this.RTB_eGFR2.TabIndex = 6;
-            this.RTB_eGFR2.Text = "";
+            this.RTB_eGFR2.Text = "GFR = 60-89 ml/min";
             // 
             // RTB_CKD3
             // 
@@ -119,7 +120,7 @@
             this.RTB_CKD3.Name = "RTB_CKD3";
             this.RTB_CKD3.Size = new System.Drawing.Size(117, 55);
             this.RTB_CKD3.TabIndex = 7;
-            this.RTB_CKD3.Text = "";
+            this.RTB_CKD3.Text = "Stage 3A Moderate CKD\nMild-moderate reduction";
             // 
             // RTB_eGFR3
             // 
@@ -127,7 +128,7 @@
             this.RTB_eGFR3.Name = "RTB_eGFR3";
             this.RTB_eGFR3.Size = new System.Drawing.Size(117, 55);
             this.RTB_eGFR3.TabIndex = 8;
-            this.RTB_eGFR3.Text = "";
+            this.RTB_eGFR3.Text = "GFR = 45-59 ml/min";
             // 
             // RTB_CKD4
             // 
@@ -135,7 +136,7 @@
             this.RTB_CKD4.Name = "RTB_CKD4";
             this.RTB_CKD4.Size = new System.Drawing.Size(117, 55);
             this.RTB_CKD4.TabIndex = 9;
-            this.RTB_CKD4.Text = "";
+            this.RTB_CKD4.Text = "Stage 3B Moderate CKD\nModerate-severe reduction";
             // 
             // RTB_eGFR4
             // 
@@ -143,7 +144,7 @@
             this.RTB_eGFR4.Name = "RTB_eGFR4";
             this.RTB_eGFR4.Size = new System.Drawing.Size(117, 55);
             this.RTB_eGFR4.TabIndex = 10;
-            this.RTB_eGFR4.Text = "";
+            this.RTB_eGFR4.Text = "GFR = 30-44 ml/min";
             // 
             // RTB_CKD5
             // 
@@ -151,7 +152,7 @@
             this.RTB_CKD5.Name = "RTB_CKD5";
             this.RTB_CKD5.Size = new System.Drawing.Size(117, 55);
             this.RTB_CKD5.TabIndex = 11;
-            this.RTB_CKD5.Text = "";
+            this.RTB_CKD5.Text = "Stage 4 Severe CKD\nSevere reduction";
             // 
             // RTB_eGFR5
             // 
@@ -159,7 +160,7 @@
             this.RTB_eGFR5.Name = "RTB_eGFR5";
             this.RTB_eGFR5.Size = new System.Drawing.Size(117, 55);
             this.RTB_eGFR5.TabIndex = 12;
-            this.RTB_eGFR5.Text = "";
+            this.RTB_eGFR5.Text = "GFR = 15-29 ml/min";
             // 
             // RTB_CKD6
             // 
@@ -167,7 +168,7 @@
             this.RTB_CKD6.Name = "RTB_CKD6";
             this.RTB_CKD6.Size = new System.Drawing.Size(117, 55);
             this.RTB_CKD6.TabIndex = 13;
-            this.RTB_CKD6.Text = "";
+            this.RTB_CKD6.Text = "Stage 5 End Stage CKD\nKidney failure";
             // 
             // RTB_eGFR6
             // 
@@ -175,7 +176,7 @@
             this.RTB_eGFR6.Name = "RTB_eGFR6";
             this.RTB_eGFR6.Size = new System.Drawing.Size(117, 55);
             this.RTB_eGFR6.TabIndex = 14;
-            this.RTB_eGFR6.Text = "";
+            this.RTB_eGFR6.Text = "GFR = >15 ml/min";
             // 
             // RTB_Desc2
             // 
@@ -183,7 +184,7 @@
             this.RTB_Desc2.Name = "RTB_Desc2";
             this.RTB_Desc2.Size = new System.Drawing.Size(216, 55);
             this.RTB_Desc2.TabIndex = 15;
-            this.RTB_Desc2.Text = "";
+            this.RTB_Desc2.Text = "- Mild kidney damage\n- Kidneys still work well";
             // 
             // RTB_Desc3
             // 
@@ -191,7 +192,7 @@
             this.RTB_Desc3.Name = "RTB_Desc3";
             this.RTB_Desc3.Size = new System.Drawing.Size(216, 55);
             this.RTB_Desc3.TabIndex = 16;
-            this.RTB_Desc3.Text = "";
+            this.RTB_Desc3.Text = "- Mild to moderate kidney damage\n- Kidneys don\'t work as well as they should";
             // 
             // RTB_Desc4
             // 
@@ -199,7 +200,7 @@
             this.RTB_Desc4.Name = "RTB_Desc4";
             this.RTB_Desc4.Size = new System.Drawing.Size(216, 55);
             this.RTB_Desc4.TabIndex = 17;
-            this.RTB_Desc4.Text = "";
+            this.RTB_Desc4.Text = "- Moderate to severe damage\n- Kidneys don\'t work as well as they should";
             // 
             // RTB_Desc5
             // 
@@ -207,7 +208,7 @@
             this.RTB_Desc5.Name = "RTB_Desc5";
             this.RTB_Desc5.Size = new System.Drawing.Size(216, 55);
             this.RTB_Desc5.TabIndex = 18;
-            this.RTB_Desc5.Text = "";
+            this.RTB_Desc5.Text = "- Severe kidney damage\n- Kidneys are close to not working at all";
             // 
             // RTB_Desc6
             // 
@@ -215,15 +216,16 @@
             this.RTB_Desc6.Name = "RTB_Desc6";
             this.RTB_Desc6.Size = new System.Drawing.Size(216, 55);
             this.RTB_Desc6.TabIndex = 19;
-            this.RTB_Desc6.Text = "";
+            this.RTB_Desc6.Text = "- Most severe kidney damage\n- Kidneys are very close to not working or have stopp" +
+    "ed working (failed)";
             // 
             // RTB_Resources
             // 
             this.RTB_Resources.Location = new System.Drawing.Point(12, 513);
             this.RTB_Resources.Name = "RTB_Resources";
-            this.RTB_Resources.Size = new System.Drawing.Size(462, 55);
+            this.RTB_Resources.Size = new System.Drawing.Size(462, 64);
             this.RTB_Resources.TabIndex = 20;
-            this.RTB_Resources.Text = "";
+            this.RTB_Resources.Text = resources.GetString("RTB_Resources.Text");
             // 
             // LBL_CKDStage
             // 
@@ -263,7 +265,7 @@
             // 
             // BTN_Back
             // 
-            this.BTN_Back.Location = new System.Drawing.Point(12, 574);
+            this.BTN_Back.Location = new System.Drawing.Point(12, 583);
             this.BTN_Back.Name = "BTN_Back";
             this.BTN_Back.Size = new System.Drawing.Size(125, 57);
             this.BTN_Back.TabIndex = 25;
@@ -275,7 +277,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 636);
+            this.ClientSize = new System.Drawing.Size(486, 652);
             this.Controls.Add(this.BTN_Back);
             this.Controls.Add(this.LBL_Resources);
             this.Controls.Add(this.LBL_Description);
@@ -304,6 +306,7 @@
             this.Controls.Add(this.LBL_eGFR);
             this.Name = "FRM_MoreInfo";
             this.Text = "More Info";
+            this.Load += new System.EventHandler(this.FRM_MoreInfo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
