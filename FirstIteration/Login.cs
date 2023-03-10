@@ -125,5 +125,37 @@ namespace FirstIteration
             FRM_SignUp SignUp = new FRM_SignUp();
             SignUp.Show();
         }
+
+        private void CBX_Pass_Log_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CBX_Pass_Log.Checked)
+            {
+                RTB_Password.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                RTB_Password.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void LBL_Password_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LBL_Title_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
