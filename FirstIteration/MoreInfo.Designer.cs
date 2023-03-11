@@ -62,13 +62,13 @@
             this.LBL_eGFR.AutoSize = true;
             this.LBL_eGFR.Location = new System.Drawing.Point(52, 32);
             this.LBL_eGFR.Name = "LBL_eGFR";
-            this.LBL_eGFR.Size = new System.Drawing.Size(35, 13);
+            this.LBL_eGFR.Size = new System.Drawing.Size(119, 13);
             this.LBL_eGFR.TabIndex = 0;
-            this.LBL_eGFR.Text = "eGFR";
+            this.LBL_eGFR.Text = "eGFR (mL/min/1.73 m²)";
             // 
             // RTB_eGFR
             // 
-            this.RTB_eGFR.Location = new System.Drawing.Point(115, 12);
+            this.RTB_eGFR.Location = new System.Drawing.Point(178, 12);
             this.RTB_eGFR.Name = "RTB_eGFR";
             this.RTB_eGFR.Size = new System.Drawing.Size(227, 47);
             this.RTB_eGFR.TabIndex = 1;
@@ -88,7 +88,7 @@
             this.RTB_eGFR1.Name = "RTB_eGFR1";
             this.RTB_eGFR1.Size = new System.Drawing.Size(117, 55);
             this.RTB_eGFR1.TabIndex = 3;
-            this.RTB_eGFR1.Text = "GFR > 90 ml/min";
+            this.RTB_eGFR1.Text = "GFR > 90 mL/min/1.73 m²";
             // 
             // RTB_Desc1
             // 
@@ -112,7 +112,7 @@
             this.RTB_eGFR2.Name = "RTB_eGFR2";
             this.RTB_eGFR2.Size = new System.Drawing.Size(117, 55);
             this.RTB_eGFR2.TabIndex = 6;
-            this.RTB_eGFR2.Text = "GFR = 60-89 ml/min";
+            this.RTB_eGFR2.Text = "GFR = 60-89 mL/min/1.73 m²";
             // 
             // RTB_CKD3
             // 
@@ -128,7 +128,7 @@
             this.RTB_eGFR3.Name = "RTB_eGFR3";
             this.RTB_eGFR3.Size = new System.Drawing.Size(117, 55);
             this.RTB_eGFR3.TabIndex = 8;
-            this.RTB_eGFR3.Text = "GFR = 45-59 ml/min";
+            this.RTB_eGFR3.Text = "GFR = 45-59 mL/min/1.73 m²";
             // 
             // RTB_CKD4
             // 
@@ -144,7 +144,7 @@
             this.RTB_eGFR4.Name = "RTB_eGFR4";
             this.RTB_eGFR4.Size = new System.Drawing.Size(117, 55);
             this.RTB_eGFR4.TabIndex = 10;
-            this.RTB_eGFR4.Text = "GFR = 30-44 ml/min";
+            this.RTB_eGFR4.Text = "GFR = 30-44 mL/min/1.73 m²";
             // 
             // RTB_CKD5
             // 
@@ -160,7 +160,7 @@
             this.RTB_eGFR5.Name = "RTB_eGFR5";
             this.RTB_eGFR5.Size = new System.Drawing.Size(117, 55);
             this.RTB_eGFR5.TabIndex = 12;
-            this.RTB_eGFR5.Text = "GFR = 15-29 ml/min";
+            this.RTB_eGFR5.Text = "GFR = 15-29mL/min/1.73 m²";
             // 
             // RTB_CKD6
             // 
@@ -176,7 +176,7 @@
             this.RTB_eGFR6.Name = "RTB_eGFR6";
             this.RTB_eGFR6.Size = new System.Drawing.Size(117, 55);
             this.RTB_eGFR6.TabIndex = 14;
-            this.RTB_eGFR6.Text = "GFR = >15 ml/min";
+            this.RTB_eGFR6.Text = "GFR = >15mL/min/1.73 m²";
             // 
             // RTB_Desc2
             // 

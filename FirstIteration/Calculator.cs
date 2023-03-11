@@ -97,7 +97,7 @@ namespace FirstIteration
         private bool ValidateCrea()//Validates if Creatine is a Valid Input
         {
             bool bStatus = false;
-            if (Regex.IsMatch(RTB_Creatinine.Text, @"^[0-9]+$"))
+            if (Regex.IsMatch(RTB_Creatinine.Text, @"(^\d*\.?\d*[1-9]+\d*$)|(^[1-9]+\d*\.\d*$)"))
             {
                 ERR_Validation.SetError(RTB_Creatinine, String.Empty);
                 bStatus = true;
@@ -150,6 +150,7 @@ namespace FirstIteration
         private bool ValidateAge(int VAge)//Validates if Age is a Valid Input
         {
             bool aStatus = false;
+            
             if (VAge <= 100 && VAge >= 18)// Age needs to be over 18 but under 100, otherwise error
             {
                 aStatus = true;
@@ -186,8 +187,16 @@ namespace FirstIteration
         }
         private int CalculateAge()//Calculates Age then runs ValidateAge Function, Returns '999' as an error code
         {
-            int Age = Int32.Parse(RTB_Age.Text);
-
+            int Age = 0;
+            if(RTB_Age.Text == "")
+            {
+                Age = 999;
+            }
+            else
+            {
+                Age = Int32.Parse(RTB_Age.Text);
+            }
+            
             bool VAge = ValidateAge(Age);
             if (VAge == false)
             {
@@ -218,25 +227,49 @@ namespace FirstIteration
 
             string Gender = CBX_Gender.Text;
             string Ethnicity = CBX_Ethnicity.Text;
-
+            string parentForm = FormStack.Forms.Peek().ToString();
             if (CBX_Calculation.Text == "MDRD")
             {
                 double eGFR_MDRD = MDRD(Creatinineumol, Age, Gender, Ethnicity);
-                RTB_eGFR.Text = "MDRD " + eGFR_MDRD;             
+                if (parentForm == "FirstIteration.FRM_DrMain, Text: Doctor Page")
+                {
+                    eGFR_MDRD = Math.Round(eGFR_MDRD, 3);
+                }
+                else
+                {
+                    eGFR_MDRD = Math.Round(eGFR_MDRD);
+                }
+                RTB_eGFR.Text = "MDRD " + eGFR_MDRD + " mL/min/1.73 m²";             
                 BTN_MoreInfo.Visible = true;
                 return eGFR_MDRD;
             }
             else if (CBX_Calculation.Text == "CKDEPI")
             {
-                double eGFR_CKDEPI = CKDEPI(Creatininemgdl, Age, Gender, Ethnicity);
-                RTB_eGFR.Text = "CKDEPI: " + eGFR_CKDEPI;
+                double eGFR_CKDEPI = CKDEPI(Creatininemgdl, Age, Gender, Ethnicity);             
+                if (parentForm == "FirstIteration.FRM_DrMain, Text: Doctor Page")
+                {
+                    eGFR_CKDEPI = Math.Round(eGFR_CKDEPI, 3);
+                }
+                else
+                {
+                    eGFR_CKDEPI = Math.Round(eGFR_CKDEPI);
+                }
+                RTB_eGFR.Text = "CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²";
             }
             else if (CBX_Calculation.Text == "Cockroft-Gault")
             {
                 double Weight = double.Parse(RTB_Weight.Text);
                 double Height = double.Parse(RTB_Height.Text);
                 double eGFR_Cockroft = Cockroft(Creatininemgdl, Age, Weight, Height, Gender);
-                RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft;
+                if (parentForm == "FirstIteration.FRM_DrMain, Text: Doctor Page")
+                {
+                    eGFR_Cockroft = Math.Round(eGFR_Cockroft, 3);
+                }
+                else
+                {
+                    eGFR_Cockroft = Math.Round(eGFR_Cockroft);
+                }
+                RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²";
             }
             else if (CBX_Calculation.Text == "All")
             {
@@ -245,7 +278,20 @@ namespace FirstIteration
                 double Weight = double.Parse(RTB_Weight.Text);
                 double Height = double.Parse(RTB_Height.Text);
                 double eGFR_Cockroft = Cockroft(Creatininemgdl, Age, Weight, Height, Gender);
-                RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft + " CKDEPI: " + eGFR_CKDEPI + " MDRD " + eGFR_MDRD;
+                if (parentForm == "FirstIteration.FRM_DrMain, Text: Doctor Page")
+                {
+                    eGFR_Cockroft = Math.Round(eGFR_Cockroft,3);
+                    eGFR_CKDEPI = Math.Round(eGFR_CKDEPI,3);
+                    eGFR_MDRD = Math.Round(eGFR_MDRD,3);
+                }
+                else
+                {
+                    eGFR_Cockroft = Math.Round(eGFR_Cockroft);
+                    eGFR_CKDEPI = Math.Round(eGFR_CKDEPI);
+                    eGFR_MDRD = Math.Round(eGFR_MDRD);
+                }
+                RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²" + " CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²" + " MDRD " + eGFR_MDRD + " mL/min/1.73 m²";
+                //do we need to return a value here? the others don't
                 return eGFR_MDRD;
             }
             else
@@ -420,11 +466,11 @@ namespace FirstIteration
             }
             if (RBN_mgdL.Checked)
             {
-                Convertedmgdl = Int32.Parse(RTB_Creatinine.Text) * 88.4;
+                Convertedmgdl = Double.Parse(RTB_Creatinine.Text) * 88.4;
             }
             else
             {
-                Convertedmgdl = Int32.Parse(RTB_Creatinine.Text);
+                Convertedmgdl = Double.Parse(RTB_Creatinine.Text);
             }
             command.Parameters.AddWithValue("@user_id", patient_id);
             command.Parameters.AddWithValue("@race", SmallEthnicity);
