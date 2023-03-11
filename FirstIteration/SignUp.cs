@@ -123,7 +123,7 @@ namespace FirstIteration
                 MySqlCommand command = connection.CreateCommand();
 
                 // Check if username already exists
-                command.CommandText = "SELECT COUNT(*) FROM users WHERE user_id = @user_id;";
+                command.CommandText = "SELECT COUNT(*) FROM patients WHERE user_id = @user_id;";
                 command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
                 connection.Open();
                 int existingUserCount = Convert.ToInt32(command.ExecuteScalar());
