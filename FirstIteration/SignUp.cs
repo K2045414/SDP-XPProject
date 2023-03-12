@@ -122,39 +122,59 @@ namespace FirstIteration
                 MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
                 MySqlCommand command = connection.CreateCommand();
 
-                // Check if username already exists
-                command.CommandText = "SELECT COUNT(*) FROM patients WHERE user_id = @user_id;";
+                // Check if username already exists in users table
+                command.CommandText = "SELECT COUNT(*) FROM users WHERE user_id = @user_id;";
                 command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
                 connection.Open();
                 int existingUserCount = Convert.ToInt32(command.ExecuteScalar());
                 connection.Close();
 
-                if (existingUserCount > 0)
-                {
-                    MessageBox.Show("That NHS ID is already signed up.");
-                    return;
-                }
-
-                // Insert new user
-                command.CommandText = "INSERT INTO users (user_id, password, title) VALUES (@user_id, @password, 'patient')";
-                command.Parameters.Clear();
-                command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
-                string passwordHash = BCrypt.Net.BCrypt.HashPassword(RTB_Password2.Text);
-                command.Parameters.AddWithValue("@password", passwordHash);
+                // Check if username already exists in patients table
+                command.CommandText = "SELECT COUNT(*) FROM patients WHERE user_id = @user_id;";
                 connection.Open();
-                command.ExecuteNonQuery();
+                int existingPatientCount = Convert.ToInt32(command.ExecuteScalar());
                 connection.Close();
 
-                MessageBox.Show("Successfully signed up.");
-                FormStack.Forms.Push(this);
-                this.Hide();
-                FRM_Login Login = new FRM_Login();
-                Login.Show();
+                if (existingUserCount > 0)
+                {
+                    MessageBox.Show("That NHS ID is already in use.");
+                    return;
+                }
+                else
+                {
+                    // Insert new user into users table
+                    command.CommandText = "INSERT INTO users (user_id, password, title) VALUES (@user_id, @password, 'patient')";
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
+                    string passwordHash = BCrypt.Net.BCrypt.HashPassword(RTB_Password2.Text);
+                    command.Parameters.AddWithValue("@password", passwordHash);
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+
+                    if (existingPatientCount == 0)
+                    {
+                        // Insert new user into patients table
+                        command.CommandText = "INSERT INTO patients (user_id) VALUES (@user_id)";
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                    }
+
+                    MessageBox.Show("Successfully signed up.");
+                    FormStack.Forms.Push(this);
+                    this.Hide();
+                    FRM_Login Login = new FRM_Login();
+                    Login.Show();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
         }
 
         private void CBX_Pass_CheckedChanged(object sender, EventArgs e)
