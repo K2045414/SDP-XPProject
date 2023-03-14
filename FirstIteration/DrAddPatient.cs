@@ -77,5 +77,10 @@ namespace FirstIteration
             }
             connection.Close();          
         }
+
+        private void LBL_Title_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

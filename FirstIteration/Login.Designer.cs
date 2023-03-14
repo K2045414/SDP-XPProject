@@ -56,16 +56,17 @@
             this.BTN_Calculate.BackColor = System.Drawing.Color.Transparent;
             this.BTN_Calculate.BackgroundImage = global::FirstIteration.Properties.Resources.Button3;
             this.BTN_Calculate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BTN_Calculate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTN_Calculate.FlatAppearance.BorderSize = 0;
             this.BTN_Calculate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BTN_Calculate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BTN_Calculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_Calculate.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_Calculate.Font = new System.Drawing.Font("Arial", 14F);
             this.BTN_Calculate.ForeColor = System.Drawing.Color.White;
             this.BTN_Calculate.Location = new System.Drawing.Point(206, 439);
             this.BTN_Calculate.Name = "BTN_Calculate";
             this.BTN_Calculate.Size = new System.Drawing.Size(167, 58);
-            this.BTN_Calculate.TabIndex = 3;
+            this.BTN_Calculate.TabIndex = 6;
             this.BTN_Calculate.Text = "CALCULATOR";
             this.BTN_Calculate.UseVisualStyleBackColor = false;
             this.BTN_Calculate.Click += new System.EventHandler(this.BTN_Calculate_Click);
@@ -112,7 +113,7 @@
             // ERR_Validation
             // 
             this.ERR_Validation.BlinkRate = 1;
-            this.ERR_Validation.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.ERR_Validation.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.ERR_Validation.ContainerControl = this;
             // 
             // BTN_SignUp
@@ -120,7 +121,7 @@
             this.BTN_SignUp.BackColor = System.Drawing.Color.Transparent;
             this.BTN_SignUp.BackgroundImage = global::FirstIteration.Properties.Resources.Button3;
             this.BTN_SignUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BTN_SignUp.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BTN_SignUp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTN_SignUp.FlatAppearance.BorderSize = 0;
             this.BTN_SignUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BTN_SignUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -140,6 +141,7 @@
             this.BTN_Login.BackColor = System.Drawing.Color.Transparent;
             this.BTN_Login.BackgroundImage = global::FirstIteration.Properties.Resources.Button3;
             this.BTN_Login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BTN_Login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTN_Login.FlatAppearance.BorderSize = 0;
             this.BTN_Login.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BTN_Login.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -149,7 +151,7 @@
             this.BTN_Login.Location = new System.Drawing.Point(109, 222);
             this.BTN_Login.Name = "BTN_Login";
             this.BTN_Login.Size = new System.Drawing.Size(167, 46);
-            this.BTN_Login.TabIndex = 2;
+            this.BTN_Login.TabIndex = 4;
             this.BTN_Login.Text = "LOGIN";
             this.BTN_Login.UseVisualStyleBackColor = false;
             this.BTN_Login.Click += new System.EventHandler(this.BTN_Login_Click);
@@ -161,34 +163,36 @@
             this.RTB_Password.Font = new System.Drawing.Font("Arial", 16F);
             this.RTB_Password.ForeColor = System.Drawing.Color.White;
             this.RTB_Password.Location = new System.Drawing.Point(33, 125);
-            this.RTB_Password.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RTB_Password.Margin = new System.Windows.Forms.Padding(2);
             this.RTB_Password.Name = "RTB_Password";
             this.RTB_Password.Size = new System.Drawing.Size(327, 32);
-            this.RTB_Password.TabIndex = 8;
+            this.RTB_Password.TabIndex = 2;
             this.RTB_Password.UseSystemPasswordChar = true;
             // 
             // RTB_Username
             // 
             this.RTB_Username.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RTB_Username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RTB_Username.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RTB_Username.Font = new System.Drawing.Font("Arial", 16F);
             this.RTB_Username.ForeColor = System.Drawing.Color.White;
             this.RTB_Username.Location = new System.Drawing.Point(33, 57);
-            this.RTB_Username.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RTB_Username.Margin = new System.Windows.Forms.Padding(2);
             this.RTB_Username.Name = "RTB_Username";
             this.RTB_Username.Size = new System.Drawing.Size(327, 32);
-            this.RTB_Username.TabIndex = 9;
+            this.RTB_Username.TabIndex = 1;
             // 
             // CBX_Pass_Log
             // 
             this.CBX_Pass_Log.AutoSize = true;
             this.CBX_Pass_Log.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CBX_Pass_Log.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBX_Pass_Log.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBX_Pass_Log.ForeColor = System.Drawing.Color.White;
             this.CBX_Pass_Log.Location = new System.Drawing.Point(105, 174);
             this.CBX_Pass_Log.Name = "CBX_Pass_Log";
             this.CBX_Pass_Log.Size = new System.Drawing.Size(180, 29);
-            this.CBX_Pass_Log.TabIndex = 14;
+            this.CBX_Pass_Log.TabIndex = 3;
             this.CBX_Pass_Log.Text = "View Password";
             this.CBX_Pass_Log.UseVisualStyleBackColor = true;
             this.CBX_Pass_Log.CheckedChanged += new System.EventHandler(this.CBX_Pass_Log_CheckedChanged);
@@ -197,13 +201,13 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = global::FirstIteration.Properties.Resources.LogoImg;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.ErrorImage = null;
             this.pictureBox2.InitialImage = null;
             this.pictureBox2.Location = new System.Drawing.Point(0, 2);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(64, 29);
+            this.pictureBox2.Size = new System.Drawing.Size(64, 38);
             this.pictureBox2.TabIndex = 16;
             this.pictureBox2.TabStop = false;
             // 
@@ -215,7 +219,7 @@
             this.panel1.Controls.Add(this.LBL_Title);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Location = new System.Drawing.Point(1, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(415, 46);
             this.panel1.TabIndex = 17;
@@ -236,7 +240,7 @@
             this.panel2.Controls.Add(this.LBL_Password);
             this.panel2.Controls.Add(this.RTB_Password);
             this.panel2.Location = new System.Drawing.Point(16, 60);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(386, 508);
             this.panel2.TabIndex = 18;
@@ -245,7 +249,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pictureBox1.Location = new System.Drawing.Point(33, 304);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(326, 8);
             this.pictureBox1.TabIndex = 16;

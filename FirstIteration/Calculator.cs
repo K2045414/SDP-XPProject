@@ -483,5 +483,25 @@ namespace FirstIteration
             command.ExecuteNonQuery();
             connection.Close();
         }
+
+        private void LBL_eGFR_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RTB_Creatinine_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LBL_Creatinine_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RTB_Height_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

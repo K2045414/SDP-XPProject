@@ -185,5 +185,11 @@
   <ItemGroup>
     <None Include="Resources\BufferImg.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

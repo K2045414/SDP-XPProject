@@ -25,6 +25,7 @@ namespace FirstIteration
             InitializeComponent();        
             this.id = id;
             GetPatients();
+            LBL_Title.Text = "Hello, " + id;
         }
    
 
@@ -332,6 +333,11 @@ namespace FirstIteration
             {
                 MessageBox.Show("Please select a patient record to view");
             }
+        }
+
+        private void LBL_Title_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -93,6 +93,16 @@ namespace FirstIteration.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Button32 {
+            get {
+                object obj = ResourceManager.GetObject("Button32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HeaderImg {
             get {
                 object obj = ResourceManager.GetObject("HeaderImg", resourceCulture);

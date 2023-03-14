@@ -44,6 +44,7 @@ namespace FirstIteration
             this.Hide();
             FRM_Calculator Calculator = new FRM_Calculator();
             Calculator.Show();
+
         }
 
         private void BTN_Login_Click(object sender, EventArgs e)
