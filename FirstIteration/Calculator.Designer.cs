@@ -309,7 +309,7 @@
             // 
             // ERR_Validation
             // 
-            this.ERR_Validation.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.ERR_Validation.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.ERR_Validation.ContainerControl = this;
             // 
             // BTN_MoreInfo
