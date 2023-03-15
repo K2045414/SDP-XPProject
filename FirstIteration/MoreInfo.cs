@@ -32,34 +32,51 @@ namespace FirstIteration
             RTB_eGFR.Text = eGFR.ToString(); 
             if (eGFR >= 90)
             {
-                RTB_CKD1.BackColor = Color.Green;
-                RTB_CKD1.ForeColor = Color.White;
+                RTB_eGFR1.BackColor = Color.Green;
+                RTB_eGFR1.ForeColor = Color.White;
+                RTB_Desc1.BackColor = Color.Green;
+                RTB_Desc1.ForeColor = Color.White;
             }
             else if (eGFR >= 60 && eGFR <= 89)
             {
-                RTB_CKD2.BackColor = Color.Goldenrod;
-                RTB_CKD2.ForeColor = Color.White;
+                RTB_eGFR2.BackColor = Color.Goldenrod;
+                RTB_eGFR2.ForeColor = Color.White;
+                RTB_Desc2.BackColor = Color.Goldenrod;
+                RTB_Desc2.ForeColor = Color.White;
             }
             else if (eGFR >= 45 && eGFR <= 59)
             {
-                RTB_CKD3.BackColor = Color.Orange;
-                RTB_CKD3.ForeColor = Color.White;
+                RTB_eGFR3.BackColor = Color.Orange;
+                RTB_eGFR3.ForeColor = Color.White;
+                RTB_Desc3.BackColor = Color.Orange;
+                RTB_Desc3.ForeColor = Color.White;
             }
             else if (eGFR >= 30 && eGFR <= 44)
             {
-                RTB_CKD4.BackColor = Color.Red;
-                RTB_CKD4.ForeColor = Color.White;
+                RTB_eGFR4.BackColor = Color.Red;
+                RTB_eGFR4.ForeColor = Color.White;
+                RTB_Desc4.BackColor = Color.Red;
+                RTB_Desc4.ForeColor = Color.White;
             }
             else if (eGFR >= 15 && eGFR <= 29)
             {
-                RTB_CKD5.BackColor = Color.Maroon;
-                RTB_CKD5.ForeColor = Color.White;
+                RTB_eGFR5.BackColor = Color.Maroon;
+                RTB_eGFR5.ForeColor = Color.White;
+                RTB_Desc5.BackColor = Color.Maroon;
+                RTB_Desc5.ForeColor = Color.White;
             }
             else if (eGFR <= 14)
             {
-                RTB_CKD6.BackColor = Color.DimGray;
-                RTB_CKD6.ForeColor = Color.White;
+                RTB_eGFR6.BackColor = Color.DimGray;
+                RTB_eGFR6.ForeColor = Color.White;
+                RTB_Desc6.BackColor = Color.DimGray;
+                RTB_Desc6.ForeColor = Color.White;
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
