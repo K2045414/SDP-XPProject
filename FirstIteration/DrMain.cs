@@ -54,7 +54,7 @@ namespace FirstIteration
             ofd.Filter = "CSV file (*.csv)|*.csv|All Files (*.*)|*.*";
             if(ofd.ShowDialog() == DialogResult.OK)
             {
-                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;allowLoadLocalInfile=true;");
+                MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;");
                 MySqlCommand command = connection.CreateCommand();
                 string CSVFile = ofd.FileName;
                 StringBuilder Error = new StringBuilder();
@@ -288,7 +288,7 @@ namespace FirstIteration
         public void GetPatients()
         {
             LBX_Patients.Items.Clear();
-            MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
+            MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;");
             MySqlCommand command1 = new MySqlCommand("SELECT * FROM patients WHERE clinician_id=@clinician_id", connection);
             command1.Parameters.AddWithValue("@clinician_id", id);
             connection.Open();
