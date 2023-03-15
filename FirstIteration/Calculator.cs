@@ -173,6 +173,7 @@ namespace FirstIteration
                 {
                     Calculate();
                     UpdateDatabase();
+                    BTN_MoreInfo.Visible = true;
                 }
             }
             else if (CBX_Calculation.Text == "MDRD" || CBX_Calculation.Text == "CKDEPI")
@@ -181,6 +182,7 @@ namespace FirstIteration
                 {
                     Calculate();
                     UpdateDatabase();
+                    BTN_MoreInfo.Visible = true;
                 }
             }
 
@@ -408,7 +410,7 @@ namespace FirstIteration
                 LBL_Height.Visible = true;
                 RTB_Height.Visible = true;
                 RTB_Weight.Visible = true;
-                BTN_MoreInfo.Visible = true; 
+                BTN_MoreInfo.Visible = false; 
             }
             else if (CBX_Calculation.Text == "MDRD")
             {

@@ -57,9 +57,10 @@
             this.LBL_Username.BackColor = System.Drawing.Color.Transparent;
             this.LBL_Username.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_Username.ForeColor = System.Drawing.Color.White;
-            this.LBL_Username.Location = new System.Drawing.Point(24, 20);
+            this.LBL_Username.Location = new System.Drawing.Point(36, 31);
+            this.LBL_Username.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_Username.Name = "LBL_Username";
-            this.LBL_Username.Size = new System.Drawing.Size(162, 27);
+            this.LBL_Username.Size = new System.Drawing.Size(242, 41);
             this.LBL_Username.TabIndex = 0;
             this.LBL_Username.Text = "NHS Number:";
             // 
@@ -69,9 +70,10 @@
             this.LBL_Password1.BackColor = System.Drawing.Color.Transparent;
             this.LBL_Password1.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_Password1.ForeColor = System.Drawing.Color.White;
-            this.LBL_Password1.Location = new System.Drawing.Point(24, 70);
+            this.LBL_Password1.Location = new System.Drawing.Point(36, 108);
+            this.LBL_Password1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_Password1.Name = "LBL_Password1";
-            this.LBL_Password1.Size = new System.Drawing.Size(124, 27);
+            this.LBL_Password1.Size = new System.Drawing.Size(185, 41);
             this.LBL_Password1.TabIndex = 1;
             this.LBL_Password1.Text = "Password:";
             // 
@@ -81,9 +83,10 @@
             this.LBL_Password2.BackColor = System.Drawing.Color.Transparent;
             this.LBL_Password2.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_Password2.ForeColor = System.Drawing.Color.White;
-            this.LBL_Password2.Location = new System.Drawing.Point(24, 120);
+            this.LBL_Password2.Location = new System.Drawing.Point(36, 185);
+            this.LBL_Password2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_Password2.Name = "LBL_Password2";
-            this.LBL_Password2.Size = new System.Drawing.Size(224, 27);
+            this.LBL_Password2.Size = new System.Drawing.Size(334, 41);
             this.LBL_Password2.TabIndex = 2;
             this.LBL_Password2.Text = "Re-enter Password:";
             // 
@@ -93,9 +96,10 @@
             this.LBL_Title.BackColor = System.Drawing.Color.Transparent;
             this.LBL_Title.Font = new System.Drawing.Font("Arial", 20F);
             this.LBL_Title.ForeColor = System.Drawing.Color.White;
-            this.LBL_Title.Location = new System.Drawing.Point(173, 9);
+            this.LBL_Title.Location = new System.Drawing.Point(260, 14);
+            this.LBL_Title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_Title.Name = "LBL_Title";
-            this.LBL_Title.Size = new System.Drawing.Size(110, 32);
+            this.LBL_Title.Size = new System.Drawing.Size(160, 45);
             this.LBL_Title.TabIndex = 5;
             this.LBL_Title.Text = "Sign Up";
             // 
@@ -105,9 +109,10 @@
             this.CBX_TAndC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBX_TAndC.Font = new System.Drawing.Font("Arial", 12F);
             this.CBX_TAndC.ForeColor = System.Drawing.Color.White;
-            this.CBX_TAndC.Location = new System.Drawing.Point(93, 238);
+            this.CBX_TAndC.Location = new System.Drawing.Point(140, 366);
+            this.CBX_TAndC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CBX_TAndC.Name = "CBX_TAndC";
-            this.CBX_TAndC.Size = new System.Drawing.Size(261, 22);
+            this.CBX_TAndC.Size = new System.Drawing.Size(403, 31);
             this.CBX_TAndC.TabIndex = 6;
             this.CBX_TAndC.Text = "I accept the Terms and Conditions";
             this.CBX_TAndC.UseVisualStyleBackColor = true;
@@ -118,12 +123,15 @@
             this.BTN_Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BTN_Back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTN_Back.FlatAppearance.BorderSize = 0;
+            this.BTN_Back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BTN_Back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BTN_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Back.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_Back.ForeColor = System.Drawing.Color.White;
-            this.BTN_Back.Location = new System.Drawing.Point(29, 284);
+            this.BTN_Back.Location = new System.Drawing.Point(44, 437);
+            this.BTN_Back.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BTN_Back.Name = "BTN_Back";
-            this.BTN_Back.Size = new System.Drawing.Size(152, 48);
+            this.BTN_Back.Size = new System.Drawing.Size(228, 74);
             this.BTN_Back.TabIndex = 7;
             this.BTN_Back.Text = "Back";
             this.BTN_Back.UseVisualStyleBackColor = true;
@@ -135,12 +143,15 @@
             this.BTN_SignUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BTN_SignUp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTN_SignUp.FlatAppearance.BorderSize = 0;
+            this.BTN_SignUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BTN_SignUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BTN_SignUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_SignUp.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_SignUp.ForeColor = System.Drawing.Color.White;
-            this.BTN_SignUp.Location = new System.Drawing.Point(272, 284);
+            this.BTN_SignUp.Location = new System.Drawing.Point(408, 437);
+            this.BTN_SignUp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BTN_SignUp.Name = "BTN_SignUp";
-            this.BTN_SignUp.Size = new System.Drawing.Size(152, 48);
+            this.BTN_SignUp.Size = new System.Drawing.Size(228, 74);
             this.BTN_SignUp.TabIndex = 8;
             this.BTN_SignUp.Text = "Sign Up";
             this.BTN_SignUp.UseVisualStyleBackColor = true;
@@ -154,9 +165,10 @@
             this.LIN_Terms.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LIN_Terms.Font = new System.Drawing.Font("Arial", 12F);
             this.LIN_Terms.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.LIN_Terms.Location = new System.Drawing.Point(90, 208);
+            this.LIN_Terms.Location = new System.Drawing.Point(135, 320);
+            this.LIN_Terms.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LIN_Terms.Name = "LIN_Terms";
-            this.LIN_Terms.Size = new System.Drawing.Size(264, 18);
+            this.LIN_Terms.Size = new System.Drawing.Size(405, 27);
             this.LIN_Terms.TabIndex = 5;
             this.LIN_Terms.TabStop = true;
             this.LIN_Terms.Text = "For Terms and Conditions Click Here";
@@ -173,9 +185,10 @@
             this.CBX_Pass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CBX_Pass.Font = new System.Drawing.Font("Arial", 18F);
             this.CBX_Pass.ForeColor = System.Drawing.Color.White;
-            this.CBX_Pass.Location = new System.Drawing.Point(119, 174);
+            this.CBX_Pass.Location = new System.Drawing.Point(178, 268);
+            this.CBX_Pass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CBX_Pass.Name = "CBX_Pass";
-            this.CBX_Pass.Size = new System.Drawing.Size(193, 31);
+            this.CBX_Pass.Size = new System.Drawing.Size(286, 45);
             this.CBX_Pass.TabIndex = 4;
             this.CBX_Pass.Text = "View Password";
             this.CBX_Pass.UseVisualStyleBackColor = true;
@@ -185,10 +198,9 @@
             // 
             this.RTB_Password2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RTB_Password2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RTB_Password2.Location = new System.Drawing.Point(248, 70);
-            this.RTB_Password2.Margin = new System.Windows.Forms.Padding(2);
+            this.RTB_Password2.Location = new System.Drawing.Point(372, 108);
             this.RTB_Password2.Name = "RTB_Password2";
-            this.RTB_Password2.Size = new System.Drawing.Size(176, 20);
+            this.RTB_Password2.Size = new System.Drawing.Size(263, 26);
             this.RTB_Password2.TabIndex = 2;
             this.RTB_Password2.UseSystemPasswordChar = true;
             // 
@@ -196,10 +208,9 @@
             // 
             this.RTB_Password1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RTB_Password1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RTB_Password1.Location = new System.Drawing.Point(248, 120);
-            this.RTB_Password1.Margin = new System.Windows.Forms.Padding(2);
+            this.RTB_Password1.Location = new System.Drawing.Point(372, 185);
             this.RTB_Password1.Name = "RTB_Password1";
-            this.RTB_Password1.Size = new System.Drawing.Size(176, 20);
+            this.RTB_Password1.Size = new System.Drawing.Size(263, 26);
             this.RTB_Password1.TabIndex = 3;
             this.RTB_Password1.UseSystemPasswordChar = true;
             // 
@@ -207,10 +218,9 @@
             // 
             this.RTB_Username.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RTB_Username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RTB_Username.Location = new System.Drawing.Point(248, 20);
-            this.RTB_Username.Margin = new System.Windows.Forms.Padding(2);
+            this.RTB_Username.Location = new System.Drawing.Point(372, 31);
             this.RTB_Username.Name = "RTB_Username";
-            this.RTB_Username.Size = new System.Drawing.Size(176, 20);
+            this.RTB_Username.Size = new System.Drawing.Size(263, 26);
             this.RTB_Username.TabIndex = 1;
             // 
             // panel1
@@ -220,8 +230,9 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.LBL_Title);
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(465, 51);
+            this.panel1.Size = new System.Drawing.Size(698, 78);
             this.panel1.TabIndex = 17;
             // 
             // pictureBox1
@@ -229,8 +240,9 @@
             this.pictureBox1.BackgroundImage = global::FirstIteration.Properties.Resources.LogoImg;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(72, 43);
+            this.pictureBox1.Size = new System.Drawing.Size(108, 66);
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
             // 
@@ -250,21 +262,24 @@
             this.panel2.Controls.Add(this.BTN_Back);
             this.panel2.Controls.Add(this.LIN_Terms);
             this.panel2.Controls.Add(this.BTN_SignUp);
-            this.panel2.Location = new System.Drawing.Point(13, 57);
+            this.panel2.Location = new System.Drawing.Point(20, 88);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(441, 361);
+            this.panel2.Size = new System.Drawing.Size(662, 555);
             this.panel2.TabIndex = 18;
             // 
             // FRM_SignUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FirstIteration.Properties.Resources.BGImg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(466, 430);
+            this.ClientSize = new System.Drawing.Size(699, 662);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FRM_SignUp";
             this.Text = "Sign Up";
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).EndInit();

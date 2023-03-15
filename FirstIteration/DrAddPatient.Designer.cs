@@ -45,9 +45,10 @@
             this.LBL_Title.AutoSize = true;
             this.LBL_Title.Font = new System.Drawing.Font("Arial", 20F);
             this.LBL_Title.ForeColor = System.Drawing.Color.White;
-            this.LBL_Title.Location = new System.Drawing.Point(111, 11);
+            this.LBL_Title.Location = new System.Drawing.Point(166, 17);
+            this.LBL_Title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_Title.Name = "LBL_Title";
-            this.LBL_Title.Size = new System.Drawing.Size(154, 32);
+            this.LBL_Title.Size = new System.Drawing.Size(224, 45);
             this.LBL_Title.TabIndex = 0;
             this.LBL_Title.Text = "Add Patient";
             this.LBL_Title.Click += new System.EventHandler(this.LBL_Title_Click);
@@ -58,10 +59,11 @@
             this.LBX_AllPatients.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LBX_AllPatients.Font = new System.Drawing.Font("Arial", 8F);
             this.LBX_AllPatients.FormattingEnabled = true;
-            this.LBX_AllPatients.ItemHeight = 14;
-            this.LBX_AllPatients.Location = new System.Drawing.Point(16, 21);
+            this.LBX_AllPatients.ItemHeight = 18;
+            this.LBX_AllPatients.Location = new System.Drawing.Point(24, 32);
+            this.LBX_AllPatients.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LBX_AllPatients.Name = "LBX_AllPatients";
-            this.LBX_AllPatients.Size = new System.Drawing.Size(314, 226);
+            this.LBX_AllPatients.Size = new System.Drawing.Size(470, 344);
             this.LBX_AllPatients.TabIndex = 1;
             // 
             // BTN_Back
@@ -70,12 +72,15 @@
             this.BTN_Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BTN_Back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTN_Back.FlatAppearance.BorderSize = 0;
+            this.BTN_Back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BTN_Back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BTN_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Back.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_Back.ForeColor = System.Drawing.Color.White;
-            this.BTN_Back.Location = new System.Drawing.Point(16, 284);
+            this.BTN_Back.Location = new System.Drawing.Point(24, 437);
+            this.BTN_Back.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BTN_Back.Name = "BTN_Back";
-            this.BTN_Back.Size = new System.Drawing.Size(152, 59);
+            this.BTN_Back.Size = new System.Drawing.Size(228, 91);
             this.BTN_Back.TabIndex = 2;
             this.BTN_Back.Text = "Back";
             this.BTN_Back.UseVisualStyleBackColor = true;
@@ -87,12 +92,15 @@
             this.BTN_SelectPatient.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BTN_SelectPatient.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTN_SelectPatient.FlatAppearance.BorderSize = 0;
+            this.BTN_SelectPatient.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BTN_SelectPatient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BTN_SelectPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_SelectPatient.Font = new System.Drawing.Font("Arial", 14F);
             this.BTN_SelectPatient.ForeColor = System.Drawing.Color.White;
-            this.BTN_SelectPatient.Location = new System.Drawing.Point(178, 284);
+            this.BTN_SelectPatient.Location = new System.Drawing.Point(267, 437);
+            this.BTN_SelectPatient.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BTN_SelectPatient.Name = "BTN_SelectPatient";
-            this.BTN_SelectPatient.Size = new System.Drawing.Size(152, 59);
+            this.BTN_SelectPatient.Size = new System.Drawing.Size(228, 91);
             this.BTN_SelectPatient.TabIndex = 3;
             this.BTN_SelectPatient.Text = "Add Patient to care";
             this.BTN_SelectPatient.UseVisualStyleBackColor = true;
@@ -106,8 +114,9 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.LBL_Title);
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(370, 46);
+            this.panel1.Size = new System.Drawing.Size(555, 71);
             this.panel1.TabIndex = 4;
             // 
             // pictureBox1
@@ -115,8 +124,9 @@
             this.pictureBox1.BackgroundImage = global::FirstIteration.Properties.Resources.LogoImg;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(77, 43);
+            this.pictureBox1.Size = new System.Drawing.Size(116, 66);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -128,21 +138,25 @@
             this.panel2.Controls.Add(this.LBX_AllPatients);
             this.panel2.Controls.Add(this.BTN_Back);
             this.panel2.Controls.Add(this.BTN_SelectPatient);
-            this.panel2.Location = new System.Drawing.Point(12, 52);
+            this.panel2.Location = new System.Drawing.Point(18, 80);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(346, 360);
+            this.panel2.Size = new System.Drawing.Size(519, 554);
             this.panel2.TabIndex = 5;
             // 
             // FRM_AddPatient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackgroundImage = global::FirstIteration.Properties.Resources.BGImg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(370, 421);
+            this.ClientSize = new System.Drawing.Size(555, 648);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FRM_AddPatient";
             this.Text = "Add Patient";
             this.panel1.ResumeLayout(false);

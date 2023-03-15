@@ -160,7 +160,7 @@
             // 
             // RTB_CKD3
             // 
-            this.RTB_CKD3.BackColor = System.Drawing.Color.Orange;
+            this.RTB_CKD3.BackColor = System.Drawing.Color.DarkOrange;
             this.RTB_CKD3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_CKD3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_CKD3.ForeColor = System.Drawing.Color.White;
@@ -512,6 +512,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FRM_MoreInfo";
             this.Text = "More Info";
