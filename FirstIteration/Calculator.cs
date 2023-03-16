@@ -445,7 +445,7 @@ namespace FirstIteration
         }
         private void UpdateDatabase()
         {
-            MySqlConnection connection = new MySqlConnection("\"server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;\"");
+            MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;");
             MySqlCommand command = new MySqlCommand("UPDATE patients SET race = @race, gender = @gender, height = @height, weight = @weight, age = @age, creatinine = @creatinine WHERE user_id = @user_id", connection);
             char SmallEthnicity = 'A';
             char SmallGender = 'B';
