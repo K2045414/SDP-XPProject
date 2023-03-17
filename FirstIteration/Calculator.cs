@@ -607,7 +607,7 @@ namespace FirstIteration
                 writer.WriteLine("eGFR values: ");
                 writer.WriteLine("MDRD: " + eGFR_MDRD + " Cockroft: " + eGFR_Cockroft + " CKDEPI: " + eGFR_CKDEPI);
                 writer.WriteLine("Percentage differences between calculations: ");
-                writer.WriteLine("MDRD and Cockroft: " + percentage1 + " MDRD and CKDEPI: " + percentage2 + " Cockroft and CKDEPI: " + percentage3);            
+                writer.WriteLine("MDRD and Cockroft: " + percentage1 + " MDRD and CKDEPI: " + percentage2 + " Cockroft and CKDEPI: " + percentage3 + "\n");            
                 
             }
         }
