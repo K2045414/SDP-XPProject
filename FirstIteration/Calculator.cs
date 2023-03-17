@@ -150,7 +150,7 @@ namespace FirstIteration
         private bool ValidateAge(int VAge)//Validates if Age is a Valid Input
         {
             bool aStatus = false;
-            
+
             if (VAge <= 100 && VAge >= 18)// Age needs to be over 18 but under 100, otherwise error
             {
                 aStatus = true;
@@ -190,7 +190,7 @@ namespace FirstIteration
         private int CalculateAge()//Calculates Age then runs ValidateAge Function, Returns '999' as an error code
         {
             int Age = 0;
-            if(RTB_Age.Text == "")
+            if (RTB_Age.Text == "")
             {
                 Age = 999;
             }
@@ -198,7 +198,7 @@ namespace FirstIteration
             {
                 Age = Int32.Parse(RTB_Age.Text);
             }
-            
+
             bool VAge = ValidateAge(Age);
             if (VAge == false)
             {
@@ -241,13 +241,13 @@ namespace FirstIteration
                 {
                     eGFR_MDRD = Math.Round(eGFR_MDRD);
                 }
-                RTB_eGFR.Text = "MDRD " + eGFR_MDRD + " mL/min/1.73 m²";             
+                RTB_eGFR.Text = "MDRD " + eGFR_MDRD + " mL/min/1.73 m²";
                 BTN_MoreInfo.Visible = true;
                 return eGFR_MDRD;
             }
             else if (CBX_Calculation.Text == "CKDEPI")
             {
-                double eGFR_CKDEPI = CKDEPI(Creatininemgdl, Age, Gender, Ethnicity);             
+                double eGFR_CKDEPI = CKDEPI(Creatininemgdl, Age, Gender, Ethnicity);
                 if (parentForm == "FirstIteration.FRM_DrMain, Text: Doctor Page")
                 {
                     eGFR_CKDEPI = Math.Round(eGFR_CKDEPI, 3);
@@ -282,9 +282,9 @@ namespace FirstIteration
                 double eGFR_Cockroft = Cockroft(Creatininemgdl, Age, Weight, Height, Gender);
                 if (parentForm == "FirstIteration.FRM_DrMain, Text: Doctor Page")
                 {
-                    eGFR_Cockroft = Math.Round(eGFR_Cockroft,3);
-                    eGFR_CKDEPI = Math.Round(eGFR_CKDEPI,3);
-                    eGFR_MDRD = Math.Round(eGFR_MDRD,3);
+                    eGFR_Cockroft = Math.Round(eGFR_Cockroft, 3);
+                    eGFR_CKDEPI = Math.Round(eGFR_CKDEPI, 3);
+                    eGFR_MDRD = Math.Round(eGFR_MDRD, 3);
                 }
                 else
                 {
@@ -292,7 +292,9 @@ namespace FirstIteration
                     eGFR_CKDEPI = Math.Round(eGFR_CKDEPI);
                     eGFR_MDRD = Math.Round(eGFR_MDRD);
                 }
+                nModular(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI);
                 RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²" + " CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²" + " MDRD " + eGFR_MDRD + " mL/min/1.73 m²";
+
                 //do we need to return a value here? the others don't
                 return eGFR_MDRD;
             }
@@ -301,7 +303,7 @@ namespace FirstIteration
                 MessageBox.Show("Please Select a Calculation");
             }
             return 0;
-            
+
 
 
         }
@@ -391,7 +393,7 @@ namespace FirstIteration
             FormStack.Forms.Push(this);
             this.Hide();
             FRM_MoreInfo MoreInfo = new FRM_MoreInfo(eGFR);
-            MoreInfo.Show();      
+            MoreInfo.Show();
         }
 
         private void CBX_Calculation_SelectedIndexChanged(object sender, EventArgs e)
@@ -410,7 +412,7 @@ namespace FirstIteration
                 LBL_Height.Visible = true;
                 RTB_Height.Visible = true;
                 RTB_Weight.Visible = true;
-                BTN_MoreInfo.Visible = false; 
+                BTN_MoreInfo.Visible = false;
             }
             else if (CBX_Calculation.Text == "MDRD")
             {
@@ -454,7 +456,7 @@ namespace FirstIteration
             {
                 SmallEthnicity = 'B';
             }
-            else if(CBX_Ethnicity.Text == "Other")
+            else if (CBX_Ethnicity.Text == "Other")
             {
                 SmallEthnicity = 'O';
             }
@@ -505,5 +507,42 @@ namespace FirstIteration
         {
 
         }
+
+        public string nModular(double eGFR_MDRD, double eGFR_Cockroft, double eGFR_CKDEPI)
+        {
+            double percentage;
+            double outlier;
+            double percentage1 = Math.Abs(eGFR_MDRD - eGFR_Cockroft) / ((eGFR_MDRD + eGFR_Cockroft) / 2.0) * 100.0;
+            double percentage2 = Math.Abs(eGFR_MDRD - eGFR_CKDEPI) / ((eGFR_MDRD + eGFR_CKDEPI) / 2.0) * 100.0;
+            double percentage3 = Math.Abs(eGFR_Cockroft - eGFR_CKDEPI) / ((eGFR_Cockroft + eGFR_CKDEPI) / 2.0) * 100.0;
+
+            double[] arr = { percentage1, percentage2, percentage3 };
+            Array.Sort(arr);
+
+            double diff1 = arr[1] - arr[0];
+            double diff2 = arr[2] - arr[1];
+
+            double closestValues;
+            if (diff1 < diff2)
+            {
+                closestValues = (arr[0] + arr[1]) / 2.0;
+                outlier = arr[2];
+                percentage = (closestValues - outlier) / ((closestValues + outlier) / 2.0) * 100.0;
+            }
+            else
+            {
+                closestValues = (arr[1] + arr[2]) / 2.0;
+                outlier = arr[0];
+                percentage = (closestValues - outlier) / ((closestValues + outlier) / 2.0) * 100.0;
+            }
+            if(Math.Abs(percentage) > 150)
+            {
+                MessageBox.Show("Rejecting " + outlier.ToString());
+            }
+
+            return "test";
+        }
+
+
     }
 }
