@@ -6,6 +6,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
@@ -292,7 +293,7 @@ namespace FirstIteration
                     eGFR_CKDEPI = Math.Round(eGFR_CKDEPI);
                     eGFR_MDRD = Math.Round(eGFR_MDRD);
                 }
-                string printtext = nModular(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI);
+                string printtext = nModular(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, Weight, Height, Age, Gender, Ethnicity, Creatininemgdl, Creatinineumol);
                 RTB_eGFR.Text = printtext;
 
                 //do we need to return a value here? the others don't
@@ -508,7 +509,7 @@ namespace FirstIteration
 
         }
 
-        public string nModular(double eGFR_MDRD, double eGFR_Cockroft, double eGFR_CKDEPI)
+        public string nModular(double eGFR_MDRD, double eGFR_Cockroft, double eGFR_CKDEPI, double Weight, double Height, int Age, String Gender, string Ethnicity,double Creatininemgdl, double Creatinineumol)
         {
             string returntext;
             double percentage;
@@ -536,26 +537,29 @@ namespace FirstIteration
                 outlier = arr[0];
                 percentage = (closestValues - outlier) / ((closestValues + outlier) / 2.0) * 100.0;
             }
-            if(Math.Abs(percentage) > 150)
+            if (Math.Abs(percentage) > 150)
             {
-                if(outlier == percentage1)
+                if (outlier == percentage1)
                 {
                     returntext = "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²" + " MDRD " + eGFR_MDRD + " mL/min/1.73 m²";
                     MessageBox.Show("Rejecting CKDEPI. It lies out of acceptable range. This will be logged for system administrators");
-                    //add writing variables to the text doc here                    
+                    string issue = "CKDEPI";
+                    Log(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, Weight, Height, Age, Gender, Ethnicity, Creatininemgdl, Creatinineumol, percentage, percentage1, percentage2, percentage3, closestValues, outlier, issue);                   
                 }
                 else if (outlier == percentage2)
                 {
                     returntext = "CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²" + " MDRD " + eGFR_MDRD + " mL/min/1.73 m²";
                     MessageBox.Show("Rejecting Cockroft. It lies out of acceptable range. This will be logged for system administrators");
-                    //and here
+                    string issue = "Cockroft";
+                    Log(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, Weight, Height, Age, Gender, Ethnicity, Creatininemgdl, Creatinineumol, percentage, percentage1, percentage2, percentage3, closestValues, outlier, issue);
                 }
                 else
                 {
                     returntext = "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²" + " CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²" + " MDRD " + eGFR_MDRD + " mL/min/1.73 m²";
                     MessageBox.Show("MDRD shows a different result to the other equations. The program will continue with it, but this should not be considered exact. Please verify the calculation " + outlier.ToString());
-                   //and here
-                }              
+                    string issue = "MDRD";
+                    Log(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, Weight, Height, Age, Gender, Ethnicity, Creatininemgdl, Creatinineumol, percentage, percentage1, percentage2, percentage3, closestValues, outlier, issue);
+                }
             }
             else
             {
@@ -565,5 +569,76 @@ namespace FirstIteration
         }
 
 
+        public void Log(double eGFR_MDRD, double eGFR_Cockroft, double eGFR_CKDEPI, double Weight, double Height, int Age, String Gender, string Ethnicity, double Creatininemgdl, double Creatinineumol, double percentage, double percentage1, double percentage2, double percentage3, double closestValues, double outlier, string issue)
+        {
+            string creatinine;
+            string folderName = "Logs";
+            string fileName = "Invalid calculations.txt";
+            string workingDirectory = Environment.CurrentDirectory;
+            string folderPath = Path.Combine(workingDirectory, folderName);
+            string filePath = Path.Combine(folderPath, fileName);
+
+            // Create the folder if it doesn't exist
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            if(RBN_mgdL.Checked)
+            {
+                creatinine = Creatininemgdl + " mg/dL ";
+            }
+            else
+            {
+                creatinine = Creatinineumol + " µmol/L ";
+            }
+
+            // Write to the file
+            string index = GetCurrentIndex(filePath).ToString();
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {              
+                writer.WriteLine("Index: " + index);
+                writer.WriteLine("Rejected calculation: " + issue);
+                writer.WriteLine("Average of the two closest values as a percentage difference: " + closestValues);
+                writer.WriteLine("Percentage difference of outlier from the average of the other two values: " + percentage);
+                writer.WriteLine("Outlier percentage difference: " + outlier);
+                writer.WriteLine("Variables: ");
+                writer.WriteLine("Age: " +  Age + " Gender: " + Gender + " Creatinine: " + creatinine + " Ethnicity: " + Ethnicity + " Height: " + Height + " Weight: " + Weight);
+                writer.WriteLine("eGFR values: ");
+                writer.WriteLine("MDRD: " + eGFR_MDRD + " Cockroft: " + eGFR_Cockroft + " CKDEPI: " + eGFR_CKDEPI);
+                writer.WriteLine("Percentage differences between calculations: ");
+                writer.WriteLine("MDRD and Cockroft: " + percentage1 + " MDRD and CKDEPI: " + percentage2 + " Cockroft and CKDEPI: " + percentage3);            
+                
+            }
+        }
+
+        public static int GetCurrentIndex(string filePath)
+        {
+            int index = 1;
+            string line;
+
+            // Check if the file exists and read its contents
+            if (File.Exists(filePath))
+            {
+                using (var reader = new StreamReader(filePath))
+                {
+                    // Iterate over each line in the file
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        // Check if the line contains an index
+                        if (line.StartsWith("Index:", StringComparison.OrdinalIgnoreCase))
+                        {
+                            // Try to parse the index number and increment it
+                            if (int.TryParse(line.Substring(line.IndexOf(":") + 1).Trim(), out int currentIndex))
+                            {
+                                index = currentIndex + 1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return index;
+        }
     }
-}
+    }
