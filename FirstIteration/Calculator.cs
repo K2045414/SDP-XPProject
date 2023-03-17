@@ -292,8 +292,8 @@ namespace FirstIteration
                     eGFR_CKDEPI = Math.Round(eGFR_CKDEPI);
                     eGFR_MDRD = Math.Round(eGFR_MDRD);
                 }
-                nModular(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI);
-                RTB_eGFR.Text = "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²" + " CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²" + " MDRD " + eGFR_MDRD + " mL/min/1.73 m²";
+                string printtext = nModular(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI);
+                RTB_eGFR.Text = printtext;
 
                 //do we need to return a value here? the others don't
                 return eGFR_MDRD;
@@ -510,6 +510,7 @@ namespace FirstIteration
 
         public string nModular(double eGFR_MDRD, double eGFR_Cockroft, double eGFR_CKDEPI)
         {
+            string returntext;
             double percentage;
             double outlier;
             double percentage1 = Math.Abs(eGFR_MDRD - eGFR_Cockroft) / ((eGFR_MDRD + eGFR_Cockroft) / 2.0) * 100.0;
@@ -537,10 +538,30 @@ namespace FirstIteration
             }
             if(Math.Abs(percentage) > 150)
             {
-                MessageBox.Show("Rejecting " + outlier.ToString());
+                if(outlier == percentage1)
+                {
+                    returntext = "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²" + " MDRD " + eGFR_MDRD + " mL/min/1.73 m²";
+                    MessageBox.Show("Rejecting CKDEPI. It lies out of acceptable range. This will be logged for system administrators");
+                    //add writing variables to the text doc here                    
+                }
+                else if (outlier == percentage2)
+                {
+                    returntext = "CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²" + " MDRD " + eGFR_MDRD + " mL/min/1.73 m²";
+                    MessageBox.Show("Rejecting Cockroft. It lies out of acceptable range. This will be logged for system administrators");
+                    //and here
+                }
+                else
+                {
+                    returntext = "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²" + " CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²" + " MDRD " + eGFR_MDRD + " mL/min/1.73 m²";
+                    MessageBox.Show("MDRD shows a different result to the other equations. The program will continue with it, but this should not be considered exact. Please verify the calculation " + outlier.ToString());
+                   //and here
+                }              
             }
-
-            return "test";
+            else
+            {
+                returntext = "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²" + " CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²" + " MDRD " + eGFR_MDRD + " mL/min/1.73 m²";
+            }
+            return returntext;
         }
 
 
