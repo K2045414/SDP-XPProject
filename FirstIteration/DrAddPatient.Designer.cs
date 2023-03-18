@@ -51,7 +51,6 @@
             this.LBL_Title.Size = new System.Drawing.Size(224, 45);
             this.LBL_Title.TabIndex = 0;
             this.LBL_Title.Text = "Add Patient";
-            this.LBL_Title.Click += new System.EventHandler(this.LBL_Title_Click);
             // 
             // LBX_AllPatients
             // 

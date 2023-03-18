@@ -207,7 +207,6 @@
             this.LBL_Title.Size = new System.Drawing.Size(59, 45);
             this.LBL_Title.TabIndex = 5;
             this.LBL_Title.Text = "ID";
-            this.LBL_Title.Click += new System.EventHandler(this.LBL_Title_Click);
             // 
             // panel2
             // 
@@ -241,7 +240,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FRM_DrMain";
             this.Text = "Doctor Page";
-            this.Load += new System.EventHandler(this.FRM_DrMain_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

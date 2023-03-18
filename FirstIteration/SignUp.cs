@@ -21,74 +21,63 @@ namespace FirstIteration
             InitializeComponent();
 
         }
-        private bool ValidateUserName(string VUsername)//Validates UserName
+        private bool ValidateUserName(string userName)
         {
-            bool iStatus = false;
-            if (Regex.IsMatch(RTB_Username.Text, @"^[0-9A-Z]+$") && VUsername.Length == 10)
-            {
-                ERR_Validation.SetError(RTB_Username, "");
-                iStatus = true;
-            }
-            else
+            if (!Regex.IsMatch(userName, @"^[0-9A-Z]{10}$"))
             {
                 ERR_Validation.SetError(RTB_Username, "Your ID has been input incorrectly");
+                return false;
             }
-            return iStatus;
+            return true;
         }
-        private bool ValidatePassword(string Password)//Validates Password (we need a Password Policy to change this to match)ඞ
+        private bool ValidatePassword(string password)
         {
-            bool pStatus = false;
-            if (Password == "") 
+            if (string.IsNullOrEmpty(password))
             {
-                ERR_Validation.SetError(RTB_Password1, "Your Password empty");
+                ERR_Validation.SetError(RTB_Password1, "Your Password is empty");
+                return false;
             }
-            else
+
+            if (password.Any(x => !char.IsLetterOrDigit(x)) && password.Any(x => char.IsDigit(x)) && password.Any(x => char.IsUpper(x)) && password.Any(x => !char.IsUpper(x)) && password.Length >= 8)
             {
-                if (Password.Any(x => !char.IsLetterOrDigit(x)) && Password.Any(x => char.IsDigit(x)) && Password.Any(x => char.IsUpper(x)) && Password.Any(x => !char.IsUpper(x)) && Password.Length >= 8)
-                {
-                    ERR_Validation.SetError(RTB_Password1, "");
-                    pStatus = true;
-                }
-                else 
-                {
-                    ERR_Validation.SetError(RTB_Password1, "The Password you entered does not meet our requirements");
-                }
+                ERR_Validation.SetError(RTB_Password1, "");
+                return true;
             }
-            return pStatus;
+
+            ERR_Validation.SetError(RTB_Password1, "The Password you entered does not meet our requirements");
+            return false;
         }
-        private bool MatchPassword(string PassMain, string PassMatch)//Matches Passwords
+
+        private bool MatchPassword(string password1, string password2)
         {
-            bool mStatus = false;
-            if (PassMain == PassMatch)
+            if (password1 == password2)
             {
-                ERR_Validation.SetError(RTB_Password2, "");
-                mStatus = true;
+                return true;
             }
-            else
-            {
-                ERR_Validation.SetError(RTB_Password2, "Your Passwords do not match");
-            }
-            return mStatus;
+
+            ERR_Validation.SetError(RTB_Password2, "Your Passwords do not match");
+            return false;
         }
-        private bool ValidateTerms()//checks Terms and Conditions Checked
+
+        private bool ValidateTerms() // Checks if the Terms and Conditions checkbox is checked
         {
-            bool tStatus = false;
             if (CBX_TAndC.Checked)
             {
-                ERR_Validation.SetError(CBX_TAndC, "");
-                tStatus = true;
+                return true;
             }
             else
             {
                 ERR_Validation.SetError(CBX_TAndC, "You have not Accepted the Terms and Conditions");
+                return false;
             }
-            return tStatus;
         }
+
+
         private void BTN_Back_Click(object sender, EventArgs e)
         {
             Form previousForm = FormStack.Forms.Pop();
             this.Hide();
-            previousForm.Show();
+            previousForm.ShowDialog();
         }
 
         private void LIN_Terms_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -96,16 +85,12 @@ namespace FirstIteration
             FormStack.Forms.Push(this);
             this.Hide();
             FRM_Terms Terms = new FRM_Terms();
-            Terms.Show();
+            Terms.ShowDialog();
         }
 
         private void BTN_SignUp_Click(object sender, EventArgs e)
         {
-            bool ValidUser = ValidateUserName(RTB_Username.Text);
-            bool ValidPass = ValidatePassword(RTB_Password1.Text);
-            bool ValidMatch = MatchPassword(RTB_Password2.Text, RTB_Password1.Text);
-            bool validTerm = ValidateTerms();
-            if (ValidUser == true && ValidPass == true && ValidMatch == true && validTerm == true)
+            if (ValidateUserName(RTB_Username.Text) && ValidatePassword(RTB_Password1.Text) && MatchPassword(RTB_Password2.Text, RTB_Password1.Text) && ValidateTerms())
             {
                 SignUp();
             }
@@ -113,54 +98,35 @@ namespace FirstIteration
             {
                 ERR_Validation.SetError(BTN_SignUp, "Error during Sign up");
             }
-            
         }
+
         private void SignUp()
         {
             try
             {
-                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
-                MySqlCommand command = connection.CreateCommand();
-
-                // Check if username already exists in users table
-                command.CommandText = "SELECT COUNT(*) FROM users WHERE user_id = @user_id;";
-                command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
-                connection.Open();
-                int existingUserCount = Convert.ToInt32(command.ExecuteScalar());
-                connection.Close();
-
-                // Check if username already exists in patients table
-                command.CommandText = "SELECT COUNT(*) FROM patients WHERE user_id = @user_id;";
-                connection.Open();
-                int existingPatientCount = Convert.ToInt32(command.ExecuteScalar());
-                connection.Close();
-
-                if (existingUserCount > 0)
+                using (MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;"))
                 {
-                    MessageBox.Show("That NHS ID is already in use.");
-                    return;
-                }
-                else
-                {
-                    // Insert new user into users table
-                    command.CommandText = "INSERT INTO users (user_id, password, title) VALUES (@user_id, @password, 'patient')";
-                    command.Parameters.Clear();
-                    command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
-                    string passwordHash = BCrypt.Net.BCrypt.HashPassword(RTB_Password2.Text);
-                    command.Parameters.AddWithValue("@password", passwordHash);
                     connection.Open();
-                    command.ExecuteNonQuery();
-                    connection.Close();
 
+                    // Check if username already exists in users table
+                    int existingUserCount = GetExistingUserCount(connection, RTB_Username.Text);
+
+                    // Check if username already exists in patients table
+                    int existingPatientCount = GetExistingPatientCount(connection, RTB_Username.Text);
+
+                    if (existingUserCount > 0)
+                    {
+                        MessageBox.Show("That NHS ID is already in use.");
+                        return;
+                    }
+
+                    // Insert new user into users table
+                    InsertUser(connection, RTB_Username.Text, RTB_Password2.Text);
+
+                    // Insert new user into patients table if necessary
                     if (existingPatientCount == 0)
                     {
-                        // Insert new user into patients table
-                        command.CommandText = "INSERT INTO patients (user_id) VALUES (@user_id)";
-                        command.Parameters.Clear();
-                        command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                        connection.Close();
+                        InsertPatient(connection, RTB_Username.Text);
                     }
 
                     MessageBox.Show("Successfully signed up.");
@@ -174,7 +140,44 @@ namespace FirstIteration
             {
                 MessageBox.Show(ex.Message);
             }
+        }
 
+        private int GetExistingUserCount(MySqlConnection connection, string username)
+        {
+            using (MySqlCommand command = new MySqlCommand("SELECT COUNT(*) FROM users WHERE user_id = @user_id;", connection))
+            {
+                command.Parameters.AddWithValue("@user_id", username);
+                return Convert.ToInt32(command.ExecuteScalar());
+            }
+        }
+
+        private int GetExistingPatientCount(MySqlConnection connection, string username)
+        {
+            using (MySqlCommand command = new MySqlCommand("SELECT COUNT(*) FROM patients WHERE user_id = @user_id;", connection))
+            {
+                command.Parameters.AddWithValue("@user_id", username);
+                return Convert.ToInt32(command.ExecuteScalar());
+            }
+        }
+
+        private void InsertUser(MySqlConnection connection, string username, string password)
+        {
+            string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
+            using (MySqlCommand command = new MySqlCommand("INSERT INTO users (user_id, password, title) VALUES (@user_id, @password, 'patient')", connection))
+            {
+                command.Parameters.AddWithValue("@user_id", username);
+                command.Parameters.AddWithValue("@password", passwordHash);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        private void InsertPatient(MySqlConnection connection, string username)
+        {
+            using (MySqlCommand command = new MySqlCommand("INSERT INTO patients (user_id) VALUES (@user_id)", connection))
+            {
+                command.Parameters.AddWithValue("@user_id", username);
+                command.ExecuteNonQuery();
+            }
         }
 
         private void CBX_Pass_CheckedChanged(object sender, EventArgs e)

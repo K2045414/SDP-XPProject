@@ -86,7 +86,6 @@
             this.LBL_Title.TabIndex = 4;
             this.LBL_Title.Text = "CKD Calculator";
             this.LBL_Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.LBL_Title.Click += new System.EventHandler(this.LBL_Title_Click);
             // 
             // LBL_Login
             // 
@@ -112,7 +111,6 @@
             this.LBL_Password.Size = new System.Drawing.Size(185, 41);
             this.LBL_Password.TabIndex = 7;
             this.LBL_Password.Text = "Password:";
-            this.LBL_Password.Click += new System.EventHandler(this.LBL_Password_Click);
             // 
             // ERR_Validation
             // 
@@ -255,7 +253,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(489, 12);
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -268,7 +265,6 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Dont Have an Account?\r\nSign up or use the Calculator \r\nwith your own information";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // FRM_Login
             // 

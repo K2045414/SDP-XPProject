@@ -19,38 +19,32 @@ namespace FirstIteration
         {
             InitializeComponent();
         }
-        private bool ValidateUserName(string VUsername)//Validates UserName
-        {
-            bool iStatus = false;
-            if (Regex.IsMatch(RTB_Username.Text, @"^[0-9A-Z]+$") && (VUsername.Length == 10))
-            {
-                iStatus = true;
-            }
-            else
-            {
-                ERR_Validation.SetError(RTB_Username, "Your ID has been input incorrectly");
-            }
-            return iStatus;
-        }
+      
 
         public static class FormStack
         {
             public static Stack<Form> Forms = new Stack<Form>();
         }
-
+        private bool ValidateUserName(string userName)
+        {
+            if (!Regex.IsMatch(userName, @"^[0-9A-Z]{10}$"))
+            {
+                ERR_Validation.SetError(RTB_Username, "Your ID has been input incorrectly");
+                return false;
+            }
+            return true;
+        }
         private void BTN_Calculate_Click(object sender, EventArgs e)
         {
-            FormStack.Forms.Push(this);
-            this.Hide();
-            FRM_Calculator Calculator = new FRM_Calculator();
-            Calculator.Show();
-
+                FormStack.Forms.Push(this);
+                this.Hide();
+                FRM_Calculator calculator = new FRM_Calculator();
+                calculator.ShowDialog();          
         }
 
         private void BTN_Login_Click(object sender, EventArgs e)
         {
-            bool ValidUser = ValidateUserName(RTB_Username.Text);
-            if(ValidUser == true)
+            if (ValidateUserName(RTB_Username.Text))
             {
                 Login();
             }
@@ -61,15 +55,13 @@ namespace FirstIteration
         }
         private void Login()
         {
-            MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;");
-            MySqlCommand command = new MySqlCommand("UPDATE users SET created_at_updated_at = NOW() WHERE user_id=@user_id; SELECT * FROM users WHERE user_id=@user_id", connection);
-            command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
-
+                MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;");
+                MySqlCommand command = new MySqlCommand("UPDATE users SET created_at_updated_at = NOW() WHERE user_id=@user_id; SELECT * FROM users WHERE user_id=@user_id", connection);
+                command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
             try
             {
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
-
                 if (reader.HasRows)
                 {
                     reader.Read();
@@ -81,23 +73,26 @@ namespace FirstIteration
                     {
                         string title = reader.GetString("title");
                         MessageBox.Show("Login successful.");
-                        if (title == "doctor")
+
+                        switch (title)
                         {
-                            FormStack.Forms.Push(this);
-                            this.Hide();
-                            FRM_DrMain DrMain = new FRM_DrMain(id);
-                            DrMain.Show();
-                        }
-                        else if (title == "patient")
-                        {
-                            FormStack.Forms.Push(this);
-                            this.Hide();
-                            FRM_Calculator Calculator = new FRM_Calculator(id);
-                            Calculator.Show();
-                        }
-                        else
-                        {
-                            ERR_Validation.SetError(RTB_Username, "User is neither a doctor or patient. Please contact your administrator");
+                            case "doctor":
+                                FormStack.Forms.Push(this);
+                                this.Hide();
+                                var drMain = new FRM_DrMain(id);
+                                drMain.Show();
+                                break;
+
+                            case "patient":
+                                FormStack.Forms.Push(this);
+                                this.Hide();
+                                var calculator = new FRM_Calculator(id);
+                                calculator.Show();
+                                break;
+
+                            default:
+                                ERR_Validation.SetError(RTB_Username, "User is neither a doctor nor a patient. Please contact your administrator.");
+                                break;
                         }
                     }
                     else
@@ -114,51 +109,19 @@ namespace FirstIteration
             {
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                connection.Close();
-            }
         }
+
         private void BTN_SignUp_Click(object sender, EventArgs e)
         {
             FormStack.Forms.Push(this);
             this.Hide();
             FRM_SignUp SignUp = new FRM_SignUp();
-            SignUp.Show();
+            SignUp.ShowDialog();
         }
 
         private void CBX_Pass_Log_CheckedChanged(object sender, EventArgs e)
         {
-            if (CBX_Pass_Log.Checked)
-            {
-                RTB_Password.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                RTB_Password.UseSystemPasswordChar = true;
-            }
+            RTB_Password.UseSystemPasswordChar = !CBX_Pass_Log.Checked ? true : false;
         }
-
-        private void LBL_Password_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LBL_Title_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

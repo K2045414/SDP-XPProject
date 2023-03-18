@@ -38,23 +38,38 @@ namespace FirstIteration
             // Get the previous form in the stack
             Form previousForm = FormStack.Forms.Pop();
             // Hide the current form (FRM_AddPatient) and show the previous one (FRM_DrMain)
-            previousForm.Show();
+            previousForm.ShowDialog ();
             this.Hide();
         }
 
         private void BTN_SelectPatient_Click(object sender, EventArgs e)
         {
             if (LBX_AllPatients.SelectedIndex >= 0)
-            {          
-                MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
-                MySqlCommand command3 = new MySqlCommand("UPDATE patients SET clinician_id = @clinician_id WHERE user_id = @patient_id", connection);
-                command3.Parameters.AddWithValue("@patient_id", LBX_AllPatients.Text);
-                command3.Parameters.AddWithValue("@clinician_id", id);
-                connection.Open();
-                command3.ExecuteNonQuery();
-                connection.Close();
-                MessageBox.Show("Clinician ID updated successfully");
-                RefreshTable();
+            {
+                using (MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;"))
+                {
+                    string query = "UPDATE patients SET clinician_id = @clinician_id WHERE user_id = @patient_id";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@patient_id", LBX_AllPatients.Text);
+                        command.Parameters.AddWithValue("@clinician_id", id);
+
+                        try
+                        {
+                            connection.Open();
+                            int rowsAffected = command.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Clinician ID updated successfully");
+                                RefreshTable();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("An error occurred: " + ex.Message);
+                        }
+                    }
+                }
             }
             else
             {
@@ -62,25 +77,37 @@ namespace FirstIteration
             }
         }
 
+
         public void RefreshTable()
         {
             LBX_AllPatients.Items.Clear();
-            MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=12345;database=calculatorapp;");
-            MySqlCommand command4 = new MySqlCommand("SELECT * FROM patients WHERE clinician_id != @id OR clinician_id IS NULL", connection);
-            command4.Parameters.AddWithValue("@id", id);
-            connection.Open();
-            MySqlDataReader reader = command4.ExecuteReader();
-            while (reader.Read())
+
+            string connectionString = "server=localhost;uid=root;pwd=12345;database=calculatorapp;";
+            string query = "SELECT * FROM patients WHERE clinician_id != @id OR clinician_id IS NULL";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlCommand command = new MySqlCommand(query, connection))
             {
-                string user = reader.GetString("user_id");
-                LBX_AllPatients.Items.Add(user);
+                command.Parameters.AddWithValue("@id", id);
+
+                try
+                {
+                    connection.Open();
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string user = reader.GetString("user_id");
+                            LBX_AllPatients.Items.Add(user);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
             }
-            connection.Close();          
         }
 
-        private void LBL_Title_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

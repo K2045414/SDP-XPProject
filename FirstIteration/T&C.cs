@@ -22,7 +22,7 @@ namespace FirstIteration
         {
             Form previousForm = FormStack.Forms.Pop();
             this.Hide();
-            previousForm.Show();
+            previousForm.ShowDialog();
         }
     }
 }
