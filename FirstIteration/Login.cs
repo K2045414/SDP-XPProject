@@ -80,14 +80,14 @@ namespace FirstIteration
                                 FormStack.Forms.Push(this);
                                 this.Hide();
                                 var drMain = new FRM_DrMain(id);
-                                drMain.Show();
+                                drMain.ShowDialog();
                                 break;
 
                             case "patient":
                                 FormStack.Forms.Push(this);
                                 this.Hide();
                                 var calculator = new FRM_Calculator(id);
-                                calculator.Show();
+                                calculator.ShowDialog();
                                 break;
 
                             default:

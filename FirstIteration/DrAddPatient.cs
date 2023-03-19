@@ -82,10 +82,10 @@ namespace FirstIteration
         {
             LBX_AllPatients.Items.Clear();
 
-            string connectionString = "server=localhost;uid=root;pwd=12345;database=calculatorapp;";
-            string query = "SELECT * FROM patients WHERE clinician_id != @id OR clinician_id IS NULL";
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            string query = "SELECT * FROM patients WHERE clinician_id != @id OR clinician_id IS NULL";
+            var connectionString = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
+            using (var connection = new MySqlConnection(connectionString))
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@id", id);

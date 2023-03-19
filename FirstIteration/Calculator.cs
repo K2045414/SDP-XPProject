@@ -27,72 +27,92 @@ namespace FirstIteration
         {
             InitializeComponent();
         }
+
         public FRM_Calculator(string patient_id)
         {
             InitializeComponent();
             this.patient_id = patient_id;
 
-            if (patient_id != null)
+            if (patient_id == null)
             {
-                BTN_Edit.Visible = true;
-                RTB_Creatinine.Enabled = false;
-                RBN_mgdL.Enabled = false;
-                RBN_umolL.Enabled = false;
-                RTB_Age.Enabled = false;
-                CBX_Gender.Enabled = false;
-                CBX_Ethnicity.Enabled = false;
-                CBX_Calculation.Enabled = false;
-                RTB_Weight.Enabled = false;
-                RTB_Height.Enabled = false;
-                RTB_eGFR.Enabled = false;
+                return;
+            }
 
-                MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;");
-                MySqlCommand command = new MySqlCommand("SELECT * FROM patients WHERE user_id=@patient_id", connection);
+            ConfigureForm(patient_id);
+
+            var connectionString = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                var command = new MySqlCommand("SELECT * FROM patients WHERE user_id=@patient_id", connection);
                 command.Parameters.AddWithValue("@patient_id", patient_id);
                 connection.Open();
-                MySqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
+                using (var reader = command.ExecuteReader())
                 {
-                    // check if the values are null and replace them with 0 if they are
-                    string user_id = reader.IsDBNull(reader.GetOrdinal("user_id")) ? "0" : reader.GetString("user_id");
-                    string race = reader.IsDBNull(reader.GetOrdinal("race")) ? "0" : reader.GetString("race");
-                    string gender = reader.IsDBNull(reader.GetOrdinal("gender")) ? "0" : reader.GetString("gender");
-                    int height = reader.IsDBNull(reader.GetOrdinal("height")) ? 0 : reader.GetInt32("height");
-                    int weight = reader.IsDBNull(reader.GetOrdinal("weight")) ? 0 : reader.GetInt32("weight");
-                    int age = reader.IsDBNull(reader.GetOrdinal("age")) ? 0 : reader.GetInt32("age");
-                    int creatinine = reader.IsDBNull(reader.GetOrdinal("age")) ? 0 : reader.GetInt32("creatinine");
+                    if (reader.Read())
+                    {
+                        string race = reader.IsDBNull(reader.GetOrdinal("race")) ? "0" : reader.GetString("race");
+                        string gender = reader.IsDBNull(reader.GetOrdinal("gender")) ? "0" : reader.GetString("gender");
+                        int height = reader.IsDBNull(reader.GetOrdinal("height")) ? 0 : reader.GetInt32("height");
+                        int weight = reader.IsDBNull(reader.GetOrdinal("weight")) ? 0 : reader.GetInt32("weight");
+                        int age = reader.IsDBNull(reader.GetOrdinal("age")) ? 0 : reader.GetInt32("age");
+                        int creatinine = reader.IsDBNull(reader.GetOrdinal("age")) ? 0 : reader.GetInt32("creatinine");
 
-                    string ethnicity = "";
-                    string genderlong = "";
-                    if (race == "B")
-                    {
-                        ethnicity = "Black";
-                    }
-                    else if (race == "O")
-                    {
-                        ethnicity = "Other";
-                    }
+                        switch (race)
+                        {
+                            case "B":
+                                race = "Black";
+                                break;
+                            case "O":
+                                race = "Other";
+                                break;
+                            default:
+                                race = "";
+                                break;
+                        }
 
-                    if (gender == "M")
-                    {
-                        genderlong = "Male";
+                        switch (gender)
+                        {
+                            case "M":
+                                gender = "Male";
+                                break;
+                            case "F":
+                                gender = "Female";
+                                break;
+                            default:
+                                gender = "";
+                                break;
+                        }
+
+
+                        CBX_Ethnicity.Text = race;
+                        CBX_Gender.Text = gender;
+                        RTB_Height.Text = height.ToString();
+                        RTB_Weight.Text = weight.ToString();
+                        RTB_Age.Text = age.ToString();
+                        RTB_Creatinine.Text = creatinine.ToString();
+                        RBN_umolL.Checked = true;
                     }
-                    else if (gender == "F")
-                    {
-                        genderlong = "Female";
-                    }
-                    CBX_Ethnicity.Text = ethnicity;
-                    CBX_Gender.Text = genderlong;
-                    RTB_Height.Text = height.ToString();
-                    RTB_Weight.Text = weight.ToString();
-                    RTB_Age.Text = age.ToString();
-                    RTB_Creatinine.Text = creatinine.ToString();
-                    RBN_umolL.Checked = true;
                 }
-                connection.Close();
-                LBL_Title.Text = "Calculator: " + patient_id;
             }
         }
+
+        private void ConfigureForm(string patient_id)
+        {
+            BTN_Edit.Visible = true;
+            RTB_Creatinine.Enabled = false;
+            RBN_mgdL.Enabled = false;
+            RBN_umolL.Enabled = false;
+            RTB_Age.Enabled = false;
+            CBX_Gender.Enabled = false;
+            CBX_Ethnicity.Enabled = false;
+            CBX_Calculation.Enabled = false;
+            RTB_Weight.Enabled = false;
+            RTB_Height.Enabled = false;
+            RTB_eGFR.Enabled = false;
+
+            LBL_Title.Text = "Calculator: " + patient_id;
+        }
+
 
 
         private bool ValidateCrea()//Validates if Creatine is a Valid Input
