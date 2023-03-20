@@ -1,34 +1,28 @@
 ﻿using MySqlConnector;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
-using System.Data.SqlClient;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static FirstIteration.FRM_Login;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FirstIteration
 {
+    //Passes the string id from login
     public partial class FRM_DrMain : Form
     {
         private readonly string id;
 
+        //Runs the function GetPatients and sets the title to present the referenced user id
         public FRM_DrMain(string id)
         {
-            InitializeComponent();        
+            InitializeComponent();
             this.id = id;
             GetPatients();
             LBL_Title.Text = "Hello, " + id;
         }
 
+        //Opens the AddPatient form and safely hides the current one
         private void BTN_AddPatient_Click(object sender, EventArgs e)
         {
             FormStack.Forms.Push(this);
@@ -37,6 +31,7 @@ namespace FirstIteration
             AddPatient.ShowDialog();
         }
 
+        //Hides the current form and reloads the previous form
         private void BTN_SignOut_Click(object sender, EventArgs e)
         {
             Form previousForm = FormStack.Forms.Pop();
@@ -44,6 +39,7 @@ namespace FirstIteration
             previousForm.Show();
         }
 
+        //Runs the ImportCSV function when the button is clicked
         private void BTN_ImportCSV_Click(object sender, EventArgs e)
         {
             ImportCSV();
@@ -51,20 +47,24 @@ namespace FirstIteration
 
         private void ImportCSV()
         {
+            //Filters for only .csv files and folders
             OpenFileDialog ofd = new OpenFileDialog
             {
                 Filter = "CSV file (*.csv)|*.csv|All Files (*.*)|*.*"
             };
+            //Checks the file has passed the .csv filter and sets up a connection with the database
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 var connectionString = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;Allow User Variables=True;";
                 using (var connection = new MySqlConnection(connectionString))
                 {
+                    //Sets up the variables for the command to be used, csv file to reference, and handling invalid data.
                     connection.Open();
                     var command = connection.CreateCommand();
                     var CSVFile = ofd.FileName;
                     var errorBuilder = new StringBuilder();
                     errorBuilder.Append("During the import process, these ID's returned invalid entries, please manually validate the Data of these patients:");
+                    //Checks the headings in the first line of the .csv, delimited by commas and sets them as columnNames and populates a datatable to hold these in as headings. It also adds a clinician_id heading to future assign the logged in clinician
                     using (var reader = new StreamReader(CSVFile))
                     {
                         var columnNames = reader.ReadLine().Split(',');
@@ -74,6 +74,7 @@ namespace FirstIteration
                             csvData.Columns.Add(columnName);
                         }
                         csvData.Columns.Add("clinician_id", typeof(string));
+                        //populates each row of the datatable with each input being the data delimited by commas in the .csv file and sets the added clinician_id field to the passed id from the login form
                         while (!reader.EndOfStream)
                         {
                             var rowValues = reader.ReadLine().Split(',');
@@ -83,10 +84,12 @@ namespace FirstIteration
                                 row[i] = rowValues[i];
                             }
                             row["clinician_id"] = id;
+                            //Sets a database command up to select the number of patients where the user id already in the patients database so the program can decide to insert a new user or update an existing user. It sets the parameter as the current PatientID in the datatable and converts the resulting value to an int.
                             command.CommandText = "SELECT COUNT(*) FROM patients WHERE user_id = @user_id";
                             command.Parameters.Clear();
-                            command.Parameters.AddWithValue("@user_id", row["PatientID"]);                            
+                            command.Parameters.AddWithValue("@user_id", row["PatientID"]);
                             var existingUserCount = Convert.ToInt32(command.ExecuteScalar());
+                            //Checks if the number returned is greater than 0, indicating there is already that user id in the database, as such, sets the command to update it. Otherwise, sets the command to insert a new record
                             if (existingUserCount > 0)
                             {
                                 command.CommandText = "UPDATE patients set gender = @gender, race = @race, age = @age, creatinine = @creatinine where user_id = @user_id";
@@ -95,6 +98,7 @@ namespace FirstIteration
                             {
                                 command.CommandText = "INSERT INTO patients (user_id, gender, race, age, creatinine, clinician_id) VALUES (@user_id, @gender, @race, @age, @creatinine, @clinician_id)";
                             }
+                            //Converts the gender input (1 or 0) to M, F or ? for ubiquity in the database
                             if (row["gender"].ToString() == "1")
                             {
                                 row["gender"] = "M";
@@ -107,6 +111,7 @@ namespace FirstIteration
                             {
                                 row["gender"] = "?";
                             }
+                            //Clears any current parameters and sets the command parameters for the database with the corresponsding data table entries 
                             command.Parameters.Clear();
                             command.Parameters.AddWithValue("@user_id", row["PatientID"]);
                             command.Parameters.AddWithValue("@gender", row["Gender"]);
@@ -114,7 +119,9 @@ namespace FirstIteration
                             command.Parameters.AddWithValue("@age", row["Age"]);
                             command.Parameters.AddWithValue("@creatinine", row["Creatinine"]);
                             command.Parameters.AddWithValue("@clinician_id", row["clinician_id"]);
+                            //Creates a tuple containing all the state of data input, true, if they've been validated, or false and an error message if they fail the validation
                             var validationTuple = ValidateCSVloop(row["PatientID"].ToString(), row["Gender"].ToString(), row["Ethnicity"].ToString(), row["Age"].ToString(), row["Creatinine"].ToString(), row["clinician_id"].ToString());
+                            //Runs the previously set up command to insert/update the database with the validated information row-by-row, otherwise adds what triggered the validation check along with the patient id that triggered it to an error list
                             if (validationTuple.Item1)
                             {
                                 command.ExecuteNonQuery();
@@ -127,6 +134,7 @@ namespace FirstIteration
                             }
                         }
                     }
+                    //closes the database connection, displays the error list and refreshes the patient list with the newly added patients
                     connection.Close();
                     MessageBox.Show(errorBuilder.ToString());
                     GetPatients();
@@ -134,6 +142,7 @@ namespace FirstIteration
             }
         }
 
+        //Checks the patient_ids are a length of 10, the gender is either M or F (after being converted), Ethnicity is either B or O, Age is between 18 and 100 and a number, creatinine a number and clinician_id is 10 digits. Returns an error message if any of these are flagged to build the error list
         private Tuple<bool, string> ValidateCSVloop(string Pid, string Gend, string Eth, string age, string Crea, string Clin)
         {
             if (Pid.Length != 10) return Tuple.Create(false, "Patient ID Invalid");
@@ -147,6 +156,7 @@ namespace FirstIteration
 
         private void BTN_EditPatient_Click(object sender, EventArgs e)
         {
+            //Checks if a patient is selected, if not, alerts the user. If so, opens an instance of the calculator and passing the patient_id over
             if (LBX_Patients.SelectedIndex >= 0)
             {
                 string patient_id = LBX_Patients.Text;
@@ -158,9 +168,10 @@ namespace FirstIteration
             else
             {
                 MessageBox.Show("Please select a patient record to view");
-            }            
+            }
         }
 
+        //Clears the listbox, sets up a connection with the database, and a command that will select all the user_ids with their clinician matching the logged in clinician, execture the command and populate the listbox with the returned user_ids
         public void GetPatients()
         {
             LBX_Patients.Items.Clear();
@@ -176,18 +187,24 @@ namespace FirstIteration
             }
         }
 
+        
         private void BTN_RemovePatient_Click(object sender, EventArgs e)
         {
+            //sets up a new database connection
             using (MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;"))
             {
+                //Sets the command to set a patient's clinician id to NULL
                 MySqlCommand command = new MySqlCommand("update patients SET clinician_id = Null WHERE user_id=@patient_id", connection);
+                //Checks if the a patient is selected in the listbox, if not, alerts the user
                 if (LBX_Patients.SelectedIndex >= 0)
                 {
+                    //sets the patient id to the selected patient, and sets that as a parameter for the database query. Alerts the user if they are sure, if they press no, returns
                     string patient_id = LBX_Patients.Text;
                     command.Parameters.AddWithValue("@patient_id", patient_id);
                     DialogResult result = MessageBox.Show("Are you sure you want to remove this patient record?", "Confirmation", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
+                        //Tries to execute the database query. If successful, alerts the user, clears the listbox and refreshes it with the up-to-date patients. If not successful, alerts the user
                         try
                         {
                             connection.Open();

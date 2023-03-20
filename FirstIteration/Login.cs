@@ -46,7 +46,7 @@ namespace FirstIteration
                 calculator.ShowDialog();          
         }
 
-        //When login is clicked, calls the login function if the username passes validation, if not, sets and error
+        //When login is clicked, calls the login function if the username passes validation, if not, sets an error
         private void BTN_Login_Click(object sender, EventArgs e)
         {
             if (ValidateUserName(RTB_Username.Text))
@@ -61,6 +61,7 @@ namespace FirstIteration
 
         private void Login()
         {
+            //sets up a database connection and command that will
             MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;");
             MySqlCommand command = new MySqlCommand("UPDATE users SET created_at_updated_at = NOW() WHERE user_id=@user_id; SELECT * FROM users WHERE user_id=@user_id", connection);
             command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
