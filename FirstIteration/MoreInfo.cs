@@ -24,7 +24,7 @@ namespace FirstIteration
         {
             Form previousForm = FormStack.Forms.Pop();
             this.Hide();
-            previousForm.ShowDialog();
+            previousForm.Show();
         }
 
         private void FRM_MoreInfo_Load(object sender, EventArgs e)

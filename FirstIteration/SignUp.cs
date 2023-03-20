@@ -77,7 +77,7 @@ namespace FirstIteration
         {
             Form previousForm = FormStack.Forms.Pop();
             this.Hide();
-            previousForm.ShowDialog();
+            previousForm.Show();
         }
 
         private void LIN_Terms_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

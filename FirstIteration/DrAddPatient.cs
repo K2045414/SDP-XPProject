@@ -38,7 +38,7 @@ namespace FirstIteration
             // Get the previous form in the stack
             Form previousForm = FormStack.Forms.Pop();
             // Hide the current form (FRM_AddPatient) and show the previous one (FRM_DrMain)
-            previousForm.ShowDialog ();
+            previousForm.Show();
             this.Hide();
         }
 

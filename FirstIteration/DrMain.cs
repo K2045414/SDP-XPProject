@@ -41,7 +41,7 @@ namespace FirstIteration
         {
             Form previousForm = FormStack.Forms.Pop();
             this.Hide();
-            previousForm.ShowDialog();
+            previousForm.Show();
         }
 
         private void BTN_ImportCSV_Click(object sender, EventArgs e)//Validate stuff
