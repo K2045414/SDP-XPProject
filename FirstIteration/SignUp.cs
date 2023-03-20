@@ -23,11 +23,12 @@ namespace FirstIteration
 
         private bool ValidateUserName(string userName)
         {
-            if (!Regex.IsMatch(userName, @"^[0-9A-Z]{10}$"))
+            if (!Regex.IsMatch(userName, @"^[0-9]{10}$"))
             {
                 ERR_Validation.SetError(RTB_Username, "Your ID has been input incorrectly");
                 return false;
             }
+            ERR_Validation.SetError(RTB_Username, "");// Clears errors when successful ඞ
             return true;
         }
 

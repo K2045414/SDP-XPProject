@@ -18,9 +18,9 @@ namespace FirstIteration
         public FRM_Login()
         {
             InitializeComponent();
-        }   
+        }
 
-        //sets up the form stack to allow double backing between forms
+        //sets up the form stack to allow double backing between forms ඞ
         public static class FormStack
         {
             public static Stack<Form> Forms = new Stack<Form>();
@@ -29,12 +29,13 @@ namespace FirstIteration
         //THIS MUST CHANGE TO ACTUAL VALIDATION 
         private bool ValidateUserName(string userName)
         {
-            if (!Regex.IsMatch(userName, @"^[0-9A-Z]{10}$"))
+            if ((Regex.IsMatch(userName, @"^[A-Z]{2}") && Regex.IsMatch(userName, @"[0-9]{8}$")) || Regex.IsMatch(userName, @"^[0-9]{10}$"))
             {
-                ERR_Validation.SetError(BTN_Login, "Your ID has been input incorrectly");
-                return false;
+                ERR_Validation.SetError(BTN_Login, ""); //Clears errors when successful ඞ
+                return true;
             }
-            return true;
+            ERR_Validation.SetError(BTN_Login, "Your ID has been input incorrectly");
+            return false;
         }
 
         //Sets up and displays the calculate form
@@ -52,10 +53,6 @@ namespace FirstIteration
             if (ValidateUserName(RTB_Username.Text))
             {
                 Login();
-            }
-            else
-            {
-                ERR_Validation.SetError(BTN_Login, "Your Login was Incorrect");
             }
         }
 
