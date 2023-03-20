@@ -20,11 +20,13 @@ namespace FirstIteration
             InitializeComponent();
         }   
 
+        //sets up the form stack to allow double backing between forms
         public static class FormStack
         {
             public static Stack<Form> Forms = new Stack<Form>();
         }
 
+        //THIS MUST CHANGE TO ACTUAL VALIDATION 
         private bool ValidateUserName(string userName)
         {
             if (!Regex.IsMatch(userName, @"^[0-9A-Z]{10}$"))
@@ -35,6 +37,7 @@ namespace FirstIteration
             return true;
         }
 
+        //Sets up and displays the calculate form
         private void BTN_Calculate_Click(object sender, EventArgs e)
         {
                 FormStack.Forms.Push(this);
@@ -43,6 +46,7 @@ namespace FirstIteration
                 calculator.ShowDialog();          
         }
 
+        //When login is clicked, calls the login function if the username passes validation, if not, sets and error
         private void BTN_Login_Click(object sender, EventArgs e)
         {
             if (ValidateUserName(RTB_Username.Text))

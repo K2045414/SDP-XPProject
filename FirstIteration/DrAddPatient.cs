@@ -12,10 +12,12 @@ using static FirstIteration.FRM_Login;
 
 namespace FirstIteration
 {
+    //pulls id from DrMain form
     public partial class FRM_AddPatient : Form
     {
         private readonly string id;
 
+        //Refreshes the table with collected ids, makes sure when form is loaded, table is accurately populated
         public FRM_AddPatient(string id)
         {
             InitializeComponent();
@@ -23,6 +25,7 @@ namespace FirstIteration
             RefreshTable();
         }
 
+        //Safely returns to the parent form - also sets a variable parentForm to be used in the GetPatients function when returning
         private void BTN_Back_Click(object sender, EventArgs e)
         {
             FRM_DrMain parentForm = (FRM_DrMain)FormStack.Forms.Peek();
@@ -34,17 +37,22 @@ namespace FirstIteration
 
         private void BTN_SelectPatient_Click(object sender, EventArgs e)
         {
+            //Checks that there is a patient selected - if not alerts the user
             if (LBX_AllPatients.SelectedIndex >= 0)
             {
+                //Sets up connection with the database
                 using (MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;"))
                 {
+                    //Sets up a command to update the database entry at the patient selected with the signed in clinician id
                     string query = "UPDATE patients SET clinician_id = @clinician_id WHERE user_id = @patient_id";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
+                        //Sets the clinicican_id to the signed in clinician's id and sets the patient_id to the value selected
                         command.Parameters.AddWithValue("@patient_id", LBX_AllPatients.Text);
                         command.Parameters.AddWithValue("@clinician_id", id);
                         try
                         {
+                            //Sends the command and alerts the user if done so successfully by checking rows affected is more than 0. If not, throws an error
                             connection.Open();
                             int rowsAffected = command.ExecuteNonQuery();
                             if (rowsAffected > 0)
@@ -66,6 +74,7 @@ namespace FirstIteration
             }
         }
 
+        //Clears all current items in the listbox and sets up a command to retrive all patients not under the care of the signed in clinician
         public void RefreshTable()
         {
             LBX_AllPatients.Items.Clear();
@@ -74,9 +83,11 @@ namespace FirstIteration
             using (var connection = new MySqlConnection(connectionString))
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
+                //adds the clinician id as a parameter
                 command.Parameters.AddWithValue("@id", id);
                 try
                 {
+                    //Sends the command, and for each user that is returned, adds the id to the listbox
                     connection.Open();
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
