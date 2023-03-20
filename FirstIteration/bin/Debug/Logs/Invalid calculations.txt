@@ -154,3 +154,135 @@ MDRD: 75 Cockroft: 61 CKDEPI: 73
 Percentage differences between calculations: 
 MDRD and Cockroft: 19.7851670454672 MDRD and CKDEPI: 2.503667046773 Cockroft and CKDEPI: 17.3029277154362
 
+Index: 14
+Rejected calculation: Cockroft
+Average of the two closest values as a percentage difference: 33.2961131126433
+Percentage difference of outlier from the average of the other two values: 172.561664076552
+Outlier percentage difference: 2.45218449620764
+Variables: 
+Age: 22 Gender: Male Creatinine: 90 µmol/L  Ethnicity: Black Height: 100 Weight: 100
+eGFR values: 
+MDRD: 118 Cockroft: 167 CKDEPI: 121
+Percentage differences between calculations: 
+MDRD and Cockroft: 34.4882668233119 MDRD and CKDEPI: 2.45218449620764 Cockroft and CKDEPI: 32.1039594019747
+
+Index: 15
+Rejected calculation: Cockroft
+Average of the two closest values as a percentage difference: 33.2961131126433
+Percentage difference of outlier from the average of the other two values: 172.561664076552
+Outlier percentage difference: 2.45218449620764
+Variables: 
+Age: 22 Gender: Male Creatinine: 90 µmol/L  Ethnicity: Black Height: 100 Weight: 100
+eGFR values: 
+MDRD: 118 Cockroft: 167 CKDEPI: 121
+Percentage differences between calculations: 
+MDRD and Cockroft: 34.4882668233119 MDRD and CKDEPI: 2.45218449620764 Cockroft and CKDEPI: 32.1039594019747
+
+Index: 16
+Rejected calculation: Cockroft
+Average of the two closest values as a percentage difference: 45.8946572382363
+Percentage difference of outlier from the average of the other two values: 179.711729591961
+Outlier percentage difference: 2.45218449620764
+Variables: 
+Age: 22 Gender: Male Creatinine: 90 µmol/L  Ethnicity: Black Height: 100 Weight: 130
+eGFR values: 
+MDRD: 118 Cockroft: 190 CKDEPI: 121
+Percentage differences between calculations: 
+MDRD and Cockroft: 47.0562272916047 MDRD and CKDEPI: 2.45218449620764 Cockroft and CKDEPI: 44.733087184868
+
+Index: 17
+Rejected calculation: Cockroft
+Average of the two closest values as a percentage difference: 23.1234874248516
+Percentage difference of outlier from the average of the other two values: 161.648170905907
+Outlier percentage difference: 2.45218449620764
+Variables: 
+Age: 22 Gender: Male Creatinine: 90 µmol/L  Ethnicity: Black Height: 160 Weight: 130
+eGFR values: 
+MDRD: 118 Cockroft: 150 CKDEPI: 121
+Percentage differences between calculations: 
+MDRD and Cockroft: 24.3332348768421 MDRD and CKDEPI: 2.45218449620764 Cockroft and CKDEPI: 21.913739972861
+
+Index: 18
+Rejected calculation: Cockroft
+Average of the two closest values as a percentage difference: 44.0328227041708
+Percentage difference of outlier from the average of the other two values: 178.899136354763
+Outlier percentage difference: 2.45218449620764
+Variables: 
+Age: 22 Gender: Male Creatinine: 90 µmol/L  Ethnicity: Black Height: 160 Weight: 200
+eGFR values: 
+MDRD: 118 Cockroft: 186 CKDEPI: 121
+Percentage differences between calculations: 
+MDRD and Cockroft: 45.199525242145 MDRD and CKDEPI: 2.45218449620764 Cockroft and CKDEPI: 42.8661201661965
+
+Index: 19
+Rejected calculation: Cockroft
+Average of the two closest values as a percentage difference: 44.0328227041708
+Percentage difference of outlier from the average of the other two values: 178.899136354763
+Outlier percentage difference: 2.45218449620764
+Variables: 
+Age: 22 Gender: Male Creatinine: 90 µmol/L  Ethnicity: Black Height: 160 Weight: 200
+eGFR values: 
+MDRD: 118 Cockroft: 186 CKDEPI: 121
+Percentage differences between calculations: 
+MDRD and Cockroft: 45.199525242145 MDRD and CKDEPI: 2.45218449620764 Cockroft and CKDEPI: 42.8661201661965
+
+Index: 20
+Rejected calculation: Cockroft
+Average of the two closest values as a percentage difference: 122.902986196598
+Percentage difference of outlier from the average of the other two values: 190.364250575306
+Outlier percentage difference: 3.03373676455174
+Variables: 
+Age: 32 Gender: Male Creatinine: 90 µmol/L  Ethnicity: Black Height: 131233 Weight: 1212312
+eGFR values: 
+MDRD: 109 Cockroft: 464 CKDEPI: 112
+Percentage differences between calculations: 
+MDRD and Cockroft: 123.847075494477 MDRD and CKDEPI: 3.03373676455174 Cockroft and CKDEPI: 121.958896898719
+
+Index: 21
+Rejected calculation: Cockroft
+Average of the two closest values as a percentage difference: 37.0107880972037
+Percentage difference of outlier from the average of the other two values: 175.144452279633
+Outlier percentage difference: 2.45218449620764
+Variables: 
+Age: 22 Gender: Male Creatinine: 90 µmol/L  Ethnicity: Black Height: 21435 Weight: 23143
+eGFR values: 
+MDRD: 118 Cockroft: 173 CKDEPI: 121
+Percentage differences between calculations: 
+MDRD and Cockroft: 38.1949358450687 MDRD and CKDEPI: 2.45218449620764 Cockroft and CKDEPI: 35.8266403493388
+
+Index: 22
+Rejected calculation: Cockroft
+Average of the two closest values as a percentage difference: 37.0107880972037
+Percentage difference of outlier from the average of the other two values: 175.144452279633
+Outlier percentage difference: 2.45218449620764
+Variables: 
+Age: 22 Gender: Male Creatinine: 90 µmol/L  Ethnicity: Black Height: 21435 Weight: 23143
+eGFR values: 
+MDRD: 118 Cockroft: 173 CKDEPI: 121
+Percentage differences between calculations: 
+MDRD and Cockroft: 38.1949358450687 MDRD and CKDEPI: 2.45218449620764 Cockroft and CKDEPI: 35.8266403493388
+
+Index: 23
+Rejected calculation: Cockroft
+Average of the two closest values as a percentage difference: 77.3243157328948
+Percentage difference of outlier from the average of the other two values: 186.735777161193
+Outlier percentage difference: 2.65206121416556
+Variables: 
+Age: 23 Gender: Male Creatinine: 90 µmol/L  Ethnicity: Black Height: 12345678 Weight: 1234567
+eGFR values: 
+MDRD: 117 Cockroft: 52 CKDEPI: 120
+Percentage differences between calculations: 
+MDRD and Cockroft: 76.1964530315963 MDRD and CKDEPI: 2.65206121416556 Cockroft and CKDEPI: 78.4521784341932
+
+Index: 24
+Rejected calculation: Cockroft
+Average of the two closest values as a percentage difference: 77.3243157328948
+Percentage difference of outlier from the average of the other two values: 186.735777161193
+Outlier percentage difference: 2.65206121416556
+Variables: 
+Age: 23 Gender: Male Creatinine: 90 µmol/L  Ethnicity: Black Height: 12345678 Weight: 1234567
+eGFR values: 
+MDRD: 117 Cockroft: 52 CKDEPI: 120
+Percentage differences between calculations: 
+MDRD and Cockroft: 76.1964530315963 MDRD and CKDEPI: 2.65206121416556 Cockroft and CKDEPI: 78.4521784341932
+

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_DrMain));
             this.LBL_HCPID = new System.Windows.Forms.Label();
             this.LBX_Patients = new System.Windows.Forms.ListBox();
             this.BTN_EditPatient = new System.Windows.Forms.Button();
@@ -48,10 +49,9 @@
             // LBL_HCPID
             // 
             this.LBL_HCPID.AutoSize = true;
-            this.LBL_HCPID.Location = new System.Drawing.Point(267, 35);
-            this.LBL_HCPID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_HCPID.Location = new System.Drawing.Point(178, 23);
             this.LBL_HCPID.Name = "LBL_HCPID";
-            this.LBL_HCPID.Size = new System.Drawing.Size(63, 20);
+            this.LBL_HCPID.Size = new System.Drawing.Size(43, 13);
             this.LBL_HCPID.TabIndex = 0;
             this.LBL_HCPID.Text = "HCP ID";
             // 
@@ -60,11 +60,9 @@
             this.LBX_Patients.BackColor = System.Drawing.Color.LightSteelBlue;
             this.LBX_Patients.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LBX_Patients.FormattingEnabled = true;
-            this.LBX_Patients.ItemHeight = 20;
-            this.LBX_Patients.Location = new System.Drawing.Point(20, 22);
-            this.LBX_Patients.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.LBX_Patients.Location = new System.Drawing.Point(13, 14);
             this.LBX_Patients.Name = "LBX_Patients";
-            this.LBX_Patients.Size = new System.Drawing.Size(528, 262);
+            this.LBX_Patients.Size = new System.Drawing.Size(353, 171);
             this.LBX_Patients.TabIndex = 1;
             // 
             // BTN_EditPatient
@@ -79,10 +77,9 @@
             this.BTN_EditPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_EditPatient.Font = new System.Drawing.Font("Arial", 12F);
             this.BTN_EditPatient.ForeColor = System.Drawing.Color.White;
-            this.BTN_EditPatient.Location = new System.Drawing.Point(262, 423);
-            this.BTN_EditPatient.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BTN_EditPatient.Location = new System.Drawing.Point(175, 275);
             this.BTN_EditPatient.Name = "BTN_EditPatient";
-            this.BTN_EditPatient.Size = new System.Drawing.Size(286, 82);
+            this.BTN_EditPatient.Size = new System.Drawing.Size(191, 53);
             this.BTN_EditPatient.TabIndex = 3;
             this.BTN_EditPatient.Text = "See selected patient data";
             this.BTN_EditPatient.UseVisualStyleBackColor = false;
@@ -100,10 +97,9 @@
             this.BTN_RemovePatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_RemovePatient.Font = new System.Drawing.Font("Arial", 12F);
             this.BTN_RemovePatient.ForeColor = System.Drawing.Color.White;
-            this.BTN_RemovePatient.Location = new System.Drawing.Point(262, 300);
-            this.BTN_RemovePatient.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BTN_RemovePatient.Location = new System.Drawing.Point(175, 195);
             this.BTN_RemovePatient.Name = "BTN_RemovePatient";
-            this.BTN_RemovePatient.Size = new System.Drawing.Size(286, 82);
+            this.BTN_RemovePatient.Size = new System.Drawing.Size(191, 53);
             this.BTN_RemovePatient.TabIndex = 2;
             this.BTN_RemovePatient.Text = "Remove selected patient from care";
             this.BTN_RemovePatient.UseVisualStyleBackColor = false;
@@ -121,10 +117,9 @@
             this.BTN_AddPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_AddPatient.Font = new System.Drawing.Font("Arial", 12F);
             this.BTN_AddPatient.ForeColor = System.Drawing.Color.White;
-            this.BTN_AddPatient.Location = new System.Drawing.Point(315, 546);
-            this.BTN_AddPatient.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BTN_AddPatient.Location = new System.Drawing.Point(210, 355);
             this.BTN_AddPatient.Name = "BTN_AddPatient";
-            this.BTN_AddPatient.Size = new System.Drawing.Size(234, 82);
+            this.BTN_AddPatient.Size = new System.Drawing.Size(156, 53);
             this.BTN_AddPatient.TabIndex = 5;
             this.BTN_AddPatient.Text = "Add new patient";
             this.BTN_AddPatient.UseVisualStyleBackColor = false;
@@ -142,10 +137,9 @@
             this.BTN_ImportCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_ImportCSV.Font = new System.Drawing.Font("Arial", 12F);
             this.BTN_ImportCSV.ForeColor = System.Drawing.Color.White;
-            this.BTN_ImportCSV.Location = new System.Drawing.Point(20, 300);
-            this.BTN_ImportCSV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BTN_ImportCSV.Location = new System.Drawing.Point(13, 195);
             this.BTN_ImportCSV.Name = "BTN_ImportCSV";
-            this.BTN_ImportCSV.Size = new System.Drawing.Size(234, 82);
+            this.BTN_ImportCSV.Size = new System.Drawing.Size(156, 53);
             this.BTN_ImportCSV.TabIndex = 1;
             this.BTN_ImportCSV.Text = "Import from CSV";
             this.BTN_ImportCSV.UseVisualStyleBackColor = false;
@@ -163,10 +157,9 @@
             this.BTN_SignOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_SignOut.Font = new System.Drawing.Font("Arial", 12F);
             this.BTN_SignOut.ForeColor = System.Drawing.Color.White;
-            this.BTN_SignOut.Location = new System.Drawing.Point(20, 546);
-            this.BTN_SignOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BTN_SignOut.Location = new System.Drawing.Point(13, 355);
             this.BTN_SignOut.Name = "BTN_SignOut";
-            this.BTN_SignOut.Size = new System.Drawing.Size(234, 82);
+            this.BTN_SignOut.Size = new System.Drawing.Size(156, 53);
             this.BTN_SignOut.TabIndex = 4;
             this.BTN_SignOut.Text = "Sign out";
             this.BTN_SignOut.UseVisualStyleBackColor = false;
@@ -179,9 +172,8 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.LBL_Title);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(600, 78);
+            this.panel1.Size = new System.Drawing.Size(400, 51);
             this.panel1.TabIndex = 18;
             // 
             // pictureBox1
@@ -189,9 +181,8 @@
             this.pictureBox1.BackgroundImage = global::FirstIteration.Properties.Resources.LogoImg;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(108, 66);
+            this.pictureBox1.Size = new System.Drawing.Size(72, 43);
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
             // 
@@ -201,10 +192,9 @@
             this.LBL_Title.BackColor = System.Drawing.Color.Transparent;
             this.LBL_Title.Font = new System.Drawing.Font("Arial", 20F);
             this.LBL_Title.ForeColor = System.Drawing.Color.White;
-            this.LBL_Title.Location = new System.Drawing.Point(262, 12);
-            this.LBL_Title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_Title.Location = new System.Drawing.Point(78, 8);
             this.LBL_Title.Name = "LBL_Title";
-            this.LBL_Title.Size = new System.Drawing.Size(59, 45);
+            this.LBL_Title.Size = new System.Drawing.Size(42, 32);
             this.LBL_Title.TabIndex = 5;
             this.LBL_Title.Text = "ID";
             // 
@@ -219,25 +209,24 @@
             this.panel2.Controls.Add(this.BTN_RemovePatient);
             this.panel2.Controls.Add(this.BTN_ImportCSV);
             this.panel2.Controls.Add(this.BTN_AddPatient);
-            this.panel2.Location = new System.Drawing.Point(9, 88);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Location = new System.Drawing.Point(6, 57);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(572, 658);
+            this.panel2.Size = new System.Drawing.Size(381, 428);
             this.panel2.TabIndex = 19;
             // 
             // FRM_DrMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FirstIteration.Properties.Resources.BGImg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(598, 765);
+            this.ClientSize = new System.Drawing.Size(399, 497);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LBL_HCPID);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FRM_DrMain";
             this.Text = "Doctor Page";
             this.panel1.ResumeLayout(false);

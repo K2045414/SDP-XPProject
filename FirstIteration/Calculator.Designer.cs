@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Calculator));
             this.BTN_Calculate = new System.Windows.Forms.Button();
             this.RTB_Creatinine = new System.Windows.Forms.RichTextBox();
             this.LBL_Title = new System.Windows.Forms.Label();
@@ -57,11 +58,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.CalcTip = new System.Windows.Forms.ToolTip(this.components);
+            this.CalcInfo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CalcInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // BTN_Calculate
@@ -75,7 +79,7 @@
             this.BTN_Calculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Calculate.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_Calculate.ForeColor = System.Drawing.Color.White;
-            this.BTN_Calculate.Location = new System.Drawing.Point(220, 455);
+            this.BTN_Calculate.Location = new System.Drawing.Point(221, 510);
             this.BTN_Calculate.Name = "BTN_Calculate";
             this.BTN_Calculate.Size = new System.Drawing.Size(152, 48);
             this.BTN_Calculate.TabIndex = 12;
@@ -110,6 +114,7 @@
             // 
             this.CBX_Ethnicity.BackColor = System.Drawing.Color.LightSteelBlue;
             this.CBX_Ethnicity.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBX_Ethnicity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBX_Ethnicity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CBX_Ethnicity.Font = new System.Drawing.Font("Arial", 12F);
             this.CBX_Ethnicity.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -121,29 +126,31 @@
             this.CBX_Ethnicity.Name = "CBX_Ethnicity";
             this.CBX_Ethnicity.Size = new System.Drawing.Size(255, 26);
             this.CBX_Ethnicity.TabIndex = 7;
-            this.CBX_Ethnicity.Text = "Other";
             // 
             // CBX_Gender
             // 
             this.CBX_Gender.BackColor = System.Drawing.Color.LightSteelBlue;
             this.CBX_Gender.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBX_Gender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBX_Gender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CBX_Gender.Font = new System.Drawing.Font("Arial", 12F);
             this.CBX_Gender.ForeColor = System.Drawing.SystemColors.WindowText;
             this.CBX_Gender.FormattingEnabled = true;
+            this.CBX_Gender.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.CBX_Gender.Items.AddRange(new object[] {
             "Male",
             "Female"});
             this.CBX_Gender.Location = new System.Drawing.Point(302, 115);
             this.CBX_Gender.Name = "CBX_Gender";
+            this.CBX_Gender.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.CBX_Gender.Size = new System.Drawing.Size(255, 26);
             this.CBX_Gender.TabIndex = 3;
-            this.CBX_Gender.Text = "Male";
             // 
             // CBX_Calculation
             // 
             this.CBX_Calculation.BackColor = System.Drawing.Color.LightSteelBlue;
             this.CBX_Calculation.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBX_Calculation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBX_Calculation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CBX_Calculation.Font = new System.Drawing.Font("Arial", 12F);
             this.CBX_Calculation.FormattingEnabled = true;
@@ -156,17 +163,19 @@
             this.CBX_Calculation.Name = "CBX_Calculation";
             this.CBX_Calculation.Size = new System.Drawing.Size(255, 26);
             this.CBX_Calculation.TabIndex = 1;
-            this.CBX_Calculation.Text = "MDRD";
+            this.CalcTip.SetToolTip(this.CBX_Calculation, "MDRD - The Default EGFR Calculation\r\nCKDEPI - An Alternative Calculation\r\nCockraf" +
+        "t - A Second Alternative which requires the users Weight and Height\r\n");
             this.CBX_Calculation.SelectedIndexChanged += new System.EventHandler(this.CBX_Calculation_SelectedIndexChanged);
             // 
             // RTB_eGFR
             // 
             this.RTB_eGFR.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RTB_eGFR.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RTB_eGFR.Font = new System.Drawing.Font("Arial", 12F);
-            this.RTB_eGFR.Location = new System.Drawing.Point(302, 370);
+            this.RTB_eGFR.Font = new System.Drawing.Font("Arial", 14F);
+            this.RTB_eGFR.Location = new System.Drawing.Point(115, 397);
             this.RTB_eGFR.Name = "RTB_eGFR";
-            this.RTB_eGFR.Size = new System.Drawing.Size(255, 47);
+            this.RTB_eGFR.ReadOnly = true;
+            this.RTB_eGFR.Size = new System.Drawing.Size(370, 87);
             this.RTB_eGFR.TabIndex = 10;
             this.RTB_eGFR.Text = "";
             // 
@@ -233,7 +242,7 @@
             this.LBL_eGFR.AutoSize = true;
             this.LBL_eGFR.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_eGFR.ForeColor = System.Drawing.Color.White;
-            this.LBL_eGFR.Location = new System.Drawing.Point(23, 370);
+            this.LBL_eGFR.Location = new System.Drawing.Point(160, 367);
             this.LBL_eGFR.Name = "LBL_eGFR";
             this.LBL_eGFR.Size = new System.Drawing.Size(273, 27);
             this.LBL_eGFR.TabIndex = 24;
@@ -251,7 +260,7 @@
             this.BTN_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Back.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_Back.ForeColor = System.Drawing.Color.White;
-            this.BTN_Back.Location = new System.Drawing.Point(62, 455);
+            this.BTN_Back.Location = new System.Drawing.Point(63, 510);
             this.BTN_Back.Name = "BTN_Back";
             this.BTN_Back.Size = new System.Drawing.Size(152, 48);
             this.BTN_Back.TabIndex = 11;
@@ -307,7 +316,7 @@
             this.BTN_MoreInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_MoreInfo.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_MoreInfo.ForeColor = System.Drawing.Color.White;
-            this.BTN_MoreInfo.Location = new System.Drawing.Point(163, 515);
+            this.BTN_MoreInfo.Location = new System.Drawing.Point(164, 570);
             this.BTN_MoreInfo.Name = "BTN_MoreInfo";
             this.BTN_MoreInfo.Size = new System.Drawing.Size(264, 63);
             this.BTN_MoreInfo.TabIndex = 14;
@@ -376,7 +385,7 @@
             this.BTN_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Edit.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_Edit.ForeColor = System.Drawing.Color.White;
-            this.BTN_Edit.Location = new System.Drawing.Point(378, 455);
+            this.BTN_Edit.Location = new System.Drawing.Point(379, 510);
             this.BTN_Edit.Name = "BTN_Edit";
             this.BTN_Edit.Size = new System.Drawing.Size(152, 48);
             this.BTN_Edit.TabIndex = 13;
@@ -423,6 +432,7 @@
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BackgroundImage = global::FirstIteration.Properties.Resources.BufferImg;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.CalcInfo);
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.LBL_Creatinine);
             this.panel2.Controls.Add(this.LBL_Age);
@@ -448,18 +458,38 @@
             this.panel2.Controls.Add(this.RTB_Creatinine);
             this.panel2.Location = new System.Drawing.Point(12, 54);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(577, 582);
+            this.panel2.Size = new System.Drawing.Size(577, 636);
             this.panel2.TabIndex = 37;
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pictureBox3.Location = new System.Drawing.Point(28, 338);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(529, 8);
             this.pictureBox3.TabIndex = 39;
             this.pictureBox3.TabStop = false;
+            // 
+            // CalcTip
+            // 
+            this.CalcTip.AutoPopDelay = 50000;
+            this.CalcTip.InitialDelay = 500;
+            this.CalcTip.ReshowDelay = 100;
+            // 
+            // CalcInfo
+            // 
+            this.CalcInfo.BackgroundImage = global::FirstIteration.Properties.Resources.Question;
+            this.CalcInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CalcInfo.Cursor = System.Windows.Forms.Cursors.Default;
+            this.CalcInfo.InitialImage = global::FirstIteration.Properties.Resources.Question;
+            this.CalcInfo.Location = new System.Drawing.Point(425, 45);
+            this.CalcInfo.Name = "CalcInfo";
+            this.CalcInfo.Size = new System.Drawing.Size(29, 26);
+            this.CalcInfo.TabIndex = 40;
+            this.CalcInfo.TabStop = false;
+            this.CalcTip.SetToolTip(this.CalcInfo, "MDRD - The Default EGFR Calculation\r\nCKDEPI - An Alternative Calculation\r\nCockraf" +
+        "t - A Second Alternative which requires the users Weight and Height");
             // 
             // FRM_Calculator
             // 
@@ -467,11 +497,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FirstIteration.Properties.Resources.BGImg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(604, 648);
+            this.ClientSize = new System.Drawing.Size(604, 702);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FRM_Calculator";
             this.RightToLeftLayout = true;
             this.Text = "Calculator";
@@ -481,6 +512,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CalcInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -491,7 +523,6 @@
         private System.Windows.Forms.RichTextBox RTB_Creatinine;
         private System.Windows.Forms.Label LBL_Title;
         private System.Windows.Forms.ComboBox CBX_Ethnicity;
-        private System.Windows.Forms.ComboBox CBX_Gender;
         private System.Windows.Forms.ComboBox CBX_Calculation;
         private System.Windows.Forms.RichTextBox RTB_eGFR;
         private System.Windows.Forms.Label LBL_Creatinine;
@@ -515,6 +546,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.ComboBox CBX_Gender;
+        private System.Windows.Forms.ToolTip CalcTip;
+        private System.Windows.Forms.PictureBox CalcInfo;
     }
 }
 

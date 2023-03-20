@@ -29,7 +29,7 @@ namespace FirstIteration
         {
             if (!Regex.IsMatch(userName, @"^[0-9A-Z]{10}$"))
             {
-                ERR_Validation.SetError(RTB_Username, "Your ID has been input incorrectly");
+                ERR_Validation.SetError(BTN_Login, "Your ID has been input incorrectly");
                 return false;
             }
             return true;
@@ -50,7 +50,7 @@ namespace FirstIteration
             }
             else
             {
-                ERR_Validation.SetError(BTN_SignUp, "Your Login was Incorrect");
+                ERR_Validation.SetError(BTN_Login, "Your Login was Incorrect");
             }
         }
         private void Login()
@@ -91,18 +91,18 @@ namespace FirstIteration
                                 break;
 
                             default:
-                                ERR_Validation.SetError(RTB_Username, "User is neither a doctor nor a patient. Please contact your administrator.");
+                                ERR_Validation.SetError(BTN_Login, "User is neither a doctor nor a patient. Please contact your administrator.");
                                 break;
                         }
                     }
                     else
                     {
-                        ERR_Validation.SetError(RTB_Password, "Invalid username or password.");
+                        ERR_Validation.SetError(BTN_Login, "Invalid username or password.");
                     }
                 }
                 else
                 {
-                    ERR_Validation.SetError(BTN_SignUp, "Invalid username or password.");
+                    ERR_Validation.SetError(BTN_Login, "Invalid username or password.");
                 }
             }
             catch (Exception ex)

@@ -87,6 +87,7 @@
             this.RTB_eGFR.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RTB_eGFR.Location = new System.Drawing.Point(283, 29);
             this.RTB_eGFR.Name = "RTB_eGFR";
+            this.RTB_eGFR.ReadOnly = true;
             this.RTB_eGFR.Size = new System.Drawing.Size(227, 47);
             this.RTB_eGFR.TabIndex = 1;
             this.RTB_eGFR.Text = "";
@@ -99,6 +100,7 @@
             this.RTB_CKD1.ForeColor = System.Drawing.Color.White;
             this.RTB_CKD1.Location = new System.Drawing.Point(18, 118);
             this.RTB_CKD1.Name = "RTB_CKD1";
+            this.RTB_CKD1.ReadOnly = true;
             this.RTB_CKD1.Size = new System.Drawing.Size(154, 55);
             this.RTB_CKD1.TabIndex = 2;
             this.RTB_CKD1.Text = "Stage 1 with normal or high GFR\nNormal and high";
@@ -111,6 +113,7 @@
             this.RTB_eGFR1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RTB_eGFR1.Location = new System.Drawing.Point(192, 118);
             this.RTB_eGFR1.Name = "RTB_eGFR1";
+            this.RTB_eGFR1.ReadOnly = true;
             this.RTB_eGFR1.Size = new System.Drawing.Size(147, 55);
             this.RTB_eGFR1.TabIndex = 3;
             this.RTB_eGFR1.Text = "GFR > 90 mL/min/1.73 m²";
@@ -123,6 +126,7 @@
             this.RTB_Desc1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RTB_Desc1.Location = new System.Drawing.Point(359, 118);
             this.RTB_Desc1.Name = "RTB_Desc1";
+            this.RTB_Desc1.ReadOnly = true;
             this.RTB_Desc1.Size = new System.Drawing.Size(216, 55);
             this.RTB_Desc1.TabIndex = 4;
             this.RTB_Desc1.Text = "- Mild kidney damage\n- Kidney work as well as normal";
@@ -135,6 +139,7 @@
             this.RTB_CKD2.ForeColor = System.Drawing.Color.White;
             this.RTB_CKD2.Location = new System.Drawing.Point(18, 179);
             this.RTB_CKD2.Name = "RTB_CKD2";
+            this.RTB_CKD2.ReadOnly = true;
             this.RTB_CKD2.Size = new System.Drawing.Size(154, 55);
             this.RTB_CKD2.TabIndex = 5;
             this.RTB_CKD2.Text = "Stage 2 Mild CKD\nMild reduction related to normal range for a young adult";
@@ -147,6 +152,7 @@
             this.RTB_eGFR2.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RTB_eGFR2.Location = new System.Drawing.Point(192, 179);
             this.RTB_eGFR2.Name = "RTB_eGFR2";
+            this.RTB_eGFR2.ReadOnly = true;
             this.RTB_eGFR2.Size = new System.Drawing.Size(147, 55);
             this.RTB_eGFR2.TabIndex = 6;
             this.RTB_eGFR2.Text = "GFR = 60-89 mL/min/1.73 m²";
@@ -159,6 +165,7 @@
             this.RTB_CKD3.ForeColor = System.Drawing.Color.White;
             this.RTB_CKD3.Location = new System.Drawing.Point(18, 240);
             this.RTB_CKD3.Name = "RTB_CKD3";
+            this.RTB_CKD3.ReadOnly = true;
             this.RTB_CKD3.Size = new System.Drawing.Size(154, 55);
             this.RTB_CKD3.TabIndex = 7;
             this.RTB_CKD3.Text = "Stage 3A Moderate CKD\nMild-moderate reduction";
@@ -171,6 +178,7 @@
             this.RTB_eGFR3.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RTB_eGFR3.Location = new System.Drawing.Point(192, 240);
             this.RTB_eGFR3.Name = "RTB_eGFR3";
+            this.RTB_eGFR3.ReadOnly = true;
             this.RTB_eGFR3.Size = new System.Drawing.Size(147, 55);
             this.RTB_eGFR3.TabIndex = 8;
             this.RTB_eGFR3.Text = "GFR = 45-59 mL/min/1.73 m²";
@@ -183,6 +191,7 @@
             this.RTB_CKD4.ForeColor = System.Drawing.Color.White;
             this.RTB_CKD4.Location = new System.Drawing.Point(18, 301);
             this.RTB_CKD4.Name = "RTB_CKD4";
+            this.RTB_CKD4.ReadOnly = true;
             this.RTB_CKD4.Size = new System.Drawing.Size(154, 55);
             this.RTB_CKD4.TabIndex = 9;
             this.RTB_CKD4.Text = "Stage 3B Moderate CKD\nModerate-severe reduction";
@@ -195,6 +204,7 @@
             this.RTB_eGFR4.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RTB_eGFR4.Location = new System.Drawing.Point(192, 301);
             this.RTB_eGFR4.Name = "RTB_eGFR4";
+            this.RTB_eGFR4.ReadOnly = true;
             this.RTB_eGFR4.Size = new System.Drawing.Size(147, 55);
             this.RTB_eGFR4.TabIndex = 10;
             this.RTB_eGFR4.Text = "GFR = 30-44 mL/min/1.73 m²";
@@ -207,6 +217,7 @@
             this.RTB_CKD5.ForeColor = System.Drawing.Color.White;
             this.RTB_CKD5.Location = new System.Drawing.Point(18, 362);
             this.RTB_CKD5.Name = "RTB_CKD5";
+            this.RTB_CKD5.ReadOnly = true;
             this.RTB_CKD5.Size = new System.Drawing.Size(154, 55);
             this.RTB_CKD5.TabIndex = 11;
             this.RTB_CKD5.Text = "Stage 4 Severe CKD\nSevere reduction";
@@ -219,6 +230,7 @@
             this.RTB_eGFR5.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RTB_eGFR5.Location = new System.Drawing.Point(192, 362);
             this.RTB_eGFR5.Name = "RTB_eGFR5";
+            this.RTB_eGFR5.ReadOnly = true;
             this.RTB_eGFR5.Size = new System.Drawing.Size(147, 55);
             this.RTB_eGFR5.TabIndex = 12;
             this.RTB_eGFR5.Text = "GFR = 15-29mL/min/1.73 m²";
@@ -231,6 +243,7 @@
             this.RTB_CKD6.ForeColor = System.Drawing.Color.White;
             this.RTB_CKD6.Location = new System.Drawing.Point(18, 423);
             this.RTB_CKD6.Name = "RTB_CKD6";
+            this.RTB_CKD6.ReadOnly = true;
             this.RTB_CKD6.Size = new System.Drawing.Size(154, 55);
             this.RTB_CKD6.TabIndex = 13;
             this.RTB_CKD6.Text = "Stage 5 End Stage CKD\nKidney failure";
@@ -243,6 +256,7 @@
             this.RTB_eGFR6.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RTB_eGFR6.Location = new System.Drawing.Point(192, 423);
             this.RTB_eGFR6.Name = "RTB_eGFR6";
+            this.RTB_eGFR6.ReadOnly = true;
             this.RTB_eGFR6.Size = new System.Drawing.Size(147, 55);
             this.RTB_eGFR6.TabIndex = 14;
             this.RTB_eGFR6.Text = "GFR = >15mL/min/1.73 m²";
@@ -255,18 +269,21 @@
             this.RTB_Desc2.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RTB_Desc2.Location = new System.Drawing.Point(359, 179);
             this.RTB_Desc2.Name = "RTB_Desc2";
+            this.RTB_Desc2.ReadOnly = true;
             this.RTB_Desc2.Size = new System.Drawing.Size(216, 55);
             this.RTB_Desc2.TabIndex = 15;
             this.RTB_Desc2.Text = "- Mild kidney damage\n- Kidneys still work well";
             // 
             // RTB_Desc3
             // 
+            this.RTB_Desc3.AcceptsTab = true;
             this.RTB_Desc3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RTB_Desc3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Desc3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_Desc3.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RTB_Desc3.Location = new System.Drawing.Point(359, 240);
             this.RTB_Desc3.Name = "RTB_Desc3";
+            this.RTB_Desc3.ReadOnly = true;
             this.RTB_Desc3.Size = new System.Drawing.Size(216, 55);
             this.RTB_Desc3.TabIndex = 16;
             this.RTB_Desc3.Text = "- Mild to moderate kidney damage\n- Kidneys don\'t work as well as they should";
@@ -279,6 +296,7 @@
             this.RTB_Desc4.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RTB_Desc4.Location = new System.Drawing.Point(359, 301);
             this.RTB_Desc4.Name = "RTB_Desc4";
+            this.RTB_Desc4.ReadOnly = true;
             this.RTB_Desc4.Size = new System.Drawing.Size(216, 55);
             this.RTB_Desc4.TabIndex = 17;
             this.RTB_Desc4.Text = "- Moderate to severe damage\n- Kidneys don\'t work as well as they should";
@@ -291,6 +309,7 @@
             this.RTB_Desc5.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RTB_Desc5.Location = new System.Drawing.Point(359, 362);
             this.RTB_Desc5.Name = "RTB_Desc5";
+            this.RTB_Desc5.ReadOnly = true;
             this.RTB_Desc5.Size = new System.Drawing.Size(216, 55);
             this.RTB_Desc5.TabIndex = 18;
             this.RTB_Desc5.Text = "- Severe kidney damage\n- Kidneys are close to not working at all";
@@ -303,6 +322,7 @@
             this.RTB_Desc6.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RTB_Desc6.Location = new System.Drawing.Point(359, 423);
             this.RTB_Desc6.Name = "RTB_Desc6";
+            this.RTB_Desc6.ReadOnly = true;
             this.RTB_Desc6.Size = new System.Drawing.Size(216, 55);
             this.RTB_Desc6.TabIndex = 19;
             this.RTB_Desc6.Text = "- Most severe kidney damage\n- Kidneys are very close to not working or have stopp" +
@@ -316,6 +336,7 @@
             this.RTB_Resources.ForeColor = System.Drawing.SystemColors.WindowText;
             this.RTB_Resources.Location = new System.Drawing.Point(18, 523);
             this.RTB_Resources.Name = "RTB_Resources";
+            this.RTB_Resources.ReadOnly = true;
             this.RTB_Resources.Size = new System.Drawing.Size(557, 64);
             this.RTB_Resources.TabIndex = 20;
             this.RTB_Resources.Text = resources.GetString("RTB_Resources.Text");
@@ -457,7 +478,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.CornflowerBlue;
             this.pictureBox2.Location = new System.Drawing.Point(344, 117);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(10, 361);
             this.pictureBox2.TabIndex = 41;
@@ -467,7 +488,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.CornflowerBlue;
             this.pictureBox3.Location = new System.Drawing.Point(177, 117);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(10, 361);
             this.pictureBox3.TabIndex = 40;
@@ -484,6 +505,7 @@
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FRM_MoreInfo";
             this.Text = "More Info";
             this.Load += new System.EventHandler(this.FRM_MoreInfo_Load);

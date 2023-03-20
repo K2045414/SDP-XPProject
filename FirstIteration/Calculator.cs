@@ -227,7 +227,7 @@ namespace FirstIteration
                 if (ValidCrea == true && ValidWeight == true && ValidHeight == true && ValidAge == true)
                 {
                     Calculate();
-                    UpdateDatabase();
+                    //UpdateDatabase();
                     BTN_MoreInfo.Visible = true;
                 }
             }
@@ -236,7 +236,7 @@ namespace FirstIteration
                 if (ValidCrea == true && ValidAge ==true)
                 {
                     Calculate();
-                    UpdateDatabase();
+                    //UpdateDatabase();
                     BTN_MoreInfo.Visible = true;
                 }
             }
@@ -353,10 +353,11 @@ namespace FirstIteration
         private void BTN_MoreInfo_Click(object sender, EventArgs e)
         {
             //why are we calling calculate again - can we just not pass eGFR in??
+
             double eGFR = Calculate();
             FormStack.Forms.Push(this);
             this.Hide();
-            FRM_MoreInfo MoreInfo = new FRM_MoreInfo(eGFR);
+            FRM_MoreInfo MoreInfo = new FRM_MoreInfo(Math.Round(eGFR));
             MoreInfo.ShowDialog();
         }
 
@@ -513,21 +514,21 @@ namespace FirstIteration
             {
                 if (outlier == percentage1)
                 {
-                    returntext = "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²\n" + " MDRD " + eGFR_MDRD + " mL/min/1.73 m²";
+                    returntext = "MDRD " + eGFR_MDRD + " mL/min/1.73 m²\n" + "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²";
                     MessageBox.Show("Rejecting CKDEPI. It lies out of acceptable range. This will be logged for system administrators");
                     string issue = "CKDEPI";
                     Log(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, Weight, Height, Age, Gender, Ethnicity, Creatininemgdl, Creatinineumol, percentage, percentage1, percentage2, percentage3, closestValues, outlier, issue);                   
                 }
                 else if (outlier == percentage2)
                 {
-                    returntext = "CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²\n" + " MDRD " + eGFR_MDRD + " mL/min/1.73 m²";
+                    returntext = "MDRD " + eGFR_MDRD + " mL/min/1.73 m²\n" + "CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²";
                     MessageBox.Show("Rejecting Cockroft. It lies out of acceptable range. This will be logged for system administrators");
                     string issue = "Cockroft";
                     Log(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, Weight, Height, Age, Gender, Ethnicity, Creatininemgdl, Creatinineumol, percentage, percentage1, percentage2, percentage3, closestValues, outlier, issue);
                 }
                 else
                 {
-                    returntext = "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²\n" + " CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²\n" + " MDRD " + eGFR_MDRD + " mL/min/1.73 m²";
+                    returntext = "MDRD " + eGFR_MDRD + " mL/min/1.73 m²\n" + "CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²\n" + "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²";
                     MessageBox.Show("MDRD shows a different result to the other equations. The program will continue with it, but this should not be considered exact. Please verify the calculation " + outlier.ToString());
                     string issue = "MDRD";
                     Log(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, Weight, Height, Age, Gender, Ethnicity, Creatininemgdl, Creatinineumol, percentage, percentage1, percentage2, percentage3, closestValues, outlier, issue);
@@ -535,7 +536,7 @@ namespace FirstIteration
             }
             else
             {
-                returntext = "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²\n" + " CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²\n" + " MDRD " + eGFR_MDRD + " mL/min/1.73 m²";
+                returntext = "MDRD " + eGFR_MDRD + " mL/min/1.73 m²\n" + "CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²\n" + "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²";
             }
             return returntext;
         }
