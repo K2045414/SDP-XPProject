@@ -19,8 +19,8 @@ namespace FirstIteration
         public FRM_SignUp()
         {
             InitializeComponent();
-
         }
+
         private bool ValidateUserName(string userName)
         {
             if (!Regex.IsMatch(userName, @"^[0-9A-Z]{10}$"))
@@ -30,6 +30,7 @@ namespace FirstIteration
             }
             return true;
         }
+
         private bool ValidatePassword(string password)
         {
             if (string.IsNullOrEmpty(password))
@@ -37,13 +38,11 @@ namespace FirstIteration
                 ERR_Validation.SetError(RTB_Password1, "Your Password is empty");
                 return false;
             }
-
             if (password.Any(x => !char.IsLetterOrDigit(x)) && password.Any(x => char.IsDigit(x)) && password.Any(x => char.IsUpper(x)) && password.Any(x => !char.IsUpper(x)) && password.Length >= 8)
             {
                 ERR_Validation.SetError(RTB_Password1, "");
                 return true;
             }
-
             ERR_Validation.SetError(RTB_Password1, "The Password you entered does not meet our requirements");
             return false;
         }
@@ -54,12 +53,11 @@ namespace FirstIteration
             {
                 return true;
             }
-
             ERR_Validation.SetError(RTB_Password2, "Your Passwords do not match");
             return false;
         }
 
-        private bool ValidateTerms() // Checks if the Terms and Conditions checkbox is checked
+        private bool ValidateTerms()
         {
             if (CBX_TAndC.Checked)
             {
@@ -71,7 +69,6 @@ namespace FirstIteration
                 return false;
             }
         }
-
 
         private void BTN_Back_Click(object sender, EventArgs e)
         {
@@ -107,28 +104,18 @@ namespace FirstIteration
                 using (MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;"))
                 {
                     connection.Open();
-
-                    // Check if username already exists in users table
                     int existingUserCount = GetExistingUserCount(connection, RTB_Username.Text);
-
-                    // Check if username already exists in patients table
                     int existingPatientCount = GetExistingPatientCount(connection, RTB_Username.Text);
-
                     if (existingUserCount > 0)
                     {
                         MessageBox.Show("That NHS ID is already in use.");
                         return;
                     }
-
-                    // Insert new user into users table
                     InsertUser(connection, RTB_Username.Text, RTB_Password2.Text);
-
-                    // Insert new user into patients table if necessary
                     if (existingPatientCount == 0)
                     {
                         InsertPatient(connection, RTB_Username.Text);
                     }
-
                     MessageBox.Show("Successfully signed up.");
                     FormStack.Forms.Push(this);
                     this.Hide();

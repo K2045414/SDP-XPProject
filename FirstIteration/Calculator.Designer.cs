@@ -57,15 +57,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.CalcInfo = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.CalcTip = new System.Windows.Forms.ToolTip(this.components);
-            this.CalcInfo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CalcInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // BTN_Calculate
@@ -97,7 +97,6 @@
             this.RTB_Creatinine.Size = new System.Drawing.Size(255, 26);
             this.RTB_Creatinine.TabIndex = 6;
             this.RTB_Creatinine.Text = "";
-            this.RTB_Creatinine.TextChanged += new System.EventHandler(this.RTB_Creatinine_TextChanged);
             // 
             // LBL_Title
             // 
@@ -189,7 +188,6 @@
             this.LBL_Creatinine.Size = new System.Drawing.Size(128, 27);
             this.LBL_Creatinine.TabIndex = 19;
             this.LBL_Creatinine.Text = "Creatinine:";
-            this.LBL_Creatinine.Click += new System.EventHandler(this.LBL_Creatinine_Click);
             // 
             // LBL_Age
             // 
@@ -247,7 +245,6 @@
             this.LBL_eGFR.Size = new System.Drawing.Size(273, 27);
             this.LBL_eGFR.TabIndex = 24;
             this.LBL_eGFR.Text = "eGFR (mL/min/1.73 m²):";
-            this.LBL_eGFR.Click += new System.EventHandler(this.LBL_eGFR_Click);
             // 
             // BTN_Back
             // 
@@ -360,7 +357,6 @@
             this.RTB_Height.TabIndex = 8;
             this.RTB_Height.Text = "";
             this.RTB_Height.Visible = false;
-            this.RTB_Height.TextChanged += new System.EventHandler(this.RTB_Height_TextChanged);
             // 
             // LBL_Weight
             // 
@@ -461,6 +457,20 @@
             this.panel2.Size = new System.Drawing.Size(577, 636);
             this.panel2.TabIndex = 37;
             // 
+            // CalcInfo
+            // 
+            this.CalcInfo.BackgroundImage = global::FirstIteration.Properties.Resources.Question;
+            this.CalcInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CalcInfo.Cursor = System.Windows.Forms.Cursors.Default;
+            this.CalcInfo.InitialImage = global::FirstIteration.Properties.Resources.Question;
+            this.CalcInfo.Location = new System.Drawing.Point(425, 45);
+            this.CalcInfo.Name = "CalcInfo";
+            this.CalcInfo.Size = new System.Drawing.Size(29, 26);
+            this.CalcInfo.TabIndex = 40;
+            this.CalcInfo.TabStop = false;
+            this.CalcTip.SetToolTip(this.CalcInfo, "MDRD - The Default EGFR Calculation\r\nCKDEPI - An Alternative Calculation\r\nCockraf" +
+        "t - A Second Alternative which requires the users Weight and Height");
+            // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.LightSteelBlue;
@@ -476,20 +486,6 @@
             this.CalcTip.AutoPopDelay = 50000;
             this.CalcTip.InitialDelay = 500;
             this.CalcTip.ReshowDelay = 100;
-            // 
-            // CalcInfo
-            // 
-            this.CalcInfo.BackgroundImage = global::FirstIteration.Properties.Resources.Question;
-            this.CalcInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CalcInfo.Cursor = System.Windows.Forms.Cursors.Default;
-            this.CalcInfo.InitialImage = global::FirstIteration.Properties.Resources.Question;
-            this.CalcInfo.Location = new System.Drawing.Point(425, 45);
-            this.CalcInfo.Name = "CalcInfo";
-            this.CalcInfo.Size = new System.Drawing.Size(29, 26);
-            this.CalcInfo.TabIndex = 40;
-            this.CalcInfo.TabStop = false;
-            this.CalcTip.SetToolTip(this.CalcInfo, "MDRD - The Default EGFR Calculation\r\nCKDEPI - An Alternative Calculation\r\nCockraf" +
-        "t - A Second Alternative which requires the users Weight and Height");
             // 
             // FRM_Calculator
             // 
@@ -511,8 +507,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CalcInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -19,7 +19,8 @@ namespace FirstIteration
 {
     public partial class FRM_DrMain : Form
     {
-        private string id;
+        private readonly string id;
+
         public FRM_DrMain(string id)
         {
             InitializeComponent();        
@@ -27,7 +28,6 @@ namespace FirstIteration
             GetPatients();
             LBL_Title.Text = "Hello, " + id;
         }
-   
 
         private void BTN_AddPatient_Click(object sender, EventArgs e)
         {
@@ -44,10 +44,11 @@ namespace FirstIteration
             previousForm.Show();
         }
 
-        private void BTN_ImportCSV_Click(object sender, EventArgs e)//Validate stuff
-        {           
+        private void BTN_ImportCSV_Click(object sender, EventArgs e)
+        {
             ImportCSV();
         }
+
         private void ImportCSV()
         {
             OpenFileDialog ofd = new OpenFileDialog
@@ -61,11 +62,9 @@ namespace FirstIteration
                 {
                     connection.Open();
                     var command = connection.CreateCommand();
-
                     var CSVFile = ofd.FileName;
                     var errorBuilder = new StringBuilder();
                     errorBuilder.Append("During the import process, these ID's returned invalid entries, please manually validate the Data of these patients:");
-
                     using (var reader = new StreamReader(CSVFile))
                     {
                         var columnNames = reader.ReadLine().Split(',');
@@ -75,27 +74,19 @@ namespace FirstIteration
                             csvData.Columns.Add(columnName);
                         }
                         csvData.Columns.Add("clinician_id", typeof(string));
-
                         while (!reader.EndOfStream)
                         {
                             var rowValues = reader.ReadLine().Split(',');
                             var row = csvData.NewRow();
-
                             for (int i = 0; i < columnNames.Length; i++)
                             {
                                 row[i] = rowValues[i];
                             }
-
                             row["clinician_id"] = id;
-
-
                             command.CommandText = "SELECT COUNT(*) FROM patients WHERE user_id = @user_id";
                             command.Parameters.Clear();
                             command.Parameters.AddWithValue("@user_id", row["PatientID"]);                            
-
-
                             var existingUserCount = Convert.ToInt32(command.ExecuteScalar());
-
                             if (existingUserCount > 0)
                             {
                                 command.CommandText = "UPDATE patients set gender = @gender, race = @race, age = @age, creatinine = @creatinine where user_id = @user_id";
@@ -104,7 +95,6 @@ namespace FirstIteration
                             {
                                 command.CommandText = "INSERT INTO patients (user_id, gender, race, age, creatinine, clinician_id) VALUES (@user_id, @gender, @race, @age, @creatinine, @clinician_id)";
                             }
-
                             if (row["gender"].ToString() == "1")
                             {
                                 row["gender"] = "M";
@@ -117,7 +107,6 @@ namespace FirstIteration
                             {
                                 row["gender"] = "?";
                             }
-
                             command.Parameters.Clear();
                             command.Parameters.AddWithValue("@user_id", row["PatientID"]);
                             command.Parameters.AddWithValue("@gender", row["Gender"]);
@@ -125,7 +114,6 @@ namespace FirstIteration
                             command.Parameters.AddWithValue("@age", row["Age"]);
                             command.Parameters.AddWithValue("@creatinine", row["Creatinine"]);
                             command.Parameters.AddWithValue("@clinician_id", row["clinician_id"]);
-
                             var validationTuple = ValidateCSVloop(row["PatientID"].ToString(), row["Gender"].ToString(), row["Ethnicity"].ToString(), row["Age"].ToString(), row["Creatinine"].ToString(), row["clinician_id"].ToString());
                             if (validationTuple.Item1)
                             {
@@ -140,9 +128,7 @@ namespace FirstIteration
                         }
                     }
                     connection.Close();
-
                     MessageBox.Show(errorBuilder.ToString());
-
                     GetPatients();
                 }
             }
@@ -178,14 +164,11 @@ namespace FirstIteration
         public void GetPatients()
         {
             LBX_Patients.Items.Clear();
-
             var connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;");
             var command = new MySqlCommand("SELECT * FROM patients WHERE clinician_id=@clinician_id", connection);
             command.Parameters.AddWithValue("@clinician_id", id);
-
             connection.Open();
             var reader = command.ExecuteReader();
-
             while (reader.Read())
             {
                 string user = reader.GetString("user_id");
@@ -193,18 +176,15 @@ namespace FirstIteration
             }
         }
 
-
         private void BTN_RemovePatient_Click(object sender, EventArgs e)
         {
             using (MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;"))
             {
                 MySqlCommand command = new MySqlCommand("update patients SET clinician_id = Null WHERE user_id=@patient_id", connection);
-
                 if (LBX_Patients.SelectedIndex >= 0)
                 {
                     string patient_id = LBX_Patients.Text;
                     command.Parameters.AddWithValue("@patient_id", patient_id);
-
                     DialogResult result = MessageBox.Show("Are you sure you want to remove this patient record?", "Confirmation", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {

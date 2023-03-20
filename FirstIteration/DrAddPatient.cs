@@ -14,30 +14,20 @@ namespace FirstIteration
 {
     public partial class FRM_AddPatient : Form
     {
-        private string id;
+        private readonly string id;
+
         public FRM_AddPatient(string id)
         {
             InitializeComponent();
             this.id = id;
             RefreshTable();
         }
-        public FRM_AddPatient()
-        {
-            InitializeComponent();
-        }
 
         private void BTN_Back_Click(object sender, EventArgs e)
         {
-          
-
-            // Get a reference to the parent form (FRM_DrMain)
             FRM_DrMain parentForm = (FRM_DrMain)FormStack.Forms.Peek();
-
-            // Update the patients list on the parent form
             parentForm.GetPatients();
-            // Get the previous form in the stack
             Form previousForm = FormStack.Forms.Pop();
-            // Hide the current form (FRM_AddPatient) and show the previous one (FRM_DrMain)
             previousForm.Show();
             this.Hide();
         }
@@ -53,7 +43,6 @@ namespace FirstIteration
                     {
                         command.Parameters.AddWithValue("@patient_id", LBX_AllPatients.Text);
                         command.Parameters.AddWithValue("@clinician_id", id);
-
                         try
                         {
                             connection.Open();
@@ -77,19 +66,15 @@ namespace FirstIteration
             }
         }
 
-
         public void RefreshTable()
         {
             LBX_AllPatients.Items.Clear();
-
-
             string query = "SELECT * FROM patients WHERE clinician_id != @id OR clinician_id IS NULL";
             var connectionString = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
             using (var connection = new MySqlConnection(connectionString))
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@id", id);
-
                 try
                 {
                     connection.Open();

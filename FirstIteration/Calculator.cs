@@ -26,20 +26,19 @@ namespace FirstIteration
         public FRM_Calculator()
         {
             InitializeComponent();
+            CBX_Calculation.Text = "MDRD";
         }
 
         public FRM_Calculator(string patient_id)
         {
             InitializeComponent();
             this.patient_id = patient_id;
-
             if (patient_id == null)
             {
                 return;
             }
-
             ConfigureForm(patient_id);
-
+            CBX_Calculation.Text = "MDRD";
             var connectionString = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
             using (var connection = new MySqlConnection(connectionString))
             {
@@ -56,7 +55,6 @@ namespace FirstIteration
                         int weight = reader.IsDBNull(reader.GetOrdinal("weight")) ? 0 : reader.GetInt32("weight");
                         int age = reader.IsDBNull(reader.GetOrdinal("age")) ? 0 : reader.GetInt32("age");
                         int creatinine = reader.IsDBNull(reader.GetOrdinal("age")) ? 0 : reader.GetInt32("creatinine");
-
                         switch (race)
                         {
                             case "B":
@@ -69,7 +67,6 @@ namespace FirstIteration
                                 race = "";
                                 break;
                         }
-
                         switch (gender)
                         {
                             case "M":
@@ -82,8 +79,6 @@ namespace FirstIteration
                                 gender = "";
                                 break;
                         }
-
-
                         CBX_Ethnicity.Text = race;
                         CBX_Gender.Text = gender;
                         RTB_Height.Text = height.ToString();
@@ -109,11 +104,8 @@ namespace FirstIteration
             RTB_Weight.Enabled = false;
             RTB_Height.Enabled = false;
             RTB_eGFR.Enabled = false;
-            
             LBL_Title.Text = "Calculator: " + patient_id;
         }
-
-
 
         private bool ValidateCreatinine()
         {
@@ -123,19 +115,16 @@ namespace FirstIteration
                 ERR_Validation.SetError(RTB_Creatinine, "Please enter your creatinine value");
                 return false;
             }
-
             if (!double.TryParse(creatinineInput, out double creatinineValue))
             {
                 ERR_Validation.SetError(RTB_Creatinine, "Please enter a valid number for creatinine");
                 return false;
             }
-
             if (creatinineValue <= 0)
             {
                 ERR_Validation.SetError(RTB_Creatinine, "Creatinine value should be greater than zero");
                 return false;
             }
-
             ERR_Validation.SetError(RTB_Creatinine, string.Empty);
             return true;
         }
@@ -148,19 +137,16 @@ namespace FirstIteration
                 ERR_Validation.SetError(RTB_Height, "Please enter your height");
                 return false;
             }
-
             if (!int.TryParse(heightInput, out int heightValue))
             {
                 ERR_Validation.SetError(RTB_Height, "Please enter a valid number for height");
                 return false;
             }
-
             if (heightValue <= 0)
             {
                 ERR_Validation.SetError(RTB_Height, "Height should be greater than zero");
                 return false;
             }
-
             ERR_Validation.SetError(RTB_Height, string.Empty);
             return true;
         }
@@ -173,19 +159,16 @@ namespace FirstIteration
                 ERR_Validation.SetError(RTB_Weight, "Please enter your weight");
                 return false;
             }
-
             if (!int.TryParse(weightInput, out int weightValue))
             {
                 ERR_Validation.SetError(RTB_Weight, "Please enter a valid number for weight");
                 return false;
             }
-
             if (weightValue <= 0)
             {
                 ERR_Validation.SetError(RTB_Weight, "Weight should be greater than zero");
                 return false;
             }
-
             ERR_Validation.SetError(RTB_Weight, string.Empty);
             return true;
         }
@@ -198,36 +181,32 @@ namespace FirstIteration
                 ERR_Validation.SetError(RTB_Age, "Please enter your age");
                 return false;
             }
-
             if (!int.TryParse(ageInput, out int ageValue))
             {
                 ERR_Validation.SetError(RTB_Age, "Please enter a valid number for age");
                 return false;
             }
-
             if (ageValue < 18 || ageValue > 100)
             {
                 ERR_Validation.SetError(RTB_Age, "Age should be between 18 and 100");
                 return false;
             }
-
             ERR_Validation.SetError(RTB_Weight, string.Empty);
             return true;
         }
 
-        private void BTN_Calculate_Click(object sender, EventArgs e)//MMMMMM Button ඞ
+        private void BTN_Calculate_Click(object sender, EventArgs e)
         {
             bool ValidAge = ValidateAge();
             bool ValidCrea = ValidateCreatinine();
             bool ValidHeight = ValidateHeight();
             bool ValidWeight = ValidateWeight();
-
             if (CBX_Calculation.Text == "All" || CBX_Calculation.Text == "Cockroft-Gault")
             {
                 if (ValidCrea == true && ValidWeight == true && ValidHeight == true && ValidAge == true)
                 {
                     Calculate();
-                    //UpdateDatabase();
+                    UpdateDatabase();
                     BTN_MoreInfo.Visible = true;
                 }
             }
@@ -236,7 +215,7 @@ namespace FirstIteration
                 if (ValidCrea == true && ValidAge ==true)
                 {
                     Calculate();
-                    //UpdateDatabase();
+                    UpdateDatabase();
                     BTN_MoreInfo.Visible = true;
                 }
             }
@@ -244,7 +223,6 @@ namespace FirstIteration
         }
         private double Calculate()
         {
-            // Parse input values
             double creatinine = double.Parse(RTB_Creatinine.Text);
             int age = int.Parse(RTB_Age.Text);
             string gender = CBX_Gender.Text;
@@ -254,12 +232,8 @@ namespace FirstIteration
             double height = 0;
             double.TryParse(RTB_Height.Text, out height);
             string parentForm = FormStack.Forms.Peek().ToString();
-
-            // Convert creatinine to both units
             double creatinine_umol = RBN_umolL.Checked ? creatinine : creatinine * 88.4;
             double creatinine_mgdl = RBN_mgdL.Checked ? creatinine : creatinine / 88.4;
-
-            // Perform selected calculation
             double eGFR;
             string calculation = CBX_Calculation.Text;
             switch (calculation)
@@ -280,21 +254,15 @@ namespace FirstIteration
                     string printtext = nModular(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, weight, height, age, gender, ethnicity, creatinine_mgdl, creatinine_umol);
                     RTB_eGFR.Text = printtext;
                     return eGFR_MDRD; // return one of the eGFR values since it doesn't matter which one is returned
-
                 default:
                     MessageBox.Show("Please select a calculation.");
                     return 0;
             }
-
-            // Round result to appropriate decimal places
             int decimalPlaces = parentForm == "FirstIteration.FRM_DrMain, Text: Doctor Page" ? 3 : 0;
             eGFR = Math.Round(eGFR, decimalPlaces);
-
-            // Display result in text box
             string resultText = calculation + ": " + eGFR + " mL/min/1.73 m²";
             RTB_eGFR.Text = resultText;
             BTN_MoreInfo.Visible = true;
-
             return eGFR;
         }
 
@@ -307,13 +275,13 @@ namespace FirstIteration
             double GFR = 186 * Math.Pow(Creatinineumol / 88.4, a) * Math.Pow(Age, b) * g * e;
             return GFR;
         }
+
         public double CKDEPI(double Creatininemgdl, int Age, string Gender, string Ethnicity)
         {
             double k = Gender == "Female" ? 0.7 : 0.9;
             double a = Gender == "Female" ? -0.329 : -0.411;
             double g = Gender == "Female" ? 1.018 : 1;
             double e = Ethnicity == "Black" ? 1.159 : 1;
-
             double GFR = 141 * Math.Pow(Math.Min(Creatininemgdl / k, 1), a) * Math.Pow(Math.Max(Creatininemgdl / k, 1), -1.209) * Math.Pow(0.993, Age) * g * e;
             return GFR;
         }
@@ -352,9 +320,7 @@ namespace FirstIteration
 
         private void BTN_MoreInfo_Click(object sender, EventArgs e)
         {
-            //why are we calling calculate again - can we just not pass eGFR in??
-
-            double eGFR = Calculate();
+            double eGFR = Calculate();//why are we calling calculate again - can we just not pass eGFR in??
             FormStack.Forms.Push(this);
             this.Hide();
             FRM_MoreInfo MoreInfo = new FRM_MoreInfo(Math.Round(eGFR));
@@ -408,6 +374,7 @@ namespace FirstIteration
                 RTB_Weight.Enabled = true;
                 RTB_Height.Enabled = true;
                 RTB_eGFR.Enabled = true;
+                BTN_Edit.Enabled = false;
             }
         }
         private void UpdateDatabase()
@@ -453,26 +420,6 @@ namespace FirstIteration
             connection.Close();
         }
 
-        private void LBL_eGFR_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RTB_Creatinine_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LBL_Creatinine_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RTB_Height_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         public string nModular(double eGFR_MDRD, double eGFR_Cockroft, double eGFR_CKDEPI, double Weight, double Height, int Age, String Gender, string Ethnicity,double Creatininemgdl, double Creatinineumol)
         {
             string returntext;
@@ -481,15 +428,11 @@ namespace FirstIteration
             double percentage1 = Math.Abs(eGFR_MDRD - eGFR_Cockroft) / ((eGFR_MDRD + eGFR_Cockroft) / 2.0) * 100.0;
             double percentage2 = Math.Abs(eGFR_MDRD - eGFR_CKDEPI) / ((eGFR_MDRD + eGFR_CKDEPI) / 2.0) * 100.0;
             double percentage3 = Math.Abs(eGFR_Cockroft - eGFR_CKDEPI) / ((eGFR_Cockroft + eGFR_CKDEPI) / 2.0) * 100.0;
-
             double[] arr = { percentage1, percentage2, percentage3 };
             Array.Sort(arr);
-
             double diff1 = arr[1] - arr[0];
             double diff2 = arr[2] - arr[1];
-
             double closestValues;
-
             if (diff1 < diff2)
             {
                 closestValues = (arr[0] + arr[1]) / 2.0;
@@ -502,14 +445,11 @@ namespace FirstIteration
                 outlier = arr[0];
                 percentage = (closestValues - outlier) / ((closestValues + outlier) / 2.0) * 100.0;
             }
-
-
             string parentForm = FormStack.Forms.Peek().ToString();
             int decimalPlaces = parentForm == "FirstIteration.FRM_DrMain, Text: Doctor Page" ? 3 : 0;
             eGFR_Cockroft = Math.Round(eGFR_Cockroft, decimalPlaces);
             eGFR_MDRD= Math.Round(eGFR_MDRD, decimalPlaces);
             eGFR_CKDEPI = Math.Round(eGFR_CKDEPI, decimalPlaces);
-
             if (Math.Abs(percentage) > 150)
             {
                 if (outlier == percentage1)
@@ -541,7 +481,6 @@ namespace FirstIteration
             return returntext;
         }
 
-
         public void Log(double eGFR_MDRD, double eGFR_Cockroft, double eGFR_CKDEPI, double Weight, double Height, int Age, String Gender, string Ethnicity, double Creatininemgdl, double Creatinineumol, double percentage, double percentage1, double percentage2, double percentage3, double closestValues, double outlier, string issue)
         {
             string creatinine;
@@ -550,13 +489,10 @@ namespace FirstIteration
             string workingDirectory = Environment.CurrentDirectory;
             string folderPath = Path.Combine(workingDirectory, folderName);
             string filePath = Path.Combine(folderPath, fileName);
-
-            // Create the folder if it doesn't exist
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
             }
-
             if(RBN_mgdL.Checked)
             {
                 creatinine = Creatininemgdl + " mg/dL ";
@@ -565,8 +501,6 @@ namespace FirstIteration
             {
                 creatinine = Creatinineumol + " µmol/L ";
             }
-
-            // Write to the file
             string index = GetCurrentIndex(filePath).ToString();
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {              
@@ -580,8 +514,7 @@ namespace FirstIteration
                 writer.WriteLine("eGFR values: ");
                 writer.WriteLine("MDRD: " + eGFR_MDRD + " Cockroft: " + eGFR_Cockroft + " CKDEPI: " + eGFR_CKDEPI);
                 writer.WriteLine("Percentage differences between calculations: ");
-                writer.WriteLine("MDRD and Cockroft: " + percentage1 + " MDRD and CKDEPI: " + percentage2 + " Cockroft and CKDEPI: " + percentage3 + "\n");            
-                
+                writer.WriteLine("MDRD and Cockroft: " + percentage1 + " MDRD and CKDEPI: " + percentage2 + " Cockroft and CKDEPI: " + percentage3 + "\n");             
             }
         }
 
@@ -589,19 +522,14 @@ namespace FirstIteration
         {
             int index = 1;
             string line;
-
-            // Check if the file exists and read its contents
             if (File.Exists(filePath))
             {
                 using (var reader = new StreamReader(filePath))
                 {
-                    // Iterate over each line in the file
                     while ((line = reader.ReadLine()) != null)
                     {
-                        // Check if the line contains an index
                         if (line.StartsWith("Index:", StringComparison.OrdinalIgnoreCase))
                         {
-                            // Try to parse the index number and increment it
                             if (int.TryParse(line.Substring(line.IndexOf(":") + 1).Trim(), out int currentIndex))
                             {
                                 index = currentIndex + 1;
@@ -610,7 +538,6 @@ namespace FirstIteration
                     }
                 }
             }
-
             return index;
         }
     }

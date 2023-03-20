@@ -18,13 +18,13 @@ namespace FirstIteration
         public FRM_Login()
         {
             InitializeComponent();
-        }
-      
+        }   
 
         public static class FormStack
         {
             public static Stack<Form> Forms = new Stack<Form>();
         }
+
         private bool ValidateUserName(string userName)
         {
             if (!Regex.IsMatch(userName, @"^[0-9A-Z]{10}$"))
@@ -34,6 +34,7 @@ namespace FirstIteration
             }
             return true;
         }
+
         private void BTN_Calculate_Click(object sender, EventArgs e)
         {
                 FormStack.Forms.Push(this);
@@ -53,11 +54,12 @@ namespace FirstIteration
                 ERR_Validation.SetError(BTN_Login, "Your Login was Incorrect");
             }
         }
+
         private void Login()
         {
-                MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;");
-                MySqlCommand command = new MySqlCommand("UPDATE users SET created_at_updated_at = NOW() WHERE user_id=@user_id; SELECT * FROM users WHERE user_id=@user_id", connection);
-                command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
+            MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;");
+            MySqlCommand command = new MySqlCommand("UPDATE users SET created_at_updated_at = NOW() WHERE user_id=@user_id; SELECT * FROM users WHERE user_id=@user_id", connection);
+            command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
             try
             {
                 connection.Open();
@@ -73,7 +75,6 @@ namespace FirstIteration
                     {
                         string title = reader.GetString("title");
                         MessageBox.Show("Login successful.");
-
                         switch (title)
                         {
                             case "doctor":
@@ -82,14 +83,12 @@ namespace FirstIteration
                                 var drMain = new FRM_DrMain(id);
                                 drMain.ShowDialog();
                                 break;
-
                             case "patient":
                                 FormStack.Forms.Push(this);
                                 this.Hide();
                                 var calculator = new FRM_Calculator(id);
                                 calculator.ShowDialog();
                                 break;
-
                             default:
                                 ERR_Validation.SetError(BTN_Login, "User is neither a doctor nor a patient. Please contact your administrator.");
                                 break;
