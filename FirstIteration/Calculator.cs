@@ -300,43 +300,19 @@ namespace FirstIteration
 
         public double MDRD(double Creatinineumol, int Age, string Gender, string Ethnicity)//Function for MDRD Equation
         {
-            double g = 1;
-            if (Gender == "Female")
-            {
-                g = 0.742;
-            }
+            double g = Gender == "Female" ? 0.742 : 1;
             double a = -1.154;
             double b = -0.203;
-            double e = 1;
-            if (Ethnicity == "Black")
-            {
-                e = 1.210;
-            }
+            double e = Ethnicity == "Black" ? 1.210 : 1;
             double GFR = 186 * Math.Pow(Creatinineumol / 88.4, a) * Math.Pow(Age, b) * g * e;
             return GFR;
         }
-        public double CKDEPI(double Creatininemgdl, int Age, string Gender, string Ethnicity)//Function for CKD-EPI Equation
+        public double CKDEPI(double Creatininemgdl, int Age, string Gender, string Ethnicity)
         {
-            double k;
-            double a;
-            double g = 1;
-            double e = 1;
-            if (Gender == "Female")
-            {
-                k = 0.7;
-                a = -0.329;
-                g = 1.018;
-            }
-            else
-            {
-                k = 0.9;
-                a = -0.411;
-            }
-
-            if (Ethnicity == "Black")
-            {
-                e = 1.159;
-            }
+            double k = Gender == "Female" ? 0.7 : 0.9;
+            double a = Gender == "Female" ? -0.329 : -0.411;
+            double g = Gender == "Female" ? 1.018 : 1;
+            double e = Ethnicity == "Black" ? 1.159 : 1;
 
             double GFR = 141 * Math.Pow(Math.Min(Creatininemgdl / k, 1), a) * Math.Pow(Math.Max(Creatininemgdl / k, 1), -1.209) * Math.Pow(0.993, Age) * g * e;
             return GFR;
@@ -344,11 +320,7 @@ namespace FirstIteration
 
         public double Cockroft(double Creatininemgdl, int Age, double Weight, double Height, String Gender)//Function for Cockroft Equation
         {
-            double g = 1;
-            if (Gender == "Female")
-            {
-                g = 0.85;
-            }
+            double g = Gender == "Female" ? 0.85 : 1;
             //The eGFRC-G(ml / min) was adjusted to BSA(modified C-G) to obtain eGFRmC - G(ml / min per 1.73 m2): eGFRmC - G = eGFRC - G × 1.73 / BSA.
             double BSA = 0.0167 * Math.Pow(Height, 0.5) * Math.Pow(Weight, 0.5);
             double GFR = ((140 - Age) * (Weight * g) / (72 * Creatininemgdl)) * (1.73 / BSA);
@@ -380,7 +352,7 @@ namespace FirstIteration
 
         private void BTN_MoreInfo_Click(object sender, EventArgs e)
         {
-            //why are we calling calculate again?
+            //why are we calling calculate again - can we just not pass eGFR in??
             double eGFR = Calculate();
             FormStack.Forms.Push(this);
             this.Hide();
