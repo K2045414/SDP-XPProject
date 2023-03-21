@@ -329,96 +329,101 @@ namespace FirstIteration
 
         private void CBX_Calculation_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CBX_Calculation.Text == "Cockroft-Gault")
+            switch (CBX_Calculation.Text)
             {
-                LBL_Weight.Visible = true;
-                LBL_Height.Visible = true;
-                RTB_Height.Visible = true;
-                RTB_Weight.Visible = true;
-            }
-            else if (CBX_Calculation.Text == "All")
-            {
-                LBL_Weight.Visible = true;
-                LBL_Height.Visible = true;
-                RTB_Height.Visible = true;
-                RTB_Weight.Visible = true;
-            }
-            else if (CBX_Calculation.Text == "MDRD")
-            {
-                LBL_Weight.Visible = false;
-                LBL_Height.Visible = false;
-                RTB_Height.Visible = false;
-                RTB_Weight.Visible = false;
-            }
-            else
-            {
-                LBL_Weight.Visible = false;
-                LBL_Height.Visible = false;
-                RTB_Height.Visible = false;
-                RTB_Weight.Visible = false;
+                case "Cockroft-Gault":
+                case "All":
+                    LBL_Weight.Visible = true;
+                    LBL_Height.Visible = true;
+                    RTB_Height.Visible = true;
+                    RTB_Weight.Visible = true;
+                    break;
+                case "MDRD":
+                default:
+                    LBL_Weight.Visible = false;
+                    LBL_Height.Visible = false;
+                    RTB_Height.Visible = false;
+                    RTB_Weight.Visible = false;
+                    break;
             }
         }
 
         private void BTN_Edit_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to edit this form?", "Confirmation", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to edit this form?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                RTB_Creatinine.Enabled = true;
-                RBN_mgdL.Enabled = true;
-                RBN_umolL.Enabled = true;
-                RTB_Age.Enabled = true;
-                CBX_Gender.Enabled = true;
-                CBX_Ethnicity.Enabled = true;
-                CBX_Calculation.Enabled = true;
-                RTB_Weight.Enabled = true;
-                RTB_Height.Enabled = true;
-                RTB_eGFR.Enabled = true;
+                RTB_Creatinine.Enabled = RBN_mgdL.Enabled = RBN_umolL.Enabled = RTB_Age.Enabled = CBX_Gender.Enabled = CBX_Ethnicity.Enabled = CBX_Calculation.Enabled = RTB_Weight.Enabled = RTB_Height.Enabled = RTB_eGFR.Enabled = true;
                 BTN_Edit.Enabled = false;
             }
         }
+
+
         private void UpdateDatabase()
         {
-            MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;");
+            string connectionString = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
             MySqlCommand command = new MySqlCommand("UPDATE patients SET race = @race, gender = @gender, height = @height, weight = @weight, age = @age, creatinine = @creatinine WHERE user_id = @user_id", connection);
-            char SmallEthnicity = 'A';
-            char SmallGender = 'B';
-            double Convertedmgdl = 0;
-            if (CBX_Ethnicity.Text == "Black")
-            {
-                SmallEthnicity = 'B';
-            }
-            else if (CBX_Ethnicity.Text == "Other")
-            {
-                SmallEthnicity = 'O';
-            }
-            if (CBX_Gender.Text == "Male")
-            {
-                SmallGender = 'M';
-            }
-            else if (CBX_Gender.Text == "Female")
-            {
-                SmallGender = 'F';
-            }
-            if (RBN_mgdL.Checked)
-            {
-                Convertedmgdl = Double.Parse(RTB_Creatinine.Text) * 88.4;
-            }
-            else
-            {
-                Convertedmgdl = Double.Parse(RTB_Creatinine.Text);
-            }
+
+            char ethnicity = GetEthnicity();
+            char gender = GetGender();
+            double creatinine = ConvertCreatinine();
+
             command.Parameters.AddWithValue("@user_id", patient_id);
-            command.Parameters.AddWithValue("@race", SmallEthnicity);
-            command.Parameters.AddWithValue("@gender", SmallGender);
+            command.Parameters.AddWithValue("@race", ethnicity);
+            command.Parameters.AddWithValue("@gender", gender);
             command.Parameters.AddWithValue("@height", RTB_Height.Text);
             command.Parameters.AddWithValue("@weight", RTB_Weight.Text);
             command.Parameters.AddWithValue("@age", RTB_Age.Text);
-            command.Parameters.AddWithValue("@creatinine", Convertedmgdl);
-            connection.Open();
-            command.ExecuteNonQuery();
-            connection.Close();
+            command.Parameters.AddWithValue("@creatinine", creatinine);
+
+            using (connection)
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
         }
+
+        private char GetEthnicity()
+        {
+            switch (CBX_Ethnicity.Text)
+            {
+                case "Black":
+                    return 'B';
+                case "Other":
+                    return 'O';
+                default:
+                    return 'A';
+            }
+        }
+
+
+        private char GetGender()
+        {
+            switch (CBX_Ethnicity.Text)
+            {
+                case "Male":
+                    return 'M';
+                case "Female":
+                    return 'F';
+                default:
+                    return 'A';
+            }
+        }
+
+        private double ConvertCreatinine()
+        {
+            double creatinine;
+            double.TryParse(RTB_Creatinine.Text, out creatinine);
+
+            if (RBN_mgdL.Checked)
+            {
+                creatinine *= 88.4;
+            }
+
+            return creatinine;
+        }
+
 
         public string nModular(double eGFR_MDRD, double eGFR_Cockroft, double eGFR_CKDEPI, double Weight, double Height, int Age, String Gender, string Ethnicity,double Creatininemgdl, double Creatinineumol)
         {
