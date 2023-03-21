@@ -329,33 +329,22 @@ namespace FirstIteration
 
         private void CBX_Calculation_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CBX_Calculation.Text == "Cockroft-Gault")
+            switch (CBX_Calculation.Text)
             {
-                LBL_Weight.Visible = true;
-                LBL_Height.Visible = true;
-                RTB_Height.Visible = true;
-                RTB_Weight.Visible = true;
-            }
-            else if (CBX_Calculation.Text == "All")
-            {
-                LBL_Weight.Visible = true;
-                LBL_Height.Visible = true;
-                RTB_Height.Visible = true;
-                RTB_Weight.Visible = true;
-            }
-            else if (CBX_Calculation.Text == "MDRD")
-            {
-                LBL_Weight.Visible = false;
-                LBL_Height.Visible = false;
-                RTB_Height.Visible = false;
-                RTB_Weight.Visible = false;
-            }
-            else
-            {
-                LBL_Weight.Visible = false;
-                LBL_Height.Visible = false;
-                RTB_Height.Visible = false;
-                RTB_Weight.Visible = false;
+                case "Cockroft-Gault":
+                case "All":
+                    LBL_Weight.Visible = true;
+                    LBL_Height.Visible = true;
+                    RTB_Height.Visible = true;
+                    RTB_Weight.Visible = true;
+                    break;
+                case "MDRD":
+                default:
+                    LBL_Weight.Visible = false;
+                    LBL_Height.Visible = false;
+                    RTB_Height.Visible = false;
+                    RTB_Weight.Visible = false;
+                    break;
             }
         }
 
