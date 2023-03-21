@@ -13,13 +13,17 @@ namespace FirstIteration
 {
     public partial class FRM_MoreInfo : Form
     {
+        //Brings over eGFR from the parent form
         private readonly double eGFR;
+        
+        //Sets up the form
         public FRM_MoreInfo(double eGFR)
         {
             InitializeComponent();
             this.eGFR = eGFR;
         }
 
+        //Returns to the parent form
         private void BTN_Back_Click(object sender, EventArgs e)
         {
             Form previousForm = FormStack.Forms.Pop();
@@ -27,9 +31,11 @@ namespace FirstIteration
             previousForm.Show();
         }
 
+        //Displays the eGFR value brought over in the main text box when loaded
         private void FRM_MoreInfo_Load(object sender, EventArgs e)
         {
             RTB_eGFR.Text = eGFR.ToString();
+            //Colours the appropriate boxes depending on the eGFR value
             switch (eGFR)
             {
                 case double n when n >= 90:

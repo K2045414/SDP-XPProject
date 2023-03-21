@@ -22,6 +22,7 @@ namespace FirstIteration
             InitializeComponent();
         }
 
+        //Makes sure the username follows the format [NNNNNNNNNN], if so, clears the errors and returns true. If no, alerts the user and returns false
         private bool ValidateUserName(string userName)
         {
             if (!Regex.IsMatch(userName, @"^[0-9]{10}$"))
@@ -33,6 +34,7 @@ namespace FirstIteration
             return true;
         }
 
+        //Checks if the password is empty or over 25 characters. If so, returns false and alerts the user. 
         private bool ValidatePassword(string password)
         {
             if (password.Length > 25)
@@ -45,11 +47,13 @@ namespace FirstIteration
                 ERR_Validation.SetError(RTB_Password1, "Your Password is empty");
                 return false;
             }
+            //If the password contains an uppercase character, lowercase character, number and is over 8 characters in length, clears the error and returns true
             if (password.Any(x => !char.IsLetterOrDigit(x)) && password.Any(x => char.IsDigit(x)) && password.Any(x => char.IsUpper(x)) && password.Any(x => !char.IsUpper(x)) && password.Length >= 8)
             {
                 ERR_Validation.SetError(RTB_Password1, "");
                 return true;
             }
+            //Returns false and alerts the user
             ERR_Validation.SetError(RTB_Password1, "The Password you entered does not meet our requirements");
             return false;
         }

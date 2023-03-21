@@ -20,13 +20,13 @@ namespace FirstIteration
             InitializeComponent();
         }
 
-        //sets up the form stack to allow double backing between forms ඞ
+        //Sets up the form stack to allow double backing between forms ඞ
         public static class FormStack
         {
             public static Stack<Form> Forms = new Stack<Form>();
         }
 
-        //THIS MUST CHANGE TO ACTUAL VALIDATION 
+        //Checks the username matches the form [CCNNNNNNNN] or [NNNNNNNNNN], if so, clears errors and returns true. If false, alerts the user
         private bool ValidateUserName(string userName)
         {
             if ((Regex.IsMatch(userName, @"^[A-Z]{2}") && Regex.IsMatch(userName, @"[0-9]{8}$")) || Regex.IsMatch(userName, @"^[0-9]{10}$"))
@@ -38,6 +38,7 @@ namespace FirstIteration
             return false;
         }
 
+        //Checks the password is less than 25 characters in length. If so, returns true and clears the error. If false, alerts the user
         private bool ValidatePassword(string password)
         {
             if (password.Length > 25)
@@ -69,25 +70,30 @@ namespace FirstIteration
 
         private void Login()
         {
-            //sets up a database connection and command that will
+            //Sets up a database connection and command that will update their last accessed time and select the user id of the user attemping to login
             MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;");
             MySqlCommand command = new MySqlCommand("UPDATE users SET created_at_updated_at = NOW() WHERE user_id=@user_id; SELECT * FROM users WHERE user_id=@user_id", connection);
+            //Adds the parameter for user id as the username login
             command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
             try
             {
+                //Executes the command and reads the output, if an error occurs, display it
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
+                //Checks if the user_id exists in the database - if not, alert the user
                 if (reader.HasRows)
                 {
+                    //Adds the returned username and the hashed and salted password and compares the password entered by the user to it
                     reader.Read();
                     string hashedPassword = reader.GetString("password");
                     string id = reader.GetString("user_id");
                     bool passwordMatches = BCrypt.Net.BCrypt.Verify(RTB_Password.Text, hashedPassword);
-
+                    //If the password matches, display to the user and checks the title contents returned by the database
                     if (passwordMatches)
                     {
                         string title = reader.GetString("title");
                         MessageBox.Show("Login successful.");
+                        //Checks if the title is either doctor or patients and sets up the form to be displayed respectively. If the user is neither, alerts the user
                         switch (title)
                         {
                             case "doctor":
@@ -123,6 +129,7 @@ namespace FirstIteration
             }
         }
 
+        //Sets up the signup form safely
         private void BTN_SignUp_Click(object sender, EventArgs e)
         {
             FormStack.Forms.Push(this);
@@ -131,6 +138,7 @@ namespace FirstIteration
             SignUp.ShowDialog();
         }
 
+        //Toggles between the password field being in plaintext vs being hidden when clicking a textbox
         private void CBX_Pass_Log_CheckedChanged(object sender, EventArgs e)
         {
             RTB_Password.UseSystemPasswordChar = !CBX_Pass_Log.Checked ? true : false;
