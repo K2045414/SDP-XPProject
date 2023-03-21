@@ -58,6 +58,7 @@ namespace FirstIteration
             return false;
         }
 
+        //Checks that the first password matches the second password. If so, returns true. If false, alerts the user
         private bool MatchPassword(string password1, string password2)
         {
             if (password1 == password2)
@@ -68,6 +69,7 @@ namespace FirstIteration
             return false;
         }
 
+        //Checks the user has clicked the terms and conditions checkbox. If so, returns true. If false, alerts the user
         private bool ValidateTerms()
         {
             if (CBX_TAndC.Checked)
@@ -81,6 +83,7 @@ namespace FirstIteration
             }
         }
 
+        //Opens the pervious form
         private void BTN_Back_Click(object sender, EventArgs e)
         {
             Form previousForm = FormStack.Forms.Pop();
@@ -96,9 +99,10 @@ namespace FirstIteration
             Terms.ShowDialog();
         }
 
+        //Makes sure all the validations are checked, and runs the signup function. If not, alerts the user
         private void BTN_SignUp_Click(object sender, EventArgs e)
         {
-            if (ValidateUserName(RTB_Username.Text) && ValidatePassword(RTB_Password1.Text) && MatchPassword(RTB_Password2.Text, RTB_Password1.Text) && ValidateTerms())
+            if (ValidateUserName(RTB_Username.Text) && ValidatePassword(RTB_Password1.Text) && MatchPassword(RTB_Password2.Text, RTB_Password1.Text) && ValidateTerms()  && ValidatePassword(RTB_Password1.Text))
             {
                 SignUp();
             }
@@ -108,6 +112,7 @@ namespace FirstIteration
             }
         }
 
+        //Sets up a database connection, if it fails, display the error
         private void SignUp()
         {
             try
@@ -115,8 +120,10 @@ namespace FirstIteration
                 using (MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;"))
                 {
                     connection.Open();
+                    //Checks if the username input already exists in the patient or user tables. If it isn't in either, alerts the user, adds the user to both of them and opens a calculator instance safely. If it only exists in the patient database, adds it to the user database.
                     int existingUserCount = GetExistingUserCount(connection, RTB_Username.Text);
                     int existingPatientCount = GetExistingPatientCount(connection, RTB_Username.Text);
+                    //If it is in the user database, alert the user and returns
                     if (existingUserCount > 0)
                     {
                         MessageBox.Show("That NHS ID is already in use.");
@@ -140,6 +147,7 @@ namespace FirstIteration
             }
         }
 
+        //Gets the number of users in the user database where user_id is the same as the id they're trying to sign up with
         private int GetExistingUserCount(MySqlConnection connection, string username)
         {
             using (MySqlCommand command = new MySqlCommand("SELECT COUNT(*) FROM users WHERE user_id = @user_id;", connection))
@@ -149,6 +157,7 @@ namespace FirstIteration
             }
         }
 
+        //Gets the number of users in the patients database where user_id is the same as the id they're trying to sign up with
         private int GetExistingPatientCount(MySqlConnection connection, string username)
         {
             using (MySqlCommand command = new MySqlCommand("SELECT COUNT(*) FROM patients WHERE user_id = @user_id;", connection))
@@ -158,6 +167,7 @@ namespace FirstIteration
             }
         }
 
+        //Adds a new patient to the users database using the id they signed up with, and encrypting their password
         private void InsertUser(MySqlConnection connection, string username, string password)
         {
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
@@ -169,6 +179,7 @@ namespace FirstIteration
             }
         }
 
+        //Adds a new patient to the patients database with using the given id
         private void InsertPatient(MySqlConnection connection, string username)
         {
             using (MySqlCommand command = new MySqlCommand("INSERT INTO patients (user_id) VALUES (@user_id)", connection))
@@ -178,6 +189,7 @@ namespace FirstIteration
             }
         }
 
+        //Allows the user to toggle password visibility from cleartext to obscured after pressing the checkbox
         private void CBX_Pass_CheckedChanged(object sender, EventArgs e)
         {
             if (CBX_Pass.Checked)

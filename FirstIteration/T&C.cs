@@ -18,6 +18,7 @@ namespace FirstIteration
             InitializeComponent();
         }
 
+        //Returns to the previous form
         private void BTN_Back_Click(object sender, EventArgs e)
         {
             Form previousForm = FormStack.Forms.Pop();
