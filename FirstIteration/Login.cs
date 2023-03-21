@@ -38,6 +38,17 @@ namespace FirstIteration
             return false;
         }
 
+        private bool ValidatePassword(string password)
+        {
+            if (password.Length > 25)
+            {
+                ERR_Validation.SetError(RTB_Password, "Your Password exceeds 25 characters");
+                return false;
+            }
+            ERR_Validation.SetError(RTB_Password, "");
+            return true;
+        }
+
         //Sets up and displays the calculate form
         private void BTN_Calculate_Click(object sender, EventArgs e)
         {
@@ -50,7 +61,7 @@ namespace FirstIteration
         //When login is clicked, calls the login function if the username passes validation, if not, sets an error
         private void BTN_Login_Click(object sender, EventArgs e)
         {
-            if (ValidateUserName(RTB_Username.Text))
+            if (ValidateUserName(RTB_Username.Text) && ValidatePassword(RTB_Password.Text))
             {
                 Login();
             }

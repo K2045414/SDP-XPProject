@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
 using static FirstIteration.FRM_Login;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace FirstIteration
 {
@@ -34,6 +35,11 @@ namespace FirstIteration
 
         private bool ValidatePassword(string password)
         {
+            if (password.Length > 25)
+            {
+                ERR_Validation.SetError(RTB_Password1, "Your Password exceeds 25 characters");
+                return false;
+            }
             if (string.IsNullOrEmpty(password))
             {
                 ERR_Validation.SetError(RTB_Password1, "Your Password is empty");
