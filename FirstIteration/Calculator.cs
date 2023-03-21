@@ -250,10 +250,8 @@ namespace FirstIteration
             int age = int.Parse(RTB_Age.Text);
             string gender = CBX_Gender.Text;
             string ethnicity = CBX_Ethnicity.Text;
-            double weight;
-            double.TryParse(RTB_Weight.Text, out weight);
-            double height;
-            double.TryParse(RTB_Height.Text, out height);
+            double.TryParse(RTB_Weight.Text, out double weight);
+            double.TryParse(RTB_Height.Text, out double height);
             string parentForm = FormStack.Forms.Peek().ToString();
             double creatinine_umol = RBN_umolL.Checked ? creatinine : creatinine * 88.4;
             double creatinine_mgdl = RBN_mgdL.Checked ? creatinine : creatinine / 88.4;
@@ -451,8 +449,7 @@ namespace FirstIteration
         //Converts the creatinine to umol, as expected by the database
         private double ConvertCreatinine()
         {
-            double creatinine;
-            double.TryParse(RTB_Creatinine.Text, out creatinine);
+            double.TryParse(RTB_Creatinine.Text, out double creatinine);
             if (RBN_mgdL.Checked)
             {
                 creatinine *= 88.4;
