@@ -41,11 +41,12 @@ namespace FirstIteration
             if (LBX_AllPatients.SelectedIndex >= 0)
             {
                 //Sets up connection with the database
-                using (MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;"))
+                string server = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
+                using (MySqlConnection connection = new MySqlConnection(server))
                 {
                     //Sets up a command to update the database entry at the patient selected with the signed in clinician id
-                    string query = "UPDATE patients SET clinician_id = @clinician_id WHERE user_id = @patient_id";
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    string sql = "UPDATE patients SET clinician_id = @clinician_id WHERE user_id = @patient_id";
+                    using (MySqlCommand command = new MySqlCommand(sql, connection))
                     {
                         //Sets the clinicican_id to the signed in clinician's id and sets the patient_id to the value selected
                         command.Parameters.AddWithValue("@patient_id", LBX_AllPatients.Text);
@@ -78,10 +79,10 @@ namespace FirstIteration
         public void RefreshTable()
         {
             LBX_AllPatients.Items.Clear();
-            string query = "SELECT * FROM patients WHERE clinician_id != @id OR clinician_id IS NULL";
-            var connectionString = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
-            using (var connection = new MySqlConnection(connectionString))
-            using (MySqlCommand command = new MySqlCommand(query, connection))
+            string sql = "SELECT * FROM patients WHERE clinician_id != @id OR clinician_id IS NULL";
+            string server = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
+            using (var connection = new MySqlConnection(server))
+            using (MySqlCommand command = new MySqlCommand(sql, connection))
             {
                 //adds the clinician id as a parameter
                 command.Parameters.AddWithValue("@id", id);

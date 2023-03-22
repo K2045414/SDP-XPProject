@@ -55,12 +55,12 @@ namespace FirstIteration
             //Checks the file has passed the .csv filter and sets up a connection with the database
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                var connectionString = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;Allow User Variables=True;";
-                using (var connection = new MySqlConnection(connectionString))
+                var server = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;Allow User Variables=True;";
+                using (var connection = new MySqlConnection(server))
                 {
                     //Sets up the variables for the command to be used, csv file to reference, and handling invalid data.
                     connection.Open();
-                    var command = connection.CreateCommand();
+                    var sql = connection.CreateCommand();
                     var CSVFile = ofd.FileName;
                     var errorBuilder = new StringBuilder();
                     errorBuilder.Append("During the import process, these ID's returned invalid entries, please manually validate the Data of these patients:");
@@ -85,18 +85,18 @@ namespace FirstIteration
                             }
                             row["clinician_id"] = id;
                             //Sets a database command up to select the number of patients where the user id already in the patients database so the program can decide to insert a new user or update an existing user. It sets the parameter as the current PatientID in the datatable and converts the resulting value to an int.
-                            command.CommandText = "SELECT COUNT(*) FROM patients WHERE user_id = @user_id";
-                            command.Parameters.Clear();
-                            command.Parameters.AddWithValue("@user_id", row["PatientID"]);
-                            var existingUserCount = Convert.ToInt32(command.ExecuteScalar());
+                            sql.CommandText = "SELECT COUNT(*) FROM patients WHERE user_id = @user_id";
+                            sql.Parameters.Clear();
+                            sql.Parameters.AddWithValue("@user_id", row["PatientID"]);
+                            var existingUserCount = Convert.ToInt32(sql.ExecuteScalar());
                             //Checks if the number returned is greater than 0, indicating there is already that user id in the database, as such, sets the command to update it. Otherwise, sets the command to insert a new record
                             if (existingUserCount > 0)
                             {
-                                command.CommandText = "UPDATE patients set gender = @gender, race = @race, age = @age, creatinine = @creatinine where user_id = @user_id";
+                                sql.CommandText = "UPDATE patients set gender = @gender, race = @race, age = @age, creatinine = @creatinine where user_id = @user_id";
                             }
                             else
                             {
-                                command.CommandText = "INSERT INTO patients (user_id, gender, race, age, creatinine, clinician_id) VALUES (@user_id, @gender, @race, @age, @creatinine, @clinician_id)";
+                                sql.CommandText = "INSERT INTO patients (user_id, gender, race, age, creatinine, clinician_id) VALUES (@user_id, @gender, @race, @age, @creatinine, @clinician_id)";
                             }
                             //Converts the gender input (1 or 0) to M, F or ? for ubiquity in the database
                             if (row["gender"].ToString() == "1")
@@ -112,19 +112,19 @@ namespace FirstIteration
                                 row["gender"] = "?";
                             }
                             //Clears any current parameters and sets the command parameters for the database with the corresponsding data table entries 
-                            command.Parameters.Clear();
-                            command.Parameters.AddWithValue("@user_id", row["PatientID"]);
-                            command.Parameters.AddWithValue("@gender", row["Gender"]);
-                            command.Parameters.AddWithValue("@race", row["Ethnicity"]);
-                            command.Parameters.AddWithValue("@age", row["Age"]);
-                            command.Parameters.AddWithValue("@creatinine", row["Creatinine"]);
-                            command.Parameters.AddWithValue("@clinician_id", row["clinician_id"]);
+                            sql.Parameters.Clear();
+                            sql.Parameters.AddWithValue("@user_id", row["PatientID"]);
+                            sql.Parameters.AddWithValue("@gender", row["Gender"]);
+                            sql.Parameters.AddWithValue("@race", row["Ethnicity"]);
+                            sql.Parameters.AddWithValue("@age", row["Age"]);
+                            sql.Parameters.AddWithValue("@creatinine", row["Creatinine"]);
+                            sql.Parameters.AddWithValue("@clinician_id", row["clinician_id"]);
                             //Creates a tuple containing all the state of data input, true, if they've been validated, or false and an error message if they fail the validation
                             var validationTuple = ValidateCSVloop(row["PatientID"].ToString(), row["Gender"].ToString(), row["Ethnicity"].ToString(), row["Age"].ToString(), row["Creatinine"].ToString(), row["clinician_id"].ToString());
                             //Runs the previously set up command to insert/update the database with the validated information row-by-row, otherwise adds what triggered the validation check along with the patient id that triggered it to an error list
                             if (validationTuple.Item1)
                             {
-                                command.ExecuteNonQuery();
+                                sql.ExecuteNonQuery();
                                 csvData.Rows.Add(row);
                             }
                             else
@@ -175,8 +175,10 @@ namespace FirstIteration
         public void GetPatients()
         {
             LBX_Patients.Items.Clear();
-            var connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;");
-            var command = new MySqlCommand("SELECT * FROM patients WHERE clinician_id=@clinician_id", connection);
+            string server = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
+            var connection = new MySqlConnection(server);
+            string sql = "SELECT * FROM patients WHERE clinician_id=@clinician_id";
+            var command = new MySqlCommand(sql, connection);
             command.Parameters.AddWithValue("@clinician_id", id);
             connection.Open();
             var reader = command.ExecuteReader();
@@ -191,10 +193,12 @@ namespace FirstIteration
         private void BTN_RemovePatient_Click(object sender, EventArgs e)
         {
             //sets up a new database connection
-            using (MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;"))
+            string server = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
+            using (MySqlConnection connection = new MySqlConnection(server))
             {
                 //Sets the command to set a patient's clinician id to NULL
-                MySqlCommand command = new MySqlCommand("update patients SET clinician_id = Null WHERE user_id=@patient_id", connection);
+                string sql = "update patients SET clinician_id = Null WHERE user_id=@patient_id";
+                MySqlCommand command = new MySqlCommand(sql, connection);
                 //Checks if the a patient is selected in the listbox, if not, alerts the user
                 if (LBX_Patients.SelectedIndex >= 0)
                 {

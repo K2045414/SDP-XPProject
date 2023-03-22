@@ -57,6 +57,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.CalcInfo = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.CalcTip = new System.Windows.Forms.ToolTip(this.components);
@@ -79,7 +80,7 @@
             this.BTN_Calculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Calculate.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_Calculate.ForeColor = System.Drawing.Color.White;
-            this.BTN_Calculate.Location = new System.Drawing.Point(221, 510);
+            this.BTN_Calculate.Location = new System.Drawing.Point(224, 471);
             this.BTN_Calculate.Name = "BTN_Calculate";
             this.BTN_Calculate.Size = new System.Drawing.Size(152, 48);
             this.BTN_Calculate.TabIndex = 12;
@@ -162,8 +163,7 @@
             this.CBX_Calculation.Name = "CBX_Calculation";
             this.CBX_Calculation.Size = new System.Drawing.Size(255, 26);
             this.CBX_Calculation.TabIndex = 1;
-            this.CalcTip.SetToolTip(this.CBX_Calculation, "MDRD - The Default EGFR Calculation\r\nCKDEPI - An Alternative Calculation\r\nCockraf" +
-        "t - A Second Alternative which requires the users Weight and Height\r\n");
+            this.CalcTip.SetToolTip(this.CBX_Calculation, resources.GetString("CBX_Calculation.ToolTip"));
             this.CBX_Calculation.SelectedIndexChanged += new System.EventHandler(this.CBX_Calculation_SelectedIndexChanged);
             // 
             // RTB_eGFR
@@ -171,7 +171,7 @@
             this.RTB_eGFR.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RTB_eGFR.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_eGFR.Font = new System.Drawing.Font("Arial", 14F);
-            this.RTB_eGFR.Location = new System.Drawing.Point(115, 397);
+            this.RTB_eGFR.Location = new System.Drawing.Point(116, 378);
             this.RTB_eGFR.Name = "RTB_eGFR";
             this.RTB_eGFR.ReadOnly = true;
             this.RTB_eGFR.Size = new System.Drawing.Size(370, 87);
@@ -240,7 +240,7 @@
             this.LBL_eGFR.AutoSize = true;
             this.LBL_eGFR.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_eGFR.ForeColor = System.Drawing.Color.White;
-            this.LBL_eGFR.Location = new System.Drawing.Point(160, 367);
+            this.LBL_eGFR.Location = new System.Drawing.Point(168, 348);
             this.LBL_eGFR.Name = "LBL_eGFR";
             this.LBL_eGFR.Size = new System.Drawing.Size(273, 27);
             this.LBL_eGFR.TabIndex = 24;
@@ -257,7 +257,7 @@
             this.BTN_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Back.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_Back.ForeColor = System.Drawing.Color.White;
-            this.BTN_Back.Location = new System.Drawing.Point(63, 510);
+            this.BTN_Back.Location = new System.Drawing.Point(66, 471);
             this.BTN_Back.Name = "BTN_Back";
             this.BTN_Back.Size = new System.Drawing.Size(152, 48);
             this.BTN_Back.TabIndex = 11;
@@ -313,7 +313,7 @@
             this.BTN_MoreInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_MoreInfo.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_MoreInfo.ForeColor = System.Drawing.Color.White;
-            this.BTN_MoreInfo.Location = new System.Drawing.Point(164, 570);
+            this.BTN_MoreInfo.Location = new System.Drawing.Point(164, 556);
             this.BTN_MoreInfo.Name = "BTN_MoreInfo";
             this.BTN_MoreInfo.Size = new System.Drawing.Size(264, 63);
             this.BTN_MoreInfo.TabIndex = 14;
@@ -381,7 +381,7 @@
             this.BTN_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Edit.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_Edit.ForeColor = System.Drawing.Color.White;
-            this.BTN_Edit.Location = new System.Drawing.Point(379, 510);
+            this.BTN_Edit.Location = new System.Drawing.Point(382, 471);
             this.BTN_Edit.Name = "BTN_Edit";
             this.BTN_Edit.Size = new System.Drawing.Size(152, 48);
             this.BTN_Edit.TabIndex = 13;
@@ -428,6 +428,7 @@
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BackgroundImage = global::FirstIteration.Properties.Resources.BufferImg;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.CalcInfo);
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.LBL_Creatinine);
@@ -457,6 +458,18 @@
             this.panel2.Size = new System.Drawing.Size(577, 636);
             this.panel2.TabIndex = 37;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 14F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(76, 522);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(459, 22);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "This calculator will continue from here out with MDRD ";
+            this.label1.Visible = false;
+            // 
             // CalcInfo
             // 
             this.CalcInfo.BackgroundImage = global::FirstIteration.Properties.Resources.Question;
@@ -468,8 +481,7 @@
             this.CalcInfo.Size = new System.Drawing.Size(29, 26);
             this.CalcInfo.TabIndex = 40;
             this.CalcInfo.TabStop = false;
-            this.CalcTip.SetToolTip(this.CalcInfo, "MDRD - The Default EGFR Calculation\r\nCKDEPI - An Alternative Calculation\r\nCockraf" +
-        "t - A Second Alternative which requires the users Weight and Height");
+            this.CalcTip.SetToolTip(this.CalcInfo, resources.GetString("CalcInfo.ToolTip"));
             // 
             // pictureBox3
             // 
@@ -545,6 +557,7 @@
         private System.Windows.Forms.ComboBox CBX_Gender;
         private System.Windows.Forms.ToolTip CalcTip;
         private System.Windows.Forms.PictureBox CalcInfo;
+        private System.Windows.Forms.Label label1;
     }
 }
 

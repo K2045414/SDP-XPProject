@@ -30,6 +30,8 @@ namespace FirstIteration
         {
             InitializeComponent();
             CBX_Calculation.Text = "MDRD";
+            CBX_Ethnicity.Text = "Other";
+            CBX_Gender.Text = "Male";
         }
 
         //If the patient is logged in, set up the calculator with their details
@@ -44,11 +46,12 @@ namespace FirstIteration
             }
             //Populates the form with the relevant calculation components and sets up a database connection
             ConfigureForm(patient_id);
-            var connectionString = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
+            var server = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
             //Pulls the patient details from the database
-            using (var connection = new MySqlConnection(connectionString))
+            using (var connection = new MySqlConnection(server))
             {
-                var command = new MySqlCommand("SELECT * FROM patients WHERE user_id=@patient_id", connection);
+                string sql = "SELECT * FROM patients WHERE user_id=@patient_id";
+                var command = new MySqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@patient_id", patient_id);
                 connection.Open();
                 //Checks if any of the user's information pulled is null. If so, returns 0 instead to populate the fields
@@ -62,7 +65,7 @@ namespace FirstIteration
                         int weight = reader.IsDBNull(reader.GetOrdinal("weight")) ? 0 : reader.GetInt32("weight");
                         int age = reader.IsDBNull(reader.GetOrdinal("age")) ? 0 : reader.GetInt32("age");
                         int creatinine = reader.IsDBNull(reader.GetOrdinal("age")) ? 0 : reader.GetInt32("creatinine");
-                        //Converts the single character showing their race and converts it into a full string
+                        //Converts the single character showing their race and converts it into a full string, defaulting with other
                         switch (race)
                         {
                             case "B":
@@ -72,10 +75,10 @@ namespace FirstIteration
                                 race = "Other";
                                 break;
                             default:
-                                race = "";
+                                race = "Other";
                                 break;
                         }
-                        //Converts the single character showing their gender and converts it into a full string
+                        //Converts the single character showing their gender and converts it into a full string, defaulting with male
                         switch (gender)
                         {
                             case "M":
@@ -85,7 +88,7 @@ namespace FirstIteration
                                 gender = "Female";
                                 break;
                             default:
-                                gender = "";
+                                gender = "Male";
                                 break;
                         }
                         //Populates the input fields with the relevant information
@@ -138,7 +141,7 @@ namespace FirstIteration
                 ERR_Validation.SetError(RTB_Creatinine, "Creatinine value should be greater than zero");
                 return false;
             }
-            ERR_Validation.SetError(RTB_Creatinine, string.Empty);
+            ERR_Validation.SetError(RTB_Creatinine, "");
             return true;
         }
 
@@ -161,7 +164,7 @@ namespace FirstIteration
                 ERR_Validation.SetError(RTB_Height, "Height should be greater than zero");
                 return false;
             }
-            ERR_Validation.SetError(RTB_Height, string.Empty);
+            ERR_Validation.SetError(RTB_Height, "");
             return true;
         }
 
@@ -184,7 +187,7 @@ namespace FirstIteration
                 ERR_Validation.SetError(RTB_Weight, "Weight should be greater than zero");
                 return false;
             }
-            ERR_Validation.SetError(RTB_Weight, string.Empty);
+            ERR_Validation.SetError(RTB_Weight, "");
             return true;
         }
 
@@ -207,7 +210,7 @@ namespace FirstIteration
                 ERR_Validation.SetError(RTB_Age, "Age should be between 18 and 100");
                 return false;
             }
-            ERR_Validation.SetError(RTB_Weight, string.Empty);
+            ERR_Validation.SetError(RTB_Age, "");
             return true;
         }
 
@@ -225,8 +228,20 @@ namespace FirstIteration
                 if (ValidCrea == true && ValidWeight == true && ValidHeight == true && ValidAge == true)
                 {
                     Calculate();
-                    UpdateDatabase();
-                    BTN_MoreInfo.Visible = true;
+                    if (patient_id != "")
+                    {
+                        UpdateDatabase();
+                    }
+                    if (CBX_Calculation.Text == "All")
+                    {
+                        BTN_MoreInfo.Visible = true;
+                        label1.Visible = true;
+                    }
+                    else
+                    {
+                        BTN_MoreInfo.Visible = false;
+                        label1.Visible = false;
+                    }
                 }
             }
             else if (CBX_Calculation.Text == "MDRD" || CBX_Calculation.Text == "CKDEPI")
@@ -235,8 +250,21 @@ namespace FirstIteration
                 if (ValidCrea == true && ValidAge ==true)
                 {
                     Calculate();
-                    UpdateDatabase();
-                    BTN_MoreInfo.Visible = true;
+                    if (patient_id != "")
+                    {
+                        UpdateDatabase();
+                    }
+                    if (CBX_Calculation.Text == "MDRD")
+                    {
+                       BTN_MoreInfo.Visible = true;
+                       label1.Visible = true;
+                    }
+                    else
+                    {
+                        BTN_MoreInfo.Visible = false;
+                        label1.Visible = false;
+                    }
+                    
                 }
             }
 
@@ -273,7 +301,7 @@ namespace FirstIteration
                     double eGFR_MDRD = MDRD(creatinine_umol, age, gender, ethnicity);
                     double eGFR_CKDEPI = CKDEPI(creatinine_mgdl, age, gender, ethnicity);
                     double eGFR_Cockroft = Cockroft(creatinine_mgdl, age, weight, height, gender);
-                    string printtext = NModular(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, weight, height, age, gender, ethnicity, creatinine_mgdl, creatinine_umol);
+                    string printtext = NModular(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, weight, height, age, gender, ethnicity, creatinine_mgdl, creatinine_umol);                 
                     RTB_eGFR.Text = printtext;
                     //return one of the eGFR values since it doesn't matter which one is returned
                     return eGFR_MDRD; 
@@ -284,7 +312,15 @@ namespace FirstIteration
             //Rounds the result depending on whether the patient is a doctor (3 decimal places) or not (whole number) and displays the value to the user. Also shows the next form button.
             int decimalPlaces = parentForm == "FirstIteration.FRM_DrMain, Text: Doctor Page" ? 3 : 0;
             eGFR = Math.Round(eGFR, decimalPlaces);
-            string resultText = calculation + ": " + eGFR + " mL/min/1.73 m²";
+            string resultText;
+            if (eGFR > 300)
+            {
+                resultText = calculation + ": " + eGFR + " mL/min/1.73 m²\n" + "This result seems to be out of range for eGFR. Are you sure your details are correct?";
+            }
+            else
+            {
+                 resultText = calculation + ": " + eGFR + " mL/min/1.73 m²";
+            }           
             RTB_eGFR.Text = resultText;
             BTN_MoreInfo.Visible = true;
             return eGFR;
@@ -318,7 +354,7 @@ namespace FirstIteration
             double g = Gender == "Female" ? 0.85 : 1;
             //The eGFRC-G(ml / min) was adjusted to BSA(modified C-G) to obtain eGFRmC - G(ml / min per 1.73 m2): eGFRmC - G = eGFRC - G × 1.73 / BSA.
             double BSA = 0.0167 * Math.Pow(Height, 0.5) * Math.Pow(Weight, 0.5);
-            double GFR = ((140 - Age) * (Weight * g) / (72 * Creatininemgdl)) * (1.73 / BSA);
+            double GFR = (140 - Age) * (Weight * g) / (72 * Creatininemgdl) * (1.73 / BSA);
             return GFR;
         }
 
@@ -395,9 +431,10 @@ namespace FirstIteration
         private void UpdateDatabase()
         {
             //sets up the database connection
-            string connectionString = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            MySqlCommand command = new MySqlCommand("UPDATE patients SET race = @race, gender = @gender, height = @height, weight = @weight, age = @age, creatinine = @creatinine WHERE user_id = @user_id", connection);
+            string server = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
+            MySqlConnection connection = new MySqlConnection(server);
+            string sql = "UPDATE patients SET race = @race, gender = @gender, height = @height, weight = @weight, age = @age, creatinine = @creatinine WHERE user_id = @user_id";
+            MySqlCommand command = new MySqlCommand(sql, connection);
             //Calls the functions to convert the displayed values to ones accepted by the database
             char ethnicity = GetEthnicity();
             char gender = GetGender();
@@ -435,7 +472,7 @@ namespace FirstIteration
         //Converts the full gender string to expected single chars accepted by the database
         private char GetGender()
         {
-            switch (CBX_Ethnicity.Text)
+            switch (CBX_Gender.Text)
             {
                 case "Male":
                     return 'M';
@@ -496,6 +533,11 @@ namespace FirstIteration
             eGFR_Cockroft = Math.Round(eGFR_Cockroft, decimalPlaces);
             eGFR_MDRD= Math.Round(eGFR_MDRD, decimalPlaces);
             eGFR_CKDEPI = Math.Round(eGFR_CKDEPI, decimalPlaces);
+            string alert = "";
+            if (eGFR_CKDEPI > 300 || eGFR_Cockroft > 300 || eGFR_MDRD > 300)
+            {
+                alert = "At least one of these values seems to be out of range for eGFR. Are you sure your details are correct?";
+            }
             //If the outlier's percentage difference is 50% out of the other two, creates a variable to display the outlier
             if (Math.Abs(percentage) > 150)
             {
@@ -504,23 +546,23 @@ namespace FirstIteration
                 if (outlier == percentage1)
                 {
                     issue = "CKDEPI";
-                    returntext = "MDRD " + eGFR_MDRD + " mL/min/1.73 m²\n" + "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²";
+                    returntext = "MDRD " + eGFR_MDRD + " mL/min/1.73 m²\n" + "Cockroft-Gault: " + eGFR_Cockroft + " mL/min/1.73 m²\n" + alert;
                     MessageBox.Show("Rejecting CKDEPI. It lies out of acceptable range. This will be logged for system administrators");                   
                     Log(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, Weight, Height, Age, Gender, Ethnicity, Creatininemgdl, Creatinineumol, percentage, percentage1, percentage2, percentage3, closestValues, outlier, issue);                   
                 }
                 //If the outlier is Cockroft, show MDRD and CKDEPI, alert the user and call the log function
                 else if (outlier == percentage2)
                 {
-                    issue = "Cockroft";
-                    returntext = "MDRD " + eGFR_MDRD + " mL/min/1.73 m²\n" + "CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²";
-                    MessageBox.Show("Rejecting Cockroft. It lies out of acceptable range. This will be logged for system administrators");                
+                    issue = "Cockrof-Gault";
+                    returntext = "MDRD " + eGFR_MDRD + " mL/min/1.73 m²\n" + "CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²\n" + alert;
+                    MessageBox.Show("Rejecting Cockroft-Gault. It lies out of acceptable range. This will be logged for system administrators");                
                     Log(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, Weight, Height, Age, Gender, Ethnicity, Creatininemgdl, Creatinineumol, percentage, percentage1, percentage2, percentage3, closestValues, outlier, issue);
                 }
                 //If the outlier is MDRD, show all the calculations, alert the user and call the log function
                 else
                 {   
                     issue = "MDRD";
-                    returntext = "MDRD " + eGFR_MDRD + " mL/min/1.73 m²\n" + "CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²\n" + "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²";
+                    returntext = "MDRD " + eGFR_MDRD + " mL/min/1.73 m²\n" + "CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²\n" + "Cockroft-Gault: " + eGFR_Cockroft + " mL/min/1.73 m²\n" + alert;
                     MessageBox.Show("MDRD shows a different result to the other equations. The program will continue with it, but this should not be considered exact. Please verify the calculation " + outlier.ToString());
                     Log(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, Weight, Height, Age, Gender, Ethnicity, Creatininemgdl, Creatinineumol, percentage, percentage1, percentage2, percentage3, closestValues, outlier, issue);
                 }
@@ -528,7 +570,7 @@ namespace FirstIteration
             //Otherwise, just return all the calculations
             else
             {
-                returntext = "MDRD " + eGFR_MDRD + " mL/min/1.73 m²\n" + "CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²\n" + "Cockroft: " + eGFR_Cockroft + " mL/min/1.73 m²";
+                returntext = "MDRD " + eGFR_MDRD + " mL/min/1.73 m²\n" + "CKDEPI: " + eGFR_CKDEPI + " mL/min/1.73 m²\n" + "Cockroft-Gault: " + eGFR_Cockroft + " mL/min/1.73 m²\n" + alert;
             }
             return returntext;
         }
@@ -566,9 +608,9 @@ namespace FirstIteration
                 writer.WriteLine("Variables: ");
                 writer.WriteLine("Age: " +  Age + " Gender: " + Gender + " Creatinine: " + creatinine + " Ethnicity: " + Ethnicity + " Height: " + Height + " Weight: " + Weight);
                 writer.WriteLine("eGFR values: ");
-                writer.WriteLine("MDRD: " + eGFR_MDRD + " Cockroft: " + eGFR_Cockroft + " CKDEPI: " + eGFR_CKDEPI);
+                writer.WriteLine("MDRD: " + eGFR_MDRD + " Cockroft-Gault: " + eGFR_Cockroft + " CKDEPI: " + eGFR_CKDEPI);
                 writer.WriteLine("Percentage differences between calculations: ");
-                writer.WriteLine("MDRD and Cockroft: " + percentage1 + " MDRD and CKDEPI: " + percentage2 + " Cockroft and CKDEPI: " + percentage3 + "\n");             
+                writer.WriteLine("MDRD and Cockroft-Gault: " + percentage1 + " MDRD and CKDEPI: " + percentage2 + " Cockroft-Gault and CKDEPI: " + percentage3 + "\n");             
             }
         }
 

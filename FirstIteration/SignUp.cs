@@ -63,7 +63,9 @@ namespace FirstIteration
         {
             if (password1 == password2)
             {
+                ERR_Validation.SetError(RTB_Password2, "");// Clears errors when successful ඞ
                 return true;
+
             }
             ERR_Validation.SetError(RTB_Password2, "Your Passwords do not match");
             return false;
@@ -74,6 +76,7 @@ namespace FirstIteration
         {
             if (CBX_TAndC.Checked)
             {
+                ERR_Validation.SetError(CBX_TAndC, "");
                 return true;
             }
             else
@@ -102,7 +105,7 @@ namespace FirstIteration
         //Makes sure all the validations are checked, and runs the signup function. If not, alerts the user
         private void BTN_SignUp_Click(object sender, EventArgs e)
         {
-            if (ValidateUserName(RTB_Username.Text) && ValidatePassword(RTB_Password1.Text) && MatchPassword(RTB_Password2.Text, RTB_Password1.Text) && ValidateTerms()  && ValidatePassword(RTB_Password1.Text))
+            if (ValidateTerms() && ValidatePassword(RTB_Password1.Text) && MatchPassword(RTB_Password2.Text, RTB_Password1.Text) && ValidatePassword(RTB_Password1.Text) && ValidateUserName(RTB_Username.Text))
             {
                 SignUp();
             }
@@ -117,7 +120,8 @@ namespace FirstIteration
         {
             try
             {
-                using (MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;"))
+                string server = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
+                using (MySqlConnection connection = new MySqlConnection(server))
                 {
                     connection.Open();
                     //Checks if the username input already exists in the patient or user tables. If it isn't in either, alerts the user, adds the user to both of them and opens a calculator instance safely. If it only exists in the patient database, adds it to the user database.
@@ -150,7 +154,8 @@ namespace FirstIteration
         //Gets the number of users in the user database where user_id is the same as the id they're trying to sign up with
         private int GetExistingUserCount(MySqlConnection connection, string username)
         {
-            using (MySqlCommand command = new MySqlCommand("SELECT COUNT(*) FROM users WHERE user_id = @user_id;", connection))
+            string sql = "SELECT COUNT(*) FROM users WHERE user_id = @user_id;";
+            using (MySqlCommand command = new MySqlCommand(sql, connection))
             {
                 command.Parameters.AddWithValue("@user_id", username);
                 return Convert.ToInt32(command.ExecuteScalar());
@@ -160,7 +165,8 @@ namespace FirstIteration
         //Gets the number of users in the patients database where user_id is the same as the id they're trying to sign up with
         private int GetExistingPatientCount(MySqlConnection connection, string username)
         {
-            using (MySqlCommand command = new MySqlCommand("SELECT COUNT(*) FROM patients WHERE user_id = @user_id;", connection))
+            string sql = "SELECT COUNT(*) FROM patients WHERE user_id = @user_id;";
+            using (MySqlCommand command = new MySqlCommand(sql, connection))
             {
                 command.Parameters.AddWithValue("@user_id", username);
                 return Convert.ToInt32(command.ExecuteScalar());
@@ -171,7 +177,8 @@ namespace FirstIteration
         private void InsertUser(MySqlConnection connection, string username, string password)
         {
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
-            using (MySqlCommand command = new MySqlCommand("INSERT INTO users (user_id, password, title) VALUES (@user_id, @password, 'patient')", connection))
+            string sql = "INSERT INTO users (user_id, password, title) VALUES (@user_id, @password, 'patient')";
+            using (MySqlCommand command = new MySqlCommand(sql, connection))
             {
                 command.Parameters.AddWithValue("@user_id", username);
                 command.Parameters.AddWithValue("@password", passwordHash);
@@ -182,7 +189,8 @@ namespace FirstIteration
         //Adds a new patient to the patients database with using the given id
         private void InsertPatient(MySqlConnection connection, string username)
         {
-            using (MySqlCommand command = new MySqlCommand("INSERT INTO patients (user_id) VALUES (@user_id)", connection))
+            string sql = "INSERT INTO patients (user_id) VALUES (@user_id)";
+            using (MySqlCommand command = new MySqlCommand(sql, connection))
             {
                 command.Parameters.AddWithValue("@user_id", username);
                 command.ExecuteNonQuery();

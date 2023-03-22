@@ -71,8 +71,10 @@ namespace FirstIteration
         private void Login()
         {
             //Sets up a database connection and command that will update their last accessed time and select the user id of the user attemping to login
-            MySqlConnection connection = new MySqlConnection("server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;");
-            MySqlCommand command = new MySqlCommand("UPDATE users SET created_at_updated_at = NOW() WHERE user_id=@user_id; SELECT * FROM users WHERE user_id=@user_id", connection);
+            string server = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;";
+            MySqlConnection connection = new MySqlConnection(server);
+            string sql = "UPDATE users SET created_at_updated_at = NOW() WHERE user_id=@user_id; SELECT * FROM users WHERE user_id=@user_id";
+            MySqlCommand command = new MySqlCommand(sql, connection);
             //Adds the parameter for user id as the username login
             command.Parameters.AddWithValue("@user_id", RTB_Username.Text);
             try
@@ -141,7 +143,7 @@ namespace FirstIteration
         //Toggles between the password field being in plaintext vs being hidden when clicking a textbox
         private void CBX_Pass_Log_CheckedChanged(object sender, EventArgs e)
         {
-            RTB_Password.UseSystemPasswordChar = !CBX_Pass_Log.Checked ? true : false;
+            RTB_Password.UseSystemPasswordChar = !CBX_Pass_Log.Checked;
         }
     }
 }
