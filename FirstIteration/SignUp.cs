@@ -20,6 +20,11 @@ namespace FirstIteration
         public FRM_SignUp()
         {
             InitializeComponent();
+            BTN_Back.MouseEnter += Mouse_Enter;
+            BTN_Back.MouseLeave += Mouse_Leave;
+
+            BTN_SignUp.MouseEnter += Mouse_Enter;
+            BTN_SignUp.MouseLeave += Mouse_Leave;
         }
 
         //Makes sure the username follows the format [NNNNNNNNNN], if so, clears the errors and returns true. If no, alerts the user and returns false
@@ -211,6 +216,18 @@ namespace FirstIteration
                 RTB_Password2.UseSystemPasswordChar = true;
             }
                 
+        }
+
+        private void Mouse_Enter(object sender, EventArgs e)
+        {
+            var btn = (Button)sender;
+            btn.BackgroundImage = Properties.Resources.ButtonHover;
+        }
+
+        private void Mouse_Leave(object sender, EventArgs e)
+        {
+            var btn = (Button)sender;
+            btn.BackgroundImage = Properties.Resources.Button3;
         }
     }
 }

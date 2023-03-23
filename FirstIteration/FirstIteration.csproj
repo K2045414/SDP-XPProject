@@ -211,6 +211,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\ButtonHover1.png" />
+    <None Include="Resources\Information_icon.svg.png" />
+    <None Include="Resources\Info.png" />
     <None Include="Resources\Question.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

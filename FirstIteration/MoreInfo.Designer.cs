@@ -73,9 +73,10 @@
             this.LBL_eGFR.AutoSize = true;
             this.LBL_eGFR.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_eGFR.ForeColor = System.Drawing.Color.White;
-            this.LBL_eGFR.Location = new System.Drawing.Point(13, 29);
+            this.LBL_eGFR.Location = new System.Drawing.Point(20, 45);
+            this.LBL_eGFR.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_eGFR.Name = "LBL_eGFR";
-            this.LBL_eGFR.Size = new System.Drawing.Size(266, 27);
+            this.LBL_eGFR.Size = new System.Drawing.Size(399, 41);
             this.LBL_eGFR.TabIndex = 0;
             this.LBL_eGFR.Text = "eGFR (mL/min/1.73 m²)";
             // 
@@ -85,10 +86,11 @@
             this.RTB_eGFR.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_eGFR.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_eGFR.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RTB_eGFR.Location = new System.Drawing.Point(283, 29);
+            this.RTB_eGFR.Location = new System.Drawing.Point(424, 45);
+            this.RTB_eGFR.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_eGFR.Name = "RTB_eGFR";
             this.RTB_eGFR.ReadOnly = true;
-            this.RTB_eGFR.Size = new System.Drawing.Size(227, 47);
+            this.RTB_eGFR.Size = new System.Drawing.Size(340, 72);
             this.RTB_eGFR.TabIndex = 1;
             this.RTB_eGFR.Text = "";
             // 
@@ -98,10 +100,11 @@
             this.RTB_CKD1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_CKD1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_CKD1.ForeColor = System.Drawing.Color.White;
-            this.RTB_CKD1.Location = new System.Drawing.Point(18, 118);
+            this.RTB_CKD1.Location = new System.Drawing.Point(27, 182);
+            this.RTB_CKD1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_CKD1.Name = "RTB_CKD1";
             this.RTB_CKD1.ReadOnly = true;
-            this.RTB_CKD1.Size = new System.Drawing.Size(154, 55);
+            this.RTB_CKD1.Size = new System.Drawing.Size(231, 85);
             this.RTB_CKD1.TabIndex = 2;
             this.RTB_CKD1.Text = "Stage 1 with normal or high GFR\nNormal and high";
             // 
@@ -111,10 +114,11 @@
             this.RTB_eGFR1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_eGFR1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_eGFR1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RTB_eGFR1.Location = new System.Drawing.Point(192, 118);
+            this.RTB_eGFR1.Location = new System.Drawing.Point(288, 182);
+            this.RTB_eGFR1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_eGFR1.Name = "RTB_eGFR1";
             this.RTB_eGFR1.ReadOnly = true;
-            this.RTB_eGFR1.Size = new System.Drawing.Size(147, 55);
+            this.RTB_eGFR1.Size = new System.Drawing.Size(220, 85);
             this.RTB_eGFR1.TabIndex = 3;
             this.RTB_eGFR1.Text = "GFR > 90 mL/min/1.73 m²";
             // 
@@ -124,10 +128,11 @@
             this.RTB_Desc1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Desc1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_Desc1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RTB_Desc1.Location = new System.Drawing.Point(359, 118);
+            this.RTB_Desc1.Location = new System.Drawing.Point(538, 182);
+            this.RTB_Desc1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_Desc1.Name = "RTB_Desc1";
             this.RTB_Desc1.ReadOnly = true;
-            this.RTB_Desc1.Size = new System.Drawing.Size(216, 55);
+            this.RTB_Desc1.Size = new System.Drawing.Size(324, 85);
             this.RTB_Desc1.TabIndex = 4;
             this.RTB_Desc1.Text = "- Mild kidney damage\n- Kidney work as well as normal";
             // 
@@ -137,10 +142,11 @@
             this.RTB_CKD2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_CKD2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_CKD2.ForeColor = System.Drawing.Color.White;
-            this.RTB_CKD2.Location = new System.Drawing.Point(18, 179);
+            this.RTB_CKD2.Location = new System.Drawing.Point(27, 275);
+            this.RTB_CKD2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_CKD2.Name = "RTB_CKD2";
             this.RTB_CKD2.ReadOnly = true;
-            this.RTB_CKD2.Size = new System.Drawing.Size(154, 55);
+            this.RTB_CKD2.Size = new System.Drawing.Size(231, 85);
             this.RTB_CKD2.TabIndex = 5;
             this.RTB_CKD2.Text = "Stage 2 Mild CKD\nMild reduction related to normal range for a young adult";
             // 
@@ -150,10 +156,11 @@
             this.RTB_eGFR2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_eGFR2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_eGFR2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RTB_eGFR2.Location = new System.Drawing.Point(192, 179);
+            this.RTB_eGFR2.Location = new System.Drawing.Point(288, 275);
+            this.RTB_eGFR2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_eGFR2.Name = "RTB_eGFR2";
             this.RTB_eGFR2.ReadOnly = true;
-            this.RTB_eGFR2.Size = new System.Drawing.Size(147, 55);
+            this.RTB_eGFR2.Size = new System.Drawing.Size(220, 85);
             this.RTB_eGFR2.TabIndex = 6;
             this.RTB_eGFR2.Text = "GFR = 60-89 mL/min/1.73 m²";
             // 
@@ -163,10 +170,11 @@
             this.RTB_CKD3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_CKD3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_CKD3.ForeColor = System.Drawing.Color.White;
-            this.RTB_CKD3.Location = new System.Drawing.Point(18, 240);
+            this.RTB_CKD3.Location = new System.Drawing.Point(27, 369);
+            this.RTB_CKD3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_CKD3.Name = "RTB_CKD3";
             this.RTB_CKD3.ReadOnly = true;
-            this.RTB_CKD3.Size = new System.Drawing.Size(154, 55);
+            this.RTB_CKD3.Size = new System.Drawing.Size(231, 85);
             this.RTB_CKD3.TabIndex = 7;
             this.RTB_CKD3.Text = "Stage 3A Moderate CKD\nMild-moderate reduction";
             // 
@@ -176,10 +184,11 @@
             this.RTB_eGFR3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_eGFR3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_eGFR3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RTB_eGFR3.Location = new System.Drawing.Point(192, 240);
+            this.RTB_eGFR3.Location = new System.Drawing.Point(288, 369);
+            this.RTB_eGFR3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_eGFR3.Name = "RTB_eGFR3";
             this.RTB_eGFR3.ReadOnly = true;
-            this.RTB_eGFR3.Size = new System.Drawing.Size(147, 55);
+            this.RTB_eGFR3.Size = new System.Drawing.Size(220, 85);
             this.RTB_eGFR3.TabIndex = 8;
             this.RTB_eGFR3.Text = "GFR = 45-59 mL/min/1.73 m²";
             // 
@@ -189,10 +198,11 @@
             this.RTB_CKD4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_CKD4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_CKD4.ForeColor = System.Drawing.Color.White;
-            this.RTB_CKD4.Location = new System.Drawing.Point(18, 301);
+            this.RTB_CKD4.Location = new System.Drawing.Point(27, 463);
+            this.RTB_CKD4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_CKD4.Name = "RTB_CKD4";
             this.RTB_CKD4.ReadOnly = true;
-            this.RTB_CKD4.Size = new System.Drawing.Size(154, 55);
+            this.RTB_CKD4.Size = new System.Drawing.Size(231, 85);
             this.RTB_CKD4.TabIndex = 9;
             this.RTB_CKD4.Text = "Stage 3B Moderate CKD\nModerate-severe reduction";
             // 
@@ -202,10 +212,11 @@
             this.RTB_eGFR4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_eGFR4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_eGFR4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RTB_eGFR4.Location = new System.Drawing.Point(192, 301);
+            this.RTB_eGFR4.Location = new System.Drawing.Point(288, 463);
+            this.RTB_eGFR4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_eGFR4.Name = "RTB_eGFR4";
             this.RTB_eGFR4.ReadOnly = true;
-            this.RTB_eGFR4.Size = new System.Drawing.Size(147, 55);
+            this.RTB_eGFR4.Size = new System.Drawing.Size(220, 85);
             this.RTB_eGFR4.TabIndex = 10;
             this.RTB_eGFR4.Text = "GFR = 30-44 mL/min/1.73 m²";
             // 
@@ -215,10 +226,11 @@
             this.RTB_CKD5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_CKD5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_CKD5.ForeColor = System.Drawing.Color.White;
-            this.RTB_CKD5.Location = new System.Drawing.Point(18, 362);
+            this.RTB_CKD5.Location = new System.Drawing.Point(27, 557);
+            this.RTB_CKD5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_CKD5.Name = "RTB_CKD5";
             this.RTB_CKD5.ReadOnly = true;
-            this.RTB_CKD5.Size = new System.Drawing.Size(154, 55);
+            this.RTB_CKD5.Size = new System.Drawing.Size(231, 85);
             this.RTB_CKD5.TabIndex = 11;
             this.RTB_CKD5.Text = "Stage 4 Severe CKD\nSevere reduction";
             // 
@@ -228,10 +240,11 @@
             this.RTB_eGFR5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_eGFR5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_eGFR5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RTB_eGFR5.Location = new System.Drawing.Point(192, 362);
+            this.RTB_eGFR5.Location = new System.Drawing.Point(288, 557);
+            this.RTB_eGFR5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_eGFR5.Name = "RTB_eGFR5";
             this.RTB_eGFR5.ReadOnly = true;
-            this.RTB_eGFR5.Size = new System.Drawing.Size(147, 55);
+            this.RTB_eGFR5.Size = new System.Drawing.Size(220, 85);
             this.RTB_eGFR5.TabIndex = 12;
             this.RTB_eGFR5.Text = "GFR = 15-29mL/min/1.73 m²";
             // 
@@ -241,10 +254,11 @@
             this.RTB_CKD6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_CKD6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_CKD6.ForeColor = System.Drawing.Color.White;
-            this.RTB_CKD6.Location = new System.Drawing.Point(18, 423);
+            this.RTB_CKD6.Location = new System.Drawing.Point(27, 651);
+            this.RTB_CKD6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_CKD6.Name = "RTB_CKD6";
             this.RTB_CKD6.ReadOnly = true;
-            this.RTB_CKD6.Size = new System.Drawing.Size(154, 55);
+            this.RTB_CKD6.Size = new System.Drawing.Size(231, 85);
             this.RTB_CKD6.TabIndex = 13;
             this.RTB_CKD6.Text = "Stage 5 End Stage CKD\nKidney failure";
             // 
@@ -254,10 +268,11 @@
             this.RTB_eGFR6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_eGFR6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_eGFR6.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RTB_eGFR6.Location = new System.Drawing.Point(192, 423);
+            this.RTB_eGFR6.Location = new System.Drawing.Point(288, 651);
+            this.RTB_eGFR6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_eGFR6.Name = "RTB_eGFR6";
             this.RTB_eGFR6.ReadOnly = true;
-            this.RTB_eGFR6.Size = new System.Drawing.Size(147, 55);
+            this.RTB_eGFR6.Size = new System.Drawing.Size(220, 85);
             this.RTB_eGFR6.TabIndex = 14;
             this.RTB_eGFR6.Text = "GFR = >15mL/min/1.73 m²";
             // 
@@ -267,10 +282,11 @@
             this.RTB_Desc2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Desc2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_Desc2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RTB_Desc2.Location = new System.Drawing.Point(359, 179);
+            this.RTB_Desc2.Location = new System.Drawing.Point(538, 275);
+            this.RTB_Desc2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_Desc2.Name = "RTB_Desc2";
             this.RTB_Desc2.ReadOnly = true;
-            this.RTB_Desc2.Size = new System.Drawing.Size(216, 55);
+            this.RTB_Desc2.Size = new System.Drawing.Size(324, 85);
             this.RTB_Desc2.TabIndex = 15;
             this.RTB_Desc2.Text = "- Mild kidney damage\n- Kidneys still work well";
             // 
@@ -281,10 +297,11 @@
             this.RTB_Desc3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Desc3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_Desc3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RTB_Desc3.Location = new System.Drawing.Point(359, 240);
+            this.RTB_Desc3.Location = new System.Drawing.Point(538, 369);
+            this.RTB_Desc3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_Desc3.Name = "RTB_Desc3";
             this.RTB_Desc3.ReadOnly = true;
-            this.RTB_Desc3.Size = new System.Drawing.Size(216, 55);
+            this.RTB_Desc3.Size = new System.Drawing.Size(324, 85);
             this.RTB_Desc3.TabIndex = 16;
             this.RTB_Desc3.Text = "- Mild to moderate kidney damage\n- Kidneys don\'t work as well as they should";
             // 
@@ -294,10 +311,11 @@
             this.RTB_Desc4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Desc4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_Desc4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RTB_Desc4.Location = new System.Drawing.Point(359, 301);
+            this.RTB_Desc4.Location = new System.Drawing.Point(538, 463);
+            this.RTB_Desc4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_Desc4.Name = "RTB_Desc4";
             this.RTB_Desc4.ReadOnly = true;
-            this.RTB_Desc4.Size = new System.Drawing.Size(216, 55);
+            this.RTB_Desc4.Size = new System.Drawing.Size(324, 85);
             this.RTB_Desc4.TabIndex = 17;
             this.RTB_Desc4.Text = "- Moderate to severe damage\n- Kidneys don\'t work as well as they should";
             // 
@@ -307,10 +325,11 @@
             this.RTB_Desc5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Desc5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_Desc5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RTB_Desc5.Location = new System.Drawing.Point(359, 362);
+            this.RTB_Desc5.Location = new System.Drawing.Point(538, 557);
+            this.RTB_Desc5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_Desc5.Name = "RTB_Desc5";
             this.RTB_Desc5.ReadOnly = true;
-            this.RTB_Desc5.Size = new System.Drawing.Size(216, 55);
+            this.RTB_Desc5.Size = new System.Drawing.Size(324, 85);
             this.RTB_Desc5.TabIndex = 18;
             this.RTB_Desc5.Text = "- Severe kidney damage\n- Kidneys are close to not working at all";
             // 
@@ -320,10 +339,11 @@
             this.RTB_Desc6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Desc6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_Desc6.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RTB_Desc6.Location = new System.Drawing.Point(359, 423);
+            this.RTB_Desc6.Location = new System.Drawing.Point(538, 651);
+            this.RTB_Desc6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_Desc6.Name = "RTB_Desc6";
             this.RTB_Desc6.ReadOnly = true;
-            this.RTB_Desc6.Size = new System.Drawing.Size(216, 55);
+            this.RTB_Desc6.Size = new System.Drawing.Size(324, 85);
             this.RTB_Desc6.TabIndex = 19;
             this.RTB_Desc6.Text = "- Most severe kidney damage\n- Kidneys are very close to not working or have stopp" +
     "ed working (failed)";
@@ -334,21 +354,24 @@
             this.RTB_Resources.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Resources.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_Resources.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.RTB_Resources.Location = new System.Drawing.Point(18, 523);
+            this.RTB_Resources.Location = new System.Drawing.Point(27, 805);
+            this.RTB_Resources.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RTB_Resources.Name = "RTB_Resources";
             this.RTB_Resources.ReadOnly = true;
-            this.RTB_Resources.Size = new System.Drawing.Size(557, 64);
+            this.RTB_Resources.Size = new System.Drawing.Size(836, 98);
             this.RTB_Resources.TabIndex = 20;
             this.RTB_Resources.Text = resources.GetString("RTB_Resources.Text");
+            this.RTB_Resources.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RTB_Resources_LinkClicked);
             // 
             // LBL_CKDStage
             // 
             this.LBL_CKDStage.AutoSize = true;
             this.LBL_CKDStage.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_CKDStage.ForeColor = System.Drawing.Color.White;
-            this.LBL_CKDStage.Location = new System.Drawing.Point(13, 88);
+            this.LBL_CKDStage.Location = new System.Drawing.Point(20, 135);
+            this.LBL_CKDStage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_CKDStage.Name = "LBL_CKDStage";
-            this.LBL_CKDStage.Size = new System.Drawing.Size(159, 27);
+            this.LBL_CKDStage.Size = new System.Drawing.Size(238, 41);
             this.LBL_CKDStage.TabIndex = 21;
             this.LBL_CKDStage.Text = "Stage of CKD";
             // 
@@ -357,9 +380,10 @@
             this.LBL_eGFRResult.AutoSize = true;
             this.LBL_eGFRResult.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_eGFRResult.ForeColor = System.Drawing.Color.White;
-            this.LBL_eGFRResult.Location = new System.Drawing.Point(187, 88);
+            this.LBL_eGFRResult.Location = new System.Drawing.Point(280, 135);
+            this.LBL_eGFRResult.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_eGFRResult.Name = "LBL_eGFRResult";
-            this.LBL_eGFRResult.Size = new System.Drawing.Size(152, 27);
+            this.LBL_eGFRResult.Size = new System.Drawing.Size(224, 41);
             this.LBL_eGFRResult.TabIndex = 22;
             this.LBL_eGFRResult.Text = "eGFR Result";
             // 
@@ -368,9 +392,10 @@
             this.LBL_Description.AutoSize = true;
             this.LBL_Description.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_Description.ForeColor = System.Drawing.Color.White;
-            this.LBL_Description.Location = new System.Drawing.Point(387, 88);
+            this.LBL_Description.Location = new System.Drawing.Point(580, 135);
+            this.LBL_Description.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_Description.Name = "LBL_Description";
-            this.LBL_Description.Size = new System.Drawing.Size(167, 27);
+            this.LBL_Description.Size = new System.Drawing.Size(248, 41);
             this.LBL_Description.TabIndex = 23;
             this.LBL_Description.Text = "What it means";
             // 
@@ -379,9 +404,10 @@
             this.LBL_Resources.AutoSize = true;
             this.LBL_Resources.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_Resources.ForeColor = System.Drawing.Color.White;
-            this.LBL_Resources.Location = new System.Drawing.Point(13, 493);
+            this.LBL_Resources.Location = new System.Drawing.Point(20, 758);
+            this.LBL_Resources.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_Resources.Name = "LBL_Resources";
-            this.LBL_Resources.Size = new System.Drawing.Size(212, 27);
+            this.LBL_Resources.Size = new System.Drawing.Size(313, 41);
             this.LBL_Resources.TabIndex = 24;
             this.LBL_Resources.Text = "Further Resources";
             // 
@@ -391,12 +417,15 @@
             this.BTN_Back.BackgroundImage = global::FirstIteration.Properties.Resources.Button3;
             this.BTN_Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BTN_Back.FlatAppearance.BorderSize = 0;
+            this.BTN_Back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BTN_Back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BTN_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Back.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_Back.ForeColor = System.Drawing.Color.White;
-            this.BTN_Back.Location = new System.Drawing.Point(16, 602);
+            this.BTN_Back.Location = new System.Drawing.Point(24, 926);
+            this.BTN_Back.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BTN_Back.Name = "BTN_Back";
-            this.BTN_Back.Size = new System.Drawing.Size(156, 53);
+            this.BTN_Back.Size = new System.Drawing.Size(234, 82);
             this.BTN_Back.TabIndex = 25;
             this.BTN_Back.Text = "Back";
             this.BTN_Back.UseVisualStyleBackColor = false;
@@ -410,8 +439,9 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(619, 51);
+            this.panel1.Size = new System.Drawing.Size(928, 78);
             this.panel1.TabIndex = 26;
             // 
             // pictureBox1
@@ -419,8 +449,9 @@
             this.pictureBox1.BackgroundImage = global::FirstIteration.Properties.Resources.LogoImg;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(72, 43);
+            this.pictureBox1.Size = new System.Drawing.Size(108, 66);
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
             // 
@@ -430,9 +461,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 20F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(197, 11);
+            this.label1.Location = new System.Drawing.Point(296, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(219, 32);
+            this.label1.Size = new System.Drawing.Size(317, 45);
             this.label1.TabIndex = 5;
             this.label1.Text = "More Information";
             // 
@@ -469,43 +501,43 @@
             this.panel2.Controls.Add(this.RTB_eGFR5);
             this.panel2.Controls.Add(this.RTB_eGFR6);
             this.panel2.Controls.Add(this.RTB_CKD6);
-            this.panel2.Location = new System.Drawing.Point(11, 58);
+            this.panel2.Location = new System.Drawing.Point(16, 89);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(594, 671);
+            this.panel2.Size = new System.Drawing.Size(891, 1032);
             this.panel2.TabIndex = 27;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.pictureBox2.Location = new System.Drawing.Point(344, 117);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Location = new System.Drawing.Point(516, 180);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(10, 361);
+            this.pictureBox2.Size = new System.Drawing.Size(15, 555);
             this.pictureBox2.TabIndex = 41;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.pictureBox3.Location = new System.Drawing.Point(177, 117);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Location = new System.Drawing.Point(266, 180);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(10, 361);
+            this.pictureBox3.Size = new System.Drawing.Size(15, 555);
             this.pictureBox3.TabIndex = 40;
             this.pictureBox3.TabStop = false;
             // 
             // FRM_MoreInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FirstIteration.Properties.Resources.BGImg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(618, 742);
+            this.ClientSize = new System.Drawing.Size(927, 1142);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FRM_MoreInfo";
             this.Text = "More Info";
             this.Load += new System.EventHandler(this.FRM_MoreInfo_Load);

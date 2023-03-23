@@ -18,6 +18,14 @@ namespace FirstIteration
         public FRM_Login()
         {
             InitializeComponent();
+            BTN_Login.MouseEnter += Mouse_Enter;
+            BTN_Login.MouseLeave += Mouse_Leave;
+
+            BTN_SignUp.MouseEnter += Mouse_Enter;
+            BTN_SignUp.MouseLeave += Mouse_Leave;
+
+            BTN_Calculate.MouseEnter += Mouse_Enter;
+            BTN_Calculate.MouseLeave += Mouse_Leave;
         }
 
         //Sets up the form stack to allow double backing between forms ඞ
@@ -144,6 +152,17 @@ namespace FirstIteration
         private void CBX_Pass_Log_CheckedChanged(object sender, EventArgs e)
         {
             RTB_Password.UseSystemPasswordChar = !CBX_Pass_Log.Checked;
+        }
+        private void Mouse_Leave(object sender, EventArgs e)
+        {
+            var btn = (System.Windows.Forms.Button)sender;
+            btn.BackgroundImage = Properties.Resources.Button3;
+        }
+
+        private void Mouse_Enter(object sender, EventArgs e)
+        {
+            var btn = (System.Windows.Forms.Button)sender;
+            btn.BackgroundImage = Properties.Resources.ButtonHover;
         }
     }
 }

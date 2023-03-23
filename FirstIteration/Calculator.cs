@@ -13,6 +13,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 using static FirstIteration.FRM_Login;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
@@ -32,6 +33,18 @@ namespace FirstIteration
             CBX_Calculation.Text = "MDRD";
             CBX_Ethnicity.Text = "Other";
             CBX_Gender.Text = "Male";
+
+            BTN_Back.MouseEnter += Mouse_Enter;
+            BTN_Back.MouseLeave += Mouse_Leave;
+
+            BTN_Calculate.MouseEnter += Mouse_Enter;
+            BTN_Calculate.MouseLeave += Mouse_Leave;
+
+            BTN_Edit.MouseEnter += Mouse_Enter;
+            BTN_Edit.MouseLeave += Mouse_Leave;
+
+            BTN_MoreInfo.MouseEnter += Mouse_Enter;
+            BTN_MoreInfo.MouseLeave += Mouse_Leave;
         }
 
         //If the patient is logged in, set up the calculator with their details
@@ -652,5 +665,18 @@ namespace FirstIteration
             }
             return index;
         }
+
+        private void Mouse_Leave(object sender, EventArgs e)
+        {
+            var btn = (System.Windows.Forms.Button)sender;
+            btn.BackgroundImage = Properties.Resources.Button3;
+        }
+
+        private void Mouse_Enter(object sender, EventArgs e)
+        {
+            var btn = (System.Windows.Forms.Button)sender;
+            btn.BackgroundImage = Properties.Resources.ButtonHover;
+        }
+
     }
     }

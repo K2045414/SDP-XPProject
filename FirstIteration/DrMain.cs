@@ -20,6 +20,21 @@ namespace FirstIteration
             this.id = id;
             GetPatients();
             LBL_Title.Text = "Hello, " + id;
+
+            BTN_SignOut.MouseEnter += Mouse_Enter;
+            BTN_SignOut.MouseLeave += Mouse_Leave;
+
+            BTN_AddPatient.MouseEnter += Mouse_Enter;
+            BTN_AddPatient.MouseLeave += Mouse_Leave;
+
+            BTN_EditPatient.MouseEnter += Mouse_Enter;
+            BTN_EditPatient.MouseLeave += Mouse_Leave;
+
+            BTN_RemovePatient.MouseEnter += Mouse_Enter;
+            BTN_RemovePatient.MouseLeave += Mouse_Leave;
+
+            BTN_ImportCSV.MouseEnter += Mouse_Enter;
+            BTN_ImportCSV.MouseLeave += Mouse_Leave;
         }
 
         //Opens the AddPatient form and safely hides the current one
@@ -229,6 +244,16 @@ namespace FirstIteration
                 }
             }
         }
+        private void Mouse_Leave(object sender, EventArgs e)
+        {
+            var btn = (System.Windows.Forms.Button)sender;
+            btn.BackgroundImage = Properties.Resources.Button3;
+        }
 
+        private void Mouse_Enter(object sender, EventArgs e)
+        {
+            var btn = (System.Windows.Forms.Button)sender;
+            btn.BackgroundImage = Properties.Resources.ButtonHover;
+        }
     }
 }

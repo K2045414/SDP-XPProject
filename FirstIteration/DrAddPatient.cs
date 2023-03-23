@@ -23,6 +23,11 @@ namespace FirstIteration
             InitializeComponent();
             this.id = id;
             RefreshTable();
+            BTN_Back.MouseEnter += Mouse_Enter;
+            BTN_Back.MouseLeave += Mouse_Leave;
+
+            BTN_SelectPatient.MouseEnter += Mouse_Enter;
+            BTN_SelectPatient.MouseLeave += Mouse_Leave;
         }
 
         //Safely returns to the parent form - also sets a variable parentForm to be used in the GetPatients function when returning
@@ -104,6 +109,17 @@ namespace FirstIteration
                     MessageBox.Show("An error occurred: " + ex.Message);
                 }
             }
+        }
+        private void Mouse_Leave(object sender, EventArgs e)
+        {
+            var btn = (System.Windows.Forms.Button)sender;
+            btn.BackgroundImage = Properties.Resources.Button3;
+        }
+
+        private void Mouse_Enter(object sender, EventArgs e)
+        {
+            var btn = (System.Windows.Forms.Button)sender;
+            btn.BackgroundImage = Properties.Resources.ButtonHover;
         }
 
     }

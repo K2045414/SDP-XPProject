@@ -21,6 +21,8 @@ namespace FirstIteration
         {
             InitializeComponent();
             this.eGFR = eGFR;
+            BTN_Back.MouseEnter += Mouse_Enter;
+            BTN_Back.MouseLeave += Mouse_Leave;
         }
 
         //Returns to the parent form
@@ -76,6 +78,21 @@ namespace FirstIteration
                     break;
             }
         }
+        private void Mouse_Leave(object sender, EventArgs e)
+        {
+            var btn = (System.Windows.Forms.Button)sender;
+            btn.BackgroundImage = Properties.Resources.Button3;
+        }
 
+        private void Mouse_Enter(object sender, EventArgs e)
+        {
+            var btn = (System.Windows.Forms.Button)sender;
+            btn.BackgroundImage = Properties.Resources.ButtonHover;
+        }
+
+        private void RTB_Resources_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.LinkText);
+        }
     }
 }
