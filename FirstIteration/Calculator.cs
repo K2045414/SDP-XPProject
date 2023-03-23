@@ -25,6 +25,7 @@ namespace FirstIteration
     {
         //Carries over the patient id from the previous form (patient login or DrMain)
         private readonly string patient_id;
+        public double MoreInfoEGFR;
 
         //Automatically selects the calculation as MDRD
         public FRM_Calculator()
@@ -303,6 +304,7 @@ namespace FirstIteration
             {
                 case "MDRD":
                     eGFR = MDRD(creatinine_umol, age, gender, ethnicity);
+                    MoreInfoEGFR = eGFR;
                     break;
                 case "CKDEPI":
                     eGFR = CKDEPI(creatinine_mgdl, age, gender, ethnicity);
@@ -317,6 +319,7 @@ namespace FirstIteration
                     string printtext = NModular(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, weight, height, age, gender, ethnicity, creatinine_mgdl, creatinine_umol);                 
                     RTB_eGFR.Text = printtext;
                     //return one of the eGFR values since it doesn't matter which one is returned
+                    MoreInfoEGFR = eGFR_MDRD;
                     return eGFR_MDRD; 
                 default:
                     MessageBox.Show("Please select a calculation.");
@@ -400,10 +403,9 @@ namespace FirstIteration
         //Safely displays the moreinfo form
         private void BTN_MoreInfo_Click(object sender, EventArgs e)
         {
-            double eGFR = Calculate();
             FormStack.Forms.Push(this);
             this.Hide();
-            FRM_MoreInfo MoreInfo = new FRM_MoreInfo(Math.Round(eGFR));
+            FRM_MoreInfo MoreInfo = new FRM_MoreInfo(Math.Round(MoreInfoEGFR));
             MoreInfo.ShowDialog();
         }
 

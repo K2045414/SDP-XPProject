@@ -45,11 +45,14 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.CalcTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // BTN_Calculate
@@ -79,7 +82,7 @@
             this.LBL_Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LBL_Title.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LBL_Title.ForeColor = System.Drawing.Color.White;
-            this.LBL_Title.Location = new System.Drawing.Point(129, 8);
+            this.LBL_Title.Location = new System.Drawing.Point(97, 7);
             this.LBL_Title.Name = "LBL_Title";
             this.LBL_Title.Size = new System.Drawing.Size(203, 32);
             this.LBL_Title.TabIndex = 4;
@@ -162,7 +165,7 @@
             this.RTB_Password.Font = new System.Drawing.Font("Arial", 16F);
             this.RTB_Password.ForeColor = System.Drawing.Color.White;
             this.RTB_Password.Location = new System.Drawing.Point(33, 125);
-            this.RTB_Password.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RTB_Password.Margin = new System.Windows.Forms.Padding(2);
             this.RTB_Password.Name = "RTB_Password";
             this.RTB_Password.Size = new System.Drawing.Size(327, 32);
             this.RTB_Password.TabIndex = 2;
@@ -176,7 +179,7 @@
             this.RTB_Username.Font = new System.Drawing.Font("Arial", 16F);
             this.RTB_Username.ForeColor = System.Drawing.Color.White;
             this.RTB_Username.Location = new System.Drawing.Point(33, 57);
-            this.RTB_Username.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RTB_Username.Margin = new System.Windows.Forms.Padding(2);
             this.RTB_Username.Name = "RTB_Username";
             this.RTB_Username.Size = new System.Drawing.Size(327, 32);
             this.RTB_Username.TabIndex = 1;
@@ -204,7 +207,7 @@
             this.pictureBox2.ErrorImage = null;
             this.pictureBox2.InitialImage = null;
             this.pictureBox2.Location = new System.Drawing.Point(0, 2);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(64, 38);
             this.pictureBox2.TabIndex = 16;
@@ -215,10 +218,11 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = global::FirstIteration.Properties.Resources.HeaderImg;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.LBL_Title);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Location = new System.Drawing.Point(1, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(415, 46);
             this.panel1.TabIndex = 17;
@@ -239,7 +243,7 @@
             this.panel2.Controls.Add(this.LBL_Password);
             this.panel2.Controls.Add(this.RTB_Password);
             this.panel2.Location = new System.Drawing.Point(16, 60);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(386, 508);
             this.panel2.TabIndex = 18;
@@ -248,7 +252,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pictureBox1.Location = new System.Drawing.Point(33, 304);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(326, 8);
             this.pictureBox1.TabIndex = 16;
@@ -266,6 +270,25 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Dont Have an Account?\r\nSign up or use the Calculator \r\nwith your own information";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::FirstIteration.Properties.Resources.Information_icon_svg;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Location = new System.Drawing.Point(305, 9);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox3.TabIndex = 39;
+            this.pictureBox3.TabStop = false;
+            this.CalcTip.SetToolTip(this.pictureBox3, "Please note this calculator provides a suggestion on eGFR based on recognised stu" +
+        "dies. For more accurate results, please consult a professional.");
+            // 
+            // CalcTip
+            // 
+            this.CalcTip.AutoPopDelay = 50000;
+            this.CalcTip.InitialDelay = 500;
+            this.CalcTip.ReshowDelay = 100;
             // 
             // FRM_Login
             // 
@@ -292,6 +315,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -312,5 +336,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.ToolTip CalcTip;
     }
 }

@@ -61,12 +61,14 @@
             this.CalcInfo = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.CalcTip = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CalcInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // BTN_Calculate
@@ -80,10 +82,9 @@
             this.BTN_Calculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Calculate.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_Calculate.ForeColor = System.Drawing.Color.White;
-            this.BTN_Calculate.Location = new System.Drawing.Point(336, 725);
-            this.BTN_Calculate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BTN_Calculate.Location = new System.Drawing.Point(224, 471);
             this.BTN_Calculate.Name = "BTN_Calculate";
-            this.BTN_Calculate.Size = new System.Drawing.Size(228, 74);
+            this.BTN_Calculate.Size = new System.Drawing.Size(152, 48);
             this.BTN_Calculate.TabIndex = 12;
             this.BTN_Calculate.Text = "Calculate";
             this.BTN_Calculate.UseVisualStyleBackColor = true;
@@ -94,10 +95,9 @@
             this.RTB_Creatinine.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RTB_Creatinine.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Creatinine.Font = new System.Drawing.Font("Arial", 12F);
-            this.RTB_Creatinine.Location = new System.Drawing.Point(42, 302);
-            this.RTB_Creatinine.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RTB_Creatinine.Location = new System.Drawing.Point(28, 196);
             this.RTB_Creatinine.Name = "RTB_Creatinine";
-            this.RTB_Creatinine.Size = new System.Drawing.Size(382, 40);
+            this.RTB_Creatinine.Size = new System.Drawing.Size(255, 26);
             this.RTB_Creatinine.TabIndex = 6;
             this.RTB_Creatinine.Text = "";
             // 
@@ -105,10 +105,9 @@
             // 
             this.LBL_Title.Font = new System.Drawing.Font("Arial", 20F);
             this.LBL_Title.ForeColor = System.Drawing.Color.White;
-            this.LBL_Title.Location = new System.Drawing.Point(129, 0);
-            this.LBL_Title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_Title.Location = new System.Drawing.Point(86, 0);
             this.LBL_Title.Name = "LBL_Title";
-            this.LBL_Title.Size = new System.Drawing.Size(724, 71);
+            this.LBL_Title.Size = new System.Drawing.Size(483, 46);
             this.LBL_Title.TabIndex = 6;
             this.LBL_Title.Text = "Calculator";
             this.LBL_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -125,10 +124,9 @@
             this.CBX_Ethnicity.Items.AddRange(new object[] {
             "Black",
             "Other"});
-            this.CBX_Ethnicity.Location = new System.Drawing.Point(453, 302);
-            this.CBX_Ethnicity.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CBX_Ethnicity.Location = new System.Drawing.Point(302, 196);
             this.CBX_Ethnicity.Name = "CBX_Ethnicity";
-            this.CBX_Ethnicity.Size = new System.Drawing.Size(380, 35);
+            this.CBX_Ethnicity.Size = new System.Drawing.Size(255, 26);
             this.CBX_Ethnicity.TabIndex = 7;
             // 
             // CBX_Gender
@@ -144,11 +142,10 @@
             this.CBX_Gender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.CBX_Gender.Location = new System.Drawing.Point(453, 177);
-            this.CBX_Gender.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CBX_Gender.Location = new System.Drawing.Point(302, 115);
             this.CBX_Gender.Name = "CBX_Gender";
             this.CBX_Gender.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.CBX_Gender.Size = new System.Drawing.Size(380, 35);
+            this.CBX_Gender.Size = new System.Drawing.Size(255, 26);
             this.CBX_Gender.TabIndex = 3;
             // 
             // CBX_Calculation
@@ -164,10 +161,9 @@
             "CKDEPI",
             "Cockroft-Gault",
             "All"});
-            this.CBX_Calculation.Location = new System.Drawing.Point(246, 69);
-            this.CBX_Calculation.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CBX_Calculation.Location = new System.Drawing.Point(164, 45);
             this.CBX_Calculation.Name = "CBX_Calculation";
-            this.CBX_Calculation.Size = new System.Drawing.Size(380, 35);
+            this.CBX_Calculation.Size = new System.Drawing.Size(255, 26);
             this.CBX_Calculation.TabIndex = 1;
             this.CalcTip.SetToolTip(this.CBX_Calculation, resources.GetString("CBX_Calculation.ToolTip"));
             this.CBX_Calculation.SelectedIndexChanged += new System.EventHandler(this.CBX_Calculation_SelectedIndexChanged);
@@ -177,11 +173,10 @@
             this.RTB_eGFR.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RTB_eGFR.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_eGFR.Font = new System.Drawing.Font("Arial", 14F);
-            this.RTB_eGFR.Location = new System.Drawing.Point(174, 582);
-            this.RTB_eGFR.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RTB_eGFR.Location = new System.Drawing.Point(116, 378);
             this.RTB_eGFR.Name = "RTB_eGFR";
             this.RTB_eGFR.ReadOnly = true;
-            this.RTB_eGFR.Size = new System.Drawing.Size(555, 134);
+            this.RTB_eGFR.Size = new System.Drawing.Size(370, 87);
             this.RTB_eGFR.TabIndex = 10;
             this.RTB_eGFR.Text = "";
             // 
@@ -190,10 +185,9 @@
             this.LBL_Creatinine.AutoSize = true;
             this.LBL_Creatinine.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_Creatinine.ForeColor = System.Drawing.Color.White;
-            this.LBL_Creatinine.Location = new System.Drawing.Point(34, 255);
-            this.LBL_Creatinine.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_Creatinine.Location = new System.Drawing.Point(23, 166);
             this.LBL_Creatinine.Name = "LBL_Creatinine";
-            this.LBL_Creatinine.Size = new System.Drawing.Size(188, 41);
+            this.LBL_Creatinine.Size = new System.Drawing.Size(128, 27);
             this.LBL_Creatinine.TabIndex = 19;
             this.LBL_Creatinine.Text = "Creatinine:";
             // 
@@ -202,11 +196,10 @@
             this.LBL_Age.AutoSize = true;
             this.LBL_Age.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_Age.ForeColor = System.Drawing.Color.White;
-            this.LBL_Age.Location = new System.Drawing.Point(38, 131);
-            this.LBL_Age.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_Age.Location = new System.Drawing.Point(25, 85);
             this.LBL_Age.Name = "LBL_Age";
             this.LBL_Age.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.LBL_Age.Size = new System.Drawing.Size(212, 41);
+            this.LBL_Age.Size = new System.Drawing.Size(142, 27);
             this.LBL_Age.TabIndex = 20;
             this.LBL_Age.Text = "Age (years):";
             // 
@@ -215,10 +208,9 @@
             this.LBL_Gender.AutoSize = true;
             this.LBL_Gender.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_Gender.ForeColor = System.Drawing.Color.White;
-            this.LBL_Gender.Location = new System.Drawing.Point(446, 131);
-            this.LBL_Gender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_Gender.Location = new System.Drawing.Point(297, 85);
             this.LBL_Gender.Name = "LBL_Gender";
-            this.LBL_Gender.Size = new System.Drawing.Size(229, 41);
+            this.LBL_Gender.Size = new System.Drawing.Size(157, 27);
             this.LBL_Gender.TabIndex = 21;
             this.LBL_Gender.Text = "Birth Gender:";
             // 
@@ -227,10 +219,9 @@
             this.LBL_Ethnicity.AutoSize = true;
             this.LBL_Ethnicity.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_Ethnicity.ForeColor = System.Drawing.Color.White;
-            this.LBL_Ethnicity.Location = new System.Drawing.Point(446, 255);
-            this.LBL_Ethnicity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_Ethnicity.Location = new System.Drawing.Point(297, 166);
             this.LBL_Ethnicity.Name = "LBL_Ethnicity";
-            this.LBL_Ethnicity.Size = new System.Drawing.Size(159, 41);
+            this.LBL_Ethnicity.Size = new System.Drawing.Size(111, 27);
             this.LBL_Ethnicity.TabIndex = 22;
             this.LBL_Ethnicity.Text = "Ethnicity:";
             // 
@@ -240,10 +231,9 @@
             this.LBL_Calculation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LBL_Calculation.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_Calculation.ForeColor = System.Drawing.Color.White;
-            this.LBL_Calculation.Location = new System.Drawing.Point(238, 23);
-            this.LBL_Calculation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_Calculation.Location = new System.Drawing.Point(159, 15);
             this.LBL_Calculation.Name = "LBL_Calculation";
-            this.LBL_Calculation.Size = new System.Drawing.Size(378, 41);
+            this.LBL_Calculation.Size = new System.Drawing.Size(260, 27);
             this.LBL_Calculation.TabIndex = 23;
             this.LBL_Calculation.Text = "Calculation to be used:";
             // 
@@ -252,10 +242,9 @@
             this.LBL_eGFR.AutoSize = true;
             this.LBL_eGFR.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_eGFR.ForeColor = System.Drawing.Color.White;
-            this.LBL_eGFR.Location = new System.Drawing.Point(252, 535);
-            this.LBL_eGFR.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_eGFR.Location = new System.Drawing.Point(168, 348);
             this.LBL_eGFR.Name = "LBL_eGFR";
-            this.LBL_eGFR.Size = new System.Drawing.Size(409, 41);
+            this.LBL_eGFR.Size = new System.Drawing.Size(273, 27);
             this.LBL_eGFR.TabIndex = 24;
             this.LBL_eGFR.Text = "eGFR (mL/min/1.73 m²):";
             // 
@@ -270,10 +259,9 @@
             this.BTN_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Back.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_Back.ForeColor = System.Drawing.Color.White;
-            this.BTN_Back.Location = new System.Drawing.Point(99, 725);
-            this.BTN_Back.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BTN_Back.Location = new System.Drawing.Point(66, 471);
             this.BTN_Back.Name = "BTN_Back";
-            this.BTN_Back.Size = new System.Drawing.Size(228, 74);
+            this.BTN_Back.Size = new System.Drawing.Size(152, 48);
             this.BTN_Back.TabIndex = 11;
             this.BTN_Back.Text = "Back";
             this.BTN_Back.UseVisualStyleBackColor = true;
@@ -286,10 +274,9 @@
             this.RBN_mgdL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RBN_mgdL.Font = new System.Drawing.Font("Arial", 10F);
             this.RBN_mgdL.ForeColor = System.Drawing.Color.White;
-            this.RBN_mgdL.Location = new System.Drawing.Point(231, 265);
-            this.RBN_mgdL.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RBN_mgdL.Location = new System.Drawing.Point(154, 172);
             this.RBN_mgdL.Name = "RBN_mgdL";
-            this.RBN_mgdL.Size = new System.Drawing.Size(90, 27);
+            this.RBN_mgdL.Size = new System.Drawing.Size(64, 20);
             this.RBN_mgdL.TabIndex = 4;
             this.RBN_mgdL.TabStop = true;
             this.RBN_mgdL.Text = "mg/dL";
@@ -303,10 +290,9 @@
             this.RBN_umolL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RBN_umolL.Font = new System.Drawing.Font("Arial", 12F);
             this.RBN_umolL.ForeColor = System.Drawing.Color.White;
-            this.RBN_umolL.Location = new System.Drawing.Point(330, 263);
-            this.RBN_umolL.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RBN_umolL.Location = new System.Drawing.Point(220, 171);
             this.RBN_umolL.Name = "RBN_umolL";
-            this.RBN_umolL.Size = new System.Drawing.Size(110, 31);
+            this.RBN_umolL.Size = new System.Drawing.Size(73, 22);
             this.RBN_umolL.TabIndex = 5;
             this.RBN_umolL.TabStop = true;
             this.RBN_umolL.Text = "µmol/L";
@@ -329,10 +315,9 @@
             this.BTN_MoreInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_MoreInfo.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_MoreInfo.ForeColor = System.Drawing.Color.White;
-            this.BTN_MoreInfo.Location = new System.Drawing.Point(246, 855);
-            this.BTN_MoreInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BTN_MoreInfo.Location = new System.Drawing.Point(164, 556);
             this.BTN_MoreInfo.Name = "BTN_MoreInfo";
-            this.BTN_MoreInfo.Size = new System.Drawing.Size(396, 97);
+            this.BTN_MoreInfo.Size = new System.Drawing.Size(264, 63);
             this.BTN_MoreInfo.TabIndex = 14;
             this.BTN_MoreInfo.Text = "See what to do next";
             this.BTN_MoreInfo.UseVisualStyleBackColor = false;
@@ -344,10 +329,9 @@
             this.LBL_Height.AutoSize = true;
             this.LBL_Height.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_Height.ForeColor = System.Drawing.Color.White;
-            this.LBL_Height.Location = new System.Drawing.Point(34, 380);
-            this.LBL_Height.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_Height.Location = new System.Drawing.Point(23, 247);
             this.LBL_Height.Name = "LBL_Height";
-            this.LBL_Height.Size = new System.Drawing.Size(213, 41);
+            this.LBL_Height.Size = new System.Drawing.Size(144, 27);
             this.LBL_Height.TabIndex = 31;
             this.LBL_Height.Text = "Height (cm):";
             this.LBL_Height.Visible = false;
@@ -357,10 +341,9 @@
             this.RTB_Weight.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RTB_Weight.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Weight.Font = new System.Drawing.Font("Arial", 12F);
-            this.RTB_Weight.Location = new System.Drawing.Point(453, 428);
-            this.RTB_Weight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RTB_Weight.Location = new System.Drawing.Point(302, 278);
             this.RTB_Weight.Name = "RTB_Weight";
-            this.RTB_Weight.Size = new System.Drawing.Size(382, 40);
+            this.RTB_Weight.Size = new System.Drawing.Size(255, 26);
             this.RTB_Weight.TabIndex = 9;
             this.RTB_Weight.Text = "";
             this.RTB_Weight.Visible = false;
@@ -370,10 +353,9 @@
             this.RTB_Height.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RTB_Height.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Height.Font = new System.Drawing.Font("Arial", 12F);
-            this.RTB_Height.Location = new System.Drawing.Point(42, 426);
-            this.RTB_Height.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RTB_Height.Location = new System.Drawing.Point(28, 277);
             this.RTB_Height.Name = "RTB_Height";
-            this.RTB_Height.Size = new System.Drawing.Size(382, 42);
+            this.RTB_Height.Size = new System.Drawing.Size(255, 27);
             this.RTB_Height.TabIndex = 8;
             this.RTB_Height.Text = "";
             this.RTB_Height.Visible = false;
@@ -383,10 +365,9 @@
             this.LBL_Weight.AutoSize = true;
             this.LBL_Weight.Font = new System.Drawing.Font("Arial", 18F);
             this.LBL_Weight.ForeColor = System.Drawing.Color.White;
-            this.LBL_Weight.Location = new System.Drawing.Point(446, 380);
-            this.LBL_Weight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBL_Weight.Location = new System.Drawing.Point(297, 247);
             this.LBL_Weight.Name = "LBL_Weight";
-            this.LBL_Weight.Size = new System.Drawing.Size(212, 41);
+            this.LBL_Weight.Size = new System.Drawing.Size(144, 27);
             this.LBL_Weight.TabIndex = 33;
             this.LBL_Weight.Text = "Weight (kg):";
             this.LBL_Weight.Visible = false;
@@ -402,10 +383,9 @@
             this.BTN_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Edit.Font = new System.Drawing.Font("Arial", 18F);
             this.BTN_Edit.ForeColor = System.Drawing.Color.White;
-            this.BTN_Edit.Location = new System.Drawing.Point(573, 725);
-            this.BTN_Edit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BTN_Edit.Location = new System.Drawing.Point(382, 471);
             this.BTN_Edit.Name = "BTN_Edit";
-            this.BTN_Edit.Size = new System.Drawing.Size(228, 74);
+            this.BTN_Edit.Size = new System.Drawing.Size(152, 48);
             this.BTN_Edit.TabIndex = 13;
             this.BTN_Edit.Text = "Edit";
             this.BTN_Edit.UseVisualStyleBackColor = true;
@@ -417,10 +397,9 @@
             this.RTB_Age.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RTB_Age.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Age.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RTB_Age.Location = new System.Drawing.Point(42, 177);
-            this.RTB_Age.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RTB_Age.Location = new System.Drawing.Point(28, 115);
             this.RTB_Age.Name = "RTB_Age";
-            this.RTB_Age.Size = new System.Drawing.Size(382, 40);
+            this.RTB_Age.Size = new System.Drawing.Size(255, 26);
             this.RTB_Age.TabIndex = 2;
             this.RTB_Age.Text = "";
             // 
@@ -429,12 +408,12 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = global::FirstIteration.Properties.Resources.HeaderImg;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.LBL_Title);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(906, 71);
+            this.panel1.Size = new System.Drawing.Size(604, 46);
             this.panel1.TabIndex = 36;
             // 
             // pictureBox1
@@ -442,9 +421,8 @@
             this.pictureBox1.BackgroundImage = global::FirstIteration.Properties.Resources.LogoImg;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(108, 66);
+            this.pictureBox1.Size = new System.Drawing.Size(72, 43);
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
             // 
@@ -478,10 +456,9 @@
             this.panel2.Controls.Add(this.LBL_eGFR);
             this.panel2.Controls.Add(this.BTN_Back);
             this.panel2.Controls.Add(this.RTB_Creatinine);
-            this.panel2.Location = new System.Drawing.Point(18, 83);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Location = new System.Drawing.Point(12, 54);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(866, 978);
+            this.panel2.Size = new System.Drawing.Size(577, 636);
             this.panel2.TabIndex = 37;
             // 
             // label1
@@ -489,10 +466,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 14F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(114, 803);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(76, 522);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(680, 32);
+            this.label1.Size = new System.Drawing.Size(459, 22);
             this.label1.TabIndex = 41;
             this.label1.Text = "This calculator will continue from here out with MDRD ";
             this.label1.Visible = false;
@@ -503,10 +479,9 @@
             this.CalcInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.CalcInfo.Cursor = System.Windows.Forms.Cursors.Default;
             this.CalcInfo.InitialImage = global::FirstIteration.Properties.Resources.Question;
-            this.CalcInfo.Location = new System.Drawing.Point(638, 69);
-            this.CalcInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CalcInfo.Location = new System.Drawing.Point(425, 45);
             this.CalcInfo.Name = "CalcInfo";
-            this.CalcInfo.Size = new System.Drawing.Size(37, 35);
+            this.CalcInfo.Size = new System.Drawing.Size(25, 23);
             this.CalcInfo.TabIndex = 40;
             this.CalcInfo.TabStop = false;
             this.CalcTip.SetToolTip(this.CalcInfo, resources.GetString("CalcInfo.ToolTip"));
@@ -514,9 +489,10 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pictureBox3.Location = new System.Drawing.Point(42, 520);
+            this.pictureBox3.Location = new System.Drawing.Point(28, 338);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(794, 12);
+            this.pictureBox3.Size = new System.Drawing.Size(529, 8);
             this.pictureBox3.TabIndex = 39;
             this.pictureBox3.TabStop = false;
             // 
@@ -526,19 +502,31 @@
             this.CalcTip.InitialDelay = 500;
             this.CalcTip.ReshowDelay = 100;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::FirstIteration.Properties.Resources.Information_icon_svg;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(394, 11);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox2.TabIndex = 38;
+            this.pictureBox2.TabStop = false;
+            this.CalcTip.SetToolTip(this.pictureBox2, "Please note this calculator provides a suggestion on eGFR based on recognised stu" +
+        "dies. For more accurate results, please consult a professional.");
+            // 
             // FRM_Calculator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FirstIteration.Properties.Resources.BGImg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(906, 1080);
+            this.ClientSize = new System.Drawing.Size(604, 702);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FRM_Calculator";
             this.RightToLeftLayout = true;
             this.Text = "Calculator";
@@ -549,6 +537,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CalcInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -586,6 +575,7 @@
         private System.Windows.Forms.ToolTip CalcTip;
         private System.Windows.Forms.PictureBox CalcInfo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
