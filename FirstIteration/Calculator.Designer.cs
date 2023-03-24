@@ -55,20 +55,20 @@
             this.BTN_Edit = new System.Windows.Forms.Button();
             this.RTB_Age = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.CalcInfo = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.CalcTip = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CalcInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // BTN_Calculate
@@ -105,7 +105,7 @@
             // 
             this.LBL_Title.Font = new System.Drawing.Font("Arial", 20F);
             this.LBL_Title.ForeColor = System.Drawing.Color.White;
-            this.LBL_Title.Location = new System.Drawing.Point(86, 0);
+            this.LBL_Title.Location = new System.Drawing.Point(15, 0);
             this.LBL_Title.Name = "LBL_Title";
             this.LBL_Title.Size = new System.Drawing.Size(483, 46);
             this.LBL_Title.TabIndex = 6;
@@ -416,6 +416,19 @@
             this.panel1.Size = new System.Drawing.Size(604, 46);
             this.panel1.TabIndex = 36;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::FirstIteration.Properties.Resources.Information_icon_svg;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(566, 11);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox2.TabIndex = 38;
+            this.pictureBox2.TabStop = false;
+            this.CalcTip.SetToolTip(this.pictureBox2, "Please note this calculator provides a suggestion on eGFR based on recognised stu" +
+        "dies. For more accurate results, please consult a professional.");
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::FirstIteration.Properties.Resources.LogoImg;
@@ -490,7 +503,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pictureBox3.Location = new System.Drawing.Point(28, 338);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(529, 8);
             this.pictureBox3.TabIndex = 39;
@@ -501,19 +514,6 @@
             this.CalcTip.AutoPopDelay = 50000;
             this.CalcTip.InitialDelay = 500;
             this.CalcTip.ReshowDelay = 100;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::FirstIteration.Properties.Resources.Information_icon_svg;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(394, 11);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox2.TabIndex = 38;
-            this.pictureBox2.TabStop = false;
-            this.CalcTip.SetToolTip(this.pictureBox2, "Please note this calculator provides a suggestion on eGFR based on recognised stu" +
-        "dies. For more accurate results, please consult a professional.");
             // 
             // FRM_Calculator
             // 
@@ -532,12 +532,12 @@
             this.Text = "Calculator";
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CalcInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
