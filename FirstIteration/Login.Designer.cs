@@ -42,17 +42,17 @@
             this.CBX_Pass_Log = new System.Windows.Forms.CheckBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.CalcTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // BTN_Calculate
@@ -166,6 +166,7 @@
             this.RTB_Password.ForeColor = System.Drawing.Color.White;
             this.RTB_Password.Location = new System.Drawing.Point(33, 125);
             this.RTB_Password.Margin = new System.Windows.Forms.Padding(2);
+            this.RTB_Password.MaxLength = 100;
             this.RTB_Password.Name = "RTB_Password";
             this.RTB_Password.Size = new System.Drawing.Size(327, 32);
             this.RTB_Password.TabIndex = 2;
@@ -180,6 +181,7 @@
             this.RTB_Username.ForeColor = System.Drawing.Color.White;
             this.RTB_Username.Location = new System.Drawing.Point(33, 57);
             this.RTB_Username.Margin = new System.Windows.Forms.Padding(2);
+            this.RTB_Username.MaxLength = 100;
             this.RTB_Username.Name = "RTB_Username";
             this.RTB_Username.Size = new System.Drawing.Size(327, 32);
             this.RTB_Username.TabIndex = 1;
@@ -227,6 +229,19 @@
             this.panel1.Size = new System.Drawing.Size(415, 46);
             this.panel1.TabIndex = 17;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::FirstIteration.Properties.Resources.Information_icon_svg;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Location = new System.Drawing.Point(305, 9);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox3.TabIndex = 39;
+            this.pictureBox3.TabStop = false;
+            this.CalcTip.SetToolTip(this.pictureBox3, "Please note this calculator provides a suggestion on eGFR based on recognised stu" +
+        "dies. For more accurate results, please consult a professional.");
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
@@ -271,19 +286,6 @@
             this.label1.Text = "Dont Have an Account?\r\nSign up or use the Calculator \r\nwith your own information";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::FirstIteration.Properties.Resources.Information_icon_svg;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(305, 9);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox3.TabIndex = 39;
-            this.pictureBox3.TabStop = false;
-            this.CalcTip.SetToolTip(this.pictureBox3, "Please note this calculator provides a suggestion on eGFR based on recognised stu" +
-        "dies. For more accurate results, please consult a professional.");
-            // 
             // CalcTip
             // 
             this.CalcTip.AutoPopDelay = 50000;
@@ -312,10 +314,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }

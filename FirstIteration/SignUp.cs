@@ -36,7 +36,13 @@ namespace FirstIteration
                 ERR_Validation.SetError(RTB_Username, "Your ID has been input incorrectly");
                 return false;
             }
-            ERR_Validation.SetError(RTB_Username, "");// Clears errors when successful ඞ
+            if (userName.Any(c => c > 127))
+            {
+                ERR_Validation.SetError(RTB_Username, "Your Password contains non-ASCII characters");
+                return false;
+            }
+            //Returns true and clear the error
+            ERR_Validation.SetError(RTB_Username, "");
             return true;
         }
 

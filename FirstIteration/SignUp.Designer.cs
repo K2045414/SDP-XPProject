@@ -46,15 +46,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ERR_Validation)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // LBL_Username
@@ -196,7 +196,8 @@
             this.RTB_Password2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RTB_Password2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RTB_Password2.Location = new System.Drawing.Point(248, 70);
-            this.RTB_Password2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RTB_Password2.Margin = new System.Windows.Forms.Padding(2);
+            this.RTB_Password2.MaxLength = 100;
             this.RTB_Password2.Name = "RTB_Password2";
             this.RTB_Password2.Size = new System.Drawing.Size(176, 20);
             this.RTB_Password2.TabIndex = 2;
@@ -207,7 +208,8 @@
             this.RTB_Password1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RTB_Password1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RTB_Password1.Location = new System.Drawing.Point(248, 120);
-            this.RTB_Password1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RTB_Password1.Margin = new System.Windows.Forms.Padding(2);
+            this.RTB_Password1.MaxLength = 100;
             this.RTB_Password1.Name = "RTB_Password1";
             this.RTB_Password1.Size = new System.Drawing.Size(176, 20);
             this.RTB_Password1.TabIndex = 3;
@@ -218,7 +220,8 @@
             this.RTB_Username.BackColor = System.Drawing.Color.LightSteelBlue;
             this.RTB_Username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RTB_Username.Location = new System.Drawing.Point(248, 20);
-            this.RTB_Username.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RTB_Username.Margin = new System.Windows.Forms.Padding(2);
+            this.RTB_Username.MaxLength = 100;
             this.RTB_Username.Name = "RTB_Username";
             this.RTB_Username.Size = new System.Drawing.Size(176, 20);
             this.RTB_Username.TabIndex = 1;
@@ -267,12 +270,24 @@
             this.panel2.Size = new System.Drawing.Size(441, 361);
             this.panel2.TabIndex = 18;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::FirstIteration.Properties.Resources.Information_icon_svg;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Location = new System.Drawing.Point(182, 20);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox3.TabIndex = 10;
+            this.pictureBox3.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox3, "NHS IDs are 10 digit numbers");
+            // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::FirstIteration.Properties.Resources.Information_icon_svg;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Location = new System.Drawing.Point(141, 70);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(27, 27);
             this.pictureBox2.TabIndex = 9;
@@ -285,18 +300,6 @@
             this.toolTip1.AutoPopDelay = 0;
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::FirstIteration.Properties.Resources.Information_icon_svg;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(182, 20);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox3.TabIndex = 10;
-            this.pictureBox3.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox3, "NHS IDs are 10 digit numbers");
             // 
             // FRM_SignUp
             // 
@@ -318,8 +321,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

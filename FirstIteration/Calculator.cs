@@ -155,6 +155,11 @@ namespace FirstIteration
                 ERR_Validation.SetError(RTB_Creatinine, "Creatinine value should be greater than zero");
                 return false;
             }
+            if (creatinineInput.Any(c => c > 127))
+            {
+                ERR_Validation.SetError(RTB_Creatinine, "Your Password contains non-ASCII characters");
+                return false;
+            }
             ERR_Validation.SetError(RTB_Creatinine, "");
             return true;
         }
@@ -176,6 +181,11 @@ namespace FirstIteration
             if (heightValue <= 0)
             {
                 ERR_Validation.SetError(RTB_Height, "Height should be greater than zero");
+                return false;
+            }
+            if (heightInput.Any(c => c > 127))
+            {
+                ERR_Validation.SetError(RTB_Height, "Your Password contains non-ASCII characters");
                 return false;
             }
             ERR_Validation.SetError(RTB_Height, "");
@@ -201,6 +211,11 @@ namespace FirstIteration
                 ERR_Validation.SetError(RTB_Weight, "Weight should be greater than zero");
                 return false;
             }
+            if (weightInput.Any(c => c > 127))
+            {
+                ERR_Validation.SetError(RTB_Weight, "Your Password contains non-ASCII characters");
+                return false;
+            }
             ERR_Validation.SetError(RTB_Weight, "");
             return true;
         }
@@ -222,6 +237,11 @@ namespace FirstIteration
             if (ageValue < 18 || ageValue > 100)
             {
                 ERR_Validation.SetError(RTB_Age, "Age should be between 18 and 100");
+                return false;
+            }
+            if (ageInput.Any(c => c > 127))
+            {
+                ERR_Validation.SetError(RTB_Age, "Your Password contains non-ASCII characters");
                 return false;
             }
             ERR_Validation.SetError(RTB_Age, "");

@@ -175,6 +175,7 @@
             this.RTB_eGFR.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_eGFR.Font = new System.Drawing.Font("Arial", 14F);
             this.RTB_eGFR.Location = new System.Drawing.Point(116, 378);
+            this.RTB_eGFR.MaxLength = 200;
             this.RTB_eGFR.Name = "RTB_eGFR";
             this.RTB_eGFR.ReadOnly = true;
             this.RTB_eGFR.Size = new System.Drawing.Size(370, 87);
@@ -343,6 +344,7 @@
             this.RTB_Weight.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Weight.Font = new System.Drawing.Font("Arial", 12F);
             this.RTB_Weight.Location = new System.Drawing.Point(302, 278);
+            this.RTB_Weight.MaxLength = 100;
             this.RTB_Weight.Name = "RTB_Weight";
             this.RTB_Weight.Size = new System.Drawing.Size(255, 26);
             this.RTB_Weight.TabIndex = 9;
@@ -355,6 +357,7 @@
             this.RTB_Height.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Height.Font = new System.Drawing.Font("Arial", 12F);
             this.RTB_Height.Location = new System.Drawing.Point(28, 277);
+            this.RTB_Height.MaxLength = 100;
             this.RTB_Height.Name = "RTB_Height";
             this.RTB_Height.Size = new System.Drawing.Size(255, 27);
             this.RTB_Height.TabIndex = 8;
@@ -399,6 +402,7 @@
             this.RTB_Age.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Age.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_Age.Location = new System.Drawing.Point(28, 115);
+            this.RTB_Age.MaxLength = 100;
             this.RTB_Age.Name = "RTB_Age";
             this.RTB_Age.Size = new System.Drawing.Size(255, 26);
             this.RTB_Age.TabIndex = 2;

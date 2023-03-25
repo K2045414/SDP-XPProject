@@ -71,9 +71,16 @@ namespace FirstIteration
             };
             
 
+
             //Checks the file has passed the .csv filter and sets up a connection with the database
             if (ofd.ShowDialog() == DialogResult.OK)
             {
+                string filename = ofd.FileName;
+                if (Path.GetExtension(filename) != ".csv" || Path.GetFileNameWithoutExtension(filename).Contains("."))
+                {
+                    MessageBox.Show("This file is invalid. This could be due to it containing more than one file extension. Please rename it and try again.");
+                    return;
+                }
                 var server = "server=rsscalculatorapp.mariadb.database.azure.com;uid=XPAdmin@rsscalculatorapp;pwd=07Ix5@o3geXG;database=calculatorapp;Allow User Variables=True;";
                 using (var connection = new MySqlConnection(server))
                 {

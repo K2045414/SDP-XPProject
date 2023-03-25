@@ -42,6 +42,11 @@ namespace FirstIteration
                 ERR_Validation.SetError(BTN_Login, ""); //Clears errors when successful ඞ
                 return true;
             }
+            if (userName.Any(c => c > 127))
+            {
+                ERR_Validation.SetError(RTB_Username, "Your Password contains non-ASCII characters");
+                return false;
+            }
             ERR_Validation.SetError(BTN_Login, "Your ID has been input incorrectly");
             return false;
         }
@@ -52,6 +57,11 @@ namespace FirstIteration
             if (password.Length > 25)
             {
                 ERR_Validation.SetError(RTB_Password, "Your Password exceeds 25 characters");
+                return false;
+            }
+            if (password.Any(c => c > 127))
+            {
+                ERR_Validation.SetError(RTB_Password, "Your Password contains non-ASCII characters");
                 return false;
             }
             ERR_Validation.SetError(RTB_Password, "");
