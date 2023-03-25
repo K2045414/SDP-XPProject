@@ -15,7 +15,7 @@ namespace FirstIteration
     {
         private readonly string id;
 
-        //Runs the function GetPatients and sets the title to present the referenced user id
+        //Runs the function GetPatients and sets the title to present the referenced user id and enables the hover feature for the buttons
         public FRM_DrMain(string id)
         {
             InitializeComponent();
@@ -62,19 +62,18 @@ namespace FirstIteration
             ImportCSV();
         }
 
+        //Function to hold the logic to import a csv, validate the contents and update the database appropriately 
         private void ImportCSV()
         {
             //Filters for only .csv files and folders
             OpenFileDialog ofd = new OpenFileDialog
             {
                 Filter = "CSV file (*.csv)|*.csv|All Files (*.*)|*.*"
-            };
-            
-
-
+            };            
             //Checks the file has passed the .csv filter and sets up a connection with the database
             if (ofd.ShowDialog() == DialogResult.OK)
             {
+                //Disallows non-csv files and any files that contain more than one dot. If one is selected, alert the user
                 string filename = ofd.FileName;
                 if (Path.GetExtension(filename) != ".csv" || Path.GetFileNameWithoutExtension(filename).Contains("."))
                 {
@@ -180,6 +179,7 @@ namespace FirstIteration
             return Tuple.Create(true, "");
         }
 
+        //Sets up to display the add patients form to allow the clinician to add patients to their care
         private void BTN_EditPatient_Click(object sender, EventArgs e)
         {
             //Checks if a patient is selected, if not, alerts the user. If so, opens an instance of the calculator and passing the patient_id over
@@ -216,6 +216,7 @@ namespace FirstIteration
         }
 
         
+        //Allows the clinician to remove patients from their care
         private void BTN_RemovePatient_Click(object sender, EventArgs e)
         {
             //sets up a new database connection
@@ -255,12 +256,15 @@ namespace FirstIteration
                 }
             }
         }
+
+        //Unhovers the button when the mouse leaves its hover zone
         private void Mouse_Leave(object sender, EventArgs e)
         {
             var btn = (System.Windows.Forms.Button)sender;
             btn.BackgroundImage = Properties.Resources.Button3;
         }
 
+        //Hovers the button when the mouse enters its hover zone
         private void Mouse_Enter(object sender, EventArgs e)
         {
             var btn = (System.Windows.Forms.Button)sender;

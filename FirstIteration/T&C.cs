@@ -13,6 +13,7 @@ namespace FirstIteration
 {
     public partial class FRM_Terms : Form
     {
+        //Enables the hover feature for the buttons
         public FRM_Terms()
         {
             InitializeComponent();
@@ -27,12 +28,15 @@ namespace FirstIteration
             this.Hide();
             previousForm.Show();
         }
+
+        //Unhovers the button when the mouse leaves its hover zone
         private void Mouse_Leave(object sender, EventArgs e)
         {
             var btn = (System.Windows.Forms.Button)sender;
             btn.BackgroundImage = Properties.Resources.Button3;
         }
 
+        //Hovers the button when the mouse enters its hover zone
         private void Mouse_Enter(object sender, EventArgs e)
         {
             var btn = (System.Windows.Forms.Button)sender;

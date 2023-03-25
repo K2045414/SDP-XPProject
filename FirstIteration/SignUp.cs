@@ -18,6 +18,7 @@ namespace FirstIteration
 {
     public partial class FRM_SignUp : Form
     {
+        //Enables the hover feature for the buttons
         public FRM_SignUp()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace FirstIteration
             BTN_SignUp.MouseLeave += Mouse_Leave;
         }
 
-        //Makes sure the username follows the format [NNNNNNNNNN], if so, clears the errors and returns true. If no, alerts the user and returns false
+        //Makes sure the username follows the format [NNNNNNNNNN] while rejecting unicode characters, if so, clears the errors and returns true. If no, alerts the user and returns false
         private bool ValidateUserName(string userName)
         {
             if (!Regex.IsMatch(userName, @"^[0-9]{10}$"))
@@ -46,7 +47,7 @@ namespace FirstIteration
             return true;
         }
 
-        //Checks if the password is empty or over 25 characters. If so, returns false and alerts the user. 
+        //Checks if the password is empty or over 25 characters while rejecting unicode characters. If so, returns false and alerts the user. 
         private bool ValidatePassword(string password)
         {
             if (password.Length > 25)
@@ -112,6 +113,7 @@ namespace FirstIteration
             previousForm.Show();
         }
 
+        //Allows the terms and conditions link to be clicked and open up the relevant form
         private void LIN_Terms_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormStack.Forms.Push(this);
@@ -231,12 +233,14 @@ namespace FirstIteration
                 
         }
 
+        //Unhovers the button when the mouse leaves its hover zone
         private void Mouse_Enter(object sender, EventArgs e)
         {
             var btn = (Button)sender;
             btn.BackgroundImage = Properties.Resources.ButtonHover;
         }
 
+        //Hovers the button when the mouse enters its hover zone
         private void Mouse_Leave(object sender, EventArgs e)
         {
             var btn = (Button)sender;

@@ -17,7 +17,7 @@ namespace FirstIteration
     {
         private readonly string id;
 
-        //Refreshes the table with collected ids, makes sure when form is loaded, table is accurately populated
+        //Refreshes the table with collected ids, and enables the hover feature for the buttons, also makes sure when form is loaded, table is accurately populated
         public FRM_AddPatient(string id)
         {
             InitializeComponent();
@@ -110,12 +110,15 @@ namespace FirstIteration
                 }
             }
         }
+
+        //Unhovers the button when the mouse leaves its hover zone
         private void Mouse_Leave(object sender, EventArgs e)
         {
             var btn = (System.Windows.Forms.Button)sender;
             btn.BackgroundImage = Properties.Resources.Button3;
         }
 
+        //Hovers the button when the mouse enters its hover zone
         private void Mouse_Enter(object sender, EventArgs e)
         {
             var btn = (System.Windows.Forms.Button)sender;

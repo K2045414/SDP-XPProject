@@ -15,8 +15,8 @@ namespace FirstIteration
     {
         //Brings over eGFR from the parent form
         private readonly double eGFR;
-        
-        //Sets up the form
+
+        //Sets up the form  and enables the hover feature for the buttons
         public FRM_MoreInfo(double eGFR)
         {
             InitializeComponent();
@@ -78,18 +78,22 @@ namespace FirstIteration
                     break;
             }
         }
+
+        //Unhovers the button when the mouse leaves its hover zone
         private void Mouse_Leave(object sender, EventArgs e)
         {
             var btn = (System.Windows.Forms.Button)sender;
             btn.BackgroundImage = Properties.Resources.Button3;
         }
 
+        //Hovers the button when the mouse enters its hover zone
         private void Mouse_Enter(object sender, EventArgs e)
         {
             var btn = (System.Windows.Forms.Button)sender;
             btn.BackgroundImage = Properties.Resources.ButtonHover;
         }
 
+        //Allows the links in the textbox in the bottom to be clicked and open up their content
         private void RTB_Resources_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(e.LinkText);

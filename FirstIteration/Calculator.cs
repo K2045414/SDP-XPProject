@@ -27,7 +27,7 @@ namespace FirstIteration
         private readonly string patient_id;
         public double MoreInfoEGFR;
 
-        //Automatically selects the calculation as MDRD
+        //Automatically selects the calculation as MDRD and enables the hover feature for the buttons
         public FRM_Calculator()
         {
             InitializeComponent();
@@ -136,7 +136,7 @@ namespace FirstIteration
             LBL_Title.Text = "Calculator: " + patient_id;
         }
 
-        //Checks the creatinine value provided isn't empty, is a number and greater than 0. If any of these trigger, alerts the user. If this passes, reset the error and return true
+        //Checks the creatinine value provided isn't empty, is a number, contains only ASCII characters and greater than 0. If any of these trigger, alerts the user. If this passes, reset the error and return true
         private bool ValidateCreatinine()
         {
             string creatinineInput = RTB_Creatinine.Text.Trim();
@@ -164,7 +164,7 @@ namespace FirstIteration
             return true;
         }
 
-        //Checks the height value provided isn't empty, is a number and greater than 0. If any of these trigger, alerts the user. If this passes, reset the error and return true
+        //Checks the height value provided isn't empty, is a number, contains only ASCII characters and greater than 0. If any of these trigger, alerts the user. If this passes, reset the error and return true
         private bool ValidateHeight()
         {
             string heightInput = RTB_Height.Text.Trim();
@@ -192,7 +192,7 @@ namespace FirstIteration
             return true;
         }
 
-        //Checks the weight value provided isn't empty, is a number and greater than 0. If any of these trigger, alerts the user. If this passes, reset the error and return true
+        //Checks the weight value provided isn't empty, is a number, contains only ASCII characters and greater than 0. If any of these trigger, alerts the user. If this passes, reset the error and return true
         private bool ValidateWeight()
         {
             string weightInput = RTB_Weight.Text.Trim();
@@ -220,7 +220,7 @@ namespace FirstIteration
             return true;
         }
 
-        //Checks the age value provided isn't empty, is a number and greater than 0. If any of these trigger, alerts the user. If this passes, reset the error and return true
+        //Checks the age value provided isn't empty, is a number, contains only ASCII characters and greater than 0. If any of these trigger, alerts the user. If this passes, reset the error and return true
         private bool ValidateAge()
         {
             string ageInput = RTB_Age.Text.Trim();
@@ -258,7 +258,7 @@ namespace FirstIteration
             //Checks which option is selected
             if (CBX_Calculation.Text == "All" || CBX_Calculation.Text == "Cockroft-Gault")
             {
-                //Makes sure all the relevant inputs are validated, updates the database accordingly, and runs the calculate function
+                //Makes sure all the relevant inputs are validated, updates the database accordingly, and runs the calculate function. Checks if it needs to update the database too.
                 if (ValidCrea == true && ValidWeight == true && ValidHeight == true && ValidAge == true)
                 {
                     Calculate();
@@ -280,7 +280,7 @@ namespace FirstIteration
             }
             else if (CBX_Calculation.Text == "MDRD" || CBX_Calculation.Text == "CKDEPI")
             {
-                //Makes sure all the relvant inputs are validated, updates the database accordingly, and runs the calculate function
+                //Makes sure all the relvant inputs are validated, updates the database accordingly, and runs the calculate function. Checks if it needs to update the database too.
                 if (ValidCrea == true && ValidAge ==true)
                 {
                     Calculate();
@@ -304,7 +304,7 @@ namespace FirstIteration
 
         }
 
-        //Sets up the variables for the relevant calculations
+        //Sets up the variables and runs the relevant calculations
         private double Calculate()
         {
             //Defines the variables to be used according the their respective inputs and converts them accordingly
@@ -338,9 +338,7 @@ namespace FirstIteration
                     double eGFR_Cockroft = Cockroft(creatinine_mgdl, age, weight, height, gender);
                     string printtext = NModular(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, weight, height, age, gender, ethnicity, creatinine_mgdl, creatinine_umol);                 
                     RTB_eGFR.Text = printtext;
-                    //return one of the eGFR values since it doesn't matter which one is returned
-                    MoreInfoEGFR = eGFR_MDRD;
-                    return eGFR_MDRD; 
+                    return 0; 
                 default:
                     MessageBox.Show("Please select a calculation.");
                     return 0;
@@ -482,12 +480,16 @@ namespace FirstIteration
             command.Parameters.AddWithValue("@weight", RTB_Weight.Text);
             command.Parameters.AddWithValue("@age", RTB_Age.Text);
             command.Parameters.AddWithValue("@creatinine", creatinine);
-            //Runs the command
-            using (connection)
+            //Runs the command and updates the database if necessary
+            if (patient_id != null)
             {
-                connection.Open();
-                command.ExecuteNonQuery();
+                using (connection)
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
             }
+            return;
         }
 
         //Converts the full ethnicity string to expected single chars accepted by the database
@@ -688,12 +690,14 @@ namespace FirstIteration
             return index;
         }
 
+        //Unhovers the button when the mouse leaves its hover zone
         private void Mouse_Leave(object sender, EventArgs e)
         {
             var btn = (System.Windows.Forms.Button)sender;
             btn.BackgroundImage = Properties.Resources.Button3;
         }
 
+        //Hovers the button when the mouse enters its hover zone
         private void Mouse_Enter(object sender, EventArgs e)
         {
             var btn = (System.Windows.Forms.Button)sender;

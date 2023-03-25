@@ -15,6 +15,7 @@ namespace FirstIteration
 {
     public partial class FRM_Login : Form
     {
+        //Enables the hover feature for the buttons
         public FRM_Login()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace FirstIteration
             public static Stack<Form> Forms = new Stack<Form>();
         }
 
-        //Checks the username matches the form [CCNNNNNNNN] or [NNNNNNNNNN], if so, clears errors and returns true. If false, alerts the user
+        //Checks the username matches the form [CCNNNNNNNN] or [NNNNNNNNNN] while rejecting unicode characters, if so, clears errors and returns true. If false, alerts the user
         private bool ValidateUserName(string userName)
         {
             if ((Regex.IsMatch(userName, @"^[A-Z]{2}") && Regex.IsMatch(userName, @"[0-9]{8}$")) || Regex.IsMatch(userName, @"^[0-9]{10}$"))
@@ -51,7 +52,7 @@ namespace FirstIteration
             return false;
         }
 
-        //Checks the password is less than 25 characters in length. If so, returns true and clears the error. If false, alerts the user
+        //Checks the password is less than 25 characters in length while rejecting unicode characters. If so, returns true and clears the error. If false, alerts the user
         private bool ValidatePassword(string password)
         {
             if (password.Length > 25)
@@ -86,6 +87,7 @@ namespace FirstIteration
             }
         }
 
+        //Sets up the logic for allowing the user to login, verifying their password and displaying the right form
         private void Login()
         {
             //Sets up a database connection and command that will update their last accessed time and select the user id of the user attemping to login
@@ -163,12 +165,16 @@ namespace FirstIteration
         {
             RTB_Password.UseSystemPasswordChar = !CBX_Pass_Log.Checked;
         }
+        
+        //Unhovers the button when the mouse leaves its hover zone
         private void Mouse_Leave(object sender, EventArgs e)
         {
             var btn = (System.Windows.Forms.Button)sender;
             btn.BackgroundImage = Properties.Resources.Button3;
         }
 
+
+        //Hovers the button when the mouse enters its hover zone
         private void Mouse_Enter(object sender, EventArgs e)
         {
             var btn = (System.Windows.Forms.Button)sender;
