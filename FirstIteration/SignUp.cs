@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -52,11 +53,17 @@ namespace FirstIteration
                 ERR_Validation.SetError(RTB_Password1, "Your Password is empty");
                 return false;
             }
-            //If the password contains an uppercase character, lowercase character, number and is over 8 characters in length, clears the error and returns true
-            if (password.Any(x => !char.IsLetterOrDigit(x)) && password.Any(x => char.IsDigit(x)) && password.Any(x => char.IsUpper(x)) && password.Any(x => !char.IsUpper(x)) && password.Length >= 8)
+            // If the password contains non-ASCII characters, show an error and return false
+            if (password.Any(c => c > 127))
             {
-                ERR_Validation.SetError(RTB_Password1, "");
-                return true;
+                ERR_Validation.SetError(RTB_Password1, "Your Password contains non-ASCII characters");
+                return false;
+            }
+            // If the password does not contain an uppercase character, lowercase character, number, or is less than 8 characters in length, show an error and return false
+            if (!password.Any(c => char.IsUpper(c)) || !password.Any(c => char.IsLower(c)) || !password.Any(c => char.IsDigit(c)) || password.Length < 8)
+            {
+                ERR_Validation.SetError(RTB_Password1, "The Password you entered does not meet our requirements");
+                return false;
             }
             //Returns false and alerts the user
             ERR_Validation.SetError(RTB_Password1, "The Password you entered does not meet our requirements");

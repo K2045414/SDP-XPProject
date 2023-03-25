@@ -96,6 +96,7 @@
             this.RTB_Creatinine.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RTB_Creatinine.Font = new System.Drawing.Font("Arial", 12F);
             this.RTB_Creatinine.Location = new System.Drawing.Point(28, 196);
+            this.RTB_Creatinine.MaxLength = 100;
             this.RTB_Creatinine.Name = "RTB_Creatinine";
             this.RTB_Creatinine.Size = new System.Drawing.Size(255, 26);
             this.RTB_Creatinine.TabIndex = 6;

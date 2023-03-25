@@ -128,6 +128,11 @@ Cockroft-Gault - Adjusted for body surface area. Requires the user's weight and 
   <metadata name="ERR_Validation.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>154, 17</value>
   </metadata>
+  <data name="CalcInfo.ToolTip" xml:space="preserve">
+    <value>MDRD - The default eGFR calculation for this calculator. Less accurate at levels over 60 mL/min/1.73 m².
+CKDEPI - An alternative calculation. Typically more precise than MDRD.
+Cockroft-Gault - Adjusted for body surface area. Requires the user's weight and height. Typically less precise than MDRD.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2399,10 +2404,5 @@ Cockroft-Gault - Adjusted for body surface area. Requires the user's weight and 
         0g9/jSi3Afywl8U7sKV/vOW5e+2xsCVg5UtP3Q8LYI38FQ/JTXwIL/ulS3+/ZTnG/OHlp+5NKYAf5uvz
         ZB0fwsG/Y8ff/ZDTkDelAH7ID/lu5JW05v8fUngfcSAVZV0AAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="CalcInfo.ToolTip" xml:space="preserve">
-    <value>MDRD - The default eGFR calculation for this calculator. Less accurate at levels over 60 mL/min/1.73 m².
-CKDEPI - An alternative calculation. Typically more precise than MDRD.
-Cockroft-Gault - Adjusted for body surface area. Requires the user's weight and height. Typically less precise than MDRD.</value>
   </data>
 </root>

@@ -1,7 +1,9 @@
 ﻿using MySqlConnector;
 using System;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
+using System.Linq.Expressions;
 using System.Text;
 using System.Windows.Forms;
 using static FirstIteration.FRM_Login;
@@ -67,6 +69,8 @@ namespace FirstIteration
             {
                 Filter = "CSV file (*.csv)|*.csv|All Files (*.*)|*.*"
             };
+            
+
             //Checks the file has passed the .csv filter and sets up a connection with the database
             if (ofd.ShowDialog() == DialogResult.OK)
             {
