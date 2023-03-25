@@ -65,9 +65,9 @@ namespace FirstIteration
                 ERR_Validation.SetError(RTB_Password1, "The Password you entered does not meet our requirements");
                 return false;
             }
-            //Returns false and alerts the user
-            ERR_Validation.SetError(RTB_Password1, "The Password you entered does not meet our requirements");
-            return false;
+            //Returns true and clear the error
+            ERR_Validation.SetError(RTB_Password1, ""); 
+            return true;
         }
 
         //Checks that the first password matches the second password. If so, returns true. If false, alerts the user
