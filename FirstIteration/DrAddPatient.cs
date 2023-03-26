@@ -40,6 +40,7 @@ namespace FirstIteration
             this.Hide();
         }
 
+        //Allows the clinician to select a patient to bring up a calculator and edit their stored information
         private void BTN_SelectPatient_Click(object sender, EventArgs e)
         {
             //Checks that there is a patient selected - if not alerts the user
