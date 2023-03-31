@@ -359,6 +359,7 @@ namespace FirstIteration
                 }        
             }
             BTN_MoreInfo.Visible = true;
+            MoreInfoEGFR = eGFR;
             return eGFR;
         }
 
