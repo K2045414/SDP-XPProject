@@ -338,7 +338,8 @@ namespace FirstIteration
                     double eGFR_Cockroft = Cockroft(creatinine_mgdl, age, weight, height, gender);
                     string printtext = NModular(eGFR_MDRD, eGFR_Cockroft, eGFR_CKDEPI, weight, height, age, gender, ethnicity, creatinine_mgdl, creatinine_umol);                 
                     RTB_eGFR.Text = printtext;
-                    return 0; 
+                    eGFR = eGFR_MDRD;
+                    break;
                 default:
                     MessageBox.Show("Please select a calculation.");
                     return 0;
@@ -346,16 +347,17 @@ namespace FirstIteration
             //Rounds the result depending on whether the patient is a doctor (3 decimal places) or not (whole number) and displays the value to the user. Also shows the next form button.
             int decimalPlaces = parentForm == "FirstIteration.FRM_DrMain, Text: Doctor Page" ? 3 : 0;
             eGFR = Math.Round(eGFR, decimalPlaces);
-            string resultText;
-            if (eGFR > 300)
+            if (CBX_Calculation.Text != "All")
             {
-                resultText = calculation + ": " + eGFR + " mL/min/1.73 m²\n" + "This result seems to be out of range for eGFR. Are you sure your details are correct?";
+                if (eGFR > 300)
+                {
+                    RTB_eGFR.Text = calculation + ": " + eGFR + " mL/min/1.73 m² \nAt least one of these values seems to be out of range for eGFR. Are you sure your details are correct?";
+                }
+                else
+                {
+                    RTB_eGFR.Text = calculation + ": " + eGFR + " mL/min/1.73 m²";
+                }        
             }
-            else
-            {
-                 resultText = calculation + ": " + eGFR + " mL/min/1.73 m²";
-            }           
-            RTB_eGFR.Text = resultText;
             BTN_MoreInfo.Visible = true;
             return eGFR;
         }
